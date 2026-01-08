@@ -1,35 +1,34 @@
 ---
 title: "Syllabus"
-subtitle: "IST 356 - M003, Syracuse University, Fall 2025"
+subtitle: "IST 356 - M003, Syracuse University, Spring 2026"
 toc: true
 ---
 
 ## Course info
 
-**Room:** Hinds Hall 021
+**Room:** Hinds Hall 010
 
-**Time:** M/W 3:45PM - 5:05PM
+**Time:** M/W 2:15PM - 3:35PM
 
 **Instructor:** Collin Capano
 
 **Email:** cdcapano@syr.edu
 
-**Office hours:** Tuesdays 12PM - 1PM and Wednesdays 2PM - 3PM in Hinds Hall 323G
+**Office hours:** M/W 3:40PM - 4:40PM (immediately after class) in Hinds Hall 323G, or by appointment.
 
-**Course website:** https://su-ist356-m003-fall-2025.github.io/course-home
+**Course website:** https://su-ist356-m003-spring-2026.github.io/course-home
 
 ## Course Description
 Approaches for building pipelines in data analytics using the Python programming language; data cleaning, extraction, wrangling, API’s, web scraping. Building data products. Programming experience required.
 
 ### Additional Course Description
 
-This course is a tour of programming techniques for building data pipelines for analytics. It will not just emphasize exploratory approaches, but also techniques to build extract transform load pipelines to run code in production. 
-Throughout the course we will learn how to source data from a variety of sources (files, data streams, APIs, web scraping, etc.) and ultimately transform data as to prepare it for dashboards or machine learning. You will also learn 
-some simple data visualization but that is not the primary emphasis of the course. 
+This course is a tour of programming techniques for building data pipelines for analytics. It will not just emphasize exploratory approaches, but also techniques to build extract-transform-load pipelines to run code in production. 
+Throughout the course we will learn how to source data from a variety of sources (files, data streams, APIs, web scraping, etc.) and ultimately transform data as to prepare it for dashboards or machine learning. You will also learn some simple data visualization but that is not the primary emphasis of the course. 
 
 ### Prerequisites
 
- This courses uses the Python programming language. Proficiency n any programming language is the only pre-requisite. Students should have a clear understanding of these concepts: 
+ This courses uses the Python programming language. Proficiency in any programming language is the only pre-requisite. Students should have a clear understanding of these concepts: 
 
  - Input, output, variables and data types
  - Control flow statements (if, for, while)
@@ -67,9 +66,9 @@ Upon completion of this course, students will be able to:
 
 ### Textbooks
 
-There is no textbook you need to purchase for this course. All required readings are available freely online, and in many cases, the online sources are the most up-to-date references to the relevant course material. See reading list section for additional details. 
+There is no textbook you need to purchase for this course. This course website will primarily serve as your "textbook". As we progress through the course, the tutorials and lecture material we go over in class will be added to the website. Most, if not all, the material you need will be on the website, with links provided to any additional resources. All of these resources will be available freely online. In many cases, the online sources are the most up-to-date references to the relevant course material.
 
-#### Main Text
+That said, if you would like a traditional textbook on Python programming, you may find the following useful:
 
 - Python Programming for Data Science, by T. Beuzen (2021)
 [https://www.tomasbeuzen.com/python-programming-for-data-science/](https://www.tomasbeuzen.com/python-programming-for-data-science/)
@@ -97,6 +96,12 @@ This course requires you to install software on your computer. The intro section
 
 In-class participation is the best way to learn and absorb the material. As such, you are expected to attend and participate in every class session. Your grade will be partially based on attendance (see below for details). If you must miss class, you are responsible for making up the work and catching up on what you missed. Lectures will be recorded and posted to the course website after the class.
 
+### Lecture recordings
+
+All lectures will be recorded by the professor and made available to you to review when doing assignments/studying for exams. Recordings will primarily be of the professor's screen as we walk through tutorials; any video will just be of the professor. The mic will mostly pick up the professor's voice, although student voices may occassionally be picked up.
+
+Per [university policy](https://policies.syr.edu/policies/academic-rules-student-responsibilities-and-services/classroom-recording-policy), if all students provide written permission to make recordings publicly available (I will circulate a permission letter), the lecture recordings will be made available through the course website. Otherwise, lectures will only be made available to other students.
+
 ### Assignments
 
 The assignments are programming / problem solving activities that you will complete outside of class. The assignment due dates are posted on the course schedule. Consider these assignments formative assessments - practice so you can get better at computational thinking, problem solving and writing code. It is important to reflect upon your work and take an honest assessment of your abilities as you complete each assignment. 
@@ -108,7 +113,7 @@ Factors affecting your grade:
 - Is the code working and correct?
 - Were the instructions followed? (e.g. commit after each function is written)
 - Good reflection: specific, uses terminology, actionable
-- Handed in on time, so your prof only needs to review submissions 1 time.
+- Handed in on time, so I only need to review submissions one time.
 
 ### Exams
 
@@ -169,34 +174,32 @@ Students found in violation of the policy are subject to grade sanctions determi
 
 | Week | Dates | Topic |
 |----|--------------|----------------------|
-| 1  | 8/25, 8/29   | Intro; CLI and Conda |
-| 2  | 9/3          | Python review - 1 |
-| 3  | 9/8, 9/10    | Python review - 2 |
-| 4  | 9/15, 9/17   | UI |
-| 5  | 9/22, 9/24   | Data wrangling - 1 |
-| 6  | 9/29, 10/1   | Data wrangling - 2 |
-| 7  | 10/6, 10/8   | Data wrangling - 3 |
-| 8  | 10/15        | Data wrangling - 4 |
-| 9  | 10/20, 10/22 | Exam 1 (10/20); Web APIs - 1 |
-| 10 | 10/27, 10/29 | Web APIs - 2 |
-| 11 | 11/3, 11/5   | Web scraping - 1 |
-| 12 | 11/10, 11/12 | Web scraping - 2 |
-| 13 | 11/17, 11/19 | Data visualization - 1 |
-| 14 | 12/1, 12/3   | Data visualization - 2 |
-| 15 | 12/8         | Exam 2 |
-| 16 | 12/15        | Project due |
+| 1  | 1/12, 1/14   | Intro; CLI and Conda |
+| 2  | 1/21         | Git & GitHub         |
+| 3  | 1/26, 1/28   | Python review - 1    |
+| 4  | 2/2, 2/4     | Python review - 2    |
+| 5  | 2/9, 2/11    | Writing scripts with Argparse; Streamlit |
+| 6  | 2/16, 2/18   | Data wrangling - 1 |
+| 7  | 2/23, 2/25   | Data wrangling - 2 |
+| 8  | 3/2, 3/4     | Review (3/2) and Mid-term Exam (3/4) |
+| -- | 3/8 - 3/15   | Spring Break |
+| 9  | 3/16, 3/18   | Web APIs - 1 |
+| 10 | 3/23, 3/25   | Web APIs - 2 |
+| 11 | 3/30, 4/1    | Web scraping - 1 |
+| 12 | 4/6, 4/8     | Web scraping - 2 |
+| 13 | 4/13, 4/15   | Data visualization - 1 |
+| 14 | 4/20, 4/22   | Data visualization - 2; Review for Final Exam |
+| 15 | 4/27         | Final Exam |
+| 16 | 5/4          | Project due |
 
 
 ## Important dates
 
 | Date        | |
 |-------------|---------------------------------------------------|
-| Mon. 8/25   | First day of class |
-| Mon. 9/1    | Labor day - **No class** |
-| Mon. 9/15   | Academic/Financial drop deadline; Religious observance notification deadline |
-| Mon. 10/13  | Fall break - **No class** |
-| Fri. 11/21  | Withdrawal deadline |
-| 11/23-11/30 | Thanksgiving Break - **No class** |
-| Mon. 12/8   | Last day of class |
-
-
+| Mon. 1/12   | First day of class |
+| Mon. 1/19   | Martin Luther King, Jr. Day: **No class** |
+| Mon. 2/2    | Academic/Financial drop deadline; Religious observance notification deadline |
+| 3/8 - 3/15  | Spring break - **No class** |
+| Tues. 4/14  | Withdrawal deadline |
+| Mon. 4/27   | Last day of class |

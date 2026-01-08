@@ -1,6 +1,6 @@
 ---
 title: "Introduction and computer setup"
-subtitle: "IST 356 - M003, Syracuse University, Fall 2025"
+subtitle: "IST 356 - M003, Syracuse University, Spring 2026"
 toc: true
 order: 1
 ---
@@ -41,7 +41,7 @@ Here's what you'll need to install on your computer. Please read this entire sec
 
 ## Setup 2: Github Account
 
-Being an SU student comes with some perks. One of them is a Github for Education account and accompanying "packpack" of goodies. To use this benefit, your github account must be associated with your **@syr.edu** email.
+Being an SU student comes with some perks. One of them is a Github for Education account and accompanying "backpack" of goodies. To use this benefit, your github account must be associated with your **@syr.edu** email.
 
 ### IF YOU HAVE A GITHUB ACCOUNT:
 
@@ -59,10 +59,6 @@ You'll need to create an account:
 2. Follow the on-screen instructions to sign up for an account.
 3. Make sure to use your **@syr.edu** email for the account.
 4. Add your personal email when you're at it so you don't lose Github access after you graduate!
-
-::: {.callout-important}
-Once you have a GitHub account, please email your GitHub username to me at cdcapano@syr.edu.
-:::
 
 ### Backpack Access
 
@@ -156,7 +152,7 @@ The last step is to configure VS Code for Python debugging. Provided everything 
     Then hit ENTER.
 
     ::: {.callout-warning}
-    The first time you run conda, you may bet an error about Terms of Service not being accepted for certain channels. Accept the TOS for those channels by running the commands listed. For example, if one of the channels is `https://repo.anaconda.com/pkgs/main`, copy and paste the command into the terminal:
+    The first time you run conda, you may get an error about Terms of Service not being accepted for certain channels. Accept the TOS for those channels by running the commands listed. For example, if one of the channels is `https://repo.anaconda.com/pkgs/main`, copy and paste the command into the terminal:
 
     ```bash
     conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
