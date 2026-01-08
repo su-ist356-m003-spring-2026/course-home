@@ -1,0 +1,217 @@
+[
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Room: Hinds Hall 010\nTime: M/W 2:15PM - 3:35PM\nInstructor: Collin Capano\nEmail: cdcapano@syr.edu\nOffice hours: M/W 3:40PM - 4:40PM (immediately after class) in Hinds Hall 323G, or by appointment.\nCourse website: https://su-ist356-m003-spring-2026.github.io/course-home",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#course-info",
+    "href": "syllabus.html#course-info",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Room: Hinds Hall 010\nTime: M/W 2:15PM - 3:35PM\nInstructor: Collin Capano\nEmail: cdcapano@syr.edu\nOffice hours: M/W 3:40PM - 4:40PM (immediately after class) in Hinds Hall 323G, or by appointment.\nCourse website: https://su-ist356-m003-spring-2026.github.io/course-home",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#course-description",
+    "href": "syllabus.html#course-description",
+    "title": "Syllabus",
+    "section": "Course Description",
+    "text": "Course Description\nApproaches for building pipelines in data analytics using the Python programming language; data cleaning, extraction, wrangling, API’s, web scraping. Building data products. Programming experience required.\n\nAdditional Course Description\nThis course is a tour of programming techniques for building data pipelines for analytics. It will not just emphasize exploratory approaches, but also techniques to build extract-transform-load pipelines to run code in production. Throughout the course we will learn how to source data from a variety of sources (files, data streams, APIs, web scraping, etc.) and ultimately transform data as to prepare it for dashboards or machine learning. You will also learn some simple data visualization but that is not the primary emphasis of the course.\n\n\nPrerequisites\nThis courses uses the Python programming language. Proficiency in any programming language is the only pre-requisite. Students should have a clear understanding of these concepts:\n\nInput, output, variables and data types\nControl flow statements (if, for, while)\nFunctions (function definition, calling, parameters, return values)\nData structures (lists, dictionaries)\nUsing code in other libraries\n\n\n\nAudience: IST256 or IST356?\nThis course is intended as a follow up course to IST256. It is also appropriate for students with prior experience with programming who have an interest in data analytics.\n\nIST256 is for students with little to no programming experience. The course content is 75% python fundamentals and 25% python for data analytics.\nIST356 is for students with prior programming experience. The course content is 25% python fundamentals and 75% python for data analytics.\n\n\n\nCredits\n3 credits\n\n\nCourse Fees\nNone",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#learning-objectives",
+    "href": "syllabus.html#learning-objectives",
+    "title": "Syllabus",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nUpon completion of this course, students will be able to:\n\nExplain techniques for sourcing or transforming data, and be able to justify the choice of technique\nSolve data-oriented problems using programming techniques\nEvaluate different code modules and application programming interfaces for suitability\nApply data transformational programming techniques to build a larger data pipelines\nCreate production quality data pipelines from exploratory code",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#textbooks-and-supplies",
+    "href": "syllabus.html#textbooks-and-supplies",
+    "title": "Syllabus",
+    "section": "Textbooks And Supplies",
+    "text": "Textbooks And Supplies\n\nTextbooks\nThere is no textbook you need to purchase for this course. This course website will primarily serve as your “textbook”. As we progress through the course, the tutorials and lecture material we go over in class will be added to the website. Most, if not all, the material you need will be on the website, with links provided to any additional resources. All of these resources will be available freely online. In many cases, the online sources are the most up-to-date references to the relevant course material.\nThat said, if you would like a traditional textbook on Python programming, you may find the following useful:\n\nPython Programming for Data Science, by T. Beuzen (2021) https://www.tomasbeuzen.com/python-programming-for-data-science/\n\n\n\nBring Your Own Device\nYou are expected to bring your computer to each class session. This class is very hands-on, and you will be programming in class often.\n\nSoftware to install\nThis course requires you to install software on your computer. The intro section of this course provides detailed instructions.\n\nVisual Studio Code editor\nGit Source Code Managment\nMiniconda\n\n\n\nAccounts\n\nWe will use Github for assignment submission.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#course-requirements-and-expectations",
+    "href": "syllabus.html#course-requirements-and-expectations",
+    "title": "Syllabus",
+    "section": "Course Requirements and Expectations",
+    "text": "Course Requirements and Expectations\n\nAttendance and Participation\nIn-class participation is the best way to learn and absorb the material. As such, you are expected to attend and participate in every class session. Your grade will be partially based on attendance (see below for details). If you must miss class, you are responsible for making up the work and catching up on what you missed. Lectures will be recorded and posted to the course website after the class.\n\n\nLecture recordings\nAll lectures will be recorded by the professor and made available to you to review when doing assignments/studying for exams. Recordings will primarily be of the professor’s screen as we walk through tutorials; any video will just be of the professor. The mic will mostly pick up the professor’s voice, although student voices may occassionally be picked up.\nPer university policy, if all students provide written permission to make recordings publicly available (I will circulate a permission letter), the lecture recordings will be made available through the course website. Otherwise, lectures will only be made available to other students.\n\n\nAssignments\nThe assignments are programming / problem solving activities that you will complete outside of class. The assignment due dates are posted on the course schedule. Consider these assignments formative assessments - practice so you can get better at computational thinking, problem solving and writing code. It is important to reflect upon your work and take an honest assessment of your abilities as you complete each assignment.\nEach Wednesday we will review the homework assignment. Students will be asked to contribute to the discussion.\nFactors affecting your grade:\n\nIs the code working and correct?\nWere the instructions followed? (e.g. commit after each function is written)\nGood reflection: specific, uses terminology, actionable\nHanded in on time, so I only need to review submissions one time.\n\n\n\nExams\nExams are summative assessments. They are designed to test your knowledge of the material. The exams will be issued in class on the dates posted on the course schedule. Exams are closed-book but you may bring one 8.5x11 sheet of paper with your notes on it. Exams length is 60 minutes. They will be a mix of mix of multiple choice, short answer and code tracing and code writing.\n\n\nProject\nThe project is your opportunity to demonstrate what you have learned in an experiential fashion. In your final project you will be expected to create a data pipeline of your choosing.\n\nThe pipeline should incorporate techniques we learned in the course and the more techniques you incorporate correctly the higher your grade.\nIt is expected that you will be able to explain your choices, and they will be appropriate for the problem.\nThe pipeline should be first written exploratory, and then refactored into a production quality pipeline. Both pipelines should be submitted.\nThere should be a simple data visualization or dashboard from the pipeline output as to demonstrate its usefulness.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#grading",
+    "href": "syllabus.html#grading",
+    "title": "Syllabus",
+    "section": "Grading",
+    "text": "Grading\n\n\n\n\n\n\n\n\n\n\n\nAssessment\nType\nLearning Outcomes\nQuantity\nPoints Each\nPoints Total\n\n\n\n\nAttendance\nFormative\n\n24\n1\n24\n\n\nAssignments\nFormative\n1, 2\n8\n3\n24\n\n\nExams\nSummative\n3, 4\n2\n24\n48\n\n\nProject\nSummative\n5\n1\n24\n24\n\n\nTotal\n\n\n\n\n120\n\n\n\n\nGrading Table\nThe following grading scale translates your total points earned into a letter grade to be submitted to the University registrar.\n\n\n\n\n\n\n\n\n\nStudent Achievement\nTotal Points Earned\nRegistrar Grade\nGrade Points\n\n\n\n\nMastery\n114 - 120\nA\n4.000\n\n\n\n108 - 113\nA-\n3.666\n\n\nSatisfactory\n102 - 107\nB+\n3.333\n\n\n\n96 - 101\nB\n3.000\n\n\n\n90 - 95\nB-\n2.666\n\n\nLow Passing\n84 - 89\nC+\n2.333\n\n\n\n78 - 83\nC\n2.000\n\n\n\n72 - 77\nC-\n1.666\n\n\nUnsatisfactory\n60 - 71\nD\n1.000\n\n\n\n0 - 59\nF\n0.000",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#use-of-ai-in-this-course",
+    "href": "syllabus.html#use-of-ai-in-this-course",
+    "title": "Syllabus",
+    "section": "Use of AI in this Course",
+    "text": "Use of AI in this Course\nBased on the assignments in this course and our specified learning outcomes, the full use of artificial intelligence as a tool, with disclosure and citation, is permitted in this course. Students do not need to ask permission to use these tools before starting an assignment or exam, but they must explicitly and fully indicate which tools were used and describe how they were used.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#academic-integrity",
+    "href": "syllabus.html#academic-integrity",
+    "title": "Syllabus",
+    "section": "Academic Integrity",
+    "text": "Academic Integrity\nAs a pre-eminent and inclusive student-focused research institution, Syracuse University considers academic integrity at the forefront of learning, serving as a core value and guiding pillar of education. Syracuse University’s Academic Integrity Policy provides students with the necessary guidelines to complete academic work with integrity throughout their studies. Students are required to uphold both course-specific and university-wide academic integrity expectations such as crediting your sources, doing your own work, communicating honestly, and supporting academic integrity. The full Syracuse University Academic Integrity Policy can be viewed by visiting the Syracuse University Policies website.\nUpholding Academic Integrity includes the protection of faculty’s intellectual property. Students should not upload, distribute, or share instructors’ course materials, including presentations, assignments, exams, or other evaluative materials without permission. Using websites that charge fees or require uploading of course material (e.g., Chegg, Course Hero) to obtain exam solutions or assignments completed by others, which are then presented as your own violates academic integrity expectations in this course and may be classified as a Level 3 violation. All academic integrity expectations that apply to in-person assignments, quizzes, and exams also apply online.\nStudents found in violation of the policy are subject to grade sanctions determined by the course instructor and non-grade sanctions determined by the School or College where the course is offered. Students may not drop or withdraw from courses in which they face a suspected violation. Any established violation in this course may result in course failure regardless of violation level.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#class-schedule",
+    "href": "syllabus.html#class-schedule",
+    "title": "Syllabus",
+    "section": "Class Schedule",
+    "text": "Class Schedule\nNote: schedule subject to change as we progress through the semester.\n\n\n\nWeek\nDates\nTopic\n\n\n\n\n1\n1/12, 1/14\nIntro; CLI and Conda\n\n\n2\n1/21\nGit & GitHub\n\n\n3\n1/26, 1/28\nPython review - 1\n\n\n4\n2/2, 2/4\nPython review - 2\n\n\n5\n2/9, 2/11\nWriting scripts with Argparse; Streamlit\n\n\n6\n2/16, 2/18\nData wrangling - 1\n\n\n7\n2/23, 2/25\nData wrangling - 2\n\n\n8\n3/2, 3/4\nReview (3/2) and Mid-term Exam (3/4)\n\n\n–\n3/8 - 3/15\nSpring Break\n\n\n9\n3/16, 3/18\nWeb APIs - 1\n\n\n10\n3/23, 3/25\nWeb APIs - 2\n\n\n11\n3/30, 4/1\nWeb scraping - 1\n\n\n12\n4/6, 4/8\nWeb scraping - 2\n\n\n13\n4/13, 4/15\nData visualization - 1\n\n\n14\n4/20, 4/22\nData visualization - 2; Review for Final Exam\n\n\n15\n4/27\nFinal Exam\n\n\n16\n5/4\nProject due",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#important-dates",
+    "href": "syllabus.html#important-dates",
+    "title": "Syllabus",
+    "section": "Important dates",
+    "text": "Important dates\n\n\n\n\n\n\n\nDate\n\n\n\n\n\nMon. 1/12\nFirst day of class\n\n\nMon. 1/19\nMartin Luther King, Jr. Day: No class\n\n\nMon. 2/2\nAcademic/Financial drop deadline; Religious observance notification deadline\n\n\n3/8 - 3/15\nSpring break - No class\n\n\nTues. 4/14\nWithdrawal deadline\n\n\nMon. 4/27\nLast day of class",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "00_intro/index.html",
+    "href": "00_intro/index.html",
+    "title": "Introduction and computer setup",
+    "section": "",
+    "text": "In IST356 we teach you programming for data analytics using the tools and techiques used by those in the industry. As such, you will learn how to setup and configure development environments, use git and github and learn to systematically test your code.\nThis is unlike IST256 where the emphasis is on the programming basics and the motivations behind learning computational thinking.\n\n\n\n\n\n\n\n\n\nIST356\nIST256\n\n\n\n\nProgramming Environment\nInstall vscode + git + python on your computer\nWeb-hosted jupyterhub\n\n\nAssignment Submissions\nStudent learn and use git / github\nBuilt-in assignment submission\n\n\nCoursework, slides, examples\nYou clone / diff the prof repo\nAutodiff and merge at login\n\n\n\nIn this course you’ll do it the real way, nothing is hidden / abstracted away for you.\n\n\nHere’s what you’ll need to install on your computer. Please read this entire section prior to installing. :-)\n\nVisual Studio Code: https://code.visualstudio.com/Download\nThis is a free editor with testing and debugging capabilities. As you install you can accept all defaults, except the last one: DO NOT launch the application when complete! If you do, simply close it.\nGit Source Code Manager: https://git-scm.com/download/\nAs you set it up, you will be asked several questions, for which the default selection is fine. EXCEPTION: choose Visual Studio Code as the default editor.\n\n\n\n\n\n\nWarning\n\n\n\nMac users: you’ll see multiple options for downloading Git Source Code Manager. I recommend using the Xcode version. Clicking on that link will redirect you to the Apple store; from there you will download and install Xcode.\n\n\nMiniconda Do not install this yet! You will install this using the terminal in VSCode after VSCode and Git are installed and setup; see instructions below.\n\n\n\n\nBeing an SU student comes with some perks. One of them is a Github for Education account and accompanying “backpack” of goodies. To use this benefit, your github account must be associated with your @syr.edu email.\n\n\nAssociate your current account with SU, by adding your email:\n\nGo to to https://github.com and click Sign In\nOnce you have logged in, go to: https://github.com/settings/emails\n\nAdd and verify your SU email address.\n\n\n\n\nYou’ll need to create an account:\n\nGo to to https://github.com and click Sign In\nFollow the on-screen instructions to sign up for an account.\nMake sure to use your @syr.edu email for the account.\nAdd your personal email when you’re at it so you don’t lose Github access after you graduate!\n\n\n\n\n\nGo to the Github Backpack site: https://education.github.com/pack\nand click Sign Up For Student Developer Pack\nOnce your account is verified, you will have backpack access.\nYou’ll know its active when you check your billing plan: https://github.com/settings/billing/summary\nyou should see a credit here.\nOnce you have backpack access, you can enable Github Copilot AI. https://github.com/settings/copilot\n\n\n\n\n\nThe last step is to configure VS Code for Python debugging. Provided everything else is in order, this should be straightforward.\n\nOpen Visual studio code. You will be asked to configure it.\n\nSet up GitHub Copilot. To do so, you’ll need to sign into GitHub by clicking “Continue with GitHub”. After you do, you may be dropped into a “Welcome” tab in VS Code. If so, click the “Walkthrough: Setup VS Code” tab to continue set up.\nPick a theme: Light, Dark, etc…\nAdd the following Extensions: Python, Jupyter.\nWindows users only: we’ll occasionally be using bash in the terminal mode of VSCode. Mac and Linux users have bash natively installed in the operating system. Windows users will have gotten a copy of bash when they downloaded and installed Git SCM. However, you need to tell VSCode to use bash in the Terminal rather than Windows PowerShell. To do that:\n\nClick “Unlock productivity with the Command Palette” in the Walthrough tab, then “Open Command Palette”. Alternatively, if you don’t see that option, open the Command Palette by typing CTRL + SHIFT + P. (Mac users type COMMAND + SHIFT + P).\nType “Select Default Profile” then hit ENTER.\nSelect “Git Bash” from the drop-down options.\nCheck that it worked by opening a new terminal: in the file menu, click “Terminal” -&gt; “New Terminal”. You should see “bash” in the upper right of the terminal screen.\n\nClose the welcome Tab but keep VS Code open.\n\n\n\n\n\n\n\n\nOpen a terminal in VS Code by clicking “Terminal” -&gt; “New Terminal”.\nIn the terminal window, type:\ncd\nThen hit ENTER.\nFollow the instructions Quickstart install instructions on the Miniconda website. For WSL, select “Linux”.\n\n\n\n\n\nDownload the Miniconda installer for Windows. Click the Downlad button under “Miniconda Installers”, not the one under “Distribution Installers”.\nRun the installer by double-clicking on the downloaded file and follow the steps below.\n\nClick “Run”.\nClick on “Next”.\nClick on “I agree”.\nSelect “Just me” and click on “Next”.\nClick “Next” to install to the default destination folder.\n\n\n\n\n\n\nWarning\n\n\n\nIf you had tried to install miniconda previously, you may get an error that says “Directory … is not empty, please choose a different location.” Do not choose a different location. Instead, click “OK”, then rename the previous miniconda3 directory. You can do that by going to VS Code, opening a new terminal window (click “Terminal” -&gt; “New Terminal”), and entering the following (hit ENTER after each line):\ncd\nmv miniconda3 miniconda3-old\nThen go back to the Miniconda installer and click “Next”.\n\n\nCheck the option for “Add Anaconda to my PATH environment variable” and check the option for “Register Anaconda as my default Python 3.x”.\n\nNote that even though the installation is for Miniconda, the installer uses the word Anaconda in these options.\nYou will also see a message in red text that selecting “Add Anaconda to my PATH environment variable” is not recommended; continue with this selection to make using conda easier in Git Bash. If you have questions or concerns, please contact your instructor.\n\nClick on “Install”.\nWhen the install is complete, Click on “Next”.\nClick on “Finish”.\n\nOpen a new terminal window in VS Code by clicking “Terminal” -&gt; “New Terminal”.\nType the following command to initialize conda:\nconda init bash\nOpen a new terminal window in VS Code by either hitting the “+” key next to “bash” in the upper left of the terminal window, or by cliking “Terminal” -&gt; “New Terminal”. If conda installed successfullly, you should see (base) appear next to or above your command prompt.\n\n\n\n\n\n\nIn the bash terminal window in VS Code (make sure it says (base) to the left of or above the prompt), type:\nconda create -n ist356 -c conda-forge -y python=3.11 ipykernel\nThen hit ENTER.\n\n\n\n\n\n\nWarning\n\n\n\nThe first time you run conda, you may get an error about Terms of Service not being accepted for certain channels. Accept the TOS for those channels by running the commands listed. For example, if one of the channels is https://repo.anaconda.com/pkgs/main, copy and paste the command into the terminal:\nconda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main\nFollowed by hitting ENTER (to execute a command in the terminal, you hit ENTER after typing/pasting it in). You’ll need to do this for each of the channels listed.\nOnce you have accepted the TOS for all the channels, run the conda create command above again.\n\n\nCheck to ensure your environment works:\n\nClick File -&gt; “New File…”\nIn the drop down menu, select “Jupyter Notebook”.\nClick “Select Kernel” on the right then type “ist356”.\nIn the first cell, type:\nprint(\"hello world!\")\nHit the run button on the left or type SHIFT + ENTER to execute the code. You should get back “hello world!”.\nClose the ipynb file (you may optionally save it; if you do, be sure to call it something other then “Untitled.ipynb”, maybe “hello.ipynb” instead).",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Introduction and computer setup"
+    ]
+  },
+  {
+    "objectID": "00_intro/index.html#step-1-software-installs",
+    "href": "00_intro/index.html#step-1-software-installs",
+    "title": "Introduction and computer setup",
+    "section": "",
+    "text": "Here’s what you’ll need to install on your computer. Please read this entire section prior to installing. :-)\n\nVisual Studio Code: https://code.visualstudio.com/Download\nThis is a free editor with testing and debugging capabilities. As you install you can accept all defaults, except the last one: DO NOT launch the application when complete! If you do, simply close it.\nGit Source Code Manager: https://git-scm.com/download/\nAs you set it up, you will be asked several questions, for which the default selection is fine. EXCEPTION: choose Visual Studio Code as the default editor.\n\n\n\n\n\n\nWarning\n\n\n\nMac users: you’ll see multiple options for downloading Git Source Code Manager. I recommend using the Xcode version. Clicking on that link will redirect you to the Apple store; from there you will download and install Xcode.\n\n\nMiniconda Do not install this yet! You will install this using the terminal in VSCode after VSCode and Git are installed and setup; see instructions below.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Introduction and computer setup"
+    ]
+  },
+  {
+    "objectID": "00_intro/index.html#setup-2-github-account",
+    "href": "00_intro/index.html#setup-2-github-account",
+    "title": "Introduction and computer setup",
+    "section": "",
+    "text": "Being an SU student comes with some perks. One of them is a Github for Education account and accompanying “backpack” of goodies. To use this benefit, your github account must be associated with your @syr.edu email.\n\n\nAssociate your current account with SU, by adding your email:\n\nGo to to https://github.com and click Sign In\nOnce you have logged in, go to: https://github.com/settings/emails\n\nAdd and verify your SU email address.\n\n\n\n\nYou’ll need to create an account:\n\nGo to to https://github.com and click Sign In\nFollow the on-screen instructions to sign up for an account.\nMake sure to use your @syr.edu email for the account.\nAdd your personal email when you’re at it so you don’t lose Github access after you graduate!\n\n\n\n\n\nGo to the Github Backpack site: https://education.github.com/pack\nand click Sign Up For Student Developer Pack\nOnce your account is verified, you will have backpack access.\nYou’ll know its active when you check your billing plan: https://github.com/settings/billing/summary\nyou should see a credit here.\nOnce you have backpack access, you can enable Github Copilot AI. https://github.com/settings/copilot",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Introduction and computer setup"
+    ]
+  },
+  {
+    "objectID": "00_intro/index.html#step-3-configure-vs-code",
+    "href": "00_intro/index.html#step-3-configure-vs-code",
+    "title": "Introduction and computer setup",
+    "section": "",
+    "text": "The last step is to configure VS Code for Python debugging. Provided everything else is in order, this should be straightforward.\n\nOpen Visual studio code. You will be asked to configure it.\n\nSet up GitHub Copilot. To do so, you’ll need to sign into GitHub by clicking “Continue with GitHub”. After you do, you may be dropped into a “Welcome” tab in VS Code. If so, click the “Walkthrough: Setup VS Code” tab to continue set up.\nPick a theme: Light, Dark, etc…\nAdd the following Extensions: Python, Jupyter.\nWindows users only: we’ll occasionally be using bash in the terminal mode of VSCode. Mac and Linux users have bash natively installed in the operating system. Windows users will have gotten a copy of bash when they downloaded and installed Git SCM. However, you need to tell VSCode to use bash in the Terminal rather than Windows PowerShell. To do that:\n\nClick “Unlock productivity with the Command Palette” in the Walthrough tab, then “Open Command Palette”. Alternatively, if you don’t see that option, open the Command Palette by typing CTRL + SHIFT + P. (Mac users type COMMAND + SHIFT + P).\nType “Select Default Profile” then hit ENTER.\nSelect “Git Bash” from the drop-down options.\nCheck that it worked by opening a new terminal: in the file menu, click “Terminal” -&gt; “New Terminal”. You should see “bash” in the upper right of the terminal screen.\n\nClose the welcome Tab but keep VS Code open.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Introduction and computer setup"
+    ]
+  },
+  {
+    "objectID": "00_intro/index.html#step-4-install-miniconda",
+    "href": "00_intro/index.html#step-4-install-miniconda",
+    "title": "Introduction and computer setup",
+    "section": "",
+    "text": "Open a terminal in VS Code by clicking “Terminal” -&gt; “New Terminal”.\nIn the terminal window, type:\ncd\nThen hit ENTER.\nFollow the instructions Quickstart install instructions on the Miniconda website. For WSL, select “Linux”.\n\n\n\n\n\nDownload the Miniconda installer for Windows. Click the Downlad button under “Miniconda Installers”, not the one under “Distribution Installers”.\nRun the installer by double-clicking on the downloaded file and follow the steps below.\n\nClick “Run”.\nClick on “Next”.\nClick on “I agree”.\nSelect “Just me” and click on “Next”.\nClick “Next” to install to the default destination folder.\n\n\n\n\n\n\nWarning\n\n\n\nIf you had tried to install miniconda previously, you may get an error that says “Directory … is not empty, please choose a different location.” Do not choose a different location. Instead, click “OK”, then rename the previous miniconda3 directory. You can do that by going to VS Code, opening a new terminal window (click “Terminal” -&gt; “New Terminal”), and entering the following (hit ENTER after each line):\ncd\nmv miniconda3 miniconda3-old\nThen go back to the Miniconda installer and click “Next”.\n\n\nCheck the option for “Add Anaconda to my PATH environment variable” and check the option for “Register Anaconda as my default Python 3.x”.\n\nNote that even though the installation is for Miniconda, the installer uses the word Anaconda in these options.\nYou will also see a message in red text that selecting “Add Anaconda to my PATH environment variable” is not recommended; continue with this selection to make using conda easier in Git Bash. If you have questions or concerns, please contact your instructor.\n\nClick on “Install”.\nWhen the install is complete, Click on “Next”.\nClick on “Finish”.\n\nOpen a new terminal window in VS Code by clicking “Terminal” -&gt; “New Terminal”.\nType the following command to initialize conda:\nconda init bash\nOpen a new terminal window in VS Code by either hitting the “+” key next to “bash” in the upper left of the terminal window, or by cliking “Terminal” -&gt; “New Terminal”. If conda installed successfullly, you should see (base) appear next to or above your command prompt.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Introduction and computer setup"
+    ]
+  },
+  {
+    "objectID": "00_intro/index.html#step-5-create-a-conda-environment-and-test-it-in-vs-code",
+    "href": "00_intro/index.html#step-5-create-a-conda-environment-and-test-it-in-vs-code",
+    "title": "Introduction and computer setup",
+    "section": "",
+    "text": "In the bash terminal window in VS Code (make sure it says (base) to the left of or above the prompt), type:\nconda create -n ist356 -c conda-forge -y python=3.11 ipykernel\nThen hit ENTER.\n\n\n\n\n\n\nWarning\n\n\n\nThe first time you run conda, you may get an error about Terms of Service not being accepted for certain channels. Accept the TOS for those channels by running the commands listed. For example, if one of the channels is https://repo.anaconda.com/pkgs/main, copy and paste the command into the terminal:\nconda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main\nFollowed by hitting ENTER (to execute a command in the terminal, you hit ENTER after typing/pasting it in). You’ll need to do this for each of the channels listed.\nOnce you have accepted the TOS for all the channels, run the conda create command above again.\n\n\nCheck to ensure your environment works:\n\nClick File -&gt; “New File…”\nIn the drop down menu, select “Jupyter Notebook”.\nClick “Select Kernel” on the right then type “ist356”.\nIn the first cell, type:\nprint(\"hello world!\")\nHit the run button on the left or type SHIFT + ENTER to execute the code. You should get back “hello world!”.\nClose the ipynb file (you may optionally save it; if you do, be sure to call it something other then “Untitled.ipynb”, maybe “hello.ipynb” instead).",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "Introduction and computer setup"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IST 356: Programming Techniques for Data Analytics",
+    "section": "",
+    "text": "Room: Hinds Hall 010\nTime: M/W 2:15PM - 3:35PM\nInstructor: Collin Capano\nEmail: cdcapano@syr.edu\nOffice hours: M/W 3:40PM - 4:40PM (immediately after class) in Hinds Hall 323G, or by appointment.\nSyllabus"
+  },
+  {
+    "objectID": "index.html#course-info",
+    "href": "index.html#course-info",
+    "title": "IST 356: Programming Techniques for Data Analytics",
+    "section": "",
+    "text": "Room: Hinds Hall 010\nTime: M/W 2:15PM - 3:35PM\nInstructor: Collin Capano\nEmail: cdcapano@syr.edu\nOffice hours: M/W 3:40PM - 4:40PM (immediately after class) in Hinds Hall 323G, or by appointment.\nSyllabus"
+  },
+  {
+    "objectID": "index.html#class-schedule",
+    "href": "index.html#class-schedule",
+    "title": "IST 356: Programming Techniques for Data Analytics",
+    "section": "Class Schedule",
+    "text": "Class Schedule\nNote: schedule subject to change as we progress through the semester.\n\n\n\nWeek\nDates\nTopic\n\n\n\n\n1\n1/12, 1/14\nIntro; CLI and Conda\n\n\n2\n1/21\nGit & GitHub\n\n\n3\n1/26, 1/28\nPython review - 1\n\n\n4\n2/2, 2/4\nPython review - 2\n\n\n5\n2/9, 2/11\nWriting scripts with Argparse; Streamlit\n\n\n6\n2/16, 2/18\nData wrangling - 1\n\n\n7\n2/23, 2/25\nData wrangling - 2\n\n\n8\n3/2, 3/4\nReview (3/2) and Mid-term Exam (3/4)\n\n\n–\n3/8 - 3/15\nSpring Break\n\n\n9\n3/16, 3/18\nWeb APIs - 1\n\n\n10\n3/23, 3/25\nWeb APIs - 2\n\n\n11\n3/30, 4/1\nWeb scraping - 1\n\n\n12\n4/6, 4/8\nWeb scraping - 2\n\n\n13\n4/13, 4/15\nData visualization - 1\n\n\n14\n4/20, 4/22\nData visualization - 2; Review for Final Exam\n\n\n15\n4/27\nFinal Exam\n\n\n16\n5/4\nProject due"
+  },
+  {
+    "objectID": "index.html#important-dates",
+    "href": "index.html#important-dates",
+    "title": "IST 356: Programming Techniques for Data Analytics",
+    "section": "Important dates",
+    "text": "Important dates\n\n\n\n\n\n\n\nDate\n\n\n\n\n\nMon. 1/12\nFirst day of class\n\n\nMon. 1/19\nMartin Luther King, Jr. Day: No class\n\n\nMon. 2/2\nAcademic/Financial drop deadline; Religious observance notification deadline\n\n\n3/8 - 3/15\nSpring break - No class\n\n\nTues. 4/14\nWithdrawal deadline\n\n\nMon. 4/27\nLast day of class"
+  }
+]
