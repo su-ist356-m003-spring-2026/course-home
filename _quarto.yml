@@ -9,7 +9,7 @@ project:
     - "!assets/*ipynb"
 
 website:
-  title: "IST 356 Fall 2025"
+  title: "IST 356 Spring 2026"
   image: "/images/ischool_logo_reverseX2.png"
   open-graph: true
   twitter-card: true
