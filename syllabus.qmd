@@ -98,9 +98,9 @@ In-class participation is the best way to learn and absorb the material. As such
 
 ### Lecture recordings
 
-All lectures will be recorded by the professor and made available to you to review when doing assignments/studying for exams. Recordings will primarily be of the professor's screen as we walk through tutorials; any video will just be of the professor. The mic will mostly pick up the professor's voice, although student voices may occassionally be picked up.
+All lectures will be recorded by the professor and made available to you to review when doing assignments/studying for exams. Recordings will primarily be of the professor's screen as we walk through tutorials; any video will just be of the professor. The mic will mostly record the professor's voice, although student voices may occassionally be picked up in the background.
 
-Per [university policy](https://policies.syr.edu/policies/academic-rules-student-responsibilities-and-services/classroom-recording-policy), if all students provide written permission to make recordings publicly available (I will circulate a permission letter), the lecture recordings will be made available through the course website. Otherwise, lectures will only be made available to other students.
+Per [university policy](https://policies.syr.edu/policies/academic-rules-student-responsibilities-and-services/classroom-recording-policy), if all students provide written permission to make recordings publicly available (I will circulate a permission letter), the lecture recordings will be made available through the course website.
 
 ### Assignments
 

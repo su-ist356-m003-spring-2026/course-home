@@ -39,7 +39,7 @@ Here's what you'll need to install on your computer. Please read this entire sec
 3.  [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install#quickstart-install-instructions) 
     **Do not install this yet!** You will install this using the terminal in VSCode after VSCode and Git are installed and setup; see instructions below.
 
-## Setup 2: Github Account
+## Step 2: Github Account
 
 Being an SU student comes with some perks. One of them is a Github for Education account and accompanying "backpack" of goodies. To use this benefit, your github account must be associated with your **@syr.edu** email.
 
