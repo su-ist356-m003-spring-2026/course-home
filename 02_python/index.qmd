@@ -1,0 +1,14 @@
+---
+title: "2. Python review"
+order: 2
+---
+
+In this unit we will review some basics of Python programming. You will have covered the material here in IST 256.
+
+## Tutorials
+
+1. [Input, output, variables, types, conditionals](python-1.qmd)
+2. [Iterations, lists, dictionaries, comprehensions](python-2.qmd)
+
+## Lectures
+
