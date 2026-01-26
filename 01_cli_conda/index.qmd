@@ -1,15 +1,17 @@
 ---
-title: "1. Command line interface and Environments"
+title: "1. Command line interface, Environments, and Git/GitHub"
 order: 1
 ---
 
-In this unit, you will learn how to use the bash shell in a command line interface (CLI), programming environments, and how to use `conda` to manage environments and install packages.
+In this unit, you will learn how to use the bash shell in a command line interface (CLI), programming environments, and how to use `conda` to manage environments and install packages. You will also learn the difference between Git and GitHub, and how to use Git on the command line.
 
 ## Tutorials
 
 1. [Introduction to CLI](shell-intro.qmd)
 
 1. [Environments and Conda](conda.qmd)
+
+1. [Git and GitHub](git.qmd)
 
 ## Lecture
 
