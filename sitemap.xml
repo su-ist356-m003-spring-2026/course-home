@@ -2,26 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>enter_gitHub_pages_URL_here/syllabus.html</loc>
-    <lastmod>2026-01-21T22:14:21.991Z</lastmod>
+    <lastmod>2026-01-26T18:50:15.237Z</lastmod>
   </url>
   <url>
-    <loc>enter_gitHub_pages_URL_here/01_cli_conda/shell-intro.html</loc>
-    <lastmod>2026-01-21T22:14:21.954Z</lastmod>
+    <loc>enter_gitHub_pages_URL_here/02_python/python-2.html</loc>
+    <lastmod>2026-01-26T18:50:15.199Z</lastmod>
   </url>
   <url>
-    <loc>enter_gitHub_pages_URL_here/01_cli_conda/conda.html</loc>
-    <lastmod>2026-01-21T22:14:21.951Z</lastmod>
-  </url>
-  <url>
-    <loc>enter_gitHub_pages_URL_here/00_intro/index.html</loc>
-    <lastmod>2026-01-21T22:14:21.951Z</lastmod>
+    <loc>enter_gitHub_pages_URL_here/02_python/index.html</loc>
+    <lastmod>2026-01-26T18:50:15.199Z</lastmod>
   </url>
   <url>
     <loc>enter_gitHub_pages_URL_here/01_cli_conda/index.html</loc>
-    <lastmod>2026-01-21T22:14:21.953Z</lastmod>
+    <lastmod>2026-01-26T18:50:15.196Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/01_cli_conda/conda.html</loc>
+    <lastmod>2026-01-26T18:50:15.192Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/00_intro/index.html</loc>
+    <lastmod>2026-01-26T18:50:15.192Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/01_cli_conda/git.html</loc>
+    <lastmod>2026-01-26T18:50:15.196Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/01_cli_conda/shell-intro.html</loc>
+    <lastmod>2026-01-26T18:50:15.197Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/02_python/python-1.html</loc>
+    <lastmod>2026-01-26T18:50:15.199Z</lastmod>
   </url>
   <url>
     <loc>enter_gitHub_pages_URL_here/index.html</loc>
-    <lastmod>2026-01-21T22:14:21.991Z</lastmod>
+    <lastmod>2026-01-26T18:50:15.237Z</lastmod>
   </url>
 </urlset>

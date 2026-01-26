@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IST 356: Programming Techniques for Data Analytics – IST 356 Spring 2026</title>
+<title>2. Python review – IST 356 Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-636770ed70550effe8cc9e61b03b729c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../02_python/python-1.html" rel="next">
+<link href="../01_cli_conda/git.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-636770ed70550effe8cc9e61b03b729c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,14 +71,14 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="IST 356: Programming Techniques for Data Analytics – IST 356 Spring 2026">
-<meta property="og:description" content="Syracuse University, Spring 2026">
+<meta property="og:title" content="2. Python review – IST 356 Spring 2026">
+<meta property="og:description" content="">
 <meta property="og:image" content="enter_gitHub_pages_URL_here/images/ischool_logo_reverseX2.png">
 <meta property="og:site_name" content="IST 356 Spring 2026">
 <meta property="og:image:height" content="105">
 <meta property="og:image:width" content="650">
-<meta name="twitter:title" content="IST 356: Programming Techniques for Data Analytics – IST 356 Spring 2026">
-<meta name="twitter:description" content="Syracuse University, Spring 2026">
+<meta name="twitter:title" content="2. Python review – IST 356 Spring 2026">
+<meta name="twitter:description" content="">
 <meta name="twitter:image" content="enter_gitHub_pages_URL_here/images/ischool_logo_reverseX2.png">
 <meta name="twitter:image-height" content="105">
 <meta name="twitter:image-width" content="650">
@@ -90,14 +92,14 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">IST 356 Spring 2026</span>
     </a>
   </div>
           <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="https://ischool.syracuse.edu" target="_blank"> 
-<span class="menu-text"><img src="./images/ischool_logo_reverseX2.png" height="30"></span></a>
+<span class="menu-text"><img src="../images/ischool_logo_reverseX2.png" height="30"></span></a>
   </li>  
 </ul>
           <div class="quarto-navbar-tools">
@@ -110,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">IST 356: Programming Techniques for Data Analytics</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02_python/index.html">2. Python review</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -124,13 +126,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_intro/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../00_intro/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction and computer setup</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./01_cli_conda/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../01_cli_conda/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Command line interface, Environments, and Git/GitHub</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -139,19 +141,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_cli_conda/shell-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../01_cli_conda/shell-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Command Line Interface and the Unix Shell</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_cli_conda/conda.html" class="sidebar-item-text sidebar-link">
+  <a href="../01_cli_conda/conda.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bash variables, environments, and <code>conda</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_cli_conda/git.html" class="sidebar-item-text sidebar-link">
+  <a href="../01_cli_conda/git.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git and GitHub</span></a>
   </div>
 </li>
@@ -159,22 +161,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./02_python/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../02_python/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">2. Python review</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Input, output, variables, types, conditionals</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Iterations, lists, dictionaries, comprehensions</span></a>
   </div>
 </li>
@@ -182,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
@@ -196,9 +198,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#course-info" id="toc-course-info" class="nav-link active" data-scroll-target="#course-info">Course info</a></li>
-  <li><a href="#class-schedule" id="toc-class-schedule" class="nav-link" data-scroll-target="#class-schedule">Class Schedule</a></li>
-  <li><a href="#important-dates" id="toc-important-dates" class="nav-link" data-scroll-target="#important-dates">Important dates</a></li>
+  <li><a href="#tutorials" id="toc-tutorials" class="nav-link active" data-scroll-target="#tutorials">Tutorials</a></li>
+  <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">Lectures</a></li>
   </ul>
 </nav>
     </div>
@@ -207,8 +208,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">IST 356: Programming Techniques for Data Analytics</h1>
-<p class="subtitle lead">Syracuse University, Spring 2026</p>
+<h1 class="title">2. Python review</h1>
 </div>
 
 
@@ -225,155 +225,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="course-info" class="level2">
-<h2 class="anchored" data-anchor-id="course-info">Course info</h2>
-<p><strong>Room:</strong> Hinds Hall 010</p>
-<p><strong>Time:</strong> M/W 2:15PM - 3:35PM</p>
-<p><strong>Instructor:</strong> Collin Capano</p>
-<p><strong>Email:</strong> cdcapano@syr.edu</p>
-<p><strong>Office hours:</strong> M/W 3:40PM - 4:40PM (immediately after class) in Hinds Hall 323G, or by appointment.</p>
-<p><strong><a href="./syllabus.html">Syllabus</a></strong></p>
+<p>In this unit we will review some basics of Python programming. You will have covered the material here in IST 256.</p>
+<section id="tutorials" class="level2">
+<h2 class="anchored" data-anchor-id="tutorials">Tutorials</h2>
+<ol type="1">
+<li><a href="../02_python/python-1.html">Input, output, variables, types, conditionals</a></li>
+<li><a href="../02_python/python-2.html">Iterations, lists, dictionaries, comprehensions</a></li>
+</ol>
 </section>
-<section id="class-schedule" class="level2">
-<h2 class="anchored" data-anchor-id="class-schedule">Class Schedule</h2>
-<p><em>Note:</em> schedule subject to change as we progress through the semester.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Dates</th>
-<th>Topic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>1/12, 1/14</td>
-<td>Intro; CLI and Conda</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>1/21</td>
-<td>Git &amp; GitHub</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>1/26, 1/28</td>
-<td>Python review - 1</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>2/2, 2/4</td>
-<td>Python review - 2</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>2/9, 2/11</td>
-<td>Writing scripts with Argparse; Streamlit</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>2/16, 2/18</td>
-<td>Data wrangling - 1</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>2/23, 2/25</td>
-<td>Data wrangling - 2</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>3/2, 3/4</td>
-<td>Review (3/2) and Mid-term Exam (3/4)</td>
-</tr>
-<tr class="odd">
-<td>–</td>
-<td>3/8 - 3/15</td>
-<td>Spring Break</td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>3/16, 3/18</td>
-<td>Web APIs - 1</td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>3/23, 3/25</td>
-<td>Web APIs - 2</td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>3/30, 4/1</td>
-<td>Web scraping - 1</td>
-</tr>
-<tr class="odd">
-<td>12</td>
-<td>4/6, 4/8</td>
-<td>Web scraping - 2</td>
-</tr>
-<tr class="even">
-<td>13</td>
-<td>4/13, 4/15</td>
-<td>Data visualization - 1</td>
-</tr>
-<tr class="odd">
-<td>14</td>
-<td>4/20, 4/22</td>
-<td>Data visualization - 2; Review for Final Exam</td>
-</tr>
-<tr class="even">
-<td>15</td>
-<td>4/27</td>
-<td>Final Exam</td>
-</tr>
-<tr class="odd">
-<td>16</td>
-<td>5/4</td>
-<td>Project due</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="important-dates" class="level2">
-<h2 class="anchored" data-anchor-id="important-dates">Important dates</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 79%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Date</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Mon. 1/12</td>
-<td>First day of class</td>
-</tr>
-<tr class="even">
-<td>Mon. 1/19</td>
-<td>Martin Luther King, Jr.&nbsp;Day: <strong>No class</strong></td>
-</tr>
-<tr class="odd">
-<td>Mon. 2/2</td>
-<td>Academic/Financial drop deadline; Religious observance notification deadline</td>
-</tr>
-<tr class="even">
-<td>3/8 - 3/15</td>
-<td>Spring break - <strong>No class</strong></td>
-</tr>
-<tr class="odd">
-<td>Tues. 4/14</td>
-<td>Withdrawal deadline</td>
-</tr>
-<tr class="even">
-<td>Mon. 4/27</td>
-<td>Last day of class</td>
-</tr>
-</tbody>
-</table>
+<section id="lectures" class="level2">
+<h2 class="anchored" data-anchor-id="lectures">Lectures</h2>
 
 
 </section>
@@ -779,6 +640,18 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../01_cli_conda/git.html" class="pagination-link" aria-label="Git and GitHub">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git and GitHub</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../02_python/python-1.html" class="pagination-link" aria-label="1. Input, output, variables, types, conditionals">
+        <span class="nav-page-text">1. Input, output, variables, types, conditionals</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

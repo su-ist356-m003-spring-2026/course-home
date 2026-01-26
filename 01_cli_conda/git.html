@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1. Command line interface, Environments, and Git/GitHub – IST 356 Spring 2026</title>
+<title>Git and GitHub – IST 356 Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../01_cli_conda/shell-intro.html" rel="next">
-<link href="../00_intro/index.html" rel="prev">
+<link href="../02_python/index.html" rel="next">
+<link href="../01_cli_conda/conda.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -71,17 +106,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="1. Command line interface, Environments, and Git/GitHub – IST 356 Spring 2026">
+<meta property="og:title" content="Git and GitHub – IST 356 Spring 2026">
 <meta property="og:description" content="">
-<meta property="og:image" content="enter_gitHub_pages_URL_here/images/ischool_logo_reverseX2.png">
+<meta property="og:image" content="enter_gitHub_pages_URL_here/01_cli_conda/fig/fork_diagram.png">
 <meta property="og:site_name" content="IST 356 Spring 2026">
-<meta property="og:image:height" content="105">
-<meta property="og:image:width" content="650">
-<meta name="twitter:title" content="1. Command line interface, Environments, and Git/GitHub – IST 356 Spring 2026">
+<meta property="og:image:height" content="1735">
+<meta property="og:image:width" content="2002">
+<meta name="twitter:title" content="Git and GitHub – IST 356 Spring 2026">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="enter_gitHub_pages_URL_here/images/ischool_logo_reverseX2.png">
-<meta name="twitter:image-height" content="105">
-<meta name="twitter:image-width" content="650">
+<meta name="twitter:image" content="enter_gitHub_pages_URL_here/01_cli_conda/fig/fork_diagram.png">
+<meta name="twitter:image-height" content="1735">
+<meta name="twitter:image-width" content="2002">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -112,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01_cli_conda/index.html">1. Command line interface, Environments, and Git/GitHub</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01_cli_conda/index.html">1. Command line interface, Environments, and Git/GitHub</a></li><li class="breadcrumb-item"><a href="../01_cli_conda/git.html">Git and GitHub</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -132,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../01_cli_conda/index.html" class="sidebar-item-text sidebar-link active">
+            <a href="../01_cli_conda/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Command line interface, Environments, and Git/GitHub</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -153,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01_cli_conda/git.html" class="sidebar-item-text sidebar-link">
+  <a href="../01_cli_conda/git.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Git and GitHub</span></a>
   </div>
 </li>
@@ -198,21 +233,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tutorials" id="toc-tutorials" class="nav-link active" data-scroll-target="#tutorials">Tutorials</a></li>
-  <li><a href="#lecture" id="toc-lecture" class="nav-link" data-scroll-target="#lecture">Lecture</a>
-  <ul class="collapse">
-  <li><a href="#wednesday-january-14-2026" id="toc-wednesday-january-14-2026" class="nav-link" data-scroll-target="#wednesday-january-14-2026">Wednesday, January 14, 2026</a></li>
-  <li><a href="#wednesday-january-21-2026" id="toc-wednesday-january-21-2026" class="nav-link" data-scroll-target="#wednesday-january-21-2026">Wednesday, January 21, 2026</a></li>
-  </ul></li>
+  <li><a href="#setting-up-git" id="toc-setting-up-git" class="nav-link active" data-scroll-target="#setting-up-git">Setting up Git</a></li>
+  <li><a href="#git-configuration" id="toc-git-configuration" class="nav-link" data-scroll-target="#git-configuration">Git configuration</a></li>
+  <li><a href="#git-vs.-github" id="toc-git-vs.-github" class="nav-link" data-scroll-target="#git-vs.-github">Git vs.&nbsp;GitHub</a></li>
+  <li><a href="#cloning-a-repository" id="toc-cloning-a-repository" class="nav-link" data-scroll-target="#cloning-a-repository">Cloning a repository</a></li>
+  <li><a href="#making-changes-to-your-local-repository" id="toc-making-changes-to-your-local-repository" class="nav-link" data-scroll-target="#making-changes-to-your-local-repository">Making changes to your local repository</a></li>
+  <li><a href="#syncing-with-your-remote-repository" id="toc-syncing-with-your-remote-repository" class="nav-link" data-scroll-target="#syncing-with-your-remote-repository">Syncing with your remote repository</a></li>
+  <li><a href="#pulling-changes-from-the-remote" id="toc-pulling-changes-from-the-remote" class="nav-link" data-scroll-target="#pulling-changes-from-the-remote">Pulling changes from the remote</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01_cli_conda/index.html">1. Command line interface, Environments, and Git/GitHub</a></li><li class="breadcrumb-item"><a href="../01_cli_conda/git.html">Git and GitHub</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">1. Command line interface, Environments, and Git/GitHub</h1>
+<h1 class="title">Git and GitHub</h1>
 </div>
 
 
@@ -229,31 +266,170 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In this unit, you will learn how to use the bash shell in a command line interface (CLI), programming environments, and how to use <code>conda</code> to manage environments and install packages. You will also learn the difference between Git and GitHub, and how to use Git on the command line.</p>
-<section id="tutorials" class="level2">
-<h2 class="anchored" data-anchor-id="tutorials">Tutorials</h2>
+<p>We will use GitHub Classroom for doing assignments, and for keeping track of the tutorials you do in class. In order to use GitHub Classroom you need to know how to use Git and GitHub. Understanding Git/GitHub are also key for your future career, as they have become the primary tools for version control and for collaborating on development in both industry and academia.</p>
+<p>In this tutorial we will cover the basics of doing commits and pushing to/pulling from GitHub <strong>using the command line interface (CLI).</strong> It is also possible to do these things using a visual interface in VS Code, or using GitHub Desktop. However, the CLI is the most powerful means to manage a Git repository, and (once you know how to use it) I have found it to be more straight forward than VS Code’s implementation. Learning how to use the CLI will also pay dividends down the road, as you become a more experienced developer.</p>
+<p>In this tutorial we will not cover more advanced topics such as branches and forks. I have put together a more extensive set of tutorials on using branches and forks for collaborative software development here:</p>
+<ul>
+<li><a href="https://su-ospo.github.io/workshop-r-intro/lessons/github/github-intro.html">OSPO Git and GitHub workshop</a></li>
+</ul>
+<p>We will cover branches later in the semester, time permitting.</p>
+<section id="setting-up-git" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-git">Setting up Git</h3>
+<p>In order to use Git on your computer you first need to configure it.</p>
+</section>
+<section id="git-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="git-configuration">Git configuration</h3>
+<p>You’ll need to tell <code>git</code> what your name and email are, so that it creates commits with the appropriate author information. You only need to do this once, the very first time you use git on your computer.</p>
+<p>To do that, open a terminal (either use your OS’s native terminal, or open VS Code then click Terminal -&gt; New Terminal). Now run the following (it doesn’t matter which directory you run these from), but replacing <code>YOUR NAME</code> with your name and <code>YOUR_EMAIL_ADDRESS</code> with your email address:</p>
+<pre class="{bash}"><code>git config --global user.name "YOUR NAME"
+git config --global user.email "YOUR_EMAIL_ADDRESS"</code></pre>
+<p>Sometimes it happens that you want to enter long commit messages (more on that below). To do that, you’ll need to tell <code>git</code> what text editor to use. By default <code>git</code> will use <code>vim</code>, which can be tricky to understand for new users. For the purposes of this tutorial, we’ll use the more user-friendly <a href="https://en.wikipedia.org/wiki/GNU_nano">nano</a>. To do that, run the following in your terminal:</p>
+<pre class="{bash}"><code>git config --global core.editor nano</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you wish to reset to the default editor after the tutorial is over, run:</p>
+<pre class="{bash}"><code>git config --global --unset-all core.editor</code></pre>
+</div>
+</div>
+</section>
+<section id="git-vs.-github" class="level2">
+<h2 class="anchored" data-anchor-id="git-vs.-github">Git vs.&nbsp;GitHub</h2>
+<p>Before diving into using git, it’s necessary to understand the difference between Git and GitHub.</p>
+<p><strong>Git is a program</strong> that you run on a computer to track changes to your files and enable collaboration. It is a type of <em>version control software</em>. Git was created by Linus Torvalds (the guy who invented Linux) in 2005 for Linux kernel development.</p>
+<p>Files are tracked in a <em>repository</em>. A repository is just a folder on your computer that you’ve told Git to track.</p>
+<p><em>GitHub</em> is a cloud platform for hosting Git repositories and collaborating on code development. It is owned by Microsoft. You can interact with GitHub through their website at github.com. Basically, GitHub is a collection of remote computers owned by Microsoft that have a bunch of Git repositories on them. <strong>GitHub <em>uses</em> Git to manage repositories.</strong></p>
+<p>Once you create an account with GitHub, you are able to create <em>remote repositories</em> on their servers. You can then copy, or <em>clone</em> those remote repositories to your local computer. On your local computer, you use Git to make modifications to the repository, then <em>push</em> those changes back to the copy at GitHub in order to keep them in sync.</p>
+<p>Here is a diagram illustrating the relationship (this diagram also includes a <em>fork</em>, which is your copy of someone else’s repository, both of which live on GitHub):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig/fork_diagram.png" class="img-fluid figure-img" width="600"></p>
+<figcaption>Diagram illustrating clones, forks, and branches. Here, userB creates a fork of userA’s repository on GitHub. userA and userB each have a clone of the repository on their local computers. Within each user’s fork of the repository they have different branches (in userA’s repos they are main and dev1; in userB, main and br1).</figcaption>
+</figure>
+</div>
+</section>
+<section id="cloning-a-repository" class="level2">
+<h2 class="anchored" data-anchor-id="cloning-a-repository">Cloning a repository</h2>
+<p>To start, we will clone your classroom notebook from GitHub. You should have a link to the classroom notebook in Blackboard. When you click on it, you will be prompted to link a GitHub account. Select your name to do so. Once you do, GitHub will create a repository for you. This repository will be your classroom notebook. As we continue through the rest of the semester, you will commit and push tutorials and scripts that you create in class to this repository. You will have separate, similar repositories for each homework assignment.</p>
+<p>To clone the repository we will use VS Code. There is a way to do this using the CLI, but this is one instance where using VS Code is a bit easier as VS Code will take care of authentication for you.</p>
+<p>To clone the repo using VS Code:</p>
 <ol type="1">
-<li><p><a href="../01_cli_conda/shell-intro.html">Introduction to CLI</a></p></li>
-<li><p><a href="../01_cli_conda/conda.html">Environments and Conda</a></p></li>
-<li><p><a href="../01_cli_conda/git.html">Git and GitHub</a></p></li>
+<li><p>Use your web browser to navigate to your classroom notebook repository on GitHub.</p></li>
+<li><p>Click the green “Code” button in the upper left. That will open a drop-down menu. Make sure the HTTPS tab is selected, then copy the URL that’s listed there (you can just click the copy icon to the right to copy the URL).</p></li>
+<li><p>Open VS Code.</p></li>
+<li><p>In VS Code, open the command palette by hitting Ctrl/Command + Shift + P on the keyboard. In the command palette prompt at the top, type <code>gitcl</code>, then select “Git: Clone” from the drop-down menu.</p></li>
+</ol>
+<ul>
+<li>If you have not logged into GitHub previously in VS Code, you will be prompted to log in. If so, log in. After you do, you’ll need to open the command palette again, type <code>gitcl</code>, and select “Git: Clone”.</li>
+</ul>
+<ol type="1">
+<li><p>Paste the URL you copied from GitHub into the command palette then hit Enter.</p></li>
+<li><p>You will be prompted where to store the repository. <strong>Select the ist356 directory we created last week.</strong> Then click the “Select as Repository Destination” button.</p></li>
+<li><p>You will be asked whether to open or open in a new window. To make sure we’re not mixing up projects, select “Open in a New Window”. This will open a new VS Code Window with the contents on the cloned repository.</p></li>
+<li><p>Note that you now have a folder in your <code>ist356</code> directory called <code>class-notebook</code>. The <code>class-notebook</code> folder is your local copy of the <code>class-notebook</code> repository. It is a folder like any folder on your computer, except that it has been marked by Git to track changes that are made within it. This is what makes it a repository.</p></li>
+<li><p>At this point, the repository just has a README.md file. We will create files and folders in this repository as we go forward.</p></li>
+<li><p>You can view the status of the repository using the command line. Open a terminal (click Terminal -&gt; New Terminal). You should be in your <code>class-notebook</code> folder (run <code>pwd</code> to check). If not, <code>cd</code> into <code>class-notebook</code>. Now type:</p>
+<pre class="{bash}"><code>git status</code></pre></li>
+</ol>
+<p>You will get back a message indicating that everything is up to date.</p>
+</section>
+<section id="making-changes-to-your-local-repository" class="level2">
+<h2 class="anchored" data-anchor-id="making-changes-to-your-local-repository">Making changes to your local repository</h2>
+<p>Let’s create a simple Python file to illustrate how to use Git to track files.</p>
+<ol type="1">
+<li><p>Create a new file by clicking “File -&gt; New File…”. Enter <code>hello.py</code> into the prompt then hit Enter. This will open the save file window. <strong>Make sure to select your <code>class-notebook</code> folder.</strong> Then click “Create File.”</p></li>
+<li><p>In the file, type:</p>
+<div id="3468add1" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello world!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello world!</code></pre>
+</div>
+</div>
+<p>Then hit Ctrl/Cmd + S to save the changes. You’ve written a simple Python program in your class-notebook repository.</p></li>
+<li><p>If you haven’t already, open a terminal (click Terminal -&gt; New Terminal). You should be in your <code>class-notebook</code> folder (run <code>pwd</code> to check). If not, <code>cd</code> into <code>class-notebook</code>.</p></li>
+<li><p>Test that your simple Python program works by running:</p>
+<pre class="{bash}"><code>python hello.py</code></pre>
+<p>You should get back “Hello world!” in the terminal.</p></li>
+<li><p>You’ve now made a change in the repo, but you haven’t tracked it yet. You can see that by typing <code>git status</code>. You’ll get a message showing that you have untracked files in the repository.</p></li>
+<li><p>Let’s create a snapshot of our change by <em>committing</em> <code>hello.py</code> to the repository. You first need to <em>stage</em> the file for committing. To do that, type:</p>
+<pre class="{bash}"><code>git add hello.py</code></pre></li>
+<li><p>Type <code>git status</code>. You’ll see that <code>hello.py</code> is now in green, indicating that it is staged for a commit. <em>This does not mean we’ve committed the file yet.</em> To actually commit the change, type:</p>
+<pre class="{bash}"><code>git commit -m "add hello.py"</code></pre></li>
+<li><p>Congratulations! You’ve made your first commit to your repository. To see that, type <code>git status</code>. You should now see that there are no changes to be made.</p></li>
+<li><p>You can see the history of commits by typing:</p>
+<pre class="{bash}"><code>git log</code></pre>
+<p>This will open a scrollable log showing all the commits that have been made to the repository. You can move up and down using the arrows. To exit the log, hit q. (Note: if the history is short enough that it will fit entirely in the terminal the entire history will just be printed out to the terminal. In that case, you do not have to hit q.)</p></li>
 </ol>
 </section>
-<section id="lecture" class="level2">
-<h2 class="anchored" data-anchor-id="lecture">Lecture</h2>
-<section id="wednesday-january-14-2026" class="level3">
-<h3 class="anchored" data-anchor-id="wednesday-january-14-2026">Wednesday, January 14, 2026</h3>
-<p>Introduction to command line interface (CLI)</p>
-<iframe id="kmsembed-1_9y785gka" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_9y785gka/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 1-14-26">
-</iframe>
+<section id="syncing-with-your-remote-repository" class="level2">
+<h2 class="anchored" data-anchor-id="syncing-with-your-remote-repository">Syncing with your remote repository</h2>
+<ol type="1">
+<li><p>Your changes have only been made to your local repository. That have not been synced back to the remote on GitHub. To see that, go back to your web browser and refresh GitHub. You will not see <code>hello.py</code> in the repository.</p></li>
+<li><p>To sync your local changes back to GitHub, you need to <code>push</code> the changes. To do that, in your terminal, type:</p>
+<pre class="{bash}"><code>git push</code></pre>
+<p>You should see a message indicating that the changes have been made to your remote.</p></li>
+<li><p>To verify that the changes have been made, refresh the page on GitHub. You should now see <code>hello.py</code> listed there. You can also see your history of commits using the GitHub interface.</p></li>
+</ol>
 </section>
-<section id="wednesday-january-21-2026" class="level3">
-<h3 class="anchored" data-anchor-id="wednesday-january-21-2026">Wednesday, January 21, 2026</h3>
-<p>Contiuation of CLI: bash variables, scripts, and environments. Introduction to Conda.</p>
-<iframe id="kmsembed-1_uvpcm86t" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_uvpcm86t/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 1-21-26">
-</iframe>
+<section id="pulling-changes-from-the-remote" class="level2">
+<h2 class="anchored" data-anchor-id="pulling-changes-from-the-remote">Pulling changes from the remote</h2>
+<p>Let’s make a change on the remote repository and see how to sync back to your local clone.</p>
+<ol type="1">
+<li><p>In your web browser, click on “hello.py”.</p></li>
+<li><p>You can edit “hello.py” in the web browser by clicking the button with a pen on it.</p></li>
+<li><p>Add the following on a new line:</p>
+<div id="f1c5d0fa" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"How are you today?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>How are you today?</code></pre>
+</div>
+</div></li>
+<li><p>Commit the change using the web interface. GitHub will generate a commit message automatically for you.</p></li>
+<li><p>The changes you made on your remote repository are not automatically communicated to your local repository. You can verify that by either looking at <code>hello.py</code> in VS code, or by typing <code>git log</code> in your terminal. You’ll see that your latest commit is not there.</p></li>
+<li><p>To pull down the changes from the remote repo, in your terminal type:</p>
+<pre class="{bash}"><code>git pull</code></pre>
+<p>You will see a message indicating that your repo has been updated. To verify that, type <code>git log</code>. You should see your latest commit there. If you look at <code>hello.py</code> in VS Code you should also see that it has been updated.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It’s good practice to always run <code>git pull</code> before running <code>git push</code> to ensure your local copy is up to date before pushing changes. If your local copy does not have changes that were made to the remote, you will not be able to push them (git will raise an error).</p>
+</div>
+</div>
+</section>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<p>This illustrates the basic steps you need to take to modify a repository and communicate it back to GitHub:</p>
+<ol type="1">
+<li><p>Stage the files you want to commit by typing:</p>
+<pre class="{bash}"><code>git add FILENAME</code></pre>
+<p>Here, <code>FILENAME</code> is the name of the file you want to stage. You can stage multiple files at once by listing them (putting a space between each file name).</p></li>
+<li><p>Commit the changes to the file by typing:</p>
+<pre class="{bash}"><code>git commit -m "MY COMMIT MESSAGE"</code></pre>
+<p>Here, <code>MY COMMIT MESSAGE</code> is the log you want for the commit. Be brief but descriptive!</p></li>
+<li><p>When you are done making changes to your local repository and want to sync them back to GitHub, type:</p></li>
+</ol>
+<pre class="{bash}"><code>git push</code></pre>
+<pre><code>If you get an error saying that you can't push due to your local not being up to date with the remote, run `git pull` first.</code></pre>
+<ol type="1">
+<li>Verify the changes have been synced to GitHub by refreshing the repo’s page in your web browser. You should see the same history.</li>
+</ol>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -659,13 +835,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../00_intro/index.html" class="pagination-link" aria-label="Introduction and computer setup">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction and computer setup</span>
+      <a href="../01_cli_conda/conda.html" class="pagination-link" aria-label="Bash variables, environments, and `conda`">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Bash variables, environments, and <code>conda</code></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../01_cli_conda/shell-intro.html" class="pagination-link" aria-label="Introduction to Command Line Interface and the Unix Shell">
-        <span class="nav-page-text">Introduction to Command Line Interface and the Unix Shell</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../02_python/index.html" class="pagination-link" aria-label="2. Python review">
+        <span class="nav-page-text">2. Python review</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
