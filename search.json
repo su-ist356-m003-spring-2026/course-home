@@ -121,519 +121,255 @@
     ]
   },
   {
-    "objectID": "02_python/python-2.html",
-    "href": "02_python/python-2.html",
-    "title": "2. Iterations, lists, dictionaries, comprehensions",
+    "objectID": "02_python/python-3.html",
+    "href": "02_python/python-3.html",
+    "title": "3. Functions, documentation, strings, files",
     "section": "",
-    "text": "Iterations are code strucures which allow us to repeat sections of code while a condition is true, or a fixed number of time.\nThey allow us to do more with less code!",
+    "text": "A Function is a named sequence of statements which accomplish a task. They promote modularity, making our code less complex, easier to understand and encourage code-reuse.\nWhen you “run” a defined function it’s known as a function call. Functions are designed to be written once, but called many times.\nWe’ve seen functions before:\n\n\n# We call functions all the time\n# input(). random.randint(), and int() are all functions!\nimport random\nx = input(\"Enter Name: \")  \ny = random.randint(1, 10)  #random is the module, randint() is the function\nz = int(\"9\")\nprint(x, y, z)\n\n\n\n\nFunctions are like their own little programs. They take input, which we call the function arguments (or parameters) and give us back output that we refer to as return values.\nINPUT      ==&gt; PROCESS     ==&gt; OUTPUT\nFunction   ==&gt; Function    ==&gt; Function \nArguments      Definition       Return\nWe use the def keyword to define a function.\n\n# Example Function\ndef area_of_triangle(base, height): # &lt;== INPUTs\n    area = 0.5 * base * height\n    return area # &lt;== OUTPUT\n\n# Function call: using your function\na = area_of_triangle(10, 5)\nprint(a)\n\n25.0\n\n\nWhen you call a function you can name your arguments. This allows you to override the order of the arguments.\n\n# These are the same order as defined\narea1 = area_of_triangle(base = 10, height = 5)\n# Different order than defined\narea2 = area_of_triangle(height = 5, base = 10)\nprint(area1, area2)\n\n25.0 25.0\n\n\n\n\n\ndef division_and_modulo(dividend, divisor):\n    quotient = dividend // divisor # int division\n    remainder = dividend % divisor # modulo\n    return quotient, remainder\n\nq, r = division_and_modulo(10, 3)\nprint(f\"10 divided by 3 is {q}, with a remainder of {r}\")\n\n10 divided by 3 is 3, with a remainder of 1\n\n\n\n\n\n\n\n\nCautionCode Challenge 3.1\n\n\n\nWrite a function called average which takes a list of numbers as input then outputs the average of the numbers (sum / count)\nCall your function with an arbitrary list of numbers you create.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\ndef average(list_of_numbers):\n    total = 0\n    count = 0\n    for n in list_of_numbers:\n        total += n\n        count += 1\n    return total/count\n\nnums = [10, 15, 10, 5]\navg = average(nums)\nprint(f\"Average of {nums} is {avg}\")\n\nAverage of [10, 15, 10, 5] is 10.0\n\n\n\n\n\n\n\n\n\n\n\nTypes can be added to the def statement to help the caller understand what type of data the function expects. These are known as type hints\nIn this example the expected arguments are float and the return is float\n\ndef area_of_triangle(base: float, height: float) -&gt; float: \n    area = 0.5 * base *height\n    return area\n\nYou can see type hints in action by calling the function\nRun the cell above to create the function.\nIn the code below, start a left paren ( to see the type hints\n\narea_of_triangle\n\n&lt;function __main__.area_of_triangle(base: float, height: float) -&gt; float&gt;\n\n\n\n\n\nA Docstring is a multi-line comment which explains what the function does to the function caller.\nThe same function with type hints and docstring:\n\ndef area_of_triangle(base: float, height: float) -&gt; float: \n    '''\n    Calculates the area of a triangle given base and height\n    returns the area defined as 1/2 the base times height\n    '''\n    area = 0.5 * base *height\n    return area\n\nYou can see doc strings in action by calling the function\nRun the cell above to create the function. In the code below, start a left paren ( to see the doc string\n\narea_of_triangle\n\n&lt;function __main__.area_of_triangle(base: float, height: float) -&gt; float&gt;\n\n\nYou can also use ? or help() to see the docstring and type hints:\n\nhelp(area_of_triangle)\n\nHelp on function area_of_triangle in module __main__:\n\narea_of_triangle(base: float, height: float) -&gt; float\n    Calculates the area of a triangle given base and height\n    returns the area defined as 1/2 the base times height",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "2. Python review",
-      "2. Iterations, lists, dictionaries, comprehensions"
+      "3. Functions, documentation, strings, files"
     ]
   },
   {
-    "objectID": "02_python/python-2.html#the-break-command",
-    "href": "02_python/python-2.html#the-break-command",
-    "title": "2. Iterations, lists, dictionaries, comprehensions",
-    "section": "The break command",
-    "text": "The break command\n\nbreak keyword exits the loop immediately.\nCommonly used when there is no longer a reason to loop (you achieved your goal).\nYou can add an else to the for loop to execute when break does not happen.\n\n\n# Example: find a letter in a text string\n\ntext = input(\"Enter Some Text:\")\nfind = input(\"Enter character to find:\")\nfor ch in text:\n    if ch == find:\n        print(f\"Found {find} in {text}!\")\n        break\nelse:\n    print(f\"Unable to find {find} in {text}!\")\n\nEnter Some Text: testing\nEnter character to find: n\nFound n in testing!\n\nEnter Some Text: testing\nEnter character to find: x\nUnable to find x in testing!\n\n\n\n\n\n\n\nCautionCode Challenge 2.1\n\n\n\nWrite a program to accept a password as input. If the password input is “secret” display “access granted”. Otherwise say “invalid password”.\nRepeat the above up to 5 times. When the correct password is entered, stop looping. When 5 loops have exhausted, print “you are locked out”.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nvalid_password = \"secret\"\nfor i in range(5):\n    pw = input(\"Enter Password:\")\n    if pw == valid_password:\n        print(\"Access Granted!\")\n        break\n    else:\n        print(\"Invalid Password.\")\nelse:\n    print(\"You are locked out\")",
+    "objectID": "02_python/python-3.html#what-are-functions",
+    "href": "02_python/python-3.html#what-are-functions",
+    "title": "3. Functions, documentation, strings, files",
+    "section": "",
+    "text": "A Function is a named sequence of statements which accomplish a task. They promote modularity, making our code less complex, easier to understand and encourage code-reuse.\nWhen you “run” a defined function it’s known as a function call. Functions are designed to be written once, but called many times.\nWe’ve seen functions before:\n\n\n# We call functions all the time\n# input(). random.randint(), and int() are all functions!\nimport random\nx = input(\"Enter Name: \")  \ny = random.randint(1, 10)  #random is the module, randint() is the function\nz = int(\"9\")\nprint(x, y, z)",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "2. Python review",
-      "2. Iterations, lists, dictionaries, comprehensions"
+      "3. Functions, documentation, strings, files"
     ]
   },
   {
-    "objectID": "02_python/python-2.html#the-in-operator",
-    "href": "02_python/python-2.html#the-in-operator",
-    "title": "2. Iterations, lists, dictionaries, comprehensions",
-    "section": "The in operator",
-    "text": "The in operator\nThe in operator checks for existence of an item in a list.\n\n# Example: whats in the list?\nnumbers = [10, 15, 20]\nprint(f\"5 in {numbers}?\", 5 in numbers)\nprint(f\"20 in {numbers}?\", 20 in numbers)\n\n5 in [10, 15, 20]? False\n20 in [10, 15, 20]? True",
+    "objectID": "02_python/python-3.html#function-definitions",
+    "href": "02_python/python-3.html#function-definitions",
+    "title": "3. Functions, documentation, strings, files",
+    "section": "",
+    "text": "Functions are like their own little programs. They take input, which we call the function arguments (or parameters) and give us back output that we refer to as return values.\nINPUT      ==&gt; PROCESS     ==&gt; OUTPUT\nFunction   ==&gt; Function    ==&gt; Function \nArguments      Definition       Return\nWe use the def keyword to define a function.\n\n# Example Function\ndef area_of_triangle(base, height): # &lt;== INPUTs\n    area = 0.5 * base * height\n    return area # &lt;== OUTPUT\n\n# Function call: using your function\na = area_of_triangle(10, 5)\nprint(a)\n\n25.0\n\n\nWhen you call a function you can name your arguments. This allows you to override the order of the arguments.\n\n# These are the same order as defined\narea1 = area_of_triangle(base = 10, height = 5)\n# Different order than defined\narea2 = area_of_triangle(height = 5, base = 10)\nprint(area1, area2)\n\n25.0 25.0\n\n\n\n\n\ndef division_and_modulo(dividend, divisor):\n    quotient = dividend // divisor # int division\n    remainder = dividend % divisor # modulo\n    return quotient, remainder\n\nq, r = division_and_modulo(10, 3)\nprint(f\"10 divided by 3 is {q}, with a remainder of {r}\")\n\n10 divided by 3 is 3, with a remainder of 1\n\n\n\n\n\n\n\n\nCautionCode Challenge 3.1\n\n\n\nWrite a function called average which takes a list of numbers as input then outputs the average of the numbers (sum / count)\nCall your function with an arbitrary list of numbers you create.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\ndef average(list_of_numbers):\n    total = 0\n    count = 0\n    for n in list_of_numbers:\n        total += n\n        count += 1\n    return total/count\n\nnums = [10, 15, 10, 5]\navg = average(nums)\nprint(f\"Average of {nums} is {avg}\")\n\nAverage of [10, 15, 10, 5] is 10.0",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "2. Python review",
-      "2. Iterations, lists, dictionaries, comprehensions"
+      "3. Functions, documentation, strings, files"
     ]
   },
   {
-    "objectID": "02_python/python-2.html#list-methods",
-    "href": "02_python/python-2.html#list-methods",
-    "title": "2. Iterations, lists, dictionaries, comprehensions",
-    "section": "List Methods",
-    "text": "List Methods\nThere are numerous list methods which allow you to add, remove, and find values in the list, etc…\nhttps://docs.python.org/3/library/stdtypes.html?highlight=list#mutable-sequence-types\n\n# Example: manipulating a list\n\n# An empty list\ncolors = []\n\n# Add \"blue\" to the end\ncolors.append(\"blue\")\n\n# add \"red\" to the beginning\ncolors.insert(0, \"red\")\n\n# add \"white\" in the 2nd position\ncolors.insert(1, \"white\")\n\n# print ['red', 'white', 'blue']\nprint(colors)\n\n# remove the last color\nblue = colors.pop(-1)\n\n# remove \"white\"\nwhite = colors.remove(\"white\")\n\n# print ['red']\nprint(colors)\n\n['red', 'white', 'blue']\n['red']\n\n\n\n\n\n\n\n\nCautionCode Challenge 2.3\n\n\n\nWrite a sentinel controlled loop to input a color until “quit” is entered. Add each color to a list only when the color is not already in the list. Print the list each time in the loop.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\ncolors = []\n\nwhile True:\n    color = input(\"Enter a color:\")\n    if color == 'quit':\n        break\n    if color not in colors:\n        colors.append(color)\n        op = \"added to\"\n    else:\n        op = \"already in\"\n\n    print(f\"{color} {op} {colors}\")",
+    "objectID": "02_python/python-3.html#type-hints",
+    "href": "02_python/python-3.html#type-hints",
+    "title": "3. Functions, documentation, strings, files",
+    "section": "",
+    "text": "Types can be added to the def statement to help the caller understand what type of data the function expects. These are known as type hints\nIn this example the expected arguments are float and the return is float\n\ndef area_of_triangle(base: float, height: float) -&gt; float: \n    area = 0.5 * base *height\n    return area\n\nYou can see type hints in action by calling the function\nRun the cell above to create the function.\nIn the code below, start a left paren ( to see the type hints\n\narea_of_triangle\n\n&lt;function __main__.area_of_triangle(base: float, height: float) -&gt; float&gt;",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "2. Python review",
-      "2. Iterations, lists, dictionaries, comprehensions"
+      "3. Functions, documentation, strings, files"
     ]
   },
   {
-    "objectID": "02_python/python-2.html#dictionary-methods",
-    "href": "02_python/python-2.html#dictionary-methods",
-    "title": "2. Iterations, lists, dictionaries, comprehensions",
-    "section": "Dictionary Methods",
-    "text": "Dictionary Methods\nLike str and list, the dict type has its own set of built-in functions. https://docs.python.org/3/library/stdtypes.html#mapping-types-dict\n\nfont = {'name': 'Arial','size': 8}\n\nprint(font.keys()) # this is an iterable\n\nprint(font.values()) # this is an iterable\n\nprint(font['name'])\n\nfont['name'] = 'Courier'\n\nprint(font['name'])\n\nprint('size' in font)\n\nprint(font.get('style', 'normal')) # get with default value\n\ndict_keys(['name', 'size'])\ndict_values(['Arial', 8])\nArial\nCourier\nTrue\nnormal",
+    "objectID": "02_python/python-3.html#docstrings",
+    "href": "02_python/python-3.html#docstrings",
+    "title": "3. Functions, documentation, strings, files",
+    "section": "",
+    "text": "A Docstring is a multi-line comment which explains what the function does to the function caller.\nThe same function with type hints and docstring:\n\ndef area_of_triangle(base: float, height: float) -&gt; float: \n    '''\n    Calculates the area of a triangle given base and height\n    returns the area defined as 1/2 the base times height\n    '''\n    area = 0.5 * base *height\n    return area\n\nYou can see doc strings in action by calling the function\nRun the cell above to create the function. In the code below, start a left paren ( to see the doc string\n\narea_of_triangle\n\n&lt;function __main__.area_of_triangle(base: float, height: float) -&gt; float&gt;\n\n\nYou can also use ? or help() to see the docstring and type hints:\n\nhelp(area_of_triangle)\n\nHelp on function area_of_triangle in module __main__:\n\narea_of_triangle(base: float, height: float) -&gt; float\n    Calculates the area of a triangle given base and height\n    returns the area defined as 1/2 the base times height",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "2. Python review",
-      "2. Iterations, lists, dictionaries, comprehensions"
+      "3. Functions, documentation, strings, files"
     ]
   },
   {
-    "objectID": "02_python/python-2.html#complex-data-stuctures",
-    "href": "02_python/python-2.html#complex-data-stuctures",
-    "title": "2. Iterations, lists, dictionaries, comprehensions",
-    "section": "Complex Data Stuctures",
-    "text": "Complex Data Stuctures\nWe can combine lists and dictionaries to create complex data structures in python.\nThese allow us to represent real-world data in code\n\nstudents = [\n    { 'name' : 'abby', 'grades' : [100,80,90] },\n    { 'name' : 'bob', 'grades' : [100,90,90] },\n    { 'name' : 'chris', 'grades' : [90,100,100] }\n]\n\n\n# just print each student name\nfor student in students:\n    print(student['name'])\n\nabby\nbob\nchris\n\n\n\n# print each student name and average grade\nfor student in students:\n    avg_grade = sum(student['grades'])/len(student['grades'])\n    print(f\"{student['name']}  {avg_grade:.2f}\")\n\nabby  90.00\nbob  93.33\nchris  96.67\n\n\n\n\n\n\n\n\nCautionCode Challenge 2.4\n\n\n\nWrite a program to create a shopping list:\n\nloop until “quit” is entered\ninput a grocery item\ninput a quantity\nsave the item as the key in the dictionary and quantity as the value\nif the item is in the dictionary already, add the quantity to the existing value\n\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nitems = {}\n\nwhile True:\n    item = input(\"Enter shopping item, or 'quit': \")\n    if item == 'quit':\n        break\n    qty = int(input(\"Enter quantity: \"))\n    if item in items.keys():\n        items[item] = items[item] + qty\n    else:\n        items[item] = qty\n\n    print(\"ITEMS:\", items)",
+    "objectID": "02_python/python-3.html#strings-are-sequence-types",
+    "href": "02_python/python-3.html#strings-are-sequence-types",
+    "title": "3. Functions, documentation, strings, files",
+    "section": "Strings are sequence types",
+    "text": "Strings are sequence types\nYou can use slice notation like with lists.\nThese are zero based.\nvar[start:stop]\nTakes stop - start characters from var starting at position start\n\nx = \"fudge\"\nprint(x[0:2]) # fu\nprint(x[2:5]) # dge\nprint(x[:4]) # fudg\nprint(x[:]) # fudge\nprint(x[:-1]) # fudg\n\nfu\ndge\nfudg\nfudge\nfudg",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "2. Python review",
-      "2. Iterations, lists, dictionaries, comprehensions"
+      "3. Functions, documentation, strings, files"
     ]
   },
   {
-    "objectID": "02_python/index.html",
-    "href": "02_python/index.html",
-    "title": "2. Python review",
+    "objectID": "02_python/python-3.html#string-methods",
+    "href": "02_python/python-3.html#string-methods",
+    "title": "3. Functions, documentation, strings, files",
+    "section": "String Methods",
+    "text": "String Methods\nhttps://docs.python.org/3/library/stdtypes.html#text-sequence-type-str\nMethod functions attach to the string x.strip()\nCommon methods\nstrip()\nupper()\nlower()\nfind()\ncount()\nsplit()\njoin()\nreplace()\n\n# Samples\ns = \"this is a test\"\nprint(s.count(\"is\")) # 2\nprint(s.count(\"t\"))  # 3\nprint(s.upper()[:4]) # TEST\nprint(s.find(\" a \")) # 7\nprint(s.find(\"this\")) # 9\nprint(\"   x   \".strip()) # x\nprint(s.replace(\"this\", \"that\")) # that is a test\n\n2\n3\nTHIS\n7\n0\nx\nthat is a test\n\n\n\n\n\n\n\n\nCautionCode Challenge 3.2\n\n\n\nWrite a function called cleanup which takes a string as input and returns a “cleaned string” meaning:\n\nremove any ? , . or !\nstrip off the whitespace from the ends\nreturn text in lower case\n\nWrite code to call your function and test it\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\ndef cleanup(text: str) -&gt; str:\n    for ch in \"!?,.\":\n        if ch in text:\n            text = text.replace(ch, \"\")\n    return text.lower().strip()\n\ntext = \"  THis! Is. , a tEST? \"\ncleaned = cleanup(text)\nprint(cleaned)\n\nthis is  a test",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "2. Python review",
+      "3. Functions, documentation, strings, files"
+    ]
+  },
+  {
+    "objectID": "02_python/python-3.html#string-tokenization-and-parsing",
+    "href": "02_python/python-3.html#string-tokenization-and-parsing",
+    "title": "3. Functions, documentation, strings, files",
+    "section": "String Tokenization and Parsing",
+    "text": "String Tokenization and Parsing\n\nTokenization is the process of breaking up a string into words, phrases, or symbols.\n\nTokenize a sentence into words.\n\"mike is here\" becomes the iterable ['mike', 'is', 'here']\n\nParsing is the process of extracting meaning from a string.\n\nParse text to a numerical value or date.\nint('45') becomes 45\n\n\n\n# tokenize with split()\n# parse with int(), or float()\n\ntext = \"30 40 90 10\"\ntokens = text.split()\nnumbers = [int(t) for t in tokens]\ntotal = sum(numbers)\nprint(total)\n\n170\n\n\n\n# What you split on is called the delimiter:\ntext = \"name, age, phone, gpa\"\nitems = [ x.upper().strip() for x in text.split(',') ]\nprint(items)\n\n['NAME', 'AGE', 'PHONE', 'GPA']",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "2. Python review",
+      "3. Functions, documentation, strings, files"
+    ]
+  },
+  {
+    "objectID": "02_python/python-3.html#files-persistence",
+    "href": "02_python/python-3.html#files-persistence",
+    "title": "3. Functions, documentation, strings, files",
+    "section": "Files == Persistence",
+    "text": "Files == Persistence\n\nFiles add a Persistence Layer to our computing environment where we can store our data after the program completes.\nThink: Saving a game’s progress or saving your work!\nWhen our program Stores data, we open the file for writing.\nWhen our program Reads data, we open the file for reading.\nTo read or write a file we must first open it, which gives us a special variable called a file handle.\nWe then use the file handle to read or write from the file.\nThe read() function reads from the write() function writes to the file through the file handle.\n\n\nReading from a file\n\nfilename = \"data/sample.txt\"\nprint(\"=== All at once ===\")\nwith open(filename, 'r') as handle:\n    contents = handle.read()\n    print(contents)\n\nprint(\"=== A Line at a time ===\")\ni = 1\nwith open(filename, 'r') as handle:\n    for line in handle.readlines():\n        print(i, line.strip())\n        i += 1\n\n=== All at once ===\nThis\nIs\nA\nSample\n=== A Line at a time ===\n1 This\n2 Is\n3 A\n4 Sample\n\n\n\n\nWriting to a file\n\nfilename = \"data/demo.txt\"\nprint(\"=== Create file and write to it ===\")\nwith open(filename, \"w\") as f:\n    f.write(\"message!\\n\")\n\nprint(\"=== Append (add to end) of existing file ===\")\nwith open(filename, \"a\") as f:\n    f.write(\"message # 2!\\n\")\n\n=== Create file and write to it ===\n=== Append (add to end) of existing file ===\n\n\n\n%%bash\n# switch to bash interpreter\ncat data/demo.txt\n\nmessage!\nmessage # 2!\n\n\n\n\nHandling missing files\n\n# Try / Except to handle FileNotFound\ntry:\n    file = 'data/data.txt'\n    with open(file,'r') as f:\n        print( f.read() )\nexcept FileNotFoundError:\n    print(f\"{file} was not found!\")\n\ndata/data.txt was not found!",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "2. Python review",
+      "3. Functions, documentation, strings, files"
+    ]
+  },
+  {
+    "objectID": "02_python/python-3.html#json-and-python-dictionaries",
+    "href": "02_python/python-3.html#json-and-python-dictionaries",
+    "title": "3. Functions, documentation, strings, files",
+    "section": "JSON and Python Dictionaries",
+    "text": "JSON and Python Dictionaries\n\nJSON (JavaScript Object Notation) is a standard, human-readable data format. It’s a popular format for data on the web.\nJSON can be easily converted to lists of dictionaries using Python’s json module.\nTransferring a JSON string to Python is known as de-serializing.\nTransferring Python to a JSON string is known as serializing.\nThis is easy to do in Python but challenging to do in most other languages.\n\n\nSerialization\n\n# Serialize a python object as json\nimport json\ngrades = { 'CHE101' : [100, 80, 70], 'IST195' : [100, 80, 100] }\nwith open(\"data/grades.json\", \"w\") as f:\n    json.dump(grades, f, indent=4) # write grades to file as JSON\n\n\n%%bash\n# switch to bash interpreter\ncat data/grades.json\n\n{\n    \"CHE101\": [\n        100,\n        80,\n        70\n    ],\n    \"IST195\": [\n        100,\n        80,\n        100\n    ]\n}\n\n\n\n\nDeserialization\n\n# de-serialize some json\nfile = \"data/stocks.json\"\nwith open(file, \"r\") as f:\n    stocks = json.load(f)\n    \n# stocks is a python object\n# Deserialized from text!\nfor stock in stocks:\n    print(stock['symbol'])\n\nAAPL\nAMZN\nFB\nGOOG\nIBM\nMSFT\nNET\nNFLX\nTSLA\nTWTR\n\n\n\n\n\n\n\n\nCautionCode Challenge 3.3\n\n\n\nwrite a program to read in a string of students and gpas in one input statement like this:\nmike 3.4, noel 3.2, obby 3.5, peta 3.4\nand write out JSON like this:\n[\n    { \"name\" : \"mike\", \"gpa\" : 3.4 },\n    { \"name\" : \"noel\", \"gpa\" : 3.2 },\n    { \"name\" : \"obby\", \"gpa\" : 3.5 },\n    { \"name\" : \"peta\", \"gpa\" : 3.4 }\n]\nSuggested approach:\n\ninput text\nsplit on “,” from the text\nfor each student:\n\nsplit the student into name and gpa\nparse the gpa so its a float\nadd the name and gpa to the list as a dictionary\n\nwrite the list to students.json as JSON\n\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nimport json \ntext = input(\"Enter names and grades: \")\nstudents = []\nfor student in text.split(\",\"):\n    name, gpa = student.strip().split()\n    gpa = float(gpa)\n    students.append({ \"name\": name, \"gpa\": gpa })\nwith open (\"students.json\", \"w\") as f:\n    json.dump(students, f)",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "2. Python review",
+      "3. Functions, documentation, strings, files"
+    ]
+  },
+  {
+    "objectID": "02_python/python-1.html",
+    "href": "02_python/python-1.html",
+    "title": "1. Input, output, variables, types, conditionals",
     "section": "",
-    "text": "In this unit we will review some basics of Python programming. You will have covered the material here in IST 256.",
+    "text": "Identify the problem inputs (requirements)\nIdentify the problem outputs (results)\nWrite an algorithm to transform inputs to outputs.\nIf you don’t know how to do a step… research it!",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "2. Python review"
+      "2. Python review",
+      "1. Input, output, variables, types, conditionals"
     ]
   },
   {
-    "objectID": "02_python/index.html#tutorials",
-    "href": "02_python/index.html#tutorials",
-    "title": "2. Python review",
-    "section": "Tutorials",
-    "text": "Tutorials\n\nInput, output, variables, types, conditionals\nIterations, lists, dictionaries, comprehensions",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "2. Python review"
-    ]
-  },
-  {
-    "objectID": "02_python/index.html#lectures",
-    "href": "02_python/index.html#lectures",
-    "title": "2. Python review",
-    "section": "Lectures",
-    "text": "Lectures\n\nWednesday, January 28, 2026\nOverview of assignment 1. Introduction to Python: input, output, variables, types, conditionals.",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "2. Python review"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/index.html",
-    "href": "01_cli_conda/index.html",
-    "title": "1. Command line interface, Environments, and Git/GitHub",
+    "objectID": "02_python/python-1.html#input-process-output",
+    "href": "02_python/python-1.html#input-process-output",
+    "title": "1. Input, output, variables, types, conditionals",
     "section": "",
-    "text": "In this unit, you will learn how to use the bash shell in a command line interface (CLI), programming environments, and how to use conda to manage environments and install packages. You will also learn the difference between Git and GitHub, and how to use Git on the command line.",
+    "text": "Identify the problem inputs (requirements)\nIdentify the problem outputs (results)\nWrite an algorithm to transform inputs to outputs.\nIf you don’t know how to do a step… research it!",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub"
+      "2. Python review",
+      "1. Input, output, variables, types, conditionals"
     ]
   },
   {
-    "objectID": "01_cli_conda/index.html#tutorials",
-    "href": "01_cli_conda/index.html#tutorials",
-    "title": "1. Command line interface, Environments, and Git/GitHub",
-    "section": "Tutorials",
-    "text": "Tutorials\n\nIntroduction to CLI\nEnvironments and Conda\nGit and GitHub",
+    "objectID": "02_python/python-1.html#python-input-and-output",
+    "href": "02_python/python-1.html#python-input-and-output",
+    "title": "1. Input, output, variables, types, conditionals",
+    "section": "Python input and output",
+    "text": "Python input and output\nprint() does output\ninput() does input, returns input so you must assign it to a variable\n\nx = input(\"Enter something: \")\n\n\nprint(x)\n\n\n\n\n\n\n\nCautionCode Challenge 1.1\n\n\n\nWrite a program to input your first name and last name then output your last name, first name.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nfirst = input(\"Enter your first name: \")\nlast = input(\"Enter your last name: \")\nprint(last, \",\", first)\n# could also do (see next section):\nprint(f\"{last}, {first}\")",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub"
+      "2. Python review",
+      "1. Input, output, variables, types, conditionals"
     ]
   },
   {
-    "objectID": "01_cli_conda/index.html#lecture",
-    "href": "01_cli_conda/index.html#lecture",
-    "title": "1. Command line interface, Environments, and Git/GitHub",
-    "section": "Lecture",
-    "text": "Lecture\n\nWednesday, January 14, 2026\nIntroduction to command line interface (CLI)\n\n\n\n\nWednesday, January 21, 2026\nContiuation of CLI: bash variables, scripts, and environments. Introduction to Conda.\n\n\n\n\nMonday, January 26, 2026\nIntroduction to Git and GitHub; how to use GitHub Classroom.",
+    "objectID": "02_python/python-1.html#f-strings",
+    "href": "02_python/python-1.html#f-strings",
+    "title": "1. Input, output, variables, types, conditionals",
+    "section": "F-Strings",
+    "text": "F-Strings\n\nF-Strings are Python’s answer to string interpolation.\nThis replaces the variable name with its value within a string.\nCalled an F-string because the f tells Python to interpolate the string.\n\n\nname = 'George'\nprint(\"{name} was curious.\")\nprint(f\"{name} was curious.\")\n\n{name} was curious.\nGeorge was curious.\n\n\n\n\n\n\n\n\nNoteCheck Yourself 1\n\n\n\nWhich is an example of a properly used string literal?\nA. print(welcome)\nB. print(\"welcome\")\nC. print \"welcome\"\nD. print welcome\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\nB\nNote: In Python 2.7 and earlier the correct answer would be C. The syntax for the print function was changed in Python 3. Python 2 is no longer supported.",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub"
+      "2. Python review",
+      "1. Input, output, variables, types, conditionals"
     ]
   },
   {
-    "objectID": "01_cli_conda/conda.html",
-    "href": "01_cli_conda/conda.html",
-    "title": "Bash variables, environments, and conda",
-    "section": "",
-    "text": "Note: This task requires that you have conda installed already. Follow the instructions here to do that if you have not done so already.",
+    "objectID": "02_python/python-1.html#variables",
+    "href": "02_python/python-1.html#variables",
+    "title": "1. Input, output, variables, types, conditionals",
+    "section": "Variables",
+    "text": "Variables\n\nVariables are named areas of computer memory for storing data.\nThe name can be anything but should make symbolic sense to the programmer.\nWe write to the variable’s memory location with the assignment statement (=)\nWe read from the variable by calling its name.\nVariable names must begin with a letter or _ and must only contain letters, numbers or _.\n\n\nVariables are of a Specific Type\n\n\n\n\nType\n\n\nPurpose\n\n\nExamples\n\n\n\n\n\n\nint\n\n\nNumeric type for integers only\n\n\n45, -10\n\n\n\n\nfloat\n\n\nNumeric type floating point numbers\n\n\n45, -10\n\n\n\n\nbool\n\n\nTrue or False values\n\n\nTrue, False\n\n\n\n\nstr\n\n\nCharacters and text\n\n\n“A”, ‘Mike’\n\n\n\n\n\n\nType Detection and Conversion\n\n\n\n\nPython Function\n\n\nWhat It Does\n\n\nExample of Use\n\n\n\n\n\n\ntype(n)\n\n\nReturns the current type of n\n\n\ntype(13) == int\n\n\n\n\nint(n)\n\n\nConverts n to type int\n\n\nint(“45”) == 45\n\n\n\n\nfloat(n)\n\n\nConverts n to type float\n\n\nfloat(45) == 45.0\n\n\n\n\nstr(n)\n\n\nConverts n to type str\n\n\nstr(4.0) == ‘4.0’",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
+      "2. Python review",
+      "1. Input, output, variables, types, conditionals"
     ]
   },
   {
-    "objectID": "01_cli_conda/conda.html#the-export-command",
-    "href": "01_cli_conda/conda.html#the-export-command",
-    "title": "Bash variables, environments, and conda",
-    "section": "The export Command",
-    "text": "The export Command\nIn Bash, variables normally exist only in the shell where they were defined.\nThe export command marks a variable so that it is passed to child processes (programs or scripts started from the current shell).\n\nExample:\nMYVAR=\"Hello\"\nbash -c 'echo $MYVAR'\n# (No output — MYVAR was not exported)\n\nexport MYVAR=\"Hello\"\nbash -c 'echo $MYVAR'\n# Output: Hello\nIn the first case, the new Bash process doesn’t know about MYVAR.\nIn the second case, export makes it available to the child process.",
+    "objectID": "02_python/python-1.html#programmatic-expressions",
+    "href": "02_python/python-1.html#programmatic-expressions",
+    "title": "1. Input, output, variables, types, conditionals",
+    "section": "Programmatic Expressions",
+    "text": "Programmatic Expressions\nProgrammatic Expressions contain operators and operands. They evaluate to a value, preserving type:\n\nprint(2 + 2)\nprint(2.0 + 2)\nprint(\"sh\" + 'ip')\nprint('hi' + 2) # error\n\n4\n4.0\nship\n\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[2], line 4\n      2 print(2.0 + 2)\n      3 print(\"sh\" + 'ip')\n----&gt; 4 print('hi' + 2) # error\n\nTypeError: can only concatenate str (not \"int\") to str",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
+      "2. Python review",
+      "1. Input, output, variables, types, conditionals"
     ]
   },
   {
-    "objectID": "01_cli_conda/conda.html#the-source-command",
-    "href": "01_cli_conda/conda.html#the-source-command",
-    "title": "Bash variables, environments, and conda",
-    "section": "The source Command",
-    "text": "The source Command\nWhen you run a Bash script normally, it executes in a subshell (a separate process).\nAny variables set inside that script will only exist in that subshell and disappear when the script finishes.\nThe source command runs a script in the current shell.\nThis means variables or changes made by the script persist after it finishes.\n\nExample: Difference between source and export\ntest.sh:\nMYVAR=\"Hello\"\nCase 1 — Running normally:\nbash test.sh\necho $MYVAR\n# (No output — MYVAR is not set in current shell)\nCase 2 — Using source:\nsource test.sh\necho $MYVAR\n# Output: Hello\nCase 3 — Using export in a script:\n# test_export.sh\nexport MYVAR=\"Hello\"\nbash test_export.sh\necho $MYVAR\n# (No output — export makes it available to child processes, not the parent shell)",
+    "objectID": "02_python/python-1.html#arithmetic-operators",
+    "href": "02_python/python-1.html#arithmetic-operators",
+    "title": "1. Input, output, variables, types, conditionals",
+    "section": "Arithmetic Operators",
+    "text": "Arithmetic Operators\n\n\n\n\nOperator\n\n\nWhat it Does\n\n\nExample of Use\n\n\n\n\n\n\n+\n\n\nAddition or string concenation\n\n\n3 + 4 == 7\n\n\n\n\n-\n\n\nSubtraction\n\n\n4 - 3 == 1\n\n\n\n\n*\n\n\nMultiplication\n\n\n3 * 4 == 12\n\n\n\n\n/\n\n\nDivision\n\n\n4 / 3 == 1.33333\n\n\n\n\n//\n\n\nIntger division (quotent)\n\n\n13 // 3 == 4\n\n\n\n\n%\n\n\nModulo (remainder)\n\n\n13 % 3 == 1\n\n\n\n\n( )\n\n\nForce an order of operations\n\n\n2 * (3 + 4) == 14\n\n\n\n\n\n\n\n\n\n\nCautionCode Challenge 1.2: Program to divide up the check among diners in a party\n\n\n\nWrite a program that takes as input the amount of a restaurant check, tip %, and number of diners.\nThe program should output the total amount with tip, and the amount each diner owes.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nbill = float(input(\"Enter the total amount of the bill $\"))\ntip = int(input(\"What % would you like to tip, eg. 20 == 20%? \"))\ntip_pct = tip/100\ndiners = int(input(\"How many diners? \"))\ntotal = bill + bill*tip_pct\nshare = total / diners\nprint(\"Total Bill, with Tip: \", total)\nprint(f\"Even share among {diners} diners is {share:.2f}\")\n\n\n\n\n\n\n\n\n\n\n\n\nNoteCheck Yourself 2\n\n\n\nWhat is the value of str(314) ?\nA. 314\nB. \"314\"\nC. int\nD. '34.0'\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\nB\n\n\n\n\n\n\n\n\n\n\n\nNoteCheck Yourself 3\n\n\n\nWhat is the value of type(314.0) ?\nA. 314\nB. float\nC. int\nD. '314.0'\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\nB\n\n\n\n\n\n\n\n\n\n\n\nNoteCheck Yourself 4\n\n\n\nWhat is the output of the following python code?\n\na = 10\nb = 2\nc = 1 + (a/b)\nprint(c)\n\nA. 6\nB. 5.5\nC. 6.0\nD. 5\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\nC",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
+      "2. Python review",
+      "1. Input, output, variables, types, conditionals"
     ]
   },
   {
-    "objectID": "01_cli_conda/conda.html#how-environments-work",
-    "href": "01_cli_conda/conda.html#how-environments-work",
-    "title": "Bash variables, environments, and conda",
-    "section": "How environments work",
-    "text": "How environments work\n\nEach shell session has its own environment.\nWhen you start a new process (run a command or script), it inherits a copy of your current environment.\nVariables you define with export become part of the environment and are visible to child processes.\nVariables defined without export are shell variables — they exist only in the current shell and are not passed to child processes.\n\nYou can view all your current environment variables by running:\nenv",
+    "objectID": "02_python/python-1.html#program-flow-control-with-if",
+    "href": "02_python/python-1.html#program-flow-control-with-if",
+    "title": "1. Input, output, variables, types, conditionals",
+    "section": "Program Flow Control with IF",
+    "text": "Program Flow Control with IF\n\nThe IF statement is used to branch your code based on a Boolean expression.\n\n\nif boolean-expression:\n    statements-when-true\nelse:\n    statemrnts-when-false",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
+      "2. Python review",
+      "1. Input, output, variables, types, conditionals"
     ]
   },
   {
-    "objectID": "01_cli_conda/conda.html#the-path-variable",
-    "href": "01_cli_conda/conda.html#the-path-variable",
-    "title": "Bash variables, environments, and conda",
-    "section": "The PATH Variable",
-    "text": "The PATH Variable\nThe PATH variable controls where Bash searches for executables. It points to a : separated list of absolute paths. See what yours is set to by running:\necho $PATH\nWhen you execute any program in the shell, bash cycles through the list of paths specified in PATH until it finds an executable file that matches the name.",
+    "objectID": "02_python/python-1.html#pythons-relational-operators",
+    "href": "02_python/python-1.html#pythons-relational-operators",
+    "title": "1. Input, output, variables, types, conditionals",
+    "section": "Python’s Relational Operators",
+    "text": "Python’s Relational Operators\n\n\n\n\nOperator\n\n\nWhat it does\n\n\nExamples\n\n\n\n\n\n\n &gt; \n\n\nGreater than\n\n\n4&gt;2 (True)\n\n\n\n\n &lt; \n\n\nLess than\n\n\n4&lt;2 (False)\n\n\n\n\n == \n\n\nEqual To\n\n\n4==2 (False)\n\n\n\n\n != \n\n\nNot Equal To\n\n\n4!=2 (True)\n\n\n\n\n &gt;= \n\n\nGreater Than or Equal To\n\n\n4&gt;=2 (True)\n\n\n\n &lt;= \n\n\nLess Than or Equal To\n\n\n4&lt;=2 (True)\n\n\n\n\nExpressions consisting of relational operators evaluate to a Boolean value\n\n\n\n\n\n\nCautionCode Challenge 1.3: Presssure sensor that determines whether to open a door\n\n\n\nWrite code that simulates a pressure sensor that opens a door when the pressure is larger than 10; otherwise, it closes the door.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nreading = float(input(\"Sensor Reading: \"))\n\nif reading &gt; 10:\n    status = \"Opening\"\nelse:\n    status = \"Closing\"\n\nprint(f\"{status} the door\")\n\n\n\n\n\n\n\n\n\n\n\n\nNoteCheck Yourself 5: Relational operators\n\n\n\nOn Which line number is the Boolean expression True?\n\nx = 15      # 1\ny = 20      # 2\nz = 2       # 3\nx &gt; y       # 4\nz*x &lt;= y    # 5\ny &gt;= x-z    # 6\nz*10 == x   # 7\n\nA. 4\nB. 5\nC. 6\nD. 7\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\nC",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
+      "2. Python review",
+      "1. Input, output, variables, types, conditionals"
     ]
   },
   {
-    "objectID": "01_cli_conda/conda.html#create-environment",
-    "href": "01_cli_conda/conda.html#create-environment",
-    "title": "Bash variables, environments, and conda",
-    "section": "Create Environment",
-    "text": "Create Environment\nconda create --name py311 python=3.11\nThis creates a new environment called py311 with Python version 3.11 installed.",
+    "objectID": "02_python/python-1.html#pythons-logical-operators",
+    "href": "02_python/python-1.html#pythons-logical-operators",
+    "title": "1. Input, output, variables, types, conditionals",
+    "section": "Python’s Logical Operators",
+    "text": "Python’s Logical Operators\n\n\n\n\nOperator\n\n\nWhat it does\n\n\nExamples\n\n\n\n\n\n\n and \n\n\nTrue only when both are True\n\n\n4&gt;2 and 4&lt;5 (True)\n\n\n\n\n or \n\n\nFalse only when both are False\n\n\n4&lt;2 or 4==4 (True)\n\n\n\n\n not \n\n\nNegation(Opposite)\n\n\nnot 4==2 (True)\n\n\n\n\n in \n\n\nSet operator\n\n\n4 in [2,4,7] (True)\n\n\n\n\n\n\n\n\n\n\nNoteCheck Yourself 6: Logical Operators\n\n\n\nIn the following code, which line evaluates to True?\n\nraining = False              # 1\nsnowing = True               # 2\nage = 45                     # 3\nage &lt; 18 and raining         # 4\nage &gt;= 18 and not snowing    # 5\nnot snowing or not raining   # 6\nage == 45 and not snowing    # 7\n\nA. 4\nB. 5\nC. 6\nD. 7\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\nC",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
+      "2. Python review",
+      "1. Input, output, variables, types, conditionals"
     ]
   },
   {
-    "objectID": "01_cli_conda/conda.html#activatedeactivate-environments",
-    "href": "01_cli_conda/conda.html#activatedeactivate-environments",
-    "title": "Bash variables, environments, and conda",
-    "section": "Activate/Deactivate Environments",
-    "text": "Activate/Deactivate Environments\nconda activate py311\nActivating an environment changes your shell’s environment variables (especially PATH) so that commands use the software installed in that environment. You’ll see the environment name in parentheses at the start of your shell prompt.\nconda deactivate\nDeactivating an environment restores your shell to its previous state, removing the environment-specific entries from PATH and other variables.",
+    "objectID": "02_python/python-1.html#multiple-decisions-if-ladder",
+    "href": "02_python/python-1.html#multiple-decisions-if-ladder",
+    "title": "1. Input, output, variables, types, conditionals",
+    "section": "Multiple Decisions: IF ladder",
+    "text": "Multiple Decisions: IF ladder\nUse elif to make more than one decision in your if statement. Only one code block within the ladder is executed.\n\nif boolean-expression1:\n    statements-when-exp1-true\nelif boolean-expression2:\n    statements-when-exp2-true\nelif boolean-expression3:\n    statements-when-exp3-true\nelse:\n    statements-none-are-true\n\n\n\n#Elif versus multiple ifs...\n# One decision or multiple decisions. \n\nx = int(input(\"enter an integer\"))\n\n# one decision\nif x&gt;10:\n    print(\"A:bigger than 10\")\nelif x&gt;20:\n    print(\"A:bigger than 20\")    \n\n    # Multiple decisions\nif x&gt;10:\n    print(\"B:bigger than 10\")\nif x&gt;20:\n    print(\"B:bigger than 20\")\n\n\n\n\n\n\n\nNoteCheck Yourself 7: IF statement\n\n\n\nAssuming values x = 25 and y = 6, what will be printed when the following code is run?\n\nif x &gt; 20:\n    if y == 4:\n        print(\"One\")\n    elif y &gt; 4:\n        print(\"Two\")\n    else:\n        print(\"Three\")\nelse:\n    print(\"Four\")\n\nA. One\nB. Two\nC. Three\nD. Four\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\nB\n\n\n\n\n\n\n\n\n\n\n\nCautionCode Challenge 1.4: Number to letter grade\n\n\n\n\nLetter grades in a college class are computed as follows:\n\n95 and above is an A\n75 and above, but below 95 is a B\n50 and above, but below 75 is a C\nbelow 50 is F\n\nWrite a program to input the number grade and calculate the letter grade\nThe program should also print an error message if the provided number grade is out of range (i.e., &gt; 120 or &lt; 0).\n\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nnumber_grade = int(input(\"Enter your numerical grade: 0 - 120\"))\nletter_grade = \"unknown\"\n\nif number_grade &gt;= 0 and number_grade &lt;= 120:\n\n    if number_grade &gt;= 95:\n        letter_grade = \"A\"\n    elif number_grade &gt;= 75:\n        letter_grade = \"B\"\n    elif number_grade &gt;= 50:\n        letter_grade = \"C\"\n    else:\n        letter_grade = \"F\"\n\n    print(f\"For {number_grade} points the letter grade is {letter_grade}\")\n\nelse:\n    print(f\"Number grade of {number_grade} is out of range!\")",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/conda.html#install-packages",
-    "href": "01_cli_conda/conda.html#install-packages",
-    "title": "Bash variables, environments, and conda",
-    "section": "Install Packages",
-    "text": "Install Packages\nconda install numpy\nInstalls the package numpy into the currently active environment.",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/conda.html#channels",
-    "href": "01_cli_conda/conda.html#channels",
-    "title": "Bash variables, environments, and conda",
-    "section": "Channels",
-    "text": "Channels\nA channel is a location (usually online) where Conda looks for packages. When you install or search for a package, Conda queries one or more channels.\n\nDefault channel: If you installed Conda via Miniforge, the default channel is conda-forge, a large community-maintained repository.\nSpecialized channels: Some fields use dedicated channels, such as bioconda for bioinformatics software.\n\nTo install from a specific channel:\nconda install -c bioconda package_name\nHere, -c bioconda tells Conda to search the bioconda channel for the package.",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/conda.html#challenge-questions",
-    "href": "01_cli_conda/conda.html#challenge-questions",
-    "title": "Bash variables, environments, and conda",
-    "section": "Challenge questions",
-    "text": "Challenge questions\n\nCreate a conda environment called conda-test.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\nconda create -n conda-test\n\n\n\nActivate your conda-test environment and install numpy into it.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\nconda activate conda-test\nconda install numpy\n\n\n\nPrint your $PATH; you should see that the first couple of paths point to a conda directory with the name of your environment (conda-test) in it.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\necho $PATH\n\n\n\nCreate a python script called check_versions.py that contains the following code:\n#!/usr/bin/env python\nimport platform\nimport numpy\nprint(\"Python version: \", platform.python_version())\nnpvers = numpy.__version__\nprint(\"Numpy version: \", npvers)\nChange the permissions on check_versions.py to make it executable.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nRun:\nnano check_versions.py\nType/paste in the code. Then type Ctrl+O to save, then Ctrl+X to exit.\nRun:\nchmod +x check_versions.py\n\n\n\n\nSee what version of Python and numpy you installed by running check_versions.py script:\n./check_versions.py\nThis will print out the current time followed by the versions of Python and numpy you are using.\nSuppose that you need to use an older version of Python and numpy for a project. Create another conda environment called conda-test2 and install Python version 3.9 and numpy 1.24.1 into it.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\nconda create -n conda-test2 python=3.9 numpy=1.24.1\n\n\n\nActivate conda-test2 and run check versions to verify that you have the desired versions.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\nconda activate conda-test2\n./check_versions.py\n\n\n\nCreate an environment called biotest and install gofasta in it using the bioconda channel. (You can specify the channel for conda create and/or conda install using the -c flag, just as we did the in search command above.)\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\nconda create -n biotest -c bioconda gofasta\n\n\n\nNow activate the bioconda channel and test that gofasta is installed by running:\nconda activate biotest\ngofasta --help\nYou should get a help message giving information about gofasta.",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/conda.html#removing-environments",
-    "href": "01_cli_conda/conda.html#removing-environments",
-    "title": "Bash variables, environments, and conda",
-    "section": "Removing environments",
-    "text": "Removing environments\nLets remove some of the environments we created to save space. You can see all the environments you have installed by running:\nconda info --envs\nLet’s uninstall the conda-test environment. First, if you are not in the base environment, go to it by running conda deactivate. This will take you to your last active environment. Keep deactivating until you see (base) on the left of the prompt. Alternatively, just type conda activate (with no environment name) to go directly to the base environment. Now let’s remove the conda-test environment by running:\nconda remove --all -n conda-test\nNow run conda info --envs again to check that the environment is installed. Repeat for any other environments you’d like to remove.",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/conda.html#bash-customization",
-    "href": "01_cli_conda/conda.html#bash-customization",
-    "title": "Bash variables, environments, and conda",
-    "section": "Bash Customization",
-    "text": "Bash Customization\nCustomizing your Bash shell can improve your workflow and make frequently used commands easier to run.",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/conda.html#example-enabling-color-output-in-ls",
-    "href": "01_cli_conda/conda.html#example-enabling-color-output-in-ls",
-    "title": "Bash variables, environments, and conda",
-    "section": "Example: Enabling Color Output in ls",
-    "text": "Example: Enabling Color Output in ls\nOn many systems, the output of ls returns text that is the same color, regardless of if it’s a file, folder, or something else. However, if you run:\nls -G\nThen the output text will be colored depending on what item is; e.g., directory names will be in blue and files in white.",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/conda.html#aliases",
-    "href": "01_cli_conda/conda.html#aliases",
-    "title": "Bash variables, environments, and conda",
-    "section": "Aliases",
-    "text": "Aliases\nAliases map a short command to a longer one. For example, if we always want the output of ls to be colored, we can alias ls -G with ls with:\nalias ls=\"ls -hG\"",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/conda.html#customization-with-.bash_profile-and-.bashrc",
-    "href": "01_cli_conda/conda.html#customization-with-.bash_profile-and-.bashrc",
-    "title": "Bash variables, environments, and conda",
-    "section": "Customization with .bash_profile and .bashrc",
-    "text": "Customization with .bash_profile and .bashrc\nYou may find an alias like the above so useful that you want it to run everytime you open a terminal. There are files that are run automatically when Bash starts that allow you to do just that. They are:\n\n~/.bash_profile\nRuns for login shells. Good for commands that should only run once when you log in (e.g., setting environment variables).\n~/.bashrc\nRuns for interactive non-login shells. Good for commands you want every interactive shell to run (e.g., aliases, functions).\n\nOn many systems, .bash_profile will call .bashrc so settings apply in both contexts.\n\nTip: If unsure where to put something, put it in .bashrc and make sure .bash_profile sources .bashrc.\n\n\n\n\n\n\n\nNoteUsing Zsh?\n\n\n\nIf your default shell is zsh (common on macOS Catalina and later), the equivalent files are: - ~/.zprofile – similar to .bash_profile - ~/.zshrc – similar to .bashrc\nConfiguration changes should go into ~/.zshrc for most use cases.\n\n\nYou can put any bash command you like in these scripts to further customize your shell. For example, you can configure your shell so that pressing the up arrow searches backward through your command history for commands starting with the text you have typed, and the down arrow searches forward with:\n\nfor bash (add this to your ~/.bashrc):\nbind '\"\\e[A\": history-search-backward'\nbind '\"\\e[B\": history-search-forward'\nfor Zsh (add this to your ~/.zshrc):\nbindkey \"^[[A\" history-search-backward\nbindkey \"^[[B\" history-search-forward",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/conda.html#redirection-and-append",
-    "href": "01_cli_conda/conda.html#redirection-and-append",
-    "title": "Bash variables, environments, and conda",
-    "section": "Redirection and Append",
-    "text": "Redirection and Append\nRedirect output to a file:\necho \"Hello\" &gt; file.txt\nOverwrites file.txt with “Hello”.\nAppend output to a file:\necho \"World\" &gt;&gt; file.txt\nAdds “World” to the end of file.txt.\n\n\n\n\n\n\nCautionChallenge:\n\n\n\nCreate a file called input.txt that contains the text “To be, or not to be,” on the first line. Then add “that is the question.” on the second line.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\necho \"To be, or not to be,\" &gt; input.txt\necho \"that is the question.\" &gt;&gt; input.txt",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/conda.html#text-manipulation-with-sed",
-    "href": "01_cli_conda/conda.html#text-manipulation-with-sed",
-    "title": "Bash variables, environments, and conda",
-    "section": "Text Manipulation with sed",
-    "text": "Text Manipulation with sed\nIt frequently happens that you need to search for and replace text in a file. The program sed is used for that. For example, let’s modify the text in the input.txt you created above, and replace the word “be” with “use AI”:\nsed 's/ be/ use AI/g' input.txt\nWe can write results to a new file:\nsed 's/ be/ use AI/g' input.txt &gt; output.txt",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/conda.html#file-permissions-and-ownership",
-    "href": "01_cli_conda/conda.html#file-permissions-and-ownership",
-    "title": "Bash variables, environments, and conda",
-    "section": "File Permissions and Ownership",
-    "text": "File Permissions and Ownership\n\nViewing Permissions\nls -l\nExample output:\n-rw-r--r--  1 user  staff   1234 Aug 14 12:00 file.txt\n\nFirst character: file type (- = file, d = directory)\nNext three: owner permissions\nNext three: group permissions\nNext three: others’ permissions\n\n\n\nChanging Permissions\nchmod u+x script.sh   # add execute permission for owner\nchmod u-w file.txt    # remove write permission for owner\n\n\nChanging Ownership\nsudo chown newuser file.txt",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/conda.html#conditionals",
-    "href": "01_cli_conda/conda.html#conditionals",
-    "title": "Bash variables, environments, and conda",
-    "section": "Conditionals",
-    "text": "Conditionals\nIn Bash, as with any language, conditionals allow you to execute commands only if certain conditions are true. They help control the flow of your script, enabling decisions based on system state, user input, or computation results.\nThe basic syntax for an if statement in Bash is:\nif [ CONDITION ]; then\n  # commands to run if CONDITION is true\nelif [ OTHER_CONDITION ]; then\n  # commands to run if OTHER_CONDITION is true\nelse\n  # commands to run if no conditions are true\nfi\n\nKey points:\n\nThe square brackets [ ] are a synonym for the test command.\nYou must have spaces after [ and before ].\nCommon tests:\n\n-f file — file exists and is a regular file\n-d directory — directory exists\nstring1 = string2 — strings are equal\nn1 -eq n2 — numbers are equal\n! CONDITION — logical NOT (true if CONDITION is false)\n\n\nFor example, to check if a file exists:\nif [ -f \"file.txt\" ]; then\n  echo \"File exists\"\nelse\n  echo \"File does not exist\"\nfi",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Bash variables, environments, and `conda`"
-    ]
-  },
-  {
-    "objectID": "00_intro/index.html",
-    "href": "00_intro/index.html",
-    "title": "Introduction and computer setup",
-    "section": "",
-    "text": "In IST356 we teach you programming for data analytics using the tools and techiques used by those in the industry. As such, you will learn how to setup and configure development environments, use git and github and learn to systematically test your code.\nThis is unlike IST256 where the emphasis is on the programming basics and the motivations behind learning computational thinking.\n\n\n\n\n\n\n\n\n\nIST356\nIST256\n\n\n\n\nProgramming Environment\nInstall vscode + git + python on your computer\nWeb-hosted jupyterhub\n\n\nAssignment Submissions\nStudent learn and use git / github\nBuilt-in assignment submission\n\n\nCoursework, slides, examples\nYou clone / diff the prof repo\nAutodiff and merge at login\n\n\n\nIn this course you’ll do it the real way, nothing is hidden / abstracted away for you.\n\n\nHere’s what you’ll need to install on your computer. Please read this entire section prior to installing. :-)\n\nVisual Studio Code: https://code.visualstudio.com/Download\nThis is a free editor with testing and debugging capabilities. As you install you can accept all defaults, except the last one: DO NOT launch the application when complete! If you do, simply close it.\nGit Source Code Manager: https://git-scm.com/download/\nAs you set it up, you will be asked several questions, for which the default selection is fine. EXCEPTION: choose Visual Studio Code as the default editor.\n\n\n\n\n\n\nWarning\n\n\n\nMac users: you’ll see multiple options for downloading Git Source Code Manager. I recommend using the Xcode version. Clicking on that link will redirect you to the Apple store; from there you will download and install Xcode.\n\n\nMiniconda Do not install this yet! You will install this using the terminal in VSCode after VSCode and Git are installed and setup; see instructions below.\n\n\n\n\nBeing an SU student comes with some perks. One of them is a Github for Education account and accompanying “backpack” of goodies. To use this benefit, your github account must be associated with your @syr.edu email.\n\n\nAssociate your current account with SU, by adding your email:\n\nGo to to https://github.com and click Sign In\nOnce you have logged in, go to: https://github.com/settings/emails\n\nAdd and verify your SU email address.\n\n\n\n\nYou’ll need to create an account:\n\nGo to to https://github.com and click Sign In\nFollow the on-screen instructions to sign up for an account.\nMake sure to use your @syr.edu email for the account.\nAdd your personal email when you’re at it so you don’t lose Github access after you graduate!\n\n\n\n\n\nGo to the Github Backpack site: https://education.github.com/pack\nand click Sign Up For Student Developer Pack\nOnce your account is verified, you will have backpack access.\nYou’ll know its active when you check your billing plan: https://github.com/settings/billing/summary\nyou should see a credit here.\nOnce you have backpack access, you can enable Github Copilot AI. https://github.com/settings/copilot\n\n\n\n\n\nThe last step is to configure VS Code for Python debugging. Provided everything else is in order, this should be straightforward.\n\nOpen Visual studio code. You will be asked to configure it.\n\nSet up GitHub Copilot. To do so, you’ll need to sign into GitHub by clicking “Continue with GitHub”. After you do, you may be dropped into a “Welcome” tab in VS Code. If so, click the “Walkthrough: Setup VS Code” tab to continue set up.\nPick a theme: Light, Dark, etc…\nAdd the following Extensions: Python, Jupyter.\nWindows users only: we’ll occasionally be using bash in the terminal mode of VSCode. Mac and Linux users have bash natively installed in the operating system. Windows users will have gotten a copy of bash when they downloaded and installed Git SCM. However, you need to tell VSCode to use bash in the Terminal rather than Windows PowerShell. To do that:\n\nClick “Unlock productivity with the Command Palette” in the Walthrough tab, then “Open Command Palette”. Alternatively, if you don’t see that option, open the Command Palette by typing CTRL + SHIFT + P. (Mac users type COMMAND + SHIFT + P).\nType “Select Default Profile” then hit ENTER.\nSelect “Git Bash” from the drop-down options.\nCheck that it worked by opening a new terminal: in the file menu, click “Terminal” -&gt; “New Terminal”. You should see “bash” in the upper right of the terminal screen.\n\nClose the welcome Tab but keep VS Code open.\n\n\n\n\n\n\n\n\nOpen a terminal in VS Code by clicking “Terminal” -&gt; “New Terminal”.\nIn the terminal window, type:\ncd\nThen hit ENTER.\nFollow the instructions Quickstart install instructions on the Miniconda website. For WSL, select “Linux”.\n\n\n\n\n\nDownload the Miniconda installer for Windows. Click the Downlad button under “Miniconda Installers”, not the one under “Distribution Installers”.\nRun the installer by double-clicking on the downloaded file and follow the steps below.\n\nClick “Run”.\nClick on “Next”.\nClick on “I agree”.\nSelect “Just me” and click on “Next”.\nClick “Next” to install to the default destination folder.\n\n\n\n\n\n\nWarning\n\n\n\nIf you had tried to install miniconda previously, you may get an error that says “Directory … is not empty, please choose a different location.” Do not choose a different location. Instead, click “OK”, then rename the previous miniconda3 directory. You can do that by going to VS Code, opening a new terminal window (click “Terminal” -&gt; “New Terminal”), and entering the following (hit ENTER after each line):\ncd\nmv miniconda3 miniconda3-old\nThen go back to the Miniconda installer and click “Next”.\n\n\nCheck the option for “Add Anaconda to my PATH environment variable” and check the option for “Register Anaconda as my default Python 3.x”.\n\nNote that even though the installation is for Miniconda, the installer uses the word Anaconda in these options.\nYou will also see a message in red text that selecting “Add Anaconda to my PATH environment variable” is not recommended; continue with this selection to make using conda easier in Git Bash. If you have questions or concerns, please contact your instructor.\n\nClick on “Install”.\nWhen the install is complete, Click on “Next”.\nClick on “Finish”.\n\nOpen a new terminal window in VS Code by clicking “Terminal” -&gt; “New Terminal”.\nType the following command to initialize conda:\nconda init bash\nOpen a new terminal window in VS Code by either hitting the “+” key next to “bash” in the upper left of the terminal window, or by cliking “Terminal” -&gt; “New Terminal”. If conda installed successfullly, you should see (base) appear next to or above your command prompt.\n\n\n\n\n\n\nIn the bash terminal window in VS Code (make sure it says (base) to the left of or above the prompt), type:\nconda create -n ist356 -c conda-forge -y python=3.11 ipykernel\nThen hit ENTER.\n\n\n\n\n\n\nWarning\n\n\n\nThe first time you run conda, you may get an error about Terms of Service not being accepted for certain channels. Accept the TOS for those channels by running the commands listed. For example, if one of the channels is https://repo.anaconda.com/pkgs/main, copy and paste the command into the terminal:\nconda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main\nFollowed by hitting ENTER (to execute a command in the terminal, you hit ENTER after typing/pasting it in). You’ll need to do this for each of the channels listed.\nOnce you have accepted the TOS for all the channels, run the conda create command above again.\n\n\nCheck to ensure your environment works:\n\nClick File -&gt; “New File…”\nIn the drop down menu, select “Jupyter Notebook”.\nClick “Select Kernel” on the right then type “ist356”.\nIn the first cell, type:\nprint(\"hello world!\")\nHit the run button on the left or type SHIFT + ENTER to execute the code. You should get back “hello world!”.\nClose the ipynb file (you may optionally save it; if you do, be sure to call it something other then “Untitled.ipynb”, maybe “hello.ipynb” instead).",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "Introduction and computer setup"
-    ]
-  },
-  {
-    "objectID": "00_intro/index.html#step-1-software-installs",
-    "href": "00_intro/index.html#step-1-software-installs",
-    "title": "Introduction and computer setup",
-    "section": "",
-    "text": "Here’s what you’ll need to install on your computer. Please read this entire section prior to installing. :-)\n\nVisual Studio Code: https://code.visualstudio.com/Download\nThis is a free editor with testing and debugging capabilities. As you install you can accept all defaults, except the last one: DO NOT launch the application when complete! If you do, simply close it.\nGit Source Code Manager: https://git-scm.com/download/\nAs you set it up, you will be asked several questions, for which the default selection is fine. EXCEPTION: choose Visual Studio Code as the default editor.\n\n\n\n\n\n\nWarning\n\n\n\nMac users: you’ll see multiple options for downloading Git Source Code Manager. I recommend using the Xcode version. Clicking on that link will redirect you to the Apple store; from there you will download and install Xcode.\n\n\nMiniconda Do not install this yet! You will install this using the terminal in VSCode after VSCode and Git are installed and setup; see instructions below.",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "Introduction and computer setup"
-    ]
-  },
-  {
-    "objectID": "00_intro/index.html#step-2-github-account",
-    "href": "00_intro/index.html#step-2-github-account",
-    "title": "Introduction and computer setup",
-    "section": "",
-    "text": "Being an SU student comes with some perks. One of them is a Github for Education account and accompanying “backpack” of goodies. To use this benefit, your github account must be associated with your @syr.edu email.\n\n\nAssociate your current account with SU, by adding your email:\n\nGo to to https://github.com and click Sign In\nOnce you have logged in, go to: https://github.com/settings/emails\n\nAdd and verify your SU email address.\n\n\n\n\nYou’ll need to create an account:\n\nGo to to https://github.com and click Sign In\nFollow the on-screen instructions to sign up for an account.\nMake sure to use your @syr.edu email for the account.\nAdd your personal email when you’re at it so you don’t lose Github access after you graduate!\n\n\n\n\n\nGo to the Github Backpack site: https://education.github.com/pack\nand click Sign Up For Student Developer Pack\nOnce your account is verified, you will have backpack access.\nYou’ll know its active when you check your billing plan: https://github.com/settings/billing/summary\nyou should see a credit here.\nOnce you have backpack access, you can enable Github Copilot AI. https://github.com/settings/copilot",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "Introduction and computer setup"
-    ]
-  },
-  {
-    "objectID": "00_intro/index.html#step-3-configure-vs-code",
-    "href": "00_intro/index.html#step-3-configure-vs-code",
-    "title": "Introduction and computer setup",
-    "section": "",
-    "text": "The last step is to configure VS Code for Python debugging. Provided everything else is in order, this should be straightforward.\n\nOpen Visual studio code. You will be asked to configure it.\n\nSet up GitHub Copilot. To do so, you’ll need to sign into GitHub by clicking “Continue with GitHub”. After you do, you may be dropped into a “Welcome” tab in VS Code. If so, click the “Walkthrough: Setup VS Code” tab to continue set up.\nPick a theme: Light, Dark, etc…\nAdd the following Extensions: Python, Jupyter.\nWindows users only: we’ll occasionally be using bash in the terminal mode of VSCode. Mac and Linux users have bash natively installed in the operating system. Windows users will have gotten a copy of bash when they downloaded and installed Git SCM. However, you need to tell VSCode to use bash in the Terminal rather than Windows PowerShell. To do that:\n\nClick “Unlock productivity with the Command Palette” in the Walthrough tab, then “Open Command Palette”. Alternatively, if you don’t see that option, open the Command Palette by typing CTRL + SHIFT + P. (Mac users type COMMAND + SHIFT + P).\nType “Select Default Profile” then hit ENTER.\nSelect “Git Bash” from the drop-down options.\nCheck that it worked by opening a new terminal: in the file menu, click “Terminal” -&gt; “New Terminal”. You should see “bash” in the upper right of the terminal screen.\n\nClose the welcome Tab but keep VS Code open.",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "Introduction and computer setup"
-    ]
-  },
-  {
-    "objectID": "00_intro/index.html#step-4-install-miniconda",
-    "href": "00_intro/index.html#step-4-install-miniconda",
-    "title": "Introduction and computer setup",
-    "section": "",
-    "text": "Open a terminal in VS Code by clicking “Terminal” -&gt; “New Terminal”.\nIn the terminal window, type:\ncd\nThen hit ENTER.\nFollow the instructions Quickstart install instructions on the Miniconda website. For WSL, select “Linux”.\n\n\n\n\n\nDownload the Miniconda installer for Windows. Click the Downlad button under “Miniconda Installers”, not the one under “Distribution Installers”.\nRun the installer by double-clicking on the downloaded file and follow the steps below.\n\nClick “Run”.\nClick on “Next”.\nClick on “I agree”.\nSelect “Just me” and click on “Next”.\nClick “Next” to install to the default destination folder.\n\n\n\n\n\n\nWarning\n\n\n\nIf you had tried to install miniconda previously, you may get an error that says “Directory … is not empty, please choose a different location.” Do not choose a different location. Instead, click “OK”, then rename the previous miniconda3 directory. You can do that by going to VS Code, opening a new terminal window (click “Terminal” -&gt; “New Terminal”), and entering the following (hit ENTER after each line):\ncd\nmv miniconda3 miniconda3-old\nThen go back to the Miniconda installer and click “Next”.\n\n\nCheck the option for “Add Anaconda to my PATH environment variable” and check the option for “Register Anaconda as my default Python 3.x”.\n\nNote that even though the installation is for Miniconda, the installer uses the word Anaconda in these options.\nYou will also see a message in red text that selecting “Add Anaconda to my PATH environment variable” is not recommended; continue with this selection to make using conda easier in Git Bash. If you have questions or concerns, please contact your instructor.\n\nClick on “Install”.\nWhen the install is complete, Click on “Next”.\nClick on “Finish”.\n\nOpen a new terminal window in VS Code by clicking “Terminal” -&gt; “New Terminal”.\nType the following command to initialize conda:\nconda init bash\nOpen a new terminal window in VS Code by either hitting the “+” key next to “bash” in the upper left of the terminal window, or by cliking “Terminal” -&gt; “New Terminal”. If conda installed successfullly, you should see (base) appear next to or above your command prompt.",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "Introduction and computer setup"
-    ]
-  },
-  {
-    "objectID": "00_intro/index.html#step-5-create-a-conda-environment-and-test-it-in-vs-code",
-    "href": "00_intro/index.html#step-5-create-a-conda-environment-and-test-it-in-vs-code",
-    "title": "Introduction and computer setup",
-    "section": "",
-    "text": "In the bash terminal window in VS Code (make sure it says (base) to the left of or above the prompt), type:\nconda create -n ist356 -c conda-forge -y python=3.11 ipykernel\nThen hit ENTER.\n\n\n\n\n\n\nWarning\n\n\n\nThe first time you run conda, you may get an error about Terms of Service not being accepted for certain channels. Accept the TOS for those channels by running the commands listed. For example, if one of the channels is https://repo.anaconda.com/pkgs/main, copy and paste the command into the terminal:\nconda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main\nFollowed by hitting ENTER (to execute a command in the terminal, you hit ENTER after typing/pasting it in). You’ll need to do this for each of the channels listed.\nOnce you have accepted the TOS for all the channels, run the conda create command above again.\n\n\nCheck to ensure your environment works:\n\nClick File -&gt; “New File…”\nIn the drop down menu, select “Jupyter Notebook”.\nClick “Select Kernel” on the right then type “ist356”.\nIn the first cell, type:\nprint(\"hello world!\")\nHit the run button on the left or type SHIFT + ENTER to execute the code. You should get back “hello world!”.\nClose the ipynb file (you may optionally save it; if you do, be sure to call it something other then “Untitled.ipynb”, maybe “hello.ipynb” instead).",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "Introduction and computer setup"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/git.html",
-    "href": "01_cli_conda/git.html",
-    "title": "Git and GitHub",
-    "section": "",
-    "text": "We will use GitHub Classroom for doing assignments, and for keeping track of the tutorials you do in class. In order to use GitHub Classroom you need to know how to use Git and GitHub. Understanding Git/GitHub are also key for your future career, as they have become the primary tools for version control and for collaborating on development in both industry and academia.\nIn this tutorial we will cover the basics of doing commits and pushing to/pulling from GitHub using the command line interface (CLI). It is also possible to do these things using a visual interface in VS Code, or using GitHub Desktop. However, the CLI is the most powerful means to manage a Git repository, and (once you know how to use it) I have found it to be more straight forward than VS Code’s implementation. Learning how to use the CLI will also pay dividends down the road, as you become a more experienced developer.\nIn this tutorial we will not cover more advanced topics such as branches and forks. I have put together a more extensive set of tutorials on using branches and forks for collaborative software development here:\nWe will cover branches later in the semester, time permitting.",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/git.html#git-vs.-github",
-    "href": "01_cli_conda/git.html#git-vs.-github",
-    "title": "Git and GitHub",
-    "section": "Git vs. GitHub",
-    "text": "Git vs. GitHub\nBefore diving into using git, it’s necessary to understand the difference between Git and GitHub.\nGit is a program that you run on a computer to track changes to your files and enable collaboration. It is a type of version control software. Git was created by Linus Torvalds (the guy who invented Linux) in 2005 for Linux kernel development.\nFiles are tracked in a repository. A repository is just a folder on your computer that you’ve told Git to track.\nGitHub is a cloud platform for hosting Git repositories and collaborating on code development. It is owned by Microsoft. You can interact with GitHub through their website at github.com. Basically, GitHub is a collection of remote computers owned by Microsoft that have a bunch of Git repositories on them. GitHub uses Git to manage repositories.\nOnce you create an account with GitHub, you are able to create remote repositories on their servers. You can then copy, or clone those remote repositories to your local computer. On your local computer, you use Git to make modifications to the repository, then push those changes back to the copy at GitHub in order to keep them in sync.\nHere is a diagram illustrating the relationship (this diagram also includes a fork, which is your copy of someone else’s repository, both of which live on GitHub):\n\n\n\nDiagram illustrating clones, forks, and branches. Here, userB creates a fork of userA’s repository on GitHub. userA and userB each have a clone of the repository on their local computers. Within each user’s fork of the repository they have different branches (in userA’s repos they are main and dev1; in userB, main and br1).",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/git.html#cloning-a-repository",
-    "href": "01_cli_conda/git.html#cloning-a-repository",
-    "title": "Git and GitHub",
-    "section": "Cloning a repository",
-    "text": "Cloning a repository\nTo start, we will clone your classroom notebook from GitHub. You should have a link to the classroom notebook in Blackboard. When you click on it, you will be prompted to link a GitHub account. Select your name to do so. Once you do, GitHub will create a repository for you. This repository will be your classroom notebook. As we continue through the rest of the semester, you will commit and push tutorials and scripts that you create in class to this repository. You will have separate, similar repositories for each homework assignment.\nTo clone the repository we will use VS Code. There is a way to do this using the CLI, but this is one instance where using VS Code is a bit easier as VS Code will take care of authentication for you.\nTo clone the repo using VS Code:\n\nUse your web browser to navigate to your classroom notebook repository on GitHub.\nClick the green “Code” button in the upper left. That will open a drop-down menu. Make sure the HTTPS tab is selected, then copy the URL that’s listed there (you can just click the copy icon to the right to copy the URL).\nOpen VS Code.\nIn VS Code, open the command palette by hitting Ctrl/Command + Shift + P on the keyboard. In the command palette prompt at the top, type gitcl, then select “Git: Clone” from the drop-down menu.\n\n\nIf you have not logged into GitHub previously in VS Code, you will be prompted to log in. If so, log in. After you do, you’ll need to open the command palette again, type gitcl, and select “Git: Clone”.\n\n\nPaste the URL you copied from GitHub into the command palette then hit Enter.\nYou will be prompted where to store the repository. Select the ist356 directory we created last week. Then click the “Select as Repository Destination” button.\nYou will be asked whether to open or open in a new window. To make sure we’re not mixing up projects, select “Open in a New Window”. This will open a new VS Code Window with the contents on the cloned repository.\nNote that you now have a folder in your ist356 directory called class-notebook. The class-notebook folder is your local copy of the class-notebook repository. It is a folder like any folder on your computer, except that it has been marked by Git to track changes that are made within it. This is what makes it a repository.\nAt this point, the repository just has a README.md file. We will create files and folders in this repository as we go forward.\nYou can view the status of the repository using the command line. Open a terminal (click Terminal -&gt; New Terminal). You should be in your class-notebook folder (run pwd to check). If not, cd into class-notebook. Now type:\ngit status\n\nYou will get back a message indicating that everything is up to date.",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/git.html#making-changes-to-your-local-repository",
-    "href": "01_cli_conda/git.html#making-changes-to-your-local-repository",
-    "title": "Git and GitHub",
-    "section": "Making changes to your local repository",
-    "text": "Making changes to your local repository\nLet’s create a simple Python file to illustrate how to use Git to track files.\n\nCreate a new file by clicking “File -&gt; New File…”. Enter hello.py into the prompt then hit Enter. This will open the save file window. Make sure to select your class-notebook folder. Then click “Create File.”\nIn the file, type:\n\nprint(\"Hello world!\")\n\nHello world!\n\n\nThen hit Ctrl/Cmd + S to save the changes. You’ve written a simple Python program in your class-notebook repository.\nIf you haven’t already, open a terminal (click Terminal -&gt; New Terminal). You should be in your class-notebook folder (run pwd to check). If not, cd into class-notebook.\nTest that your simple Python program works by running:\npython hello.py\nYou should get back “Hello world!” in the terminal.\nYou’ve now made a change in the repo, but you haven’t tracked it yet. You can see that by typing git status. You’ll get a message showing that you have untracked files in the repository.\nLet’s create a snapshot of our change by committing hello.py to the repository. You first need to stage the file for committing. To do that, type:\ngit add hello.py\nType git status. You’ll see that hello.py is now in green, indicating that it is staged for a commit. This does not mean we’ve committed the file yet. To actually commit the change, type:\ngit commit -m \"add hello.py\"\nCongratulations! You’ve made your first commit to your repository. To see that, type git status. You should now see that there are no changes to be made.\nYou can see the history of commits by typing:\ngit log\nThis will open a scrollable log showing all the commits that have been made to the repository. You can move up and down using the arrows. To exit the log, hit q. (Note: if the history is short enough that it will fit entirely in the terminal the entire history will just be printed out to the terminal. In that case, you do not have to hit q.)",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/git.html#syncing-with-your-remote-repository",
-    "href": "01_cli_conda/git.html#syncing-with-your-remote-repository",
-    "title": "Git and GitHub",
-    "section": "Syncing with your remote repository",
-    "text": "Syncing with your remote repository\n\nYour changes have only been made to your local repository. That have not been synced back to the remote on GitHub. To see that, go back to your web browser and refresh GitHub. You will not see hello.py in the repository.\nTo sync your local changes back to GitHub, you need to push the changes. To do that, in your terminal, type:\ngit push\nYou should see a message indicating that the changes have been made to your remote.\nTo verify that the changes have been made, refresh the page on GitHub. You should now see hello.py listed there. You can also see your history of commits using the GitHub interface.",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/git.html#pulling-changes-from-the-remote",
-    "href": "01_cli_conda/git.html#pulling-changes-from-the-remote",
-    "title": "Git and GitHub",
-    "section": "Pulling changes from the remote",
-    "text": "Pulling changes from the remote\nLet’s make a change on the remote repository and see how to sync back to your local clone.\n\nIn your web browser, click on “hello.py”.\nYou can edit “hello.py” in the web browser by clicking the button with a pen on it.\nAdd the following on a new line:\n\nprint(\"How are you today?\")\n\nHow are you today?\n\n\nCommit the change using the web interface. GitHub will generate a commit message automatically for you.\nThe changes you made on your remote repository are not automatically communicated to your local repository. You can verify that by either looking at hello.py in VS code, or by typing git log in your terminal. You’ll see that your latest commit is not there.\nTo pull down the changes from the remote repo, in your terminal type:\ngit pull\nYou will see a message indicating that your repo has been updated. To verify that, type git log. You should see your latest commit there. If you look at hello.py in VS Code you should also see that it has been updated.\n\n\n\n\n\n\n\nNote\n\n\n\nIt’s good practice to always run git pull before running git push to ensure your local copy is up to date before pushing changes. If your local copy does not have changes that were made to the remote, you will not be able to push them (git will raise an error).",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Git and GitHub"
-    ]
-  },
-  {
-    "objectID": "01_cli_conda/git.html#recap",
-    "href": "01_cli_conda/git.html#recap",
-    "title": "Git and GitHub",
-    "section": "Recap",
-    "text": "Recap\nThis illustrates the basic steps you need to take to modify a repository and communicate it back to GitHub:\n\nStage the files you want to commit by typing:\ngit add FILENAME\nHere, FILENAME is the name of the file you want to stage. You can stage multiple files at once by listing them (putting a space between each file name).\nCommit the changes to the file by typing:\ngit commit -m \"MY COMMIT MESSAGE\"\nHere, MY COMMIT MESSAGE is the log you want for the commit. Be brief but descriptive!\nWhen you are done making changes to your local repository and want to sync them back to GitHub, type:\n\ngit push\nIf you get an error saying that you can't push due to your local not being up to date with the remote, run `git pull` first.\n\nVerify the changes have been synced to GitHub by refreshing the repo’s page in your web browser. You should see the same history.",
-    "crumbs": [
-      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "1. Command line interface, Environments, and Git/GitHub",
-      "Git and GitHub"
+      "2. Python review",
+      "1. Input, output, variables, types, conditionals"
     ]
   },
   {
@@ -901,135 +637,519 @@
     ]
   },
   {
-    "objectID": "02_python/python-1.html",
-    "href": "02_python/python-1.html",
-    "title": "1. Input, output, variables, types, conditionals",
+    "objectID": "01_cli_conda/git.html",
+    "href": "01_cli_conda/git.html",
+    "title": "Git and GitHub",
     "section": "",
-    "text": "Identify the problem inputs (requirements)\nIdentify the problem outputs (results)\nWrite an algorithm to transform inputs to outputs.\nIf you don’t know how to do a step… research it!",
+    "text": "We will use GitHub Classroom for doing assignments, and for keeping track of the tutorials you do in class. In order to use GitHub Classroom you need to know how to use Git and GitHub. Understanding Git/GitHub are also key for your future career, as they have become the primary tools for version control and for collaborating on development in both industry and academia.\nIn this tutorial we will cover the basics of doing commits and pushing to/pulling from GitHub using the command line interface (CLI). It is also possible to do these things using a visual interface in VS Code, or using GitHub Desktop. However, the CLI is the most powerful means to manage a Git repository, and (once you know how to use it) I have found it to be more straight forward than VS Code’s implementation. Learning how to use the CLI will also pay dividends down the road, as you become a more experienced developer.\nIn this tutorial we will not cover more advanced topics such as branches and forks. I have put together a more extensive set of tutorials on using branches and forks for collaborative software development here:\nWe will cover branches later in the semester, time permitting.",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "2. Python review",
-      "1. Input, output, variables, types, conditionals"
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Git and GitHub"
     ]
   },
   {
-    "objectID": "02_python/python-1.html#input-process-output",
-    "href": "02_python/python-1.html#input-process-output",
-    "title": "1. Input, output, variables, types, conditionals",
+    "objectID": "01_cli_conda/git.html#git-vs.-github",
+    "href": "01_cli_conda/git.html#git-vs.-github",
+    "title": "Git and GitHub",
+    "section": "Git vs. GitHub",
+    "text": "Git vs. GitHub\nBefore diving into using git, it’s necessary to understand the difference between Git and GitHub.\nGit is a program that you run on a computer to track changes to your files and enable collaboration. It is a type of version control software. Git was created by Linus Torvalds (the guy who invented Linux) in 2005 for Linux kernel development.\nFiles are tracked in a repository. A repository is just a folder on your computer that you’ve told Git to track.\nGitHub is a cloud platform for hosting Git repositories and collaborating on code development. It is owned by Microsoft. You can interact with GitHub through their website at github.com. Basically, GitHub is a collection of remote computers owned by Microsoft that have a bunch of Git repositories on them. GitHub uses Git to manage repositories.\nOnce you create an account with GitHub, you are able to create remote repositories on their servers. You can then copy, or clone those remote repositories to your local computer. On your local computer, you use Git to make modifications to the repository, then push those changes back to the copy at GitHub in order to keep them in sync.\nHere is a diagram illustrating the relationship (this diagram also includes a fork, which is your copy of someone else’s repository, both of which live on GitHub):\n\n\n\nDiagram illustrating clones, forks, and branches. Here, userB creates a fork of userA’s repository on GitHub. userA and userB each have a clone of the repository on their local computers. Within each user’s fork of the repository they have different branches (in userA’s repos they are main and dev1; in userB, main and br1).",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/git.html#cloning-a-repository",
+    "href": "01_cli_conda/git.html#cloning-a-repository",
+    "title": "Git and GitHub",
+    "section": "Cloning a repository",
+    "text": "Cloning a repository\nTo start, we will clone your classroom notebook from GitHub. You should have a link to the classroom notebook in Blackboard. When you click on it, you will be prompted to link a GitHub account. Select your name to do so. Once you do, GitHub will create a repository for you. This repository will be your classroom notebook. As we continue through the rest of the semester, you will commit and push tutorials and scripts that you create in class to this repository. You will have separate, similar repositories for each homework assignment.\nTo clone the repository we will use VS Code. There is a way to do this using the CLI, but this is one instance where using VS Code is a bit easier as VS Code will take care of authentication for you.\nTo clone the repo using VS Code:\n\nUse your web browser to navigate to your classroom notebook repository on GitHub.\nClick the green “Code” button in the upper left. That will open a drop-down menu. Make sure the HTTPS tab is selected, then copy the URL that’s listed there (you can just click the copy icon to the right to copy the URL).\nOpen VS Code.\nIn VS Code, open the command palette by hitting Ctrl/Command + Shift + P on the keyboard. In the command palette prompt at the top, type gitcl, then select “Git: Clone” from the drop-down menu.\n\n\nIf you have not logged into GitHub previously in VS Code, you will be prompted to log in. If so, log in. After you do, you’ll need to open the command palette again, type gitcl, and select “Git: Clone”.\n\n\nPaste the URL you copied from GitHub into the command palette then hit Enter.\nYou will be prompted where to store the repository. Select the ist356 directory we created last week. Then click the “Select as Repository Destination” button.\nYou will be asked whether to open or open in a new window. To make sure we’re not mixing up projects, select “Open in a New Window”. This will open a new VS Code Window with the contents on the cloned repository.\nNote that you now have a folder in your ist356 directory called class-notebook. The class-notebook folder is your local copy of the class-notebook repository. It is a folder like any folder on your computer, except that it has been marked by Git to track changes that are made within it. This is what makes it a repository.\nAt this point, the repository just has a README.md file. We will create files and folders in this repository as we go forward.\nYou can view the status of the repository using the command line. Open a terminal (click Terminal -&gt; New Terminal). You should be in your class-notebook folder (run pwd to check). If not, cd into class-notebook. Now type:\ngit status\n\nYou will get back a message indicating that everything is up to date.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/git.html#making-changes-to-your-local-repository",
+    "href": "01_cli_conda/git.html#making-changes-to-your-local-repository",
+    "title": "Git and GitHub",
+    "section": "Making changes to your local repository",
+    "text": "Making changes to your local repository\nLet’s create a simple Python file to illustrate how to use Git to track files.\n\nCreate a new file by clicking “File -&gt; New File…”. Enter hello.py into the prompt then hit Enter. This will open the save file window. Make sure to select your class-notebook folder. Then click “Create File.”\nIn the file, type:\n\nprint(\"Hello world!\")\n\nHello world!\n\n\nThen hit Ctrl/Cmd + S to save the changes. You’ve written a simple Python program in your class-notebook repository.\nIf you haven’t already, open a terminal (click Terminal -&gt; New Terminal). You should be in your class-notebook folder (run pwd to check). If not, cd into class-notebook.\nTest that your simple Python program works by running:\npython hello.py\nYou should get back “Hello world!” in the terminal.\nYou’ve now made a change in the repo, but you haven’t tracked it yet. You can see that by typing git status. You’ll get a message showing that you have untracked files in the repository.\nLet’s create a snapshot of our change by committing hello.py to the repository. You first need to stage the file for committing. To do that, type:\ngit add hello.py\nType git status. You’ll see that hello.py is now in green, indicating that it is staged for a commit. This does not mean we’ve committed the file yet. To actually commit the change, type:\ngit commit -m \"add hello.py\"\nCongratulations! You’ve made your first commit to your repository. To see that, type git status. You should now see that there are no changes to be made.\nYou can see the history of commits by typing:\ngit log\nThis will open a scrollable log showing all the commits that have been made to the repository. You can move up and down using the arrows. To exit the log, hit q. (Note: if the history is short enough that it will fit entirely in the terminal the entire history will just be printed out to the terminal. In that case, you do not have to hit q.)",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/git.html#syncing-with-your-remote-repository",
+    "href": "01_cli_conda/git.html#syncing-with-your-remote-repository",
+    "title": "Git and GitHub",
+    "section": "Syncing with your remote repository",
+    "text": "Syncing with your remote repository\n\nYour changes have only been made to your local repository. That have not been synced back to the remote on GitHub. To see that, go back to your web browser and refresh GitHub. You will not see hello.py in the repository.\nTo sync your local changes back to GitHub, you need to push the changes. To do that, in your terminal, type:\ngit push\nYou should see a message indicating that the changes have been made to your remote.\nTo verify that the changes have been made, refresh the page on GitHub. You should now see hello.py listed there. You can also see your history of commits using the GitHub interface.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/git.html#pulling-changes-from-the-remote",
+    "href": "01_cli_conda/git.html#pulling-changes-from-the-remote",
+    "title": "Git and GitHub",
+    "section": "Pulling changes from the remote",
+    "text": "Pulling changes from the remote\nLet’s make a change on the remote repository and see how to sync back to your local clone.\n\nIn your web browser, click on “hello.py”.\nYou can edit “hello.py” in the web browser by clicking the button with a pen on it.\nAdd the following on a new line:\n\nprint(\"How are you today?\")\n\nHow are you today?\n\n\nCommit the change using the web interface. GitHub will generate a commit message automatically for you.\nThe changes you made on your remote repository are not automatically communicated to your local repository. You can verify that by either looking at hello.py in VS code, or by typing git log in your terminal. You’ll see that your latest commit is not there.\nTo pull down the changes from the remote repo, in your terminal type:\ngit pull\nYou will see a message indicating that your repo has been updated. To verify that, type git log. You should see your latest commit there. If you look at hello.py in VS Code you should also see that it has been updated.\n\n\n\n\n\n\n\nNote\n\n\n\nIt’s good practice to always run git pull before running git push to ensure your local copy is up to date before pushing changes. If your local copy does not have changes that were made to the remote, you will not be able to push them (git will raise an error).",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/git.html#recap",
+    "href": "01_cli_conda/git.html#recap",
+    "title": "Git and GitHub",
+    "section": "Recap",
+    "text": "Recap\nThis illustrates the basic steps you need to take to modify a repository and communicate it back to GitHub:\n\nStage the files you want to commit by typing:\ngit add FILENAME\nHere, FILENAME is the name of the file you want to stage. You can stage multiple files at once by listing them (putting a space between each file name).\nCommit the changes to the file by typing:\ngit commit -m \"MY COMMIT MESSAGE\"\nHere, MY COMMIT MESSAGE is the log you want for the commit. Be brief but descriptive!\nWhen you are done making changes to your local repository and want to sync them back to GitHub, type:\n\ngit push\nIf you get an error saying that you can't push due to your local not being up to date with the remote, run `git pull` first.\n\nVerify the changes have been synced to GitHub by refreshing the repo’s page in your web browser. You should see the same history.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Git and GitHub"
+    ]
+  },
+  {
+    "objectID": "00_intro/index.html",
+    "href": "00_intro/index.html",
+    "title": "Introduction and computer setup",
     "section": "",
-    "text": "Identify the problem inputs (requirements)\nIdentify the problem outputs (results)\nWrite an algorithm to transform inputs to outputs.\nIf you don’t know how to do a step… research it!",
+    "text": "In IST356 we teach you programming for data analytics using the tools and techiques used by those in the industry. As such, you will learn how to setup and configure development environments, use git and github and learn to systematically test your code.\nThis is unlike IST256 where the emphasis is on the programming basics and the motivations behind learning computational thinking.\n\n\n\n\n\n\n\n\n\nIST356\nIST256\n\n\n\n\nProgramming Environment\nInstall vscode + git + python on your computer\nWeb-hosted jupyterhub\n\n\nAssignment Submissions\nStudent learn and use git / github\nBuilt-in assignment submission\n\n\nCoursework, slides, examples\nYou clone / diff the prof repo\nAutodiff and merge at login\n\n\n\nIn this course you’ll do it the real way, nothing is hidden / abstracted away for you.\n\n\nHere’s what you’ll need to install on your computer. Please read this entire section prior to installing. :-)\n\nVisual Studio Code: https://code.visualstudio.com/Download\nThis is a free editor with testing and debugging capabilities. As you install you can accept all defaults, except the last one: DO NOT launch the application when complete! If you do, simply close it.\nGit Source Code Manager: https://git-scm.com/download/\nAs you set it up, you will be asked several questions, for which the default selection is fine. EXCEPTION: choose Visual Studio Code as the default editor.\n\n\n\n\n\n\nWarning\n\n\n\nMac users: you’ll see multiple options for downloading Git Source Code Manager. I recommend using the Xcode version. Clicking on that link will redirect you to the Apple store; from there you will download and install Xcode.\n\n\nMiniconda Do not install this yet! You will install this using the terminal in VSCode after VSCode and Git are installed and setup; see instructions below.\n\n\n\n\nBeing an SU student comes with some perks. One of them is a Github for Education account and accompanying “backpack” of goodies. To use this benefit, your github account must be associated with your @syr.edu email.\n\n\nAssociate your current account with SU, by adding your email:\n\nGo to to https://github.com and click Sign In\nOnce you have logged in, go to: https://github.com/settings/emails\n\nAdd and verify your SU email address.\n\n\n\n\nYou’ll need to create an account:\n\nGo to to https://github.com and click Sign In\nFollow the on-screen instructions to sign up for an account.\nMake sure to use your @syr.edu email for the account.\nAdd your personal email when you’re at it so you don’t lose Github access after you graduate!\n\n\n\n\n\nGo to the Github Backpack site: https://education.github.com/pack\nand click Sign Up For Student Developer Pack\nOnce your account is verified, you will have backpack access.\nYou’ll know its active when you check your billing plan: https://github.com/settings/billing/summary\nyou should see a credit here.\nOnce you have backpack access, you can enable Github Copilot AI. https://github.com/settings/copilot\n\n\n\n\n\nThe last step is to configure VS Code for Python debugging. Provided everything else is in order, this should be straightforward.\n\nOpen Visual studio code. You will be asked to configure it.\n\nSet up GitHub Copilot. To do so, you’ll need to sign into GitHub by clicking “Continue with GitHub”. After you do, you may be dropped into a “Welcome” tab in VS Code. If so, click the “Walkthrough: Setup VS Code” tab to continue set up.\nPick a theme: Light, Dark, etc…\nAdd the following Extensions: Python, Jupyter.\nWindows users only: we’ll occasionally be using bash in the terminal mode of VSCode. Mac and Linux users have bash natively installed in the operating system. Windows users will have gotten a copy of bash when they downloaded and installed Git SCM. However, you need to tell VSCode to use bash in the Terminal rather than Windows PowerShell. To do that:\n\nClick “Unlock productivity with the Command Palette” in the Walthrough tab, then “Open Command Palette”. Alternatively, if you don’t see that option, open the Command Palette by typing CTRL + SHIFT + P. (Mac users type COMMAND + SHIFT + P).\nType “Select Default Profile” then hit ENTER.\nSelect “Git Bash” from the drop-down options.\nCheck that it worked by opening a new terminal: in the file menu, click “Terminal” -&gt; “New Terminal”. You should see “bash” in the upper right of the terminal screen.\n\nClose the welcome Tab but keep VS Code open.\n\n\n\n\n\n\n\n\nOpen a terminal in VS Code by clicking “Terminal” -&gt; “New Terminal”.\nIn the terminal window, type:\ncd\nThen hit ENTER.\nFollow the instructions Quickstart install instructions on the Miniconda website. For WSL, select “Linux”.\n\n\n\n\n\nDownload the Miniconda installer for Windows. Click the Downlad button under “Miniconda Installers”, not the one under “Distribution Installers”.\nRun the installer by double-clicking on the downloaded file and follow the steps below.\n\nClick “Run”.\nClick on “Next”.\nClick on “I agree”.\nSelect “Just me” and click on “Next”.\nClick “Next” to install to the default destination folder.\n\n\n\n\n\n\nWarning\n\n\n\nIf you had tried to install miniconda previously, you may get an error that says “Directory … is not empty, please choose a different location.” Do not choose a different location. Instead, click “OK”, then rename the previous miniconda3 directory. You can do that by going to VS Code, opening a new terminal window (click “Terminal” -&gt; “New Terminal”), and entering the following (hit ENTER after each line):\ncd\nmv miniconda3 miniconda3-old\nThen go back to the Miniconda installer and click “Next”.\n\n\nCheck the option for “Add Anaconda to my PATH environment variable” and check the option for “Register Anaconda as my default Python 3.x”.\n\nNote that even though the installation is for Miniconda, the installer uses the word Anaconda in these options.\nYou will also see a message in red text that selecting “Add Anaconda to my PATH environment variable” is not recommended; continue with this selection to make using conda easier in Git Bash. If you have questions or concerns, please contact your instructor.\n\nClick on “Install”.\nWhen the install is complete, Click on “Next”.\nClick on “Finish”.\n\nOpen a new terminal window in VS Code by clicking “Terminal” -&gt; “New Terminal”.\nType the following command to initialize conda:\nconda init bash\nOpen a new terminal window in VS Code by either hitting the “+” key next to “bash” in the upper left of the terminal window, or by cliking “Terminal” -&gt; “New Terminal”. If conda installed successfullly, you should see (base) appear next to or above your command prompt.\n\n\n\n\n\n\nIn the bash terminal window in VS Code (make sure it says (base) to the left of or above the prompt), type:\nconda create -n ist356 -c conda-forge -y python=3.11 ipykernel\nThen hit ENTER.\n\n\n\n\n\n\nWarning\n\n\n\nThe first time you run conda, you may get an error about Terms of Service not being accepted for certain channels. Accept the TOS for those channels by running the commands listed. For example, if one of the channels is https://repo.anaconda.com/pkgs/main, copy and paste the command into the terminal:\nconda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main\nFollowed by hitting ENTER (to execute a command in the terminal, you hit ENTER after typing/pasting it in). You’ll need to do this for each of the channels listed.\nOnce you have accepted the TOS for all the channels, run the conda create command above again.\n\n\nCheck to ensure your environment works:\n\nClick File -&gt; “New File…”\nIn the drop down menu, select “Jupyter Notebook”.\nClick “Select Kernel” on the right then type “ist356”.\nIn the first cell, type:\nprint(\"hello world!\")\nHit the run button on the left or type SHIFT + ENTER to execute the code. You should get back “hello world!”.\nClose the ipynb file (you may optionally save it; if you do, be sure to call it something other then “Untitled.ipynb”, maybe “hello.ipynb” instead).",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "2. Python review",
-      "1. Input, output, variables, types, conditionals"
+      "Introduction and computer setup"
     ]
   },
   {
-    "objectID": "02_python/python-1.html#python-input-and-output",
-    "href": "02_python/python-1.html#python-input-and-output",
-    "title": "1. Input, output, variables, types, conditionals",
-    "section": "Python input and output",
-    "text": "Python input and output\nprint() does output\ninput() does input, returns input so you must assign it to a variable\n\nx = input(\"Enter something: \")\n\n\nprint(x)\n\n\n\n\n\n\n\nCautionCode Challenge 1.1\n\n\n\nWrite a program to input your first name and last name then output your last name, first name.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nfirst = input(\"Enter your first name: \")\nlast = input(\"Enter your last name: \")\nprint(last, \",\", first)\n# could also do (see next section):\nprint(f\"{last}, {first}\")",
+    "objectID": "00_intro/index.html#step-1-software-installs",
+    "href": "00_intro/index.html#step-1-software-installs",
+    "title": "Introduction and computer setup",
+    "section": "",
+    "text": "Here’s what you’ll need to install on your computer. Please read this entire section prior to installing. :-)\n\nVisual Studio Code: https://code.visualstudio.com/Download\nThis is a free editor with testing and debugging capabilities. As you install you can accept all defaults, except the last one: DO NOT launch the application when complete! If you do, simply close it.\nGit Source Code Manager: https://git-scm.com/download/\nAs you set it up, you will be asked several questions, for which the default selection is fine. EXCEPTION: choose Visual Studio Code as the default editor.\n\n\n\n\n\n\nWarning\n\n\n\nMac users: you’ll see multiple options for downloading Git Source Code Manager. I recommend using the Xcode version. Clicking on that link will redirect you to the Apple store; from there you will download and install Xcode.\n\n\nMiniconda Do not install this yet! You will install this using the terminal in VSCode after VSCode and Git are installed and setup; see instructions below.",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "2. Python review",
-      "1. Input, output, variables, types, conditionals"
+      "Introduction and computer setup"
     ]
   },
   {
-    "objectID": "02_python/python-1.html#f-strings",
-    "href": "02_python/python-1.html#f-strings",
-    "title": "1. Input, output, variables, types, conditionals",
-    "section": "F-Strings",
-    "text": "F-Strings\n\nF-Strings are Python’s answer to string interpolation.\nThis replaces the variable name with its value within a string.\nCalled an F-string because the f tells Python to interpolate the string.\n\n\nname = 'George'\nprint(\"{name} was curious.\")\nprint(f\"{name} was curious.\")\n\n{name} was curious.\nGeorge was curious.\n\n\n\n\n\n\n\n\nNoteCheck Yourself 1\n\n\n\nWhich is an example of a properly used string literal?\nA. print(welcome)\nB. print(\"welcome\")\nC. print \"welcome\"\nD. print welcome\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\nB\nNote: In Python 2.7 and earlier the correct answer would be C. The syntax for the print function was changed in Python 3. Python 2 is no longer supported.",
+    "objectID": "00_intro/index.html#step-2-github-account",
+    "href": "00_intro/index.html#step-2-github-account",
+    "title": "Introduction and computer setup",
+    "section": "",
+    "text": "Being an SU student comes with some perks. One of them is a Github for Education account and accompanying “backpack” of goodies. To use this benefit, your github account must be associated with your @syr.edu email.\n\n\nAssociate your current account with SU, by adding your email:\n\nGo to to https://github.com and click Sign In\nOnce you have logged in, go to: https://github.com/settings/emails\n\nAdd and verify your SU email address.\n\n\n\n\nYou’ll need to create an account:\n\nGo to to https://github.com and click Sign In\nFollow the on-screen instructions to sign up for an account.\nMake sure to use your @syr.edu email for the account.\nAdd your personal email when you’re at it so you don’t lose Github access after you graduate!\n\n\n\n\n\nGo to the Github Backpack site: https://education.github.com/pack\nand click Sign Up For Student Developer Pack\nOnce your account is verified, you will have backpack access.\nYou’ll know its active when you check your billing plan: https://github.com/settings/billing/summary\nyou should see a credit here.\nOnce you have backpack access, you can enable Github Copilot AI. https://github.com/settings/copilot",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "2. Python review",
-      "1. Input, output, variables, types, conditionals"
+      "Introduction and computer setup"
     ]
   },
   {
-    "objectID": "02_python/python-1.html#variables",
-    "href": "02_python/python-1.html#variables",
-    "title": "1. Input, output, variables, types, conditionals",
-    "section": "Variables",
-    "text": "Variables\n\nVariables are named areas of computer memory for storing data.\nThe name can be anything but should make symbolic sense to the programmer.\nWe write to the variable’s memory location with the assignment statement (=)\nWe read from the variable by calling its name.\nVariable names must begin with a letter or _ and must only contain letters, numbers or _.\n\n\nVariables are of a Specific Type\n\n\n\n\nType\n\n\nPurpose\n\n\nExamples\n\n\n\n\n\n\nint\n\n\nNumeric type for integers only\n\n\n45, -10\n\n\n\n\nfloat\n\n\nNumeric type floating point numbers\n\n\n45, -10\n\n\n\n\nbool\n\n\nTrue or False values\n\n\nTrue, False\n\n\n\n\nstr\n\n\nCharacters and text\n\n\n“A”, ‘Mike’\n\n\n\n\n\n\nType Detection and Conversion\n\n\n\n\nPython Function\n\n\nWhat It Does\n\n\nExample of Use\n\n\n\n\n\n\ntype(n)\n\n\nReturns the current type of n\n\n\ntype(13) == int\n\n\n\n\nint(n)\n\n\nConverts n to type int\n\n\nint(“45”) == 45\n\n\n\n\nfloat(n)\n\n\nConverts n to type float\n\n\nfloat(45) == 45.0\n\n\n\n\nstr(n)\n\n\nConverts n to type str\n\n\nstr(4.0) == ‘4.0’",
+    "objectID": "00_intro/index.html#step-3-configure-vs-code",
+    "href": "00_intro/index.html#step-3-configure-vs-code",
+    "title": "Introduction and computer setup",
+    "section": "",
+    "text": "The last step is to configure VS Code for Python debugging. Provided everything else is in order, this should be straightforward.\n\nOpen Visual studio code. You will be asked to configure it.\n\nSet up GitHub Copilot. To do so, you’ll need to sign into GitHub by clicking “Continue with GitHub”. After you do, you may be dropped into a “Welcome” tab in VS Code. If so, click the “Walkthrough: Setup VS Code” tab to continue set up.\nPick a theme: Light, Dark, etc…\nAdd the following Extensions: Python, Jupyter.\nWindows users only: we’ll occasionally be using bash in the terminal mode of VSCode. Mac and Linux users have bash natively installed in the operating system. Windows users will have gotten a copy of bash when they downloaded and installed Git SCM. However, you need to tell VSCode to use bash in the Terminal rather than Windows PowerShell. To do that:\n\nClick “Unlock productivity with the Command Palette” in the Walthrough tab, then “Open Command Palette”. Alternatively, if you don’t see that option, open the Command Palette by typing CTRL + SHIFT + P. (Mac users type COMMAND + SHIFT + P).\nType “Select Default Profile” then hit ENTER.\nSelect “Git Bash” from the drop-down options.\nCheck that it worked by opening a new terminal: in the file menu, click “Terminal” -&gt; “New Terminal”. You should see “bash” in the upper right of the terminal screen.\n\nClose the welcome Tab but keep VS Code open.",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "2. Python review",
-      "1. Input, output, variables, types, conditionals"
+      "Introduction and computer setup"
     ]
   },
   {
-    "objectID": "02_python/python-1.html#programmatic-expressions",
-    "href": "02_python/python-1.html#programmatic-expressions",
-    "title": "1. Input, output, variables, types, conditionals",
-    "section": "Programmatic Expressions",
-    "text": "Programmatic Expressions\nProgrammatic Expressions contain operators and operands. They evaluate to a value, preserving type:\n\nprint(2 + 2)\nprint(2.0 + 2)\nprint(\"sh\" + 'ip')\nprint('hi' + 2) # error\n\n4\n4.0\nship\n\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[2], line 4\n      2 print(2.0 + 2)\n      3 print(\"sh\" + 'ip')\n----&gt; 4 print('hi' + 2) # error\n\nTypeError: can only concatenate str (not \"int\") to str",
+    "objectID": "00_intro/index.html#step-4-install-miniconda",
+    "href": "00_intro/index.html#step-4-install-miniconda",
+    "title": "Introduction and computer setup",
+    "section": "",
+    "text": "Open a terminal in VS Code by clicking “Terminal” -&gt; “New Terminal”.\nIn the terminal window, type:\ncd\nThen hit ENTER.\nFollow the instructions Quickstart install instructions on the Miniconda website. For WSL, select “Linux”.\n\n\n\n\n\nDownload the Miniconda installer for Windows. Click the Downlad button under “Miniconda Installers”, not the one under “Distribution Installers”.\nRun the installer by double-clicking on the downloaded file and follow the steps below.\n\nClick “Run”.\nClick on “Next”.\nClick on “I agree”.\nSelect “Just me” and click on “Next”.\nClick “Next” to install to the default destination folder.\n\n\n\n\n\n\nWarning\n\n\n\nIf you had tried to install miniconda previously, you may get an error that says “Directory … is not empty, please choose a different location.” Do not choose a different location. Instead, click “OK”, then rename the previous miniconda3 directory. You can do that by going to VS Code, opening a new terminal window (click “Terminal” -&gt; “New Terminal”), and entering the following (hit ENTER after each line):\ncd\nmv miniconda3 miniconda3-old\nThen go back to the Miniconda installer and click “Next”.\n\n\nCheck the option for “Add Anaconda to my PATH environment variable” and check the option for “Register Anaconda as my default Python 3.x”.\n\nNote that even though the installation is for Miniconda, the installer uses the word Anaconda in these options.\nYou will also see a message in red text that selecting “Add Anaconda to my PATH environment variable” is not recommended; continue with this selection to make using conda easier in Git Bash. If you have questions or concerns, please contact your instructor.\n\nClick on “Install”.\nWhen the install is complete, Click on “Next”.\nClick on “Finish”.\n\nOpen a new terminal window in VS Code by clicking “Terminal” -&gt; “New Terminal”.\nType the following command to initialize conda:\nconda init bash\nOpen a new terminal window in VS Code by either hitting the “+” key next to “bash” in the upper left of the terminal window, or by cliking “Terminal” -&gt; “New Terminal”. If conda installed successfullly, you should see (base) appear next to or above your command prompt.",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "2. Python review",
-      "1. Input, output, variables, types, conditionals"
+      "Introduction and computer setup"
     ]
   },
   {
-    "objectID": "02_python/python-1.html#arithmetic-operators",
-    "href": "02_python/python-1.html#arithmetic-operators",
-    "title": "1. Input, output, variables, types, conditionals",
-    "section": "Arithmetic Operators",
-    "text": "Arithmetic Operators\n\n\n\n\nOperator\n\n\nWhat it Does\n\n\nExample of Use\n\n\n\n\n\n\n+\n\n\nAddition or string concenation\n\n\n3 + 4 == 7\n\n\n\n\n-\n\n\nSubtraction\n\n\n4 - 3 == 1\n\n\n\n\n*\n\n\nMultiplication\n\n\n3 * 4 == 12\n\n\n\n\n/\n\n\nDivision\n\n\n4 / 3 == 1.33333\n\n\n\n\n//\n\n\nIntger division (quotent)\n\n\n13 // 3 == 4\n\n\n\n\n%\n\n\nModulo (remainder)\n\n\n13 % 3 == 1\n\n\n\n\n( )\n\n\nForce an order of operations\n\n\n2 * (3 + 4) == 14\n\n\n\n\n\n\n\n\n\n\nCautionCode Challenge 1.2: Program to divide up the check among diners in a party\n\n\n\nWrite a program that takes as input the amount of a restaurant check, tip %, and number of diners.\nThe program should output the total amount with tip, and the amount each diner owes.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nbill = float(input(\"Enter the total amount of the bill $\"))\ntip = int(input(\"What % would you like to tip, eg. 20 == 20%? \"))\ntip_pct = tip/100\ndiners = int(input(\"How many diners? \"))\ntotal = bill + bill*tip_pct\nshare = total / diners\nprint(\"Total Bill, with Tip: \", total)\nprint(f\"Even share among {diners} diners is {share:.2f}\")\n\n\n\n\n\n\n\n\n\n\n\n\nNoteCheck Yourself 2\n\n\n\nWhat is the value of str(314) ?\nA. 314\nB. \"314\"\nC. int\nD. '34.0'\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\nB\n\n\n\n\n\n\n\n\n\n\n\nNoteCheck Yourself 3\n\n\n\nWhat is the value of type(314.0) ?\nA. 314\nB. float\nC. int\nD. '314.0'\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\nB\n\n\n\n\n\n\n\n\n\n\n\nNoteCheck Yourself 4\n\n\n\nWhat is the output of the following python code?\n\na = 10\nb = 2\nc = 1 + (a/b)\nprint(c)\n\nA. 6\nB. 5.5\nC. 6.0\nD. 5\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\nC",
+    "objectID": "00_intro/index.html#step-5-create-a-conda-environment-and-test-it-in-vs-code",
+    "href": "00_intro/index.html#step-5-create-a-conda-environment-and-test-it-in-vs-code",
+    "title": "Introduction and computer setup",
+    "section": "",
+    "text": "In the bash terminal window in VS Code (make sure it says (base) to the left of or above the prompt), type:\nconda create -n ist356 -c conda-forge -y python=3.11 ipykernel\nThen hit ENTER.\n\n\n\n\n\n\nWarning\n\n\n\nThe first time you run conda, you may get an error about Terms of Service not being accepted for certain channels. Accept the TOS for those channels by running the commands listed. For example, if one of the channels is https://repo.anaconda.com/pkgs/main, copy and paste the command into the terminal:\nconda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main\nFollowed by hitting ENTER (to execute a command in the terminal, you hit ENTER after typing/pasting it in). You’ll need to do this for each of the channels listed.\nOnce you have accepted the TOS for all the channels, run the conda create command above again.\n\n\nCheck to ensure your environment works:\n\nClick File -&gt; “New File…”\nIn the drop down menu, select “Jupyter Notebook”.\nClick “Select Kernel” on the right then type “ist356”.\nIn the first cell, type:\nprint(\"hello world!\")\nHit the run button on the left or type SHIFT + ENTER to execute the code. You should get back “hello world!”.\nClose the ipynb file (you may optionally save it; if you do, be sure to call it something other then “Untitled.ipynb”, maybe “hello.ipynb” instead).",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "2. Python review",
-      "1. Input, output, variables, types, conditionals"
+      "Introduction and computer setup"
     ]
   },
   {
-    "objectID": "02_python/python-1.html#program-flow-control-with-if",
-    "href": "02_python/python-1.html#program-flow-control-with-if",
-    "title": "1. Input, output, variables, types, conditionals",
-    "section": "Program Flow Control with IF",
-    "text": "Program Flow Control with IF\n\nThe IF statement is used to branch your code based on a Boolean expression.\n\n\nif boolean-expression:\n    statements-when-true\nelse:\n    statemrnts-when-false",
+    "objectID": "01_cli_conda/conda.html",
+    "href": "01_cli_conda/conda.html",
+    "title": "Bash variables, environments, and conda",
+    "section": "",
+    "text": "Note: This task requires that you have conda installed already. Follow the instructions here to do that if you have not done so already.",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "2. Python review",
-      "1. Input, output, variables, types, conditionals"
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
     ]
   },
   {
-    "objectID": "02_python/python-1.html#pythons-relational-operators",
-    "href": "02_python/python-1.html#pythons-relational-operators",
-    "title": "1. Input, output, variables, types, conditionals",
-    "section": "Python’s Relational Operators",
-    "text": "Python’s Relational Operators\n\n\n\n\nOperator\n\n\nWhat it does\n\n\nExamples\n\n\n\n\n\n\n &gt; \n\n\nGreater than\n\n\n4&gt;2 (True)\n\n\n\n\n &lt; \n\n\nLess than\n\n\n4&lt;2 (False)\n\n\n\n\n == \n\n\nEqual To\n\n\n4==2 (False)\n\n\n\n\n != \n\n\nNot Equal To\n\n\n4!=2 (True)\n\n\n\n\n &gt;= \n\n\nGreater Than or Equal To\n\n\n4&gt;=2 (True)\n\n\n\n &lt;= \n\n\nLess Than or Equal To\n\n\n4&lt;=2 (True)\n\n\n\n\nExpressions consisting of relational operators evaluate to a Boolean value\n\n\n\n\n\n\nCautionCode Challenge 1.3: Presssure sensor that determines whether to open a door\n\n\n\nWrite code that simulates a pressure sensor that opens a door when the pressure is larger than 10; otherwise, it closes the door.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nreading = float(input(\"Sensor Reading: \"))\n\nif reading &gt; 10:\n    status = \"Opening\"\nelse:\n    status = \"Closing\"\n\nprint(f\"{status} the door\")\n\n\n\n\n\n\n\n\n\n\n\n\nNoteCheck Yourself 5: Relational operators\n\n\n\nOn Which line number is the Boolean expression True?\n\nx = 15      # 1\ny = 20      # 2\nz = 2       # 3\nx &gt; y       # 4\nz*x &lt;= y    # 5\ny &gt;= x-z    # 6\nz*10 == x   # 7\n\nA. 4\nB. 5\nC. 6\nD. 7\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\nC",
+    "objectID": "01_cli_conda/conda.html#the-export-command",
+    "href": "01_cli_conda/conda.html#the-export-command",
+    "title": "Bash variables, environments, and conda",
+    "section": "The export Command",
+    "text": "The export Command\nIn Bash, variables normally exist only in the shell where they were defined.\nThe export command marks a variable so that it is passed to child processes (programs or scripts started from the current shell).\n\nExample:\nMYVAR=\"Hello\"\nbash -c 'echo $MYVAR'\n# (No output — MYVAR was not exported)\n\nexport MYVAR=\"Hello\"\nbash -c 'echo $MYVAR'\n# Output: Hello\nIn the first case, the new Bash process doesn’t know about MYVAR.\nIn the second case, export makes it available to the child process.",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "2. Python review",
-      "1. Input, output, variables, types, conditionals"
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
     ]
   },
   {
-    "objectID": "02_python/python-1.html#pythons-logical-operators",
-    "href": "02_python/python-1.html#pythons-logical-operators",
-    "title": "1. Input, output, variables, types, conditionals",
-    "section": "Python’s Logical Operators",
-    "text": "Python’s Logical Operators\n\n\n\n\nOperator\n\n\nWhat it does\n\n\nExamples\n\n\n\n\n\n\n and \n\n\nTrue only when both are True\n\n\n4&gt;2 and 4&lt;5 (True)\n\n\n\n\n or \n\n\nFalse only when both are False\n\n\n4&lt;2 or 4==4 (True)\n\n\n\n\n not \n\n\nNegation(Opposite)\n\n\nnot 4==2 (True)\n\n\n\n\n in \n\n\nSet operator\n\n\n4 in [2,4,7] (True)\n\n\n\n\n\n\n\n\n\n\nNoteCheck Yourself 6: Logical Operators\n\n\n\nIn the following code, which line evaluates to True?\n\nraining = False              # 1\nsnowing = True               # 2\nage = 45                     # 3\nage &lt; 18 and raining         # 4\nage &gt;= 18 and not snowing    # 5\nnot snowing or not raining   # 6\nage == 45 and not snowing    # 7\n\nA. 4\nB. 5\nC. 6\nD. 7\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\nC",
+    "objectID": "01_cli_conda/conda.html#the-source-command",
+    "href": "01_cli_conda/conda.html#the-source-command",
+    "title": "Bash variables, environments, and conda",
+    "section": "The source Command",
+    "text": "The source Command\nWhen you run a Bash script normally, it executes in a subshell (a separate process).\nAny variables set inside that script will only exist in that subshell and disappear when the script finishes.\nThe source command runs a script in the current shell.\nThis means variables or changes made by the script persist after it finishes.\n\nExample: Difference between source and export\ntest.sh:\nMYVAR=\"Hello\"\nCase 1 — Running normally:\nbash test.sh\necho $MYVAR\n# (No output — MYVAR is not set in current shell)\nCase 2 — Using source:\nsource test.sh\necho $MYVAR\n# Output: Hello\nCase 3 — Using export in a script:\n# test_export.sh\nexport MYVAR=\"Hello\"\nbash test_export.sh\necho $MYVAR\n# (No output — export makes it available to child processes, not the parent shell)",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
-      "2. Python review",
-      "1. Input, output, variables, types, conditionals"
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
     ]
   },
   {
-    "objectID": "02_python/python-1.html#multiple-decisions-if-ladder",
-    "href": "02_python/python-1.html#multiple-decisions-if-ladder",
-    "title": "1. Input, output, variables, types, conditionals",
-    "section": "Multiple Decisions: IF ladder",
-    "text": "Multiple Decisions: IF ladder\nUse elif to make more than one decision in your if statement. Only one code block within the ladder is executed.\n\nif boolean-expression1:\n    statements-when-exp1-true\nelif boolean-expression2:\n    statements-when-exp2-true\nelif boolean-expression3:\n    statements-when-exp3-true\nelse:\n    statements-none-are-true\n\n\n\n#Elif versus multiple ifs...\n# One decision or multiple decisions. \n\nx = int(input(\"enter an integer\"))\n\n# one decision\nif x&gt;10:\n    print(\"A:bigger than 10\")\nelif x&gt;20:\n    print(\"A:bigger than 20\")    \n\n    # Multiple decisions\nif x&gt;10:\n    print(\"B:bigger than 10\")\nif x&gt;20:\n    print(\"B:bigger than 20\")\n\n\n\n\n\n\n\nNoteCheck Yourself 7: IF statement\n\n\n\nAssuming values x = 25 and y = 6, what will be printed when the following code is run?\n\nif x &gt; 20:\n    if y == 4:\n        print(\"One\")\n    elif y &gt; 4:\n        print(\"Two\")\n    else:\n        print(\"Three\")\nelse:\n    print(\"Four\")\n\nA. One\nB. Two\nC. Three\nD. Four\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\nB\n\n\n\n\n\n\n\n\n\n\n\nCautionCode Challenge 1.4: Number to letter grade\n\n\n\n\nLetter grades in a college class are computed as follows:\n\n95 and above is an A\n75 and above, but below 95 is a B\n50 and above, but below 75 is a C\nbelow 50 is F\n\nWrite a program to input the number grade and calculate the letter grade\nThe program should also print an error message if the provided number grade is out of range (i.e., &gt; 120 or &lt; 0).\n\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nnumber_grade = int(input(\"Enter your numerical grade: 0 - 120\"))\nletter_grade = \"unknown\"\n\nif number_grade &gt;= 0 and number_grade &lt;= 120:\n\n    if number_grade &gt;= 95:\n        letter_grade = \"A\"\n    elif number_grade &gt;= 75:\n        letter_grade = \"B\"\n    elif number_grade &gt;= 50:\n        letter_grade = \"C\"\n    else:\n        letter_grade = \"F\"\n\n    print(f\"For {number_grade} points the letter grade is {letter_grade}\")\n\nelse:\n    print(f\"Number grade of {number_grade} is out of range!\")",
+    "objectID": "01_cli_conda/conda.html#how-environments-work",
+    "href": "01_cli_conda/conda.html#how-environments-work",
+    "title": "Bash variables, environments, and conda",
+    "section": "How environments work",
+    "text": "How environments work\n\nEach shell session has its own environment.\nWhen you start a new process (run a command or script), it inherits a copy of your current environment.\nVariables you define with export become part of the environment and are visible to child processes.\nVariables defined without export are shell variables — they exist only in the current shell and are not passed to child processes.\n\nYou can view all your current environment variables by running:\nenv",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#the-path-variable",
+    "href": "01_cli_conda/conda.html#the-path-variable",
+    "title": "Bash variables, environments, and conda",
+    "section": "The PATH Variable",
+    "text": "The PATH Variable\nThe PATH variable controls where Bash searches for executables. It points to a : separated list of absolute paths. See what yours is set to by running:\necho $PATH\nWhen you execute any program in the shell, bash cycles through the list of paths specified in PATH until it finds an executable file that matches the name.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#create-environment",
+    "href": "01_cli_conda/conda.html#create-environment",
+    "title": "Bash variables, environments, and conda",
+    "section": "Create Environment",
+    "text": "Create Environment\nconda create --name py311 python=3.11\nThis creates a new environment called py311 with Python version 3.11 installed.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#activatedeactivate-environments",
+    "href": "01_cli_conda/conda.html#activatedeactivate-environments",
+    "title": "Bash variables, environments, and conda",
+    "section": "Activate/Deactivate Environments",
+    "text": "Activate/Deactivate Environments\nconda activate py311\nActivating an environment changes your shell’s environment variables (especially PATH) so that commands use the software installed in that environment. You’ll see the environment name in parentheses at the start of your shell prompt.\nconda deactivate\nDeactivating an environment restores your shell to its previous state, removing the environment-specific entries from PATH and other variables.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#install-packages",
+    "href": "01_cli_conda/conda.html#install-packages",
+    "title": "Bash variables, environments, and conda",
+    "section": "Install Packages",
+    "text": "Install Packages\nconda install numpy\nInstalls the package numpy into the currently active environment.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#channels",
+    "href": "01_cli_conda/conda.html#channels",
+    "title": "Bash variables, environments, and conda",
+    "section": "Channels",
+    "text": "Channels\nA channel is a location (usually online) where Conda looks for packages. When you install or search for a package, Conda queries one or more channels.\n\nDefault channel: If you installed Conda via Miniforge, the default channel is conda-forge, a large community-maintained repository.\nSpecialized channels: Some fields use dedicated channels, such as bioconda for bioinformatics software.\n\nTo install from a specific channel:\nconda install -c bioconda package_name\nHere, -c bioconda tells Conda to search the bioconda channel for the package.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#challenge-questions",
+    "href": "01_cli_conda/conda.html#challenge-questions",
+    "title": "Bash variables, environments, and conda",
+    "section": "Challenge questions",
+    "text": "Challenge questions\n\nCreate a conda environment called conda-test.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\nconda create -n conda-test\n\n\n\nActivate your conda-test environment and install numpy into it.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\nconda activate conda-test\nconda install numpy\n\n\n\nPrint your $PATH; you should see that the first couple of paths point to a conda directory with the name of your environment (conda-test) in it.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\necho $PATH\n\n\n\nCreate a python script called check_versions.py that contains the following code:\n#!/usr/bin/env python\nimport platform\nimport numpy\nprint(\"Python version: \", platform.python_version())\nnpvers = numpy.__version__\nprint(\"Numpy version: \", npvers)\nChange the permissions on check_versions.py to make it executable.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nRun:\nnano check_versions.py\nType/paste in the code. Then type Ctrl+O to save, then Ctrl+X to exit.\nRun:\nchmod +x check_versions.py\n\n\n\n\nSee what version of Python and numpy you installed by running check_versions.py script:\n./check_versions.py\nThis will print out the current time followed by the versions of Python and numpy you are using.\nSuppose that you need to use an older version of Python and numpy for a project. Create another conda environment called conda-test2 and install Python version 3.9 and numpy 1.24.1 into it.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\nconda create -n conda-test2 python=3.9 numpy=1.24.1\n\n\n\nActivate conda-test2 and run check versions to verify that you have the desired versions.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\nconda activate conda-test2\n./check_versions.py\n\n\n\nCreate an environment called biotest and install gofasta in it using the bioconda channel. (You can specify the channel for conda create and/or conda install using the -c flag, just as we did the in search command above.)\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\nconda create -n biotest -c bioconda gofasta\n\n\n\nNow activate the bioconda channel and test that gofasta is installed by running:\nconda activate biotest\ngofasta --help\nYou should get a help message giving information about gofasta.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#removing-environments",
+    "href": "01_cli_conda/conda.html#removing-environments",
+    "title": "Bash variables, environments, and conda",
+    "section": "Removing environments",
+    "text": "Removing environments\nLets remove some of the environments we created to save space. You can see all the environments you have installed by running:\nconda info --envs\nLet’s uninstall the conda-test environment. First, if you are not in the base environment, go to it by running conda deactivate. This will take you to your last active environment. Keep deactivating until you see (base) on the left of the prompt. Alternatively, just type conda activate (with no environment name) to go directly to the base environment. Now let’s remove the conda-test environment by running:\nconda remove --all -n conda-test\nNow run conda info --envs again to check that the environment is installed. Repeat for any other environments you’d like to remove.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#bash-customization",
+    "href": "01_cli_conda/conda.html#bash-customization",
+    "title": "Bash variables, environments, and conda",
+    "section": "Bash Customization",
+    "text": "Bash Customization\nCustomizing your Bash shell can improve your workflow and make frequently used commands easier to run.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#example-enabling-color-output-in-ls",
+    "href": "01_cli_conda/conda.html#example-enabling-color-output-in-ls",
+    "title": "Bash variables, environments, and conda",
+    "section": "Example: Enabling Color Output in ls",
+    "text": "Example: Enabling Color Output in ls\nOn many systems, the output of ls returns text that is the same color, regardless of if it’s a file, folder, or something else. However, if you run:\nls -G\nThen the output text will be colored depending on what item is; e.g., directory names will be in blue and files in white.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#aliases",
+    "href": "01_cli_conda/conda.html#aliases",
+    "title": "Bash variables, environments, and conda",
+    "section": "Aliases",
+    "text": "Aliases\nAliases map a short command to a longer one. For example, if we always want the output of ls to be colored, we can alias ls -G with ls with:\nalias ls=\"ls -hG\"",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#customization-with-.bash_profile-and-.bashrc",
+    "href": "01_cli_conda/conda.html#customization-with-.bash_profile-and-.bashrc",
+    "title": "Bash variables, environments, and conda",
+    "section": "Customization with .bash_profile and .bashrc",
+    "text": "Customization with .bash_profile and .bashrc\nYou may find an alias like the above so useful that you want it to run everytime you open a terminal. There are files that are run automatically when Bash starts that allow you to do just that. They are:\n\n~/.bash_profile\nRuns for login shells. Good for commands that should only run once when you log in (e.g., setting environment variables).\n~/.bashrc\nRuns for interactive non-login shells. Good for commands you want every interactive shell to run (e.g., aliases, functions).\n\nOn many systems, .bash_profile will call .bashrc so settings apply in both contexts.\n\nTip: If unsure where to put something, put it in .bashrc and make sure .bash_profile sources .bashrc.\n\n\n\n\n\n\n\nNoteUsing Zsh?\n\n\n\nIf your default shell is zsh (common on macOS Catalina and later), the equivalent files are: - ~/.zprofile – similar to .bash_profile - ~/.zshrc – similar to .bashrc\nConfiguration changes should go into ~/.zshrc for most use cases.\n\n\nYou can put any bash command you like in these scripts to further customize your shell. For example, you can configure your shell so that pressing the up arrow searches backward through your command history for commands starting with the text you have typed, and the down arrow searches forward with:\n\nfor bash (add this to your ~/.bashrc):\nbind '\"\\e[A\": history-search-backward'\nbind '\"\\e[B\": history-search-forward'\nfor Zsh (add this to your ~/.zshrc):\nbindkey \"^[[A\" history-search-backward\nbindkey \"^[[B\" history-search-forward",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#redirection-and-append",
+    "href": "01_cli_conda/conda.html#redirection-and-append",
+    "title": "Bash variables, environments, and conda",
+    "section": "Redirection and Append",
+    "text": "Redirection and Append\nRedirect output to a file:\necho \"Hello\" &gt; file.txt\nOverwrites file.txt with “Hello”.\nAppend output to a file:\necho \"World\" &gt;&gt; file.txt\nAdds “World” to the end of file.txt.\n\n\n\n\n\n\nCautionChallenge:\n\n\n\nCreate a file called input.txt that contains the text “To be, or not to be,” on the first line. Then add “that is the question.” on the second line.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\necho \"To be, or not to be,\" &gt; input.txt\necho \"that is the question.\" &gt;&gt; input.txt",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#text-manipulation-with-sed",
+    "href": "01_cli_conda/conda.html#text-manipulation-with-sed",
+    "title": "Bash variables, environments, and conda",
+    "section": "Text Manipulation with sed",
+    "text": "Text Manipulation with sed\nIt frequently happens that you need to search for and replace text in a file. The program sed is used for that. For example, let’s modify the text in the input.txt you created above, and replace the word “be” with “use AI”:\nsed 's/ be/ use AI/g' input.txt\nWe can write results to a new file:\nsed 's/ be/ use AI/g' input.txt &gt; output.txt",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#file-permissions-and-ownership",
+    "href": "01_cli_conda/conda.html#file-permissions-and-ownership",
+    "title": "Bash variables, environments, and conda",
+    "section": "File Permissions and Ownership",
+    "text": "File Permissions and Ownership\n\nViewing Permissions\nls -l\nExample output:\n-rw-r--r--  1 user  staff   1234 Aug 14 12:00 file.txt\n\nFirst character: file type (- = file, d = directory)\nNext three: owner permissions\nNext three: group permissions\nNext three: others’ permissions\n\n\n\nChanging Permissions\nchmod u+x script.sh   # add execute permission for owner\nchmod u-w file.txt    # remove write permission for owner\n\n\nChanging Ownership\nsudo chown newuser file.txt",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/conda.html#conditionals",
+    "href": "01_cli_conda/conda.html#conditionals",
+    "title": "Bash variables, environments, and conda",
+    "section": "Conditionals",
+    "text": "Conditionals\nIn Bash, as with any language, conditionals allow you to execute commands only if certain conditions are true. They help control the flow of your script, enabling decisions based on system state, user input, or computation results.\nThe basic syntax for an if statement in Bash is:\nif [ CONDITION ]; then\n  # commands to run if CONDITION is true\nelif [ OTHER_CONDITION ]; then\n  # commands to run if OTHER_CONDITION is true\nelse\n  # commands to run if no conditions are true\nfi\n\nKey points:\n\nThe square brackets [ ] are a synonym for the test command.\nYou must have spaces after [ and before ].\nCommon tests:\n\n-f file — file exists and is a regular file\n-d directory — directory exists\nstring1 = string2 — strings are equal\nn1 -eq n2 — numbers are equal\n! CONDITION — logical NOT (true if CONDITION is false)\n\n\nFor example, to check if a file exists:\nif [ -f \"file.txt\" ]; then\n  echo \"File exists\"\nelse\n  echo \"File does not exist\"\nfi",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub",
+      "Bash variables, environments, and `conda`"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/index.html",
+    "href": "01_cli_conda/index.html",
+    "title": "1. Command line interface, Environments, and Git/GitHub",
+    "section": "",
+    "text": "In this unit, you will learn how to use the bash shell in a command line interface (CLI), programming environments, and how to use conda to manage environments and install packages. You will also learn the difference between Git and GitHub, and how to use Git on the command line.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/index.html#tutorials",
+    "href": "01_cli_conda/index.html#tutorials",
+    "title": "1. Command line interface, Environments, and Git/GitHub",
+    "section": "Tutorials",
+    "text": "Tutorials\n\nIntroduction to CLI\nEnvironments and Conda\nGit and GitHub",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub"
+    ]
+  },
+  {
+    "objectID": "01_cli_conda/index.html#lecture",
+    "href": "01_cli_conda/index.html#lecture",
+    "title": "1. Command line interface, Environments, and Git/GitHub",
+    "section": "Lecture",
+    "text": "Lecture\n\nWednesday, January 14, 2026\nIntroduction to command line interface (CLI)\n\n\n\n\nWednesday, January 21, 2026\nContiuation of CLI: bash variables, scripts, and environments. Introduction to Conda.\n\n\n\n\nMonday, January 26, 2026\nIntroduction to Git and GitHub; how to use GitHub Classroom.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "1. Command line interface, Environments, and Git/GitHub"
+    ]
+  },
+  {
+    "objectID": "02_python/index.html",
+    "href": "02_python/index.html",
+    "title": "2. Python review",
+    "section": "",
+    "text": "In this unit we will review some basics of Python programming. You will have covered the material here in IST 256.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "2. Python review"
+    ]
+  },
+  {
+    "objectID": "02_python/index.html#tutorials",
+    "href": "02_python/index.html#tutorials",
+    "title": "2. Python review",
+    "section": "Tutorials",
+    "text": "Tutorials\n\nInput, output, variables, types, conditionals\nIterations, lists, dictionaries, comprehensions",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "2. Python review"
+    ]
+  },
+  {
+    "objectID": "02_python/index.html#lectures",
+    "href": "02_python/index.html#lectures",
+    "title": "2. Python review",
+    "section": "Lectures",
+    "text": "Lectures\n\nWednesday, January 28, 2026\nOverview of assignment 1. Introduction to Python: input, output, variables, types, conditionals.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "2. Python review"
+    ]
+  },
+  {
+    "objectID": "02_python/python-2.html",
+    "href": "02_python/python-2.html",
+    "title": "2. Iterations, lists, dictionaries, comprehensions",
+    "section": "",
+    "text": "Iterations are code strucures which allow us to repeat sections of code while a condition is true, or a fixed number of time.\nThey allow us to do more with less code!",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "2. Python review",
-      "1. Input, output, variables, types, conditionals"
+      "2. Iterations, lists, dictionaries, comprehensions"
+    ]
+  },
+  {
+    "objectID": "02_python/python-2.html#the-break-command",
+    "href": "02_python/python-2.html#the-break-command",
+    "title": "2. Iterations, lists, dictionaries, comprehensions",
+    "section": "The break command",
+    "text": "The break command\n\nbreak keyword exits the loop immediately.\nCommonly used when there is no longer a reason to loop (you achieved your goal).\nYou can add an else to the for loop to execute when break does not happen.\n\n\n# Example: find a letter in a text string\n\ntext = input(\"Enter Some Text:\")\nfind = input(\"Enter character to find:\")\nfor ch in text:\n    if ch == find:\n        print(f\"Found {find} in {text}!\")\n        break\nelse:\n    print(f\"Unable to find {find} in {text}!\")\n\nEnter Some Text: testing\nEnter character to find: n\nFound n in testing!\n\nEnter Some Text: testing\nEnter character to find: x\nUnable to find x in testing!\n\n\n\n\n\n\n\nCautionCode Challenge 2.1\n\n\n\nWrite a program to accept a password as input. If the password input is “secret” display “access granted”. Otherwise say “invalid password”.\nRepeat the above up to 5 times. When the correct password is entered, stop looping. When 5 loops have exhausted, print “you are locked out”.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nvalid_password = \"secret\"\nfor i in range(5):\n    pw = input(\"Enter Password:\")\n    if pw == valid_password:\n        print(\"Access Granted!\")\n        break\n    else:\n        print(\"Invalid Password.\")\nelse:\n    print(\"You are locked out\")",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "2. Python review",
+      "2. Iterations, lists, dictionaries, comprehensions"
+    ]
+  },
+  {
+    "objectID": "02_python/python-2.html#the-in-operator",
+    "href": "02_python/python-2.html#the-in-operator",
+    "title": "2. Iterations, lists, dictionaries, comprehensions",
+    "section": "The in operator",
+    "text": "The in operator\nThe in operator checks for existence of an item in a list.\n\n# Example: whats in the list?\nnumbers = [10, 15, 20]\nprint(f\"5 in {numbers}?\", 5 in numbers)\nprint(f\"20 in {numbers}?\", 20 in numbers)\n\n5 in [10, 15, 20]? False\n20 in [10, 15, 20]? True",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "2. Python review",
+      "2. Iterations, lists, dictionaries, comprehensions"
+    ]
+  },
+  {
+    "objectID": "02_python/python-2.html#list-methods",
+    "href": "02_python/python-2.html#list-methods",
+    "title": "2. Iterations, lists, dictionaries, comprehensions",
+    "section": "List Methods",
+    "text": "List Methods\nThere are numerous list methods which allow you to add, remove, and find values in the list, etc…\nhttps://docs.python.org/3/library/stdtypes.html?highlight=list#mutable-sequence-types\n\n# Example: manipulating a list\n\n# An empty list\ncolors = []\n\n# Add \"blue\" to the end\ncolors.append(\"blue\")\n\n# add \"red\" to the beginning\ncolors.insert(0, \"red\")\n\n# add \"white\" in the 2nd position\ncolors.insert(1, \"white\")\n\n# print ['red', 'white', 'blue']\nprint(colors)\n\n# remove the last color\nblue = colors.pop(-1)\n\n# remove \"white\"\nwhite = colors.remove(\"white\")\n\n# print ['red']\nprint(colors)\n\n['red', 'white', 'blue']\n['red']\n\n\n\n\n\n\n\n\nCautionCode Challenge 2.3\n\n\n\nWrite a sentinel controlled loop to input a color until “quit” is entered. Add each color to a list only when the color is not already in the list. Print the list each time in the loop.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\ncolors = []\n\nwhile True:\n    color = input(\"Enter a color:\")\n    if color == 'quit':\n        break\n    if color not in colors:\n        colors.append(color)\n        op = \"added to\"\n    else:\n        op = \"already in\"\n\n    print(f\"{color} {op} {colors}\")",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "2. Python review",
+      "2. Iterations, lists, dictionaries, comprehensions"
+    ]
+  },
+  {
+    "objectID": "02_python/python-2.html#dictionary-methods",
+    "href": "02_python/python-2.html#dictionary-methods",
+    "title": "2. Iterations, lists, dictionaries, comprehensions",
+    "section": "Dictionary Methods",
+    "text": "Dictionary Methods\nLike str and list, the dict type has its own set of built-in functions. https://docs.python.org/3/library/stdtypes.html#mapping-types-dict\n\nfont = {'name': 'Arial','size': 8}\n\nprint(font.keys()) # this is an iterable\n\nprint(font.values()) # this is an iterable\n\nprint(font['name'])\n\nfont['name'] = 'Courier'\n\nprint(font['name'])\n\nprint('size' in font)\n\nprint(font.get('style', 'normal')) # get with default value\n\ndict_keys(['name', 'size'])\ndict_values(['Arial', 8])\nArial\nCourier\nTrue\nnormal",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "2. Python review",
+      "2. Iterations, lists, dictionaries, comprehensions"
+    ]
+  },
+  {
+    "objectID": "02_python/python-2.html#complex-data-stuctures",
+    "href": "02_python/python-2.html#complex-data-stuctures",
+    "title": "2. Iterations, lists, dictionaries, comprehensions",
+    "section": "Complex Data Stuctures",
+    "text": "Complex Data Stuctures\nWe can combine lists and dictionaries to create complex data structures in python.\nThese allow us to represent real-world data in code\n\nstudents = [\n    { 'name' : 'abby', 'grades' : [100,80,90] },\n    { 'name' : 'bob', 'grades' : [100,90,90] },\n    { 'name' : 'chris', 'grades' : [90,100,100] }\n]\n\n\n# just print each student name\nfor student in students:\n    print(student['name'])\n\nabby\nbob\nchris\n\n\n\n# print each student name and average grade\nfor student in students:\n    avg_grade = sum(student['grades'])/len(student['grades'])\n    print(f\"{student['name']}  {avg_grade:.2f}\")\n\nabby  90.00\nbob  93.33\nchris  96.67\n\n\n\n\n\n\n\n\nCautionCode Challenge 2.4\n\n\n\nWrite a program to create a shopping list:\n\nloop until “quit” is entered\ninput a grocery item\ninput a quantity\nsave the item as the key in the dictionary and quantity as the value\nif the item is in the dictionary already, add the quantity to the existing value\n\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nitems = {}\n\nwhile True:\n    item = input(\"Enter shopping item, or 'quit': \")\n    if item == 'quit':\n        break\n    qty = int(input(\"Enter quantity: \"))\n    if item in items.keys():\n        items[item] = items[item] + qty\n    else:\n        items[item] = qty\n\n    print(\"ITEMS:\", items)",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "2. Python review",
+      "2. Iterations, lists, dictionaries, comprehensions"
     ]
   },
   {
