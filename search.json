@@ -1158,7 +1158,7 @@
     "href": "02_python/index.html#lectures",
     "title": "2. Python review",
     "section": "Lectures",
-    "text": "Lectures\n\nWednesday, January 28, 2026\nOverview of assignment 1. Introduction to Python: input, output, variables, types, conditionals.\n\n\n\n\nMonday, February 2, 2026\nPython lists and dictionaries; definite and indefinite loops. (Pre-recorded lecture.)\n\n\n\n\nWednesday, February 4, 2026\nPython functions; string operations; file I/O. (Pre-recorded lecture.)",
+    "text": "Lectures\n\nWednesday, January 28, 2026\nOverview of assignment 1. Introduction to Python: input, output, variables, types, conditionals.\n\n\n\n\nMonday, February 2, 2026\nPython lists and dictionaries; definite and indefinite loops. (Pre-recorded lecture.)\n\n\n\n\nWednesday, February 4, 2026\nPython functions; string operations; file I/O. (Pre-recorded lecture.)\n\n\n\n\nMonday, February 9, 2026\nPython classes; imports",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "2. Python review"
