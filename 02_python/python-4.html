@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4. Object Oriented Programming using Python Classes – IST 356 Spring 2026</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../02_python/python-5.html" rel="next">
+<link href="../02_python/python-3.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-636770ed70550effe8cc9e61b03b729c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="4. Object Oriented Programming using Python Classes – IST 356 Spring 2026">
+<meta property="og:description" content="">
+<meta property="og:image" content="enter_gitHub_pages_URL_here/images/ischool_logo_reverseX2.png">
+<meta property="og:site_name" content="IST 356 Spring 2026">
+<meta property="og:image:height" content="105">
+<meta property="og:image:width" content="650">
+<meta name="twitter:title" content="4. Object Oriented Programming using Python Classes – IST 356 Spring 2026">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="enter_gitHub_pages_URL_here/images/ischool_logo_reverseX2.png">
+<meta name="twitter:image-height" content="105">
+<meta name="twitter:image-width" content="650">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">IST 356 Spring 2026</span>
+    </a>
+  </div>
+          <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://ischool.syracuse.edu" target="_blank"> 
+<span class="menu-text"><img src="../images/ischool_logo_reverseX2.png" height="30"></span></a>
+  </li>  
+</ul>
+          <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02_python/index.html">2. Python review</a></li><li class="breadcrumb-item"><a href="../02_python/python-4.html">4. Object Oriented Programming using Python Classes</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../00_intro/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction and computer setup</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../01_cli_conda/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Command line interface, Environments, and Git/GitHub</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_cli_conda/shell-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Command Line Interface and the Unix Shell</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_cli_conda/conda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bash variables, environments, and <code>conda</code></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_cli_conda/git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git and GitHub</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../02_python/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Python review</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02_python/python-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Input, output, variables, types, conditionals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02_python/python-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Iterations, lists, dictionaries, comprehensions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02_python/python-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Functions, documentation, strings, files</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02_python/python-4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">4. Object Oriented Programming using Python Classes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02_python/python-5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Modules, import, pip, testing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#namespaces-and-scope" id="toc-namespaces-and-scope" class="nav-link active" data-scroll-target="#namespaces-and-scope">Namespaces and scope</a></li>
+  <li><a href="#classes" id="toc-classes" class="nav-link" data-scroll-target="#classes">Classes</a>
+  <ul class="collapse">
+  <li><a href="#the-need-for-classes" id="toc-the-need-for-classes" class="nav-link" data-scroll-target="#the-need-for-classes">The need for classes</a></li>
+  <li><a href="#defining-classes" id="toc-defining-classes" class="nav-link" data-scroll-target="#defining-classes">Defining classes</a></li>
+  <li><a href="#whats-the-deal-with-self" id="toc-whats-the-deal-with-self" class="nav-link" data-scroll-target="#whats-the-deal-with-self">What’s the deal with <code>self</code>?</a></li>
+  <li><a href="#the-__init__-method" id="toc-the-__init__-method" class="nav-link" data-scroll-target="#the-__init__-method">The <code>__init__</code> method</a></li>
+  <li><a href="#class-vs.-instance-variables" id="toc-class-vs.-instance-variables" class="nav-link" data-scroll-target="#class-vs.-instance-variables">Class vs.&nbsp;instance variables</a></li>
+  </ul></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
+  <ul class="collapse">
+  <li><a href="#a.-decorators" id="toc-a.-decorators" class="nav-link" data-scroll-target="#a.-decorators">A. Decorators</a>
+  <ul class="collapse">
+  <li><a href="#classmethod" id="toc-classmethod" class="nav-link" data-scroll-target="#classmethod"><span class="citation" data-cites="classmethod">@classmethod</span></a></li>
+  <li><a href="#staticmethod" id="toc-staticmethod" class="nav-link" data-scroll-target="#staticmethod"><span class="citation" data-cites="staticmethod">@staticmethod</span></a></li>
+  <li><a href="#property" id="toc-property" class="nav-link" data-scroll-target="#property"><span class="citation" data-cites="property">@property</span></a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02_python/index.html">2. Python review</a></li><li class="breadcrumb-item"><a href="../02_python/python-4.html">4. Object Oriented Programming using Python Classes</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">4. Object Oriented Programming using Python Classes</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In this tutorial we provide an overview of Object oriented programming in Python, including what a <code>class</code> is and how to define it. This tutorial is derived from a session during the <a href="https://github.com/SyracuseUniversity/ospo-workshop-advpython/blob/main/session1/tutorial.ipynb">Winter 2024 SU OSPO Advanced Python Workshop</a>.</p>
+<p>In addition, the Appendix provides some more background on common decorators and different ways to define and call functions.</p>
+<section id="namespaces-and-scope" class="level2">
+<h2 class="anchored" data-anchor-id="namespaces-and-scope">Namespaces and scope</h2>
+<p>Before introducing classes, it is instructive to understand how mappings between objects and values are handled in python.</p>
+<p>Suppose we create a function called <code>linef</code> that calculate the y-value of a line given a slope, y-intercept, and x-value:</p>
+<div id="05b05415" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> linef(x, slope, intercept):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> slope <span class="op">*</span> x <span class="op">+</span> intercept</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We can then evaluate the y-value of a line with say, a slope of 1 and y-interecept of 2 at x=3 with:</p>
+<div id="51faa502" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>linef(<span class="dv">3</span>, m, b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>5</code></pre>
+</div>
+</div>
+<p>In the definition of <code>linef</code> we created an argument called <code>y</code>, which we modified within the function. No variable <code>y</code> was defined prior to the function definition. And even though we have called <code>linef</code>, no variable <code>y</code> exists in the notebook:</p>
+<div id="8be2dfa6" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[3]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span style="color:rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">y</span>)
+
+<span class="ansi-red-fg">NameError</span>: name 'y' is not defined</pre>
+</div>
+</div>
+</div>
+<p>To understand what’s going on here, let’s establish a few definitions. When we set <code>m = 1</code>, we created a <em>mapping</em> from the object called <code>m</code> to the value <code>1</code>. We created a similar mappings for <code>b</code>. Likewise, when we defined the function <code>linef</code>, we created a mapping from the <em>object</em> called <code>linef</code> to the block of code defined above. <strong>A collection of mappings is called a <em>namespace</em>.</strong> Currently, the namespace of our notebook/module (called the module’s <code>global</code> namespace) is <code>m</code>, <code>b</code>, and <code>linef</code>. Our notebook also has access to Python’s <code>builtins</code> namespace. The <em><a href="https://en.wikipedia.org/wiki/Scope_(computer_science)">scope</a></em> of the notebook — i.e., the collection of namespaces that are searched to resolve objects — is the notebook’s namespace plus the <code>builtins</code>.</p>
+<p>When we define a function, we define a new, <em>local</em> namespace within that function. The function’s local namespace includes all of the arguments that the function takes, plus any mappings that are created within that function. So, when we called <code>linef(3, m, b)</code>, a namespace was created with local objects <code>x</code>, <code>slope</code> and <code>intercept</code>, which were mapped to <code>3</code> and the values of the global mappings <code>m</code>, and <code>b</code>, respectively. The code within <code>linef</code> was then evaluated, which created the local variable <code>y</code>. The line <code>return y</code> then passed <em>the value that <code>y</code> is mapped to</em> (not the variable <code>y</code>) back to the global namespace. At this point, <em>the function’s namespace is deleted</em>, meaning that the objects <code>x</code>, <code>slope</code>, <code>intercept</code>, and <code>y</code> cease to exist.</p>
+<p>When we called <code>linef</code>, the value returned was just printed to screen; it was not mapped to anything. If we want the result of <code>linef</code> to persist, we need to map a variable to it so that it will exist in the notebook’s namespace; e.g.:</p>
+<div id="e727c472" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>liney <span class="op">=</span> linef(<span class="dv">3</span>, m, b)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(liney)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5</code></pre>
+</div>
+</div>
+<p>Now let’s define a variable <code>x = 0</code> in the global namespace:</p>
+<div id="444dd8a3" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>If we call <code>linef</code> again with the same arguments, we still get the same result:</p>
+<div id="353a5c69" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>linef(<span class="dv">3</span>, m, b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>5</code></pre>
+</div>
+</div>
+<p>But we now have an <code>x</code> defined in the notebook’s global namespace! Why did <code>3</code> get used for <code>x</code> inside the function instead of the global <code>x = 0</code>? The global <code>x = 0</code> was not used because whenever Python is evaluating a block of code, <em>local mappings take precedence</em>. So, when we called <code>linef(3, m, b)</code>, a local namespace was created in which <code>x</code> was mapped to <code>3</code>. Inside the function, the local <code>x</code> is not the same thing as the global <code>x</code> even though they share the same name.</p>
+<p>If a function uses an object that is not defined in the local namespace, then Python will step out to the next local namespace to look for it. This process will repeat until it gets to the module’s <code>global</code> namespace, followed by the <code>builtins</code>; if nothing can be found there, a <code>NameError</code> is raised.</p>
+<p>For example, when the code inside <code>linef(3, m, b)</code> is being evaluated, 3 namespaces exist. In order of object resolution, they are:</p>
+<ol type="1">
+<li><p><code>linef</code> namespace: <code>{x: 3, slope: 1, intercept: 2}</code></p></li>
+<li><p><code>global</code> namespace: <code>{x: 0, m: 1, b: 2, linef: &lt;linef code&gt;, ... }</code></p></li>
+<li><p><code>builtin</code> namespace: <code>{+: &lt;add&gt;, *: &lt;multiply&gt;, ... }</code></p></li>
+</ol>
+<p>Understanding nested namespaces is key to understanding how classes work.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Due to the way mappings are resolved, it is possible to define a function that uses a variable from outside of its local namespace. For example:</p>
+<div id="00e53928" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dontdothis(a):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>dontdothis(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>3</code></pre>
+</div>
+</div>
+<p>Here, because <code>b</code> was not listed in <code>dontdothis</code>’s arguments (and was not defined anywhere in the function), Python ends up using the <code>b</code> defined in the notebook’s <code>global</code> namespace. We therefore end up with <code>1 + 2</code>.</p>
+<p>If it wasn’t clear from the function name, <strong>don’t do this.</strong> The danger is the output of the function can change depending on where it is called in the code even if the arguments are the same. For example, if at some later point we set <code>b</code> to a different value:</p>
+<div id="240efa1e" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Then calling <code>dontdothis</code> with the same argument will yield a different result:</p>
+<div id="e1430fdd" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dontdothis(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>7</code></pre>
+</div>
+</div>
+<p>This can lead to unexpected bugs that are hard to track down. Thus, generally, <strong>you should include all variables needed by a function in its list of arguments.</strong> There are some cases where this rule may need to be broken, but these are rare, and should be avoided if possible.</p>
+</div>
+</div>
+</section>
+<section id="classes" class="level2">
+<h2 class="anchored" data-anchor-id="classes">Classes</h2>
+<section id="the-need-for-classes" class="level3">
+<h3 class="anchored" data-anchor-id="the-need-for-classes">The need for classes</h3>
+<p>It is possible to write code in Python that only uses functions (this is known as <a href="https://en.wikipedia.org/wiki/Functional_programming">functional programming</a>). However, in certain cases this can lead to unwieldy and difficult to manage code.</p>
+<p>As a simple example (borrowed from <a href="https://stackoverflow.com/a/33072722">here</a>), say we wanted some code to keep track of a student’s progress in a class. We could do this using a dictionary:</p>
+<div id="a9629177" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create student Jane</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>jane <span class="op">=</span> {}</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>jane[<span class="st">'name'</span>] <span class="op">=</span> <span class="st">'Jane'</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>jane[<span class="st">'homework_grades'</span>] <span class="op">=</span> [<span class="fl">87.</span>, <span class="fl">90.</span>, <span class="fl">82.</span>, <span class="fl">75.</span>, <span class="fl">97.</span>]</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>jane[<span class="st">'exam_grades'</span>] <span class="op">=</span> [<span class="fl">88.</span>, <span class="fl">80.</span>, <span class="fl">94.</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You also give your students the opportunity to earn extra credit by writing a report. Jane, the hardworking student that she is, takes advantage of this and writes an excellent report. You add that to her grades:</p>
+<div id="c35f973f" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>jane[<span class="st">'extra_credit'</span>] <span class="op">=</span> <span class="fl">99.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You now write a function to calculate averages:</p>
+<div id="ede5bebf" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> average(grades):</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(grades) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(<span class="bu">sum</span>(grades)) <span class="op">/</span> <span class="bu">len</span>(grades)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>… which you use in a function you write to cacluate your students’ GPA:</p>
+<div id="12a58d1e" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gpa(student):</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    homeworkavg <span class="op">=</span> average(student[<span class="st">'homework_grades'</span>])</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    examavg <span class="op">=</span> average(student[<span class="st">'exam_grades'</span>])</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> average([homeworkavg, examavg]) <span class="op">+</span> student[<span class="st">'extra_credit'</span>] </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">min</span>(<span class="fl">4.0</span> <span class="op">*</span> total <span class="op">/</span> <span class="fl">100.</span>, <span class="fl">4.0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You use this to get Jane’s score:</p>
+<div id="a59cb70e" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gpa(jane))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.0</code></pre>
+</div>
+</div>
+<p>Now you want to do the same for your other student, Susie:</p>
+<div id="6dc9d188" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>susie <span class="op">=</span> {}</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>susie[<span class="st">'name'</span>] <span class="op">=</span> <span class="st">'Susie'</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>susie[<span class="st">'homework_grades'</span>] <span class="op">=</span> [<span class="fl">80.</span>, <span class="fl">73.</span>, <span class="fl">77.</span>, <span class="fl">50.</span>, <span class="fl">0.</span>]</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>susie[<span class="st">'exam_grades'</span>] <span class="op">=</span> [<span class="fl">70.</span>, <span class="fl">63.</span>, <span class="fl">50.</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="09d7f579" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gpa(susie))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[16]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span style="color:rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">gpa</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">susie</span><span class="ansi-yellow-bg">)</span>)
+
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[13]</span><span class="ansi-green-fg">, line 4</span>, in <span class="ansi-cyan-fg">gpa</span><span class="ansi-blue-fg">(student)</span>
+<span class="ansi-green-fg">      2</span> homeworkavg = average(student[<span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">homework_grades</span><span class="ansi-yellow-fg">'</span>])
+<span class="ansi-green-fg">      3</span> examavg = average(student[<span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">exam_grades</span><span class="ansi-yellow-fg">'</span>])
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">4</span> total = average([homeworkavg, examavg]) + <span class="ansi-yellow-bg">student</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-fg ansi-yellow-bg">'</span><span class="ansi-yellow-fg ansi-yellow-bg">extra_credit</span><span class="ansi-yellow-fg ansi-yellow-bg">'</span><span class="ansi-yellow-bg">]</span> 
+<span class="ansi-green-fg">      5</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span style="color:rgb(0,135,0)">min</span>(<span class="ansi-green-fg">4.0</span> * total / <span class="ansi-green-fg">100.</span>, <span class="ansi-green-fg">4.0</span>)
+
+<span class="ansi-red-fg">KeyError</span>: 'extra_credit'</pre>
+</div>
+</div>
+</div>
+<p>Oh! Susie - a bit of a slacker - didn’t do the extra credit (even though she needed it more). As a result, you forgot to add an extra credit entry for her, leading to a problem with your function. You can fix this by going back and changing your <code>gpa</code> function, or by adding the missing data to Susie’s dictionary. However, this highlights a disadvantage to this type of programming: the object (in this case a student, represented by a dictionary) <em>is not well defined.</em> This can lead to pitfalls when trying to write functions that will manipulate your objects.</p>
+</section>
+<section id="defining-classes" class="level3">
+<h3 class="anchored" data-anchor-id="defining-classes">Defining classes</h3>
+<p>Python classes are a way to bundle data and functions together into logically coherent objects (this is known as <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">object oriented programming</a>). Like functions, they create their own local namespaces within your program within which you can manipulate objects. Unlike functions, these namespaces persist even when you are not interacting with the class.</p>
+<p>To illustrate how classes work, let’s revisit the above problem. We want an object that represents a student, which has a number of <em>attributes</em>, such as <code>name</code>, <code>homework_grades</code>, etc. To do that, we define a <code>class</code>:</p>
+<div id="4540630c" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student:</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Stores information about students."""</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.homework_grades <span class="op">=</span> []</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.exam_grades <span class="op">=</span> []</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.extra_credit <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> homework_avg(<span class="va">self</span>):</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Average homework grade."""</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> average(<span class="va">self</span>.homework_grades)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> exam_avg(<span class="va">self</span>):</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Average exam grade."""</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> average(<span class="va">self</span>.exam_grades)</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> gpa(<span class="va">self</span>):</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""GPA (on a 4.0 scale)."""</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> average([<span class="va">self</span>.homework_avg(), <span class="va">self</span>.exam_avg()]) <span class="op">+</span> <span class="va">self</span>.extra_credit</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">min</span>(<span class="fl">4.0</span> <span class="op">*</span> total <span class="op">/</span> <span class="fl">100.</span>, <span class="fl">4.0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now we create <code>Student</code> <em>instances</em>, one for Jane, and one for Susie:</p>
+<div id="672f9b0e" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>jane <span class="op">=</span> Student(<span class="st">'Jane'</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>jane.homework_grades <span class="op">=</span> [<span class="fl">87.</span>, <span class="fl">90.</span>, <span class="fl">82.</span>, <span class="fl">75.</span>, <span class="fl">97.</span>]</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>jane.exam_grades <span class="op">=</span> [<span class="fl">88.</span>, <span class="fl">80.</span>, <span class="fl">94.</span>]</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>jane.extra_credit <span class="op">=</span> <span class="fl">99.</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>susie <span class="op">=</span> Student(<span class="st">'Susie'</span>)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>susie.homework_grades <span class="op">=</span> [<span class="fl">80.</span>, <span class="fl">73.</span>, <span class="fl">77.</span>, <span class="fl">50.</span>, <span class="fl">0.</span>]</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>susie.exam_grades <span class="op">=</span> [<span class="fl">70.</span>, <span class="fl">63.</span>, <span class="fl">50.</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We can now get their GPAs:</p>
+<div id="9477ad83" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>jane.gpa()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>4.0</code></pre>
+</div>
+</div>
+<div id="f7b2d004" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>susie.gpa()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>2.34</code></pre>
+</div>
+</div>
+<p>What did we do here? First, we defined the class <code>Student</code>, to which we added methods <code>__init__</code>, <code>homework_avg</code>, <code>exam_avg</code>, and <code>gpa</code>. No code was executed until we created an <em>instance</em> of <code>Student</code> by calling:</p>
+<div id="cebf3300" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>jane <span class="op">=</span> Student(<span class="st">'Jane'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>At this point, a local namespace called <code>jane</code> was created, which contained the mappings:</p>
+<pre class="{text}"><code>{name: 'Jane', homework_grades: [], exam_grades: [], extra_credit: None,
+ homework_avg: &lt;Student.homework_avg code&gt;, exam_avg: &lt;Student.exam_avg code&gt;,
+ gpa: &lt;Student.gpa code&gt;}</code></pre>
+<p>This is similar to what happens when a function is called. However, unlike a function, the namespace persisted after this line, allowing us to access its attributes with <code>.</code>; e.g., <code>jane.homework_grades</code>. Once we populated the relevant attributes, we were then able to call <code>gpa</code> to get Jane’s GPA.</p>
+</section>
+<section id="whats-the-deal-with-self" class="level3">
+<h3 class="anchored" data-anchor-id="whats-the-deal-with-self">What’s the deal with <code>self</code>?</h3>
+<p>Functions that are defined in a class are called <em>methods</em>. Their purpose is to act on a class instance’s attributes. In our <code>Student</code> example there were four methods: <code>__init__</code>, <code>homework_avg</code>, <code>exam_avg</code>, and <code>gpa</code>. All of these took <code>self</code> as their first argument. Why?</p>
+<p>In order for a method to act on an instance’s attributes, it must have some way to reference the class <em>instance</em>. For example, when we call <code>jane.gpa()</code>, we want the function <code>Student.gpa</code> to act on <em>Jane</em>’s grades. This is the purpose of <code>self</code>: it represents the class instance, so that we can access attributes of the instance within the function definition.</p>
+<p>Note that when we called <code>jane.gpa()</code> we did not need to provide any arguments. This is because <strong>Python automatically adds the class instance as the first argument when a method is called.</strong> So:</p>
+<ul>
+<li><p>All class method definitions must have <code>self</code> as their first argument. (With two exceptions; see Appendix, below.)</p></li>
+<li><p>When calling a method of a class instance, you do not pass the instance in the function arguments.</p></li>
+</ul>
+<p>In other words…</p>
+<p><strong>Correct:</strong></p>
+<div id="43d4a6fe" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>jane.gpa()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>0.0</code></pre>
+</div>
+</div>
+<p><strong>Not correct:</strong></p>
+<div id="d2d2d7d1" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>jane.gpa(jane)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[23]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">jane</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">gpa</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">jane</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-red-fg">TypeError</span>: Student.gpa() takes 1 positional argument but 2 were given</pre>
+</div>
+</div>
+</div>
+<p>Although you can do:</p>
+<div id="15ead86a" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>Student.gpa(jane)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>0.0</code></pre>
+</div>
+</div>
+<p><em>Note:</em> The name <code>self</code> in a method definition isn’t special. What matters is the argument order: the <em>first</em> argument of the class method is assumed to be the class instance, regardless of what it is named. Using <code>self</code> for this is just a convention.</p>
+</section>
+<section id="the-__init__-method" class="level3">
+<h3 class="anchored" data-anchor-id="the-__init__-method">The <code>__init__</code> method</h3>
+<p>For the most part, you can add any number of methods with various names to a class. However, there are a few special method names that Python recognizes (all of which begin and end with <code>__</code>). The most common of these is the <code>__init__</code> method.</p>
+<p>The <code>__init__</code> method is called while the class is initialized. The arguments of <code>__init__</code> determine what arguments need to be passed to the class when it is initialized. In our example, <code>Student.__init__</code> was defined as needing <code>name</code> (in addition to <code>self</code>, which is always required). As a result, when we initialized the class we had to pass in a string representing the student’s name.</p>
+<p>The <code>__init__</code> method is used to add attributes to a class and set their initial values. It is not necessary to have an <code>__init__</code> method, however. Nor must attributes be assigned in <code>__init__</code>. Attributes may be added to a class instance <em>after</em> the class is initialized. For example:</p>
+<div id="0fc97133" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Foo:</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>foo <span class="op">=</span> Foo()</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>foo.bar <span class="op">=</span> <span class="fl">10.</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(foo.bar)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>10.0</code></pre>
+</div>
+</div>
+<p>The catch is that any attribute added to an instance <em>only exists for that instance</em>. This means that if we create another instance of <code>Foo</code>:</p>
+<div id="a7f73dca" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>foo2 <span class="op">=</span> Foo()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>It will <em>not</em> have a <code>bar</code> attribute:</p>
+<div id="92d468da" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(foo2.bar)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[27]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span style="color:rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">foo2</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">bar</span>)
+
+<span class="ansi-red-fg">AttributeError</span>: 'Foo' object has no attribute 'bar'</pre>
+</div>
+</div>
+</div>
+<p>The benefit of <code>__init__</code> is that it ensures that all instances of a class have at least the attributes that are set within it.</p>
+</section>
+<section id="class-vs.-instance-variables" class="level3">
+<h3 class="anchored" data-anchor-id="class-vs.-instance-variables">Class vs.&nbsp;instance variables</h3>
+<p>In the <code>Student</code> example above, we created four attributes in the <code>__init__</code> method – <code>name</code>, <code>homework_grades</code>, <code>exam_grades</code>, and <code>extra_credit</code> – and assigned values to them. Since the values of the variables are assigned at class initialization these are known as <em>instance variables</em>.</p>
+<p>It is also possible to create what are called <em>class variables</em>. These are variables whose values are assigned in the class definition. For example, let’s redefine our <code>Student</code> class to hava class variable called <code>university</code>, which we’ll set to Syracuse:</p>
+<div id="81e9dfb1" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student:</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Stores information about students."""</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    university <span class="op">=</span> <span class="st">'Syracuse'</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.homework_grades <span class="op">=</span> []</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.exam_grades <span class="op">=</span> []</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.extra_credit <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> homework_avg(<span class="va">self</span>):</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Average homework grade."""</span></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> average(<span class="va">self</span>.homework_grades)</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> exam_avg(<span class="va">self</span>):</span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Average exam grade."""</span></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> average(<span class="va">self</span>.exam_grades)</span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> gpa(<span class="va">self</span>):</span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""GPA (on a 4.0 scale)."""</span></span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> average([<span class="va">self</span>.homework_avg(), <span class="va">self</span>.exam_avg()]) <span class="op">+</span> <span class="va">self</span>.extra_credit</span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">min</span>(<span class="fl">4.0</span> <span class="op">*</span> total <span class="op">/</span> <span class="fl">100.</span>, <span class="fl">4.0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now create two more students and see what their universities are:</p>
+<div id="ec731977" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>bob <span class="op">=</span> Student(<span class="st">'Bob'</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>joe <span class="op">=</span> Student(<span class="st">'Joe'</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bob.name, bob.university)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(joe.name, joe.university)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Bob Syracuse
+Joe Syracuse</code></pre>
+</div>
+</div>
+<p>We can see that despite having different names, both Bob and Joe have the same university without having to set it. What happens if we change Bob’s university? Does that affect Joe, or any other new <code>Student</code>?</p>
+<div id="b12132cf" class="cell" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>bob.university <span class="op">=</span> <span class="st">'Cornell'</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>miranda <span class="op">=</span> Student(<span class="st">'Miranda'</span>)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> student <span class="kw">in</span> [bob, joe, miranda]:</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(student.name, student.university)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Bob Cornell
+Joe Syracuse
+Miranda Syracuse</code></pre>
+</div>
+</div>
+<p>Nope! When we changed Bob’s university, it only reset Bob’s university attribute, but left Joe and Miranda alone. But what happens if we change <code>Student.university</code>? Let’s see how that affects a new student, as well as our current students:</p>
+<div id="222cd6d8" class="cell" data-execution_count="31">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>Student.university <span class="op">=</span> <span class="st">'Stanford'</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>sam <span class="op">=</span> Student(<span class="st">'Sam'</span>)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> student <span class="kw">in</span> [bob, joe, miranda, sam]:</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(student.name, student.university)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Bob Cornell
+Joe Stanford
+Miranda Stanford
+Sam Stanford</code></pre>
+</div>
+</div>
+<p>Joe and Miranda’s university have now also changed to Stanford! What’s going on? When the class is initialized, the values for all class variables point to value that is saved in the class definition. In other words, <code>joe.university</code> points to whatever <code>Student.university</code> is set to. Consequently, if you change the value of the class variable, all instances of that class will immediately have the same value. However, if you change the value of an instance’s class variable (as we did with Bob’s university) then that instance’s variable now points to whatever you set the new value to. In Bob’s case, the <code>university</code> attribute now points to the string ‘Cornell’ rather than to <code>Student.university</code>. That is why Bob was unaffected by the change.</p>
+<p>Class variables can be extremely useful for setting common parameters across multiple instances. Just be careful about modifying a class variable directly!</p>
+</section>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ol type="1">
+<li><p>The longer version of this tutorial, which includes things about class inheritance and abstract base classes: <a href="https://github.com/SyracuseUniversity/ospo-workshop-advpython/blob/main/session1/tutorial.ipynb">link</a></p></li>
+<li><p>Python’s tutorial on classes, which includes more details on namespaces and scope: https://docs.python.org/3.7/tutorial/classes.html</p></li>
+<li><p>Another tutorial on object oriented programming in Python: https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/</p></li>
+<li><p>More on method resolution order, from the former “Benevolent Dictator for Life” <a href="https://en.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a>: http://python-history.blogspot.com/2010/06/method-resolution-order.html</p></li>
+</ol>
+</section>
+<section id="appendix" class="level1">
+<h1>Appendix</h1>
+<p>Some extra stuff that you may or may not find interesting.</p>
+<section id="a.-decorators" class="level2">
+<h2 class="anchored" data-anchor-id="a.-decorators">A. Decorators</h2>
+<p>Consider the following modification of our <code>Student</code> class:</p>
+<div id="8544e3a5" class="cell" data-execution_count="32">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student:</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Stores information about students."""</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.homework_grades <span class="op">=</span> []</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.exam_grades <span class="op">=</span> []</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.extra_credit <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">@classmethod</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> from_dict(cls, sdict):</span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Initialize a Student using the given dictionary."""</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>        student <span class="op">=</span> cls(sdict[<span class="st">'name'</span>])</span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">'homework_grades'</span> <span class="kw">in</span> sdict:</span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a>            student.homework_grades <span class="op">=</span> sdict[<span class="st">'homework_grades'</span>]</span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">'exam_grades'</span> <span class="kw">in</span> sdict:</span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a>            student.exam_grades <span class="op">=</span> sdict[<span class="st">'exam_grades'</span>]</span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">'extra_credit'</span> <span class="kw">in</span> sdict:</span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a>            student.extra_credit <span class="op">=</span> sdict[<span class="st">'extra_credit'</span>]</span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> student</span>
+<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-22"><a href="#cb47-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb47-23"><a href="#cb47-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> avg(values):</span>
+<span id="cb47-24"><a href="#cb47-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(values) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb47-25"><a href="#cb47-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb47-26"><a href="#cb47-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">sum</span>(values) <span class="op">/</span> <span class="bu">float</span>(<span class="bu">len</span>(values))</span>
+<span id="cb47-27"><a href="#cb47-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-28"><a href="#cb47-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">@property</span></span>
+<span id="cb47-29"><a href="#cb47-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> homework_avg(<span class="va">self</span>):</span>
+<span id="cb47-30"><a href="#cb47-30" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Average homework grade."""</span></span>
+<span id="cb47-31"><a href="#cb47-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.avg(<span class="va">self</span>.homework_grades)</span>
+<span id="cb47-32"><a href="#cb47-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-33"><a href="#cb47-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">@property</span></span>
+<span id="cb47-34"><a href="#cb47-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> exam_avg(<span class="va">self</span>):</span>
+<span id="cb47-35"><a href="#cb47-35" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Average exam grade."""</span></span>
+<span id="cb47-36"><a href="#cb47-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.avg(<span class="va">self</span>.exam_grades)</span>
+<span id="cb47-37"><a href="#cb47-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-38"><a href="#cb47-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">@property</span></span>
+<span id="cb47-39"><a href="#cb47-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> gpa(<span class="va">self</span>):</span>
+<span id="cb47-40"><a href="#cb47-40" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""GPA (on a 4.0 scale)."""</span></span>
+<span id="cb47-41"><a href="#cb47-41" aria-hidden="true" tabindex="-1"></a>        score <span class="op">=</span> <span class="va">self</span>.avg([<span class="va">self</span>.homework_avg, <span class="va">self</span>.exam_avg]) <span class="op">+</span> <span class="va">self</span>.extra_credit</span>
+<span id="cb47-42"><a href="#cb47-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">min</span>(<span class="fl">4.0</span> <span class="op">*</span> score <span class="op">/</span> <span class="fl">100.</span>, <span class="fl">4.0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>What are all of those things with <code>@</code> before the function definitions? And why don’t the <code>from_dict</code> and <code>avg</code> methods not have <code>self</code> as their first arguments?!?</p>
+<p>The names beginning with <code>@</code>, such as <code>@classmethod</code>, are called <em>decorators</em>. Essentially, decorators are wrappers around functions that modify the behavior of that function. They can be used on any Python function, but they are most often seen in classes.</p>
+<p>Using and creating decorators is a large topic itself, the details of which we won’t get into here (if you’re interested, see <a href="https://realpython.com/primer-on-python-decorators/">here</a> for an excellent tutorial). However, there are three predefined decorators in the Python <code>builtins</code> that often come up in class definitions that I want highlight here: <code>@classmethod</code>, <code>@staticmethod</code>, and <code>@property</code>.</p>
+<section id="classmethod" class="level3">
+<h3 class="anchored" data-anchor-id="classmethod"><span class="citation" data-cites="classmethod">@classmethod</span></h3>
+<p>The <code>@classmethod</code> decorator modifies methods so that instead of taking an <em>instance</em> of a class as the first argument (what we normally call <code>self</code>) it takes the <em>class itself</em> (which we normally call <code>cls</code>). This is typically used to provide a way to instantiate a class using alternate input arguments than what is defined in <code>__init__</code>. For example, say we had a dictionary that specifies all of the information about Susie:</p>
+<div id="525c596a" class="cell" data-execution_count="33">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>susie_dict <span class="op">=</span> {}</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>susie_dict[<span class="st">'name'</span>] <span class="op">=</span> <span class="st">'Susie'</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>susie_dict[<span class="st">'homework_grades'</span>] <span class="op">=</span> [<span class="fl">80.</span>, <span class="fl">73.</span>, <span class="fl">77.</span>, <span class="fl">50.</span>, <span class="fl">0.</span>]</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>susie_dict[<span class="st">'exam_grades'</span>] <span class="op">=</span> [<span class="fl">70.</span>, <span class="fl">63.</span>, <span class="fl">50.</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We can now instantiate a <code>Student</code> representation of Susie using the <code>from_dict</code> method:</p>
+<div id="bc83cf6b" class="cell" data-execution_count="34">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>susie <span class="op">=</span> Student.from_dict(susie_dict)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(susie.name)</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(susie.homework_grades)</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(susie.exam_grades)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Susie
+[80.0, 73.0, 77.0, 50.0, 0.0]
+[70.0, 63.0, 50.0]</code></pre>
+</div>
+</div>
+<p>Notice that when we used <code>from_dict</code> we only provided the dictionary, even though the definition of <code>from_dict</code> had two arguments, <code>cls</code> and <code>sdict</code>. As with normal methods, <code>@classmethod</code> automatically adds in the class as the first argument.</p>
+</section>
+<section id="staticmethod" class="level3">
+<h3 class="anchored" data-anchor-id="staticmethod"><span class="citation" data-cites="staticmethod">@staticmethod</span></h3>
+<p>The <code>@staticmethod</code> decorator modifies methods so that the class instance <code>self</code> is <em>not</em> automatically added when the method is called. As a result, we do not need to reserve the first argument in the definition of a <code>@staticmethod</code>. We see that in the above example: <code>avg</code> takes a single argument <code>values</code>, which is a list of values to calculate an average for.</p>
+<p>Since methods wrapped with <code>@staticmethod</code> do not do any automatic substitutions, it’s possible to use them without needing to create a class instance. For example:</p>
+<div id="f0d7b7e9" class="cell" data-execution_count="35">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>Student.avg([<span class="fl">60.</span>, <span class="fl">70.</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>65.0</code></pre>
+</div>
+</div>
+<p>In fact, we could have just defined <code>avg</code> outside of <code>Student</code> in the global namespace (which is what we did above, using our global function <code>average</code>). In that case we would of called <code>avg(...)</code> instead of <code>self.avg(...)</code> inside of <code>Student</code>.</p>
+<p>So why use <code>@staticmethod</code>? Its main purpose is to provide a function that is heavily used by a class, but may have little meaning outside of the class. This can make code a easier to read and understand (“<a href="https://en.wikipedia.org/wiki/Syntactic_sugar">syntactic sugar</a>”). Basically, <code>@staticmethod</code> is a way of logically organizing functions.</p>
+</section>
+<section id="property" class="level3">
+<h3 class="anchored" data-anchor-id="property"><span class="citation" data-cites="property">@property</span></h3>
+<p>The <code>@property</code> decorator is another form of syntactic sugar that modifies how a method is called. Basically, it makes a method look like an attribute.</p>
+<p>For example, in the above <code>homework_avg</code>, <code>exam_avg</code>, and <code>gpa</code> were all methods. Normally you would call them like <code>susie.gpa()</code> (as we did in the <a href="#Classes">Classes</a> section). However, because we stuck the <code>@property</code> decorator on each of these methods, we instead do:</p>
+<div id="f490639b" class="cell" data-execution_count="36">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>susie.gpa</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>2.34</code></pre>
+</div>
+</div>
+<p>In other words, we no longer include the <code>()</code> after the name. Note that <code>@property</code> <strong>only works with methods that take no arguments.</strong></p>
+<p>The <code>@property</code> is used when we want to run some additional code under the hood when an attribute is accessed. It is typically paired with a “setter”, which allows us to also run some code when an attribute is set. For example:</p>
+<div id="6de4ba3e" class="cell" data-execution_count="37">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Star:</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    _mass <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">@property</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> mass(<span class="va">self</span>):</span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>._mass <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"no mass set"</span>)</span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._mass</span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">@mass.setter</span></span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> mass(<span class="va">self</span>, value):</span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> value <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"mass must be &gt; 0"</span>)</span>
+<span id="cb55-14"><a href="#cb55-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._mass <span class="op">=</span> value</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="747eec5d" class="cell" data-execution_count="38">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>star <span class="op">=</span> Star()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="6b4f4445" class="cell" data-execution_count="39">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(star.mass)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[39]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span style="color:rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">star</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">mass</span>)
+
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[37]</span><span class="ansi-green-fg">, line 7</span>, in <span class="ansi-cyan-fg">Star.mass</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-fg">      4</span> <span style="color:rgb(175,0,255)">@property</span>
+<span class="ansi-green-fg">      5</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg">mass</span>(<span style="color:rgb(0,135,0)">self</span>):
+<span class="ansi-green-fg">      6</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">self</span>._mass <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">7</span>         <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span>(<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">no mass set</span><span class="ansi-yellow-fg">"</span>)
+<span class="ansi-green-fg">      8</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span style="color:rgb(0,135,0)">self</span>._mass
+
+<span class="ansi-red-fg">ValueError</span>: no mass set</pre>
+</div>
+</div>
+</div>
+<div id="5661efcc" class="cell" data-execution_count="40">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>star.mass <span class="op">=</span> <span class="fl">10.</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(star.mass)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>10.0</code></pre>
+</div>
+</div>
+<div id="33916e45" class="cell" data-execution_count="41">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>star2 <span class="op">=</span> Star()</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>star2.mass <span class="op">=</span> <span class="op">-</span><span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[41]</span><span class="ansi-green-fg">, line 2</span>
+<span class="ansi-green-fg">      1</span> star2 = Star()
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> <span class="ansi-yellow-bg">star2</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">mass</span> = -<span class="ansi-green-fg">3</span>
+
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[37]</span><span class="ansi-green-fg">, line 13</span>, in <span class="ansi-cyan-fg">Star.mass</span><span class="ansi-blue-fg">(self, value)</span>
+<span class="ansi-green-fg">     10</span> <span style="color:rgb(175,0,255)">@mass</span>.setter
+<span class="ansi-green-fg">     11</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg">mass</span>(<span style="color:rgb(0,135,0)">self</span>, value):
+<span class="ansi-green-fg">     12</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> value &lt;= <span class="ansi-green-fg">0</span>:
+<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">13</span>         <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span>(<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">mass must be &gt; 0</span><span class="ansi-yellow-fg">"</span>)
+<span class="ansi-green-fg">     14</span>     <span style="color:rgb(0,135,0)">self</span>._mass = value
+
+<span class="ansi-red-fg">ValueError</span>: mass must be &gt; 0</pre>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("enter_gitHub_pages_URL_here");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../02_python/python-3.html" class="pagination-link" aria-label="3. Functions, documentation, strings, files">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">3. Functions, documentation, strings, files</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../02_python/python-5.html" class="pagination-link" aria-label="5. Modules, import, pip, testing">
+        <span class="nav-page-text">5. Modules, import, pip, testing</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Adapted from the <a href="https://opensource.syracuse.edu/">Syracuse University Open Source Program Office’s</a> <a href="https://github.com/SU-OSPO/workshop-template">workshop template</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
