@@ -1,0 +1,50 @@
+---
+title: "Lectures"
+toc: True
+---
+
+A list of all the lecture recordings. These are also linked on the unit splash pages.
+
+### Wednesday, January 14, 2026
+
+Introduction to command line interface (CLI)
+
+<iframe id="kmsembed-1_9y785gka" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_9y785gka/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 1-14-26"></iframe>
+
+### Wednesday, January 21, 2026
+
+Contiuation of CLI: bash variables, scripts, and environments. Introduction to Conda.
+
+<iframe id="kmsembed-1_uvpcm86t" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_uvpcm86t/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 1-21-26"></iframe>
+
+### Monday, January 26, 2026
+
+Introduction to Git and GitHub; how to use GitHub Classroom.
+
+<iframe id="kmsembed-1_pmqsjrrv" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_pmqsjrrv/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 1-26-26"></iframe>
+
+### Wednesday, January 28, 2026
+
+Overview of assignment 1. Introduction to Python: input, output, variables, types, conditionals.
+
+<iframe id="kmsembed-1_i76mpcln" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_i76mpcln/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 1-28-26"></iframe>
+
+### Monday, February 2, 2026
+
+Python lists and dictionaries; definite and indefinite loops. (Pre-recorded lecture.)
+
+<iframe id="kmsembed-1_gkvfe747" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_gkvfe747/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 2-2-26"></iframe>
+
+### Wednesday, February 4, 2026
+
+Python functions; string operations; file I/O. (Pre-recorded lecture.)
+
+<iframe id="kmsembed-1_f1uqv8ts" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_f1uqv8ts/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 2-4-26"></iframe>
+
+### Monday, February 9, 2026
+
+Python classes; imports
+
+<iframe id="kmsembed-1_d560o5wj" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_d560o5wj/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 2-9-26"></iframe>
+
+
