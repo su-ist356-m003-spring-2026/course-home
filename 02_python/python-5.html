@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../syllabus.html" rel="next">
+<link href="../03_ui/index.html" rel="next">
 <link href="../02_python/python-4.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -233,6 +233,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../03_ui/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. User interface</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03_ui/streamlit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Creating simple web apps with Streamlit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03_ui/argparse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Writing executable scripts with Argparse</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lectures</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
@@ -331,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <p>What’s wrong with the following code?</p>
-<div id="27d78dd0" class="cell" data-execution_count="1">
+<div id="57a80a1c" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>exp <span class="op">=</span> <span class="st">'Dear </span><span class="sc">{name}</span><span class="st">, we would like to express our gratitude for your donation!'</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> exp</span>
@@ -366,11 +395,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Use the <code>dir(&lt;module&gt;)</code> to list the functions in the module</li>
 <li>Use <code>help(module.function)</code> to get the docstring for a function in a module.</li>
 </ul>
-<div id="e83319cd" class="cell" data-tags="[]" data-execution_count="2">
+<div id="39494a7d" class="cell" data-tags="[]" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examples</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="f55d7e20" class="cell" data-tags="[]" data-execution_count="3">
+<div id="4b8bfc78" class="cell" data-tags="[]" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the functions</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span>(math)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -444,7 +473,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  'ulp']</code></pre>
 </div>
 </div>
-<div id="0358ae28" class="cell" data-tags="[]" data-execution_count="4">
+<div id="09e508e9" class="cell" data-tags="[]" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(math.<span class="bu">pow</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on built-in function pow in module math:
@@ -454,7 +483,7 @@ pow(x, y, /)
 </code></pre>
 </div>
 </div>
-<div id="8a5a1322" class="cell" data-tags="[]" data-execution_count="5">
+<div id="a84fd173" class="cell" data-tags="[]" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>math.<span class="bu">pow</span>(<span class="dv">2</span>,<span class="dv">5</span>) <span class="co"># 2*2*2*2*2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>32.0</code></pre>
@@ -466,7 +495,7 @@ pow(x, y, /)
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Code Challenge 4.1
+<span class="screen-reader-only">Caution</span>Code Challenge 2.5.1
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -484,7 +513,7 @@ pow(x, y, /)
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="d28a583d" class="cell" data-execution_count="6">
+<div id="8e01d19e" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter date m/d/y: "</span>)</span>
@@ -503,11 +532,11 @@ pow(x, y, /)
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Code Challenge 4.2
+<span class="screen-reader-only">Caution</span>Code Challenge 2.5.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let’s make the code in Challenge 4.2 more resusable:</p>
+<p>Let’s make the code in Challenge 2.5.1 more resusable:</p>
 <ol type="1">
 <li><p>Re-write the date parse into a function <code>parsedate_mdy(text: str) -&gt; datetime:</code>.</p></li>
 <li><p>Re-write the date format into a function <code>formatdate_ymd(date: datetime) -&gt; str:</code>.</p></li>
@@ -525,7 +554,7 @@ pow(x, y, /)
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="787bd124" class="cell" data-execution_count="7">
+<div id="ca706112" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parsedate_mdy(text: <span class="bu">str</span>) <span class="op">-&gt;</span> datetime:</span>
@@ -553,11 +582,11 @@ pow(x, y, /)
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Code Challenge 4.3
+<span class="screen-reader-only">Caution</span>Code Challenge 2.5.3
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let’s make the code in Challenge 4.2 even more resusable!</p>
+<p>Let’s make the code in Challenge 2.5.2 even more resusable!</p>
 <ol type="1">
 <li><p>Move your functions into a module name <code>dateutils.py</code>.</p></li>
 <li><p>Import your functions from <code>dateutils.py</code> into <code>4-3.py</code></p></li>
@@ -575,9 +604,9 @@ pow(x, y, /)
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>Create the <code>dateutils.py</code> file in VS Code by clicking “File” -&gt; “New File”. Name it <code>dateutils.py</code>. Then copy the functions you wrote in Challenge 4.2 into it (don’t forget the <code>from datetime import datetime</code> at the top!). Save the file by typing CTRL/CMD + S or clicking File -&gt; Save.</p></li>
+<li><p>Create the <code>dateutils.py</code> file in VS Code by clicking “File” -&gt; “New File”. Name it <code>dateutils.py</code>. Then copy the functions you wrote in Challenge 2.5.2 into it (don’t forget the <code>from datetime import datetime</code> at the top!). Save the file by typing CTRL/CMD + S or clicking File -&gt; Save.</p></li>
 <li><p>To use your functions in a notebook or another python script:</p>
-<div id="f8a9c947" class="cell" data-execution_count="8">
+<div id="b4ae6825" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dateutils <span class="im">import</span> parsedate_mdy, formatdate_ymd</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter date m/d/y: "</span>)</span>
@@ -602,7 +631,7 @@ pow(x, y, /)
 </div>
 <div class="callout-body-container callout-body">
 <p>It’s possible to use a wildcard <code>*</code> when importing. For example,</p>
-<div id="9160e4ad" class="cell" data-execution_count="9">
+<div id="d9523e08" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> <span class="op">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>will import all functions that are in the math module into the current namespace. This means that you could then call <code>math.pow</code> with just <code>pow</code>, for example.</p>
@@ -622,10 +651,10 @@ pow(x, y, /)
 <h2 class="anchored" data-anchor-id="assert">Assert</h2>
 <p><code>assert</code> is a python command which throws an exception if the expression asserted is false.</p>
 <p>When an <code>assert</code> fails, it raises an <code>AssertionError</code> exception which alerts us that something did not go as planned.</p>
-<div id="b2ea7369" class="cell" data-tags="[]" data-execution_count="10">
+<div id="d4daec77" class="cell" data-tags="[]" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">2</span>   <span class="co"># This is true, no worries</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="fa14f926" class="cell" data-execution_count="11">
+<div id="739bc43c" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">5</span> <span class="co"># False AssertionError</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -666,11 +695,11 @@ Note
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Code Challenge 4.4
+<span class="screen-reader-only">Caution</span>Code Challenge 2.5.4
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Write a “round robin” test that tests the <code>parsedate_mdy</code> and <code>formatdate_ymd</code> functions you wrote in Code Challenge 4.3. The test should start with a known input, run the two functions on it, then check if it yields the known output.</p>
+<p>Write a “round robin” test that tests the <code>parsedate_mdy</code> and <code>formatdate_ymd</code> functions you wrote in Code Challenge 2.5.3. The test should start with a known input, run the two functions on it, then check if it yields the known output.</p>
 <p>Run pytest or VS Code test to make sure your tests pass!</p>
 <div class="callout callout-style-simple callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
@@ -687,7 +716,7 @@ Note
 <ol type="1">
 <li>Add the following to <code>dateutils.py</code>:</li>
 </ol>
-<div id="cf231af3" class="cell" data-execution_count="12">
+<div id="849b2f5e" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#! eval: false</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_round_robin():</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    date_str <span class="op">=</span> <span class="st">"9/15/2025"</span></span>
@@ -1117,8 +1146,8 @@ Note
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../syllabus.html" class="pagination-link" aria-label="Syllabus">
-        <span class="nav-page-text">Syllabus</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../03_ui/index.html" class="pagination-link" aria-label="3. User interface">
+        <span class="nav-page-text">3. User interface</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
