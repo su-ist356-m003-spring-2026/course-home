@@ -86,7 +86,7 @@ math.pow(2,5) # 2*2*2*2*2
 ```
 
 :::: {.callout-caution appearance="simple" icon="false"}
-### Code Challenge 4.1
+### Code Challenge 2.5.1
 
 Use the `datetime` module to parse a "Month/Day/Year" string (e.g., "9/15/2025") into a datetime then print it in YYYY-MM-DD format (e.g., "2025-09-15"). 
 
@@ -108,9 +108,9 @@ print(nowstr)
 ::::
 
 :::: {.callout-caution appearance="simple" icon="false"}
-### Code Challenge 4.2
+### Code Challenge 2.5.2
 
-Let's make the code in Challenge 4.2 more resusable:
+Let's make the code in Challenge 2.5.1 more resusable:
 
 1.  Re-write the date parse into a function `parsedate_mdy(text: str) -> datetime:`.
 
@@ -143,9 +143,9 @@ print(date_str)
 ::::
 
 :::: {.callout-caution appearance="simple" icon="false"}
-### Code Challenge 4.3
+### Code Challenge 2.5.3
 
-Let's make the code in Challenge 4.2 even more resusable!
+Let's make the code in Challenge 2.5.2 even more resusable!
 
 1.  Move your functions into a module name `dateutils.py`.
 
@@ -154,7 +154,7 @@ Let's make the code in Challenge 4.2 even more resusable!
 ::: {.callout-caution collapse="true" appearance="simple" icon="false"}
 #### Solution
 
-1.  Create the `dateutils.py` file in VS Code by clicking "File" -> "New File". Name it `dateutils.py`. Then copy the functions you wrote in Challenge 4.2 into it (don't forget the `from datetime import datetime` at the top!). Save the file by typing CTRL/CMD + S or clicking File -> Save.
+1.  Create the `dateutils.py` file in VS Code by clicking "File" -> "New File". Name it `dateutils.py`. Then copy the functions you wrote in Challenge 2.5.2 into it (don't forget the `from datetime import datetime` at the top!). Save the file by typing CTRL/CMD + S or clicking File -> Save.
 
 1.  To use your functions in a notebook or another python script:
 
@@ -233,9 +233,9 @@ pip install pytest
 The VS Code test plugin should discover the tests.
 
 :::: {.callout-caution appearance="simple" icon="false"}
-### Code Challenge 4.4
+### Code Challenge 2.5.4
 
-Write a "round robin" test that tests the `parsedate_mdy` and `formatdate_ymd` functions you wrote in Code Challenge 4.3. The test should start with a known input, run the two functions on it, then check if it yields the known output.
+Write a "round robin" test that tests the `parsedate_mdy` and `formatdate_ymd` functions you wrote in Code Challenge 2.5.3. The test should start with a known input, run the two functions on it, then check if it yields the known output.
 
 Run pytest or VS Code test to make sure your tests pass!
 

@@ -71,7 +71,7 @@ print(f"10 divided by 3 is {q}, with a remainder of {r}")
 ```
 
 :::: {.callout-caution appearance="simple" icon="false"}
-### Code Challenge 3.1
+### Code Challenge 2.3.1
 
 Write a function called `average` which takes a list of numbers as input then outputs the average of the numbers (sum / count)
 
@@ -204,7 +204,7 @@ print(s.replace("this", "that")) # that is a test
 ```
 
 :::: {.callout-caution appearance="simple" icon="false"}
-### Code Challenge 3.2
+### Code Challenge 2.3.2
 
 Write a function called `cleanup` which takes a string as input and returns a "cleaned string" meaning:
 
@@ -364,7 +364,7 @@ for stock in stocks:
 ```
 
 :::: {.callout-caution appearance="simple" icon="false"}
-### Code Challenge 3.3
+### Code Challenge 2.3.3
 
 write a program to read in a string of students and gpas in one input statement like this:
 
