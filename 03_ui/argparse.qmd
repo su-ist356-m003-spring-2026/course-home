@@ -1,6 +1,7 @@
 ---
 title: '2. Writing executable scripts with Argparse'
 jupyter: python3
+order: 2
 ---
 
 
@@ -8,9 +9,9 @@ Objectives: learn how to use `argparse` to write more sophisticated Python scrip
 
 ## Intro to argparse
 
-In the previous examples using Playwright, we've written Python scripts that will scrape various websites to retrieve the information we want. In all of these examples, in fact, in all of the Python scripts we've written so far we had to *hardcode* various options, such as the URL to go to. By hardcode, we mean that the user has no input as to what the script should do at *runtime*; everything is pre-coded before hand. This makes for some rather limited scripts, since you would need to re-write a script everytime you want to change anything.
+In all of the Python scripts we've written so far we have *hardcoded* various options, such as a file to load. By hardcode, we mean that the user has no input as to what the script should do at *runtime*; everything is pre-coded before hand. This makes for some rather limited scripts, since you would need to re-write a script everytime you want to change anything.
 
-The only bit of user-input at runtime we've seen before is by using the `input` argument. But this is somewhat clunky, as the program will stop until the user inputs something. It makes batch computing, where you run the same script a bunch of times just chaning the input, difficult, for example.
+The only bit of user-input at runtime we've seen before is by using the `input` argument. But this is somewhat clunky, as the program will stop until the user inputs something. It makes batch computing (in which you run the same script a bunch of times just chaning the input)  difficult, for example.
 
 In bash, we have seen that it's possible to provide *arguments* to commands to get them to change their default behavior. For example, running `ls` will list the contents of the current directory, whereas running `ls folder` will list the contents of `folder` instead. In this case, `folder` is known as a *positional argument*. We've also seen that it's possible to provide *optional* arguments to bash commands to get the to change their behavior. For example, running `rm folder` will fail because the default `rm` cannot delete folders, but running `rm -r folder` will work. The `-r` tells `rm` to recursively remove everything in `folder` followed by `folder` itself.
 
