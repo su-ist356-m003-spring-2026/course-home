@@ -52,3 +52,9 @@ Python classes; imports
 Introduction to Streamlit
 
 <iframe id="kmsembed-1_u3110pjn" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_u3110pjn/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 2-11-26"></iframe>
+
+### Monday, February 16, 2026
+
+Adding command-line options to Python scripts using Argparse
+
+<iframe id="kmsembed-1_3opf3u4e" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_3opf3u4e/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 2-16-26"></iframe>
