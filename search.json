@@ -175,7 +175,7 @@
     "href": "03_ui/index.html#lectures",
     "title": "3. User interface",
     "section": "Lectures",
-    "text": "Lectures",
+    "text": "Lectures\n\nWednesday, February 11, 2026\nIntroduction to Streamlit",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "3. User interface"
@@ -1554,7 +1554,7 @@
     "href": "lectures.html",
     "title": "Lectures",
     "section": "",
-    "text": "A list of all the lecture recordings. These are also linked on the unit splash pages.\n\nWednesday, January 14, 2026\nIntroduction to command line interface (CLI)\n\n\n\n\nWednesday, January 21, 2026\nContiuation of CLI: bash variables, scripts, and environments. Introduction to Conda.\n\n\n\n\nMonday, January 26, 2026\nIntroduction to Git and GitHub; how to use GitHub Classroom.\n\n\n\n\nWednesday, January 28, 2026\nOverview of assignment 1. Introduction to Python: input, output, variables, types, conditionals.\n\n\n\n\nMonday, February 2, 2026\nPython lists and dictionaries; definite and indefinite loops. (Pre-recorded lecture.)\n\n\n\n\nWednesday, February 4, 2026\nPython functions; string operations; file I/O. (Pre-recorded lecture.)\n\n\n\n\nMonday, February 9, 2026\nPython classes; imports",
+    "text": "A list of all the lecture recordings. These are also linked on the unit splash pages.\n\nWednesday, January 14, 2026\nIntroduction to command line interface (CLI)\n\n\n\n\nWednesday, January 21, 2026\nContiuation of CLI: bash variables, scripts, and environments. Introduction to Conda.\n\n\n\n\nMonday, January 26, 2026\nIntroduction to Git and GitHub; how to use GitHub Classroom.\n\n\n\n\nWednesday, January 28, 2026\nOverview of assignment 1. Introduction to Python: input, output, variables, types, conditionals.\n\n\n\n\nMonday, February 2, 2026\nPython lists and dictionaries; definite and indefinite loops. (Pre-recorded lecture.)\n\n\n\n\nWednesday, February 4, 2026\nPython functions; string operations; file I/O. (Pre-recorded lecture.)\n\n\n\n\nMonday, February 9, 2026\nPython classes; imports\n\n\n\n\nWednesday, February 11, 2026\nIntroduction to Streamlit",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "Lectures"
