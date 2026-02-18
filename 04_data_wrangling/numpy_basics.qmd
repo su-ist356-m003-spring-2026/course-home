@@ -138,7 +138,7 @@ print("arrnumbers2d:\n", arrnumbers2d)
 
 ### Array slicing
 Similar to Python lists, we can access elements of a list using braces and indices. The syntax is:
-```{python}
+```{text}
 arr[start:end:step]
 ```
 Some examples:
