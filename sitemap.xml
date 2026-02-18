@@ -2,70 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>enter_gitHub_pages_URL_here/syllabus.html</loc>
-    <lastmod>2026-02-16T22:01:32.154Z</lastmod>
+    <lastmod>2026-02-18T18:55:42.758Z</lastmod>
   </url>
   <url>
     <loc>enter_gitHub_pages_URL_here/index.html</loc>
-    <lastmod>2026-02-16T22:01:32.154Z</lastmod>
+    <lastmod>2026-02-18T18:55:42.758Z</lastmod>
   </url>
   <url>
-    <loc>enter_gitHub_pages_URL_here/03_ui/index.html</loc>
-    <lastmod>2026-02-16T22:01:32.117Z</lastmod>
-  </url>
-  <url>
-    <loc>enter_gitHub_pages_URL_here/02_python/python-5.html</loc>
-    <lastmod>2026-02-16T22:01:32.115Z</lastmod>
-  </url>
-  <url>
-    <loc>enter_gitHub_pages_URL_here/02_python/python-3.html</loc>
-    <lastmod>2026-02-16T22:01:32.115Z</lastmod>
-  </url>
-  <url>
-    <loc>enter_gitHub_pages_URL_here/02_python/python-1.html</loc>
-    <lastmod>2026-02-16T22:01:32.115Z</lastmod>
-  </url>
-  <url>
-    <loc>enter_gitHub_pages_URL_here/01_cli_conda/shell-intro.html</loc>
-    <lastmod>2026-02-16T22:01:32.113Z</lastmod>
-  </url>
-  <url>
-    <loc>enter_gitHub_pages_URL_here/01_cli_conda/git.html</loc>
-    <lastmod>2026-02-16T22:01:32.112Z</lastmod>
-  </url>
-  <url>
-    <loc>enter_gitHub_pages_URL_here/00_intro/index.html</loc>
-    <lastmod>2026-02-16T22:01:32.109Z</lastmod>
-  </url>
-  <url>
-    <loc>enter_gitHub_pages_URL_here/01_cli_conda/conda.html</loc>
-    <lastmod>2026-02-16T22:01:32.110Z</lastmod>
-  </url>
-  <url>
-    <loc>enter_gitHub_pages_URL_here/01_cli_conda/index.html</loc>
-    <lastmod>2026-02-16T22:01:32.112Z</lastmod>
-  </url>
-  <url>
-    <loc>enter_gitHub_pages_URL_here/02_python/index.html</loc>
-    <lastmod>2026-02-16T22:01:32.115Z</lastmod>
-  </url>
-  <url>
-    <loc>enter_gitHub_pages_URL_here/02_python/python-2.html</loc>
-    <lastmod>2026-02-16T22:01:32.115Z</lastmod>
-  </url>
-  <url>
-    <loc>enter_gitHub_pages_URL_here/02_python/python-4.html</loc>
-    <lastmod>2026-02-16T22:01:32.115Z</lastmod>
-  </url>
-  <url>
-    <loc>enter_gitHub_pages_URL_here/03_ui/argparse.html</loc>
-    <lastmod>2026-02-16T22:01:32.115Z</lastmod>
+    <loc>enter_gitHub_pages_URL_here/04_data_wrangling/numpy_basics.html</loc>
+    <lastmod>2026-02-18T18:55:42.718Z</lastmod>
   </url>
   <url>
     <loc>enter_gitHub_pages_URL_here/03_ui/streamlit.html</loc>
-    <lastmod>2026-02-16T22:01:32.117Z</lastmod>
+    <lastmod>2026-02-18T18:55:42.718Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/03_ui/argparse.html</loc>
+    <lastmod>2026-02-18T18:55:42.718Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/02_python/python-4.html</loc>
+    <lastmod>2026-02-18T18:55:42.718Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/02_python/python-2.html</loc>
+    <lastmod>2026-02-18T18:55:42.718Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/02_python/index.html</loc>
+    <lastmod>2026-02-18T18:55:42.717Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/01_cli_conda/index.html</loc>
+    <lastmod>2026-02-18T18:55:42.714Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/01_cli_conda/conda.html</loc>
+    <lastmod>2026-02-18T18:55:42.710Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/00_intro/index.html</loc>
+    <lastmod>2026-02-18T18:55:42.710Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/01_cli_conda/git.html</loc>
+    <lastmod>2026-02-18T18:55:42.714Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/01_cli_conda/shell-intro.html</loc>
+    <lastmod>2026-02-18T18:55:42.715Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/02_python/python-1.html</loc>
+    <lastmod>2026-02-18T18:55:42.718Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/02_python/python-3.html</loc>
+    <lastmod>2026-02-18T18:55:42.718Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/02_python/python-5.html</loc>
+    <lastmod>2026-02-18T18:55:42.718Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/03_ui/index.html</loc>
+    <lastmod>2026-02-18T18:55:42.718Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/04_data_wrangling/index.html</loc>
+    <lastmod>2026-02-18T18:55:42.718Z</lastmod>
+  </url>
+  <url>
+    <loc>enter_gitHub_pages_URL_here/04_data_wrangling/pandas-1.html</loc>
+    <lastmod>2026-02-18T18:55:42.718Z</lastmod>
   </url>
   <url>
     <loc>enter_gitHub_pages_URL_here/lectures.html</loc>
-    <lastmod>2026-02-16T22:01:32.154Z</lastmod>
+    <lastmod>2026-02-18T18:55:42.758Z</lastmod>
   </url>
 </urlset>

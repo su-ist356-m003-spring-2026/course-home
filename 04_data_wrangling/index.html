@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Syllabus – IST 356 Spring 2026</title>
+<title>4. Data Wrangling – IST 356 Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./lectures.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a6025f3157e7fd9b855051f29eeac2ca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../04_data_wrangling/numpy_basics.html" rel="next">
+<link href="../03_ui/argparse.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a6025f3157e7fd9b855051f29eeac2ca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,14 +71,14 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Syllabus – IST 356 Spring 2026">
-<meta property="og:description" content="IST 356 - M003, Syracuse University, Spring 2026">
+<meta property="og:title" content="4. Data Wrangling – IST 356 Spring 2026">
+<meta property="og:description" content="">
 <meta property="og:image" content="enter_gitHub_pages_URL_here/images/ischool_logo_reverseX2.png">
 <meta property="og:site_name" content="IST 356 Spring 2026">
 <meta property="og:image:height" content="105">
 <meta property="og:image:width" content="650">
-<meta name="twitter:title" content="Syllabus – IST 356 Spring 2026">
-<meta name="twitter:description" content="IST 356 - M003, Syracuse University, Spring 2026">
+<meta name="twitter:title" content="4. Data Wrangling – IST 356 Spring 2026">
+<meta name="twitter:description" content="">
 <meta name="twitter:image" content="enter_gitHub_pages_URL_here/images/ischool_logo_reverseX2.png">
 <meta name="twitter:image-height" content="105">
 <meta name="twitter:image-width" content="650">
@@ -91,14 +92,14 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">IST 356 Spring 2026</span>
     </a>
   </div>
           <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="https://ischool.syracuse.edu" target="_blank"> 
-<span class="menu-text"><img src="./images/ischool_logo_reverseX2.png" height="30"></span></a>
+<span class="menu-text"><img src="../images/ischool_logo_reverseX2.png" height="30"></span></a>
   </li>  
 </ul>
           <div class="quarto-navbar-tools">
@@ -111,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./syllabus.html">Syllabus</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../04_data_wrangling/index.html">4. Data Wrangling</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -125,13 +126,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_intro/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../00_intro/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction and computer setup</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./01_cli_conda/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../01_cli_conda/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Command line interface, Environments, and Git/GitHub</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -140,19 +141,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_cli_conda/shell-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../01_cli_conda/shell-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Command Line Interface and the Unix Shell</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_cli_conda/conda.html" class="sidebar-item-text sidebar-link">
+  <a href="../01_cli_conda/conda.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bash variables, environments, and <code>conda</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_cli_conda/git.html" class="sidebar-item-text sidebar-link">
+  <a href="../01_cli_conda/git.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git and GitHub</span></a>
   </div>
 </li>
@@ -160,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./02_python/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../02_python/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Python review</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -169,31 +170,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Input, output, variables, types, conditionals</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Iterations, lists, dictionaries, comprehensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-3.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. Functions, documentation, strings, files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-4.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4. Object Oriented Programming using Python Classes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-5.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5. Modules, import, pip, testing</span></a>
   </div>
 </li>
@@ -201,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./03_ui/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../03_ui/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. User interface</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -210,13 +211,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_ui/streamlit.html" class="sidebar-item-text sidebar-link">
+  <a href="../03_ui/streamlit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Creating simple web apps with Streamlit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_ui/argparse.html" class="sidebar-item-text sidebar-link">
+  <a href="../03_ui/argparse.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Writing executable scripts with Argparse</span></a>
   </div>
 </li>
@@ -224,22 +225,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./04_data_wrangling/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../04_data_wrangling/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">4. Data Wrangling</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_data_wrangling/numpy_basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_data_wrangling/numpy_basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Introduction to NumPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_data_wrangling/pandas-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_data_wrangling/pandas-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Introduction to Pandas: Series and DataFrames</span></a>
   </div>
 </li>
@@ -247,13 +248,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lectures</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link active">
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
@@ -267,37 +268,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#course-info" id="toc-course-info" class="nav-link active" data-scroll-target="#course-info">Course info</a></li>
-  <li><a href="#course-description" id="toc-course-description" class="nav-link" data-scroll-target="#course-description">Course Description</a>
-  <ul class="collapse">
-  <li><a href="#additional-course-description" id="toc-additional-course-description" class="nav-link" data-scroll-target="#additional-course-description">Additional Course Description</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#audience-ist256-or-ist356" id="toc-audience-ist256-or-ist356" class="nav-link" data-scroll-target="#audience-ist256-or-ist356">Audience: IST256 or IST356?</a></li>
-  <li><a href="#credits" id="toc-credits" class="nav-link" data-scroll-target="#credits">Credits</a></li>
-  <li><a href="#course-fees" id="toc-course-fees" class="nav-link" data-scroll-target="#course-fees">Course Fees</a></li>
-  </ul></li>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#textbooks-and-supplies" id="toc-textbooks-and-supplies" class="nav-link" data-scroll-target="#textbooks-and-supplies">Textbooks And Supplies</a>
-  <ul class="collapse">
-  <li><a href="#textbooks" id="toc-textbooks" class="nav-link" data-scroll-target="#textbooks">Textbooks</a></li>
-  <li><a href="#bring-your-own-device" id="toc-bring-your-own-device" class="nav-link" data-scroll-target="#bring-your-own-device">Bring Your Own Device</a></li>
-  </ul></li>
-  <li><a href="#course-requirements-and-expectations" id="toc-course-requirements-and-expectations" class="nav-link" data-scroll-target="#course-requirements-and-expectations">Course Requirements and Expectations</a>
-  <ul class="collapse">
-  <li><a href="#attendance-and-participation" id="toc-attendance-and-participation" class="nav-link" data-scroll-target="#attendance-and-participation">Attendance and Participation</a></li>
-  <li><a href="#lecture-recordings" id="toc-lecture-recordings" class="nav-link" data-scroll-target="#lecture-recordings">Lecture recordings</a></li>
-  <li><a href="#assignments" id="toc-assignments" class="nav-link" data-scroll-target="#assignments">Assignments</a></li>
-  <li><a href="#exams" id="toc-exams" class="nav-link" data-scroll-target="#exams">Exams</a></li>
-  <li><a href="#project" id="toc-project" class="nav-link" data-scroll-target="#project">Project</a></li>
-  </ul></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a>
-  <ul class="collapse">
-  <li><a href="#grading-table" id="toc-grading-table" class="nav-link" data-scroll-target="#grading-table">Grading Table</a></li>
-  </ul></li>
-  <li><a href="#use-of-ai-in-this-course" id="toc-use-of-ai-in-this-course" class="nav-link" data-scroll-target="#use-of-ai-in-this-course">Use of AI in this Course</a></li>
-  <li><a href="#academic-integrity" id="toc-academic-integrity" class="nav-link" data-scroll-target="#academic-integrity">Academic Integrity</a></li>
-  <li><a href="#class-schedule" id="toc-class-schedule" class="nav-link" data-scroll-target="#class-schedule">Class Schedule</a></li>
-  <li><a href="#important-dates" id="toc-important-dates" class="nav-link" data-scroll-target="#important-dates">Important dates</a></li>
+  <li><a href="#tutorials" id="toc-tutorials" class="nav-link active" data-scroll-target="#tutorials">Tutorials</a></li>
+  <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">Lectures</a></li>
   </ul>
 </nav>
     </div>
@@ -306,8 +278,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Syllabus</h1>
-<p class="subtitle lead">IST 356 - M003, Syracuse University, Spring 2026</p>
+<h1 class="title">4. Data Wrangling</h1>
 </div>
 
 
@@ -324,426 +295,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="course-info" class="level2">
-<h2 class="anchored" data-anchor-id="course-info">Course info</h2>
-<p><strong>Room:</strong> Hinds Hall 010</p>
-<p><strong>Time:</strong> M/W 2:15PM - 3:35PM</p>
-<p><strong>Instructor:</strong> Collin Capano</p>
-<p><strong>Email:</strong> cdcapano@syr.edu</p>
-<p><strong>Office hours:</strong> M/W 3:40PM - 4:40PM (immediately after class) in Hinds Hall 323G, or by appointment.</p>
-<p><strong>Course website:</strong> https://su-ist356-m003-spring-2026.github.io/course-home</p>
-</section>
-<section id="course-description" class="level2">
-<h2 class="anchored" data-anchor-id="course-description">Course Description</h2>
-<p>Approaches for building pipelines in data analytics using the Python programming language; data cleaning, extraction, wrangling, API’s, web scraping. Building data products. Programming experience required.</p>
-<section id="additional-course-description" class="level3">
-<h3 class="anchored" data-anchor-id="additional-course-description">Additional Course Description</h3>
-<p>This course is a tour of programming techniques for building data pipelines for analytics. It will not just emphasize exploratory approaches, but also techniques to build extract-transform-load pipelines to run code in production. Throughout the course we will learn how to source data from a variety of sources (files, data streams, APIs, web scraping, etc.) and ultimately transform data as to prepare it for dashboards or machine learning. You will also learn some simple data visualization but that is not the primary emphasis of the course.</p>
-</section>
-<section id="prerequisites" class="level3">
-<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
-<p>This courses uses the Python programming language. Proficiency in any programming language is the only pre-requisite. Students should have a clear understanding of these concepts:</p>
-<ul>
-<li>Input, output, variables and data types</li>
-<li>Control flow statements (if, for, while)</li>
-<li>Functions (function definition, calling, parameters, return values)</li>
-<li>Data structures (lists, dictionaries)</li>
-<li>Using code in other libraries</li>
-</ul>
-</section>
-<section id="audience-ist256-or-ist356" class="level3">
-<h3 class="anchored" data-anchor-id="audience-ist256-or-ist356">Audience: IST256 or IST356?</h3>
-<p>This course is intended as a follow up course to IST256. It is also appropriate for students with prior experience with programming who have an interest in data analytics.</p>
-<ul>
-<li>IST256 is for students with little to no programming experience. The course content is 75% python fundamentals and 25% python for data analytics.</li>
-<li>IST356 is for students with prior programming experience. The course content is 25% python fundamentals and 75% python for data analytics.</li>
-</ul>
-</section>
-<section id="credits" class="level3">
-<h3 class="anchored" data-anchor-id="credits">Credits</h3>
-<p>3 credits</p>
-</section>
-<section id="course-fees" class="level3">
-<h3 class="anchored" data-anchor-id="course-fees">Course Fees</h3>
-<p>None</p>
-</section>
-</section>
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<p>Upon completion of this course, students will be able to:</p>
+<p>In this unit we will learn about how to easily manage and manipulate data in Python using NumPy and Pandas.</p>
+<section id="tutorials" class="level2">
+<h2 class="anchored" data-anchor-id="tutorials">Tutorials</h2>
 <ol type="1">
-<li>Explain techniques for sourcing or transforming data, and be able to justify the choice of technique</li>
-<li>Solve data-oriented problems using programming techniques</li>
-<li>Evaluate different code modules and application programming interfaces for suitability</li>
-<li>Apply data transformational programming techniques to build a larger data pipelines</li>
-<li>Create production quality data pipelines from exploratory code</li>
+<li><a href="../04_data_wrangling/numpy_basics.html">Introduction to NumPy</a></li>
+<li><a href="../04_data_wrangling/pandas-1.html">Introduction to Pandas: Series and DataFrames</a></li>
 </ol>
 </section>
-<section id="textbooks-and-supplies" class="level2">
-<h2 class="anchored" data-anchor-id="textbooks-and-supplies">Textbooks And Supplies</h2>
-<section id="textbooks" class="level3">
-<h3 class="anchored" data-anchor-id="textbooks">Textbooks</h3>
-<p>There is no textbook you need to purchase for this course. This course website will primarily serve as your “textbook”. As we progress through the course, the tutorials and lecture material we go over in class will be added to the website. Most, if not all, the material you need will be on the website, with links provided to any additional resources. All of these resources will be available freely online. In many cases, the online sources are the most up-to-date references to the relevant course material.</p>
-<p>That said, if you would like a traditional textbook on Python programming, you may find the following useful:</p>
-<ul>
-<li>Python Programming for Data Science, by T. Beuzen (2021) <a href="https://www.tomasbeuzen.com/python-programming-for-data-science/">https://www.tomasbeuzen.com/python-programming-for-data-science/</a></li>
-</ul>
-</section>
-<section id="bring-your-own-device" class="level3">
-<h3 class="anchored" data-anchor-id="bring-your-own-device">Bring Your Own Device</h3>
-<p>You are expected to bring your computer to each class session. This class is very hands-on, and you will be programming in class often.</p>
-<section id="software-to-install" class="level4">
-<h4 class="anchored" data-anchor-id="software-to-install">Software to install</h4>
-<p>This course requires you to install software on your computer. The intro section of this course provides detailed instructions.</p>
-<ul>
-<li>Visual Studio Code editor</li>
-<li>Git Source Code Managment</li>
-<li>Miniconda</li>
-</ul>
-</section>
-<section id="accounts" class="level4">
-<h4 class="anchored" data-anchor-id="accounts">Accounts</h4>
-<ul>
-<li>We will use Github for assignment submission.</li>
-</ul>
-</section>
-</section>
-</section>
-<section id="course-requirements-and-expectations" class="level2">
-<h2 class="anchored" data-anchor-id="course-requirements-and-expectations">Course Requirements and Expectations</h2>
-<section id="attendance-and-participation" class="level3">
-<h3 class="anchored" data-anchor-id="attendance-and-participation">Attendance and Participation</h3>
-<p>In-class participation is the best way to learn and absorb the material. As such, you are expected to attend and participate in every class session. Your grade will be partially based on attendance (see below for details). If you must miss class, you are responsible for making up the work and catching up on what you missed. Lectures will be recorded and posted to the course website after the class.</p>
-</section>
-<section id="lecture-recordings" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-recordings">Lecture recordings</h3>
-<p>All lectures will be recorded by the professor and made available to you to review when doing assignments/studying for exams. Recordings will primarily be of the professor’s screen as we walk through tutorials; any video will just be of the professor. The mic will mostly record the professor’s voice, although student voices may occassionally be picked up in the background.</p>
-<p>Per <a href="https://policies.syr.edu/policies/academic-rules-student-responsibilities-and-services/classroom-recording-policy">university policy</a>, if all students provide written permission to make recordings publicly available (I will circulate a permission letter), the lecture recordings will be made available through the course website.</p>
-</section>
-<section id="assignments" class="level3">
-<h3 class="anchored" data-anchor-id="assignments">Assignments</h3>
-<p>The assignments are programming / problem solving activities that you will complete outside of class. The assignment due dates are posted on the course schedule. Consider these assignments formative assessments - practice so you can get better at computational thinking, problem solving and writing code. It is important to reflect upon your work and take an honest assessment of your abilities as you complete each assignment.</p>
-<p>Each Wednesday we will review the homework assignment. Students will be asked to contribute to the discussion.</p>
-<p>Factors affecting your grade:</p>
-<ul>
-<li>Is the code working and correct?</li>
-<li>Were the instructions followed? (e.g.&nbsp;commit after each function is written)</li>
-<li>Good reflection: specific, uses terminology, actionable</li>
-<li>Handed in on time, so I only need to review submissions one time.</li>
-</ul>
-</section>
-<section id="exams" class="level3">
-<h3 class="anchored" data-anchor-id="exams">Exams</h3>
-<p>Exams are summative assessments. They are designed to test your knowledge of the material. The exams will be issued in class on the dates posted on the course schedule. Exams are closed-book but you may bring one 8.5x11 sheet of paper with your notes on it. Exams length is 60 minutes. They will be a mix of mix of multiple choice, short answer and code tracing and code writing.</p>
-</section>
-<section id="project" class="level3">
-<h3 class="anchored" data-anchor-id="project">Project</h3>
-<p>The project is your opportunity to demonstrate what you have learned in an experiential fashion. In your final project you will be expected to create a data pipeline of your choosing.</p>
-<ul>
-<li>The pipeline should incorporate techniques we learned in the course and the more techniques you incorporate correctly the higher your grade.</li>
-<li>It is expected that you will be able to explain your choices, and they will be appropriate for the problem.</li>
-<li>The pipeline should be first written exploratory, and then refactored into a production quality pipeline. Both pipelines should be submitted.</li>
-<li>There should be a simple data visualization or dashboard from the pipeline output as to demonstrate its usefulness.</li>
-</ul>
-</section>
-</section>
-<section id="grading" class="level2">
-<h2 class="anchored" data-anchor-id="grading">Grading</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 13%">
-<col style="width: 23%">
-<col style="width: 12%">
-<col style="width: 16%">
-<col style="width: 17%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Assessment</th>
-<th>Type</th>
-<th>Learning Outcomes</th>
-<th>Quantity</th>
-<th>Points Each</th>
-<th>Points Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Attendance</td>
-<td>Formative</td>
-<td></td>
-<td>24</td>
-<td>1</td>
-<td>24</td>
-</tr>
-<tr class="even">
-<td>Assignments</td>
-<td>Formative</td>
-<td>1, 2</td>
-<td>8</td>
-<td>3</td>
-<td>24</td>
-</tr>
-<tr class="odd">
-<td>Exams</td>
-<td>Summative</td>
-<td>3, 4</td>
-<td>2</td>
-<td>24</td>
-<td>48</td>
-</tr>
-<tr class="even">
-<td>Project</td>
-<td>Summative</td>
-<td>5</td>
-<td>1</td>
-<td>24</td>
-<td>24</td>
-</tr>
-<tr class="odd">
-<td><strong>Total</strong></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><strong>120</strong></td>
-</tr>
-</tbody>
-</table>
-<section id="grading-table" class="level3">
-<h3 class="anchored" data-anchor-id="grading-table">Grading Table</h3>
-<p>The following grading scale translates your total points earned into a letter grade to be submitted to the University registrar.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 29%">
-<col style="width: 29%">
-<col style="width: 23%">
-<col style="width: 18%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Student Achievement</th>
-<th>Total Points Earned</th>
-<th>Registrar Grade</th>
-<th>Grade Points</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Mastery</td>
-<td>114 - 120</td>
-<td>A</td>
-<td>4.000</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>108 - 113</td>
-<td>A-</td>
-<td>3.666</td>
-</tr>
-<tr class="odd">
-<td>Satisfactory</td>
-<td>102 - 107</td>
-<td>B+</td>
-<td>3.333</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>96 - 101</td>
-<td>B</td>
-<td>3.000</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>90 - 95</td>
-<td>B-</td>
-<td>2.666</td>
-</tr>
-<tr class="even">
-<td>Low Passing</td>
-<td>84 - 89</td>
-<td>C+</td>
-<td>2.333</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>78 - 83</td>
-<td>C</td>
-<td>2.000</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>72 - 77</td>
-<td>C-</td>
-<td>1.666</td>
-</tr>
-<tr class="odd">
-<td>Unsatisfactory</td>
-<td>60 - 71</td>
-<td>D</td>
-<td>1.000</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>0 - 59</td>
-<td>F</td>
-<td>0.000</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="use-of-ai-in-this-course" class="level2">
-<h2 class="anchored" data-anchor-id="use-of-ai-in-this-course">Use of AI in this Course</h2>
-<p>Based on the assignments in this course and our specified learning outcomes, the full use of artificial intelligence as a tool, with disclosure and citation, is permitted in this course. Students do not need to ask permission to use these tools before starting an assignment or exam, but they must explicitly and fully indicate which tools were used and describe how they were used.</p>
-</section>
-<section id="academic-integrity" class="level2">
-<h2 class="anchored" data-anchor-id="academic-integrity">Academic Integrity</h2>
-<p>As a pre-eminent and inclusive student-focused research institution, Syracuse University considers academic integrity at the forefront of learning, serving as a core value and guiding pillar of education. Syracuse University’s Academic Integrity Policy provides students with the necessary guidelines to complete academic work with integrity throughout their studies. Students are required to uphold both course-specific and university-wide academic integrity expectations such as crediting your sources, doing your own work, communicating honestly, and supporting academic integrity. The full <a href="https://policies.syr.edu/policies/academic-rules-student-responsibilities-and-services/academic-integrity-policy/">Syracuse University Academic Integrity Policy</a> can be viewed by visiting the <a href="https://policies.syr.edu/">Syracuse University Policies website</a>.</p>
-<p>Upholding Academic Integrity includes the protection of faculty’s intellectual property. Students should not upload, distribute, or share instructors’ course materials, including presentations, assignments, exams, or other evaluative materials without permission. Using websites that charge fees or require uploading of course material (e.g., Chegg, Course Hero) to obtain exam solutions or assignments completed by others, which are then presented as your own violates academic integrity expectations in this course and may be classified as a Level 3 violation. All academic integrity expectations that apply to in-person assignments, quizzes, and exams also apply online.</p>
-<p>Students found in violation of the policy are subject to grade sanctions determined by the course instructor and non-grade sanctions determined by the School or College where the course is offered. Students may not drop or withdraw from courses in which they face a suspected violation. Any established violation in this course may result in course failure regardless of violation level.</p>
-</section>
-<section id="class-schedule" class="level2">
-<h2 class="anchored" data-anchor-id="class-schedule">Class Schedule</h2>
-<p><em>Note:</em> schedule subject to change as we progress through the semester.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Dates</th>
-<th>Topic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>1/12, 1/14</td>
-<td>Intro; CLI and Conda</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>1/21</td>
-<td>Git &amp; GitHub</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>1/26, 1/28</td>
-<td>Python review - 1</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>2/2, 2/4</td>
-<td>Python review - 2</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>2/9, 2/11</td>
-<td>Writing scripts with Argparse; Streamlit</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>2/16, 2/18</td>
-<td>Data wrangling - 1</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>2/23, 2/25</td>
-<td>Data wrangling - 2</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>3/2, 3/4</td>
-<td>Review (3/2) and Mid-term Exam (3/4)</td>
-</tr>
-<tr class="odd">
-<td>–</td>
-<td>3/8 - 3/15</td>
-<td>Spring Break</td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>3/16, 3/18</td>
-<td>Web APIs - 1</td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>3/23, 3/25</td>
-<td>Web APIs - 2</td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>3/30, 4/1</td>
-<td>Web scraping - 1</td>
-</tr>
-<tr class="odd">
-<td>12</td>
-<td>4/6, 4/8</td>
-<td>Web scraping - 2</td>
-</tr>
-<tr class="even">
-<td>13</td>
-<td>4/13, 4/15</td>
-<td>Data visualization - 1</td>
-</tr>
-<tr class="odd">
-<td>14</td>
-<td>4/20, 4/22</td>
-<td>Data visualization - 2; Review for Final Exam</td>
-</tr>
-<tr class="even">
-<td>15</td>
-<td>4/27</td>
-<td>Final Exam</td>
-</tr>
-<tr class="odd">
-<td>16</td>
-<td>5/4</td>
-<td>Project due</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="important-dates" class="level2">
-<h2 class="anchored" data-anchor-id="important-dates">Important dates</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 79%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Date</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Mon. 1/12</td>
-<td>First day of class</td>
-</tr>
-<tr class="even">
-<td>Mon. 1/19</td>
-<td>Martin Luther King, Jr.&nbsp;Day: <strong>No class</strong></td>
-</tr>
-<tr class="odd">
-<td>Mon. 2/2</td>
-<td>Academic/Financial drop deadline; Religious observance notification deadline</td>
-</tr>
-<tr class="even">
-<td>3/8 - 3/15</td>
-<td>Spring break - <strong>No class</strong></td>
-</tr>
-<tr class="odd">
-<td>Tues. 4/14</td>
-<td>Withdrawal deadline</td>
-</tr>
-<tr class="even">
-<td>Mon. 4/27</td>
-<td>Last day of class</td>
-</tr>
-</tbody>
-</table>
+<section id="lectures" class="level2">
+<h2 class="anchored" data-anchor-id="lectures">Lectures</h2>
 
 
 </section>
@@ -1151,11 +712,14 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./lectures.html" class="pagination-link" aria-label="Lectures">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lectures</span>
+      <a href="../03_ui/argparse.html" class="pagination-link" aria-label="2. Writing executable scripts with Argparse">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2. Writing executable scripts with Argparse</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../04_data_wrangling/numpy_basics.html" class="pagination-link" aria-label="1. Introduction to NumPy">
+        <span class="nav-page-text">1. Introduction to NumPy</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
