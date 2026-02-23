@@ -336,10 +336,10 @@ pip install lxml
 ```
 :::
 
-For example:
+For example, here's an example of loading all the tables on the course website's front page:
 
 ```{python}
-contents = pd.read_html("https://su-ist356-m003-fall-2025.github.io/course-home")
+contents = pd.read_html("https://su-ist356-m003-spring-2026.github.io/course-home")
 for df in contents:
     print(df)
 ```
@@ -352,7 +352,7 @@ import pandas as pd
 
 st.title("HTML Example - multiple tables")
 
-url = "https://su-ist356-m003-fall-2025.github.io/course-home"
+url = "https://su-ist356-m003-spring-2026.github.io/course-home"
 contents = pd.read_html(url)
 
 # There are 2 tables on this page, but we don't know this
