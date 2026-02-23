@@ -379,7 +379,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <code>pd.read_csv("https://website/folder/file.csv")</code></li>
 <li>File-like: binary / text streams</li>
 </ul>
-<div id="c894c9d5" class="cell" data-execution_count="1">
+<div id="b0af1429" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'file.csv'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> <span class="bu">file</span>.read()</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(pd.compat.StringIO(data))  <span class="co"># text stream</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -399,7 +399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 <p>Some examples of reading in the same data in different ways are below. In every case, the output is the same <code>DataFrame</code>:</p>
-<div id="a18e2171" class="cell" data-execution_count="2">
+<div id="ed5123bc" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># To view the following files, see:</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># https://github.com/mafudge/datasets/tree/master/delimited</span></span>
@@ -562,7 +562,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="7422256d" class="cell" data-execution_count="3">
+<div id="e0ac824b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>wt <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/delimited/webtraffic.log"</span>, skiprows<span class="op">=</span><span class="dv">3</span>, header<span class="op">=</span><span class="dv">0</span>, sep<span class="op">=</span><span class="st">"</span><span class="er">\</span><span class="st">s+"</span>)</span>
@@ -598,7 +598,7 @@ memory usage: 57.4 KB</code></pre>
 <div class="cell-output cell-output-stderr">
 <pre><code>&lt;&gt;:3: SyntaxWarning: invalid escape sequence '\s'
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence '\s'
-/tmp/ipykernel_10236/568368627.py:3: SyntaxWarning: invalid escape sequence '\s'
+/tmp/ipykernel_10183/568368627.py:3: SyntaxWarning: invalid escape sequence '\s'
   wt = pd.read_csv("https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/delimited/webtraffic.log", skiprows=3, header=0, sep="\s+")</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -796,7 +796,7 @@ memory usage: 57.4 KB</code></pre>
 </div>
 </div>
 <p>To display in a Streamlit app, put the above in a script file (say, <code>webtraffic.py</code>) and add the following:</p>
-<div id="92611ca0" class="cell" data-execution_count="4">
+<div id="6eadf88c" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>st.title(<span class="st">"Webtraffic Data"</span>)</span>
@@ -827,7 +827,7 @@ memory usage: 57.4 KB</code></pre>
 </ul>
 <p>For more on reading JSON files, see the Pandas <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#io-json-reader">Reading JSON guide</a>.</p>
 <p>Some examples of reading in the same JSON data in different ways follows. In every case, the output is the same <code>DataFrame</code>:</p>
-<div id="ee62c76b" class="cell" data-execution_count="5">
+<div id="c9d0e239" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https://github.com/mafudge/datasets/tree/master/json-formats to view the files</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>location <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/json-formats"</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -978,7 +978,7 @@ memory usage: 57.4 KB</code></pre>
     }
 ]</code></pre>
 <p>When we read this with <code>read_json()</code> we get the three orders but only two columns — one for the <code>"Customer"</code> key, and the other for the <code>"Items"</code> key:</p>
-<div id="1ea063f5" class="cell" data-execution_count="6">
+<div id="bef19b62" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>orders <span class="op">=</span> pd.read_json(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/master/json-samples/orders.json"</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>orders</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -1030,7 +1030,7 @@ Note
 </div>
 </div>
 <p>An example (note that we first need to load the file as JSON dict; for that, we’ll use the <code>requests</code> module to download the data):</p>
-<div id="7cce63be" class="cell" data-execution_count="7">
+<div id="3b81a038" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first down load the data</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/master/json-samples/orders.json"</span>)</span>
@@ -1093,7 +1093,7 @@ Loaded DataFrame:</code></pre>
 <p><em>Note:</em> The <code>meta</code> syntax is a bit weird. It’s a <code>list</code> of JSON paths (also represented as lists) to each item in the JSON. For example:</p>
 <pre><code>The meta Argument        ==&gt; Matches This in the JSON           ==&gt; And Displays As This Pandas Column
 ["Customer","FirstName"] ==&gt; { "Customer" : { "FirstName": ...} ==&gt; Customer.Firstname</code></pre>
-<div id="0ee831da" class="cell" data-execution_count="8">
+<div id="90c6471d" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>orders <span class="op">=</span> pd.json_normalize(json_data, record_path<span class="op">=</span><span class="st">"Items"</span>, meta<span class="op">=</span>[[<span class="st">"Customer"</span>,<span class="st">"FirstName"</span>],[<span class="st">"Customer"</span>,<span class="st">"LastName"</span>]])</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>orders</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -1164,7 +1164,7 @@ Loaded DataFrame:</code></pre>
 <li>The rows are based on the <code>"A"</code> record_path, which has two sub-sets, <code>A1</code> and <code>A2</code>. There are three sets of <code>A</code> data: (101, 102); (111, 112); and (201, 202).</li>
 <li>The meta data are based on columns <code>"B"</code>, and <code>"C1"</code></li>
 </ul>
-<div id="6f6bcd28" class="cell" data-execution_count="9">
+<div id="09713aba" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>json_data <span class="op">=</span> [</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    {</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"A"</span>: [</span>
@@ -1253,7 +1253,7 @@ Loaded DataFrame:</code></pre>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="ff9bb236" class="cell" data-execution_count="10">
+<div id="3f3471a9" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1335,7 +1335,7 @@ Note
 </div>
 </div>
 <p>This will read in all sheets as a <code>dict</code>, with the sheet names as the keys and the values as Pandas DataFrames representing the contents. An example using this with Streamlit:</p>
-<div id="a2d2557b" class="cell" data-execution_count="11">
+<div id="46104875" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1372,47 +1372,47 @@ Note
 <pre class="{bash}"><code>pip install lxml </code></pre>
 </div>
 </div>
-<p>For example:</p>
-<div id="78d67dab" class="cell" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>contents <span class="op">=</span> pd.read_html(<span class="st">"https://su-ist356-m003-fall-2025.github.io/course-home"</span>)</span>
+<p>For example, here’s an example of loading all the tables on the course website’s front page:</p>
+<div id="8d88d7c8" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>contents <span class="op">=</span> pd.read_html(<span class="st">"https://su-ist356-m003-spring-2026.github.io/course-home"</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> df <span class="kw">in</span> contents:</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    Week         Dates                         Topic
-0      1    8/25, 8/29          Intro; CLI and Conda
-1      2           9/3             Python review - 1
-2      3     9/8, 9/10             Python review - 2
-3      4    9/15, 9/17                            UI
-4      5    9/22, 9/24            Data wrangling - 1
-5      6    9/29, 10/1            Data wrangling - 2
-6      7    10/6, 10/8            Data wrangling - 3
-7      8         10/15            Data wrangling - 4
-8      9  10/20, 10/22  Exam 1 (10/20); Web APIs - 1
-9     10  10/27, 10/29                  Web APIs - 2
-10    11    11/3, 11/5              Web scraping - 1
-11    12  11/10, 11/12              Web scraping - 2
-12    13  11/17, 11/19        Data visualization - 1
-13    14    12/1, 12/3        Data visualization - 2
-14    15          12/8                        Exam 2
-15    16         12/15                   Project due
-          Date                                         Unnamed: 1
-0    Mon. 8/25                                 First day of class
-1     Mon. 9/1                               Labor day - No class
-2    Mon. 9/15  Academic/Financial drop deadline; Religious ob...
-3   Mon. 10/13                              Fall break - No class
-4   Fri. 11/21                                Withdrawal deadline
-5  11/23-11/30                      Thanksgiving Break - No class
-6    Mon. 12/8                                  Last day of class</code></pre>
+<pre><code>   Week       Dates                                          Topic
+0     1  1/12, 1/14                           Intro; CLI and Conda
+1     2        1/21                                   Git &amp; GitHub
+2     3  1/26, 1/28                              Python review - 1
+3     4    2/2, 2/4                              Python review - 2
+4     5   2/9, 2/11       Writing scripts with Argparse; Streamlit
+5     6  2/16, 2/18                             Data wrangling - 1
+6     7  2/23, 2/25                             Data wrangling - 2
+7     8    3/2, 3/4           Review (3/2) and Mid-term Exam (3/4)
+8     –  3/8 - 3/15                                   Spring Break
+9     9  3/16, 3/18                                   Web APIs - 1
+10   10  3/23, 3/25                                   Web APIs - 2
+11   11   3/30, 4/1                               Web scraping - 1
+12   12    4/6, 4/8                               Web scraping - 2
+13   13  4/13, 4/15                         Data visualization - 1
+14   14  4/20, 4/22  Data visualization - 2; Review for Final Exam
+15   15        4/27                                     Final Exam
+16   16         5/4                                    Project due
+         Date                                         Unnamed: 1
+0   Mon. 1/12                                 First day of class
+1   Mon. 1/19              Martin Luther King, Jr.&nbsp;Day: No class
+2    Mon. 2/2  Academic/Financial drop deadline; Religious ob...
+3  3/8 - 3/15                            Spring break - No class
+4  Tues. 4/14                                Withdrawal deadline
+5   Mon. 4/27                                  Last day of class</code></pre>
 </div>
 </div>
 <p>An example of turning this into a Streamlit app:</p>
-<div id="d775cbe5" class="cell" data-execution_count="13">
+<div id="7f81c080" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>st.title(<span class="st">"HTML Example - multiple tables"</span>)</span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://su-ist356-m003-fall-2025.github.io/course-home"</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://su-ist356-m003-spring-2026.github.io/course-home"</span></span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>contents <span class="op">=</span> pd.read_html(url)</span>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co"># There are 2 tables on this page, but we don't know this</span></span>
@@ -1439,7 +1439,7 @@ Note
 <li>https://pandas.pydata.org/pandas-docs/stable/reference/io.html</li>
 </ul>
 <p>An example of converting the above Excel spreadsheet to CSV:</p>
-<div id="64b7a6d8" class="cell" data-execution_count="14">
+<div id="ef6513f1" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>contents <span class="op">=</span> pd.read_excel(<span class="st">"https://github.com/mafudge/datasets/raw/refs/heads/master/excel-examples/books_of_interest.xlsx"</span>, sheet_name<span class="op">=</span><span class="va">None</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sheetname, df <span class="kw">in</span> contents.items():</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># convert spaces to underscores for filenames</span></span>
@@ -1471,7 +1471,7 @@ Note
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="d05a141d" class="cell" data-execution_count="15">
+<div id="e55e49d3" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
