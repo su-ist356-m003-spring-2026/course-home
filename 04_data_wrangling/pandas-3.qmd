@@ -9,7 +9,7 @@ In this unit we will discuss strategies for dealing with multiple dataframes and
 
 ## Concatenation
 
-Concatenation appends the rows of one or more dataframes together. This is a row-oriented operation so the resulting datafram will be longer. For example, if a 50-row dataframe is concatenated with a 40-row dataframe, you will have a 90-row dataframe.
+Concatenation appends the rows of one or more dataframes together. This is a row-oriented operation so the resulting dataframe will be longer. For example, if a 50-row dataframe is concatenated with a 40-row dataframe, you will have a 90-row dataframe.
 
 The [pd.concat()](https://pandas.pydata.org/docs/reference/api/pandas.concat.html) function is used to concatenate frames. It takes several arguments, but the most often-used ones are: `pd.concat(items: list[pd.DataFrame], ignore_index=False)`. The first argument is a list of Dataframes to concat. The `ignore_index` keyword argument governs what happens to the indices in the combined frame: we can choose to keep the current index in each dataframe `ignore_index=False` or create a new index `ignore_index=True`.
 
@@ -68,6 +68,7 @@ students
 
 
 Consider the JSON file here: [https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/json-samples/employees-dict.json]("https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/json-samples/employees-dict.json")
+You can find a copy of this file in your class-notebook repository, in `data-wrangling/data/json-examples/employees-dict.json`.
 
 Let's take a look at the structure of this file in a dictionary format:
 
@@ -75,6 +76,20 @@ Let's take a look at the structure of this file in a dictionary format:
 import requests
 response = requests.get("https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/json-samples/employees-dict.json")
 employees = response.json()
+employees
+```
+
+If you are working in your class-notebook repository, you can load the file using:
+
+```{python}
+#| eval: False
+import json
+# note that we are assuming your current working directory (i.e., where you are
+# in your file system when running your notebook) is data-wrangling. If your
+# are in your class-notebook directory, then change the file path to
+# data-wrangling/data/json-examples/exmployees-dict.json
+with open('data/json-examples/employees-dict.json', 'r') as fp:
+    employees = json.load(fp)
 employees
 ```
 
