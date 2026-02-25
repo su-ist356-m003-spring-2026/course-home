@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-636770ed70550effe8cc9e61b03b729c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-a6025f3157e7fd9b855051f29eeac2ca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -356,10 +356,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this unit we will discuss strategies for dealing with multiple dataframes and combing them into a single dataframe.</p>
 <section id="concatenation" class="level2">
 <h2 class="anchored" data-anchor-id="concatenation">Concatenation</h2>
-<p>Concatenation appends the rows of one or more dataframes together. This is a row-oriented operation so the resulting datafram will be longer. For example, if a 50-row dataframe is concatenated with a 40-row dataframe, you will have a 90-row dataframe.</p>
+<p>Concatenation appends the rows of one or more dataframes together. This is a row-oriented operation so the resulting dataframe will be longer. For example, if a 50-row dataframe is concatenated with a 40-row dataframe, you will have a 90-row dataframe.</p>
 <p>The <a href="https://pandas.pydata.org/docs/reference/api/pandas.concat.html">pd.concat()</a> function is used to concatenate frames. It takes several arguments, but the most often-used ones are: <code>pd.concat(items: list[pd.DataFrame], ignore_index=False)</code>. The first argument is a list of Dataframes to concat. The <code>ignore_index</code> keyword argument governs what happens to the indices in the combined frame: we can choose to keep the current index in each dataframe <code>ignore_index=False</code> or create a new index <code>ignore_index=True</code>.</p>
 <p>An example:</p>
-<div id="d46cb713" class="cell" data-execution_count="1">
+<div id="aee543a5" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>campus_students <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/master/delimited/campus-students.csv"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>campus_students</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -431,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="4a74b0e4" class="cell" data-execution_count="2">
+<div id="dfd0042f" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>online_students <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/master/delimited/online-students.csv"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>online_students</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -504,7 +504,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="ae4c5d7c" class="cell" data-execution_count="3">
+<div id="5ad62473" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>combined_students <span class="op">=</span> pd.concat([campus_students, online_students])</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>combined_students</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
@@ -636,7 +636,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="concat---ignoring-the-index" class="level3">
 <h3 class="anchored" data-anchor-id="concat---ignoring-the-index">concat() - Ignoring the index</h3>
 <p>As you can see from the code above the index from the original DataFrames was used. For example <code>Helen</code> and <code>Abby</code> both share the index <code>0</code>. This means that if you provide index 0, you’ll get both of them, e.g.:</p>
-<div id="22a08373" class="cell" data-execution_count="4">
+<div id="b44dbaeb" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>combined_students[<span class="st">'Name'</span>][<span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>0    Helen
@@ -646,7 +646,7 @@ Name: Name, dtype: str</code></pre>
 </div>
 <p>While this is acceptable, there are situations where a new index based on combined values is desirable. We will encounter this later when grouping or pivioting data.</p>
 <p>To make this happen include the <code>ignore_index=True</code> named argument. This will create a new index from the output DataFrame.</p>
-<div id="a7e9623b" class="cell" data-execution_count="5">
+<div id="421e1839" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> pd.concat([campus_students, online_students], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>students</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -780,7 +780,7 @@ Name: Name, dtype: str</code></pre>
 <h3 class="anchored" data-anchor-id="best-practice---data-lineage">Best practice - data lineage</h3>
 <p>When combining datasets, its a really good idea to retain <strong>data lineage</strong>, or a record of where the data came from. This can be done by added a column to each dataframe before concatenating.</p>
 <p>In this example we create a student <code>"type"</code> column to track lineage.</p>
-<div id="aa0ecd35" class="cell" data-execution_count="6">
+<div id="5d02a1ac" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>campus_students <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/master/delimited/campus-students.csv"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>campus_students[<span class="st">'type'</span>] <span class="op">=</span> <span class="st">'campus'</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>online_students <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/master/delimited/online-students.csv"</span>)</span>
@@ -939,9 +939,9 @@ Name: Name, dtype: str</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consider the JSON file here: <a href="&quot;https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/json-samples/employees-dict.json&quot;">https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/json-samples/employees-dict.json</a></p>
+<p>Consider the JSON file here: <a href="&quot;https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/json-samples/employees-dict.json&quot;">https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/json-samples/employees-dict.json</a> You can find a copy of this file in your class-notebook repository, in <code>data-wrangling/data/json-examples/employees-dict.json</code>.</p>
 <p>Let’s take a look at the structure of this file in a dictionary format:</p>
-<div id="cdeb682c" class="cell" data-execution_count="7">
+<div id="3e57e7da" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/json-samples/employees-dict.json"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>employees <span class="op">=</span> response.json()</span>
@@ -954,9 +954,20 @@ Name: Name, dtype: str</code></pre>
  'marketing': [{'firstName': 'Tom', 'lastName': 'Brown', 'age': 28}]}</code></pre>
 </div>
 </div>
+<p>If you are working in your class-notebook repository, you can load the file using:</p>
+<div id="afd7de1b" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># note that we are assuming your current working directory (i.e., where you are</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># in your file system when running your notebook) is data-wrangling. If your</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># are in your class-notebook directory, then change the file path to</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># data-wrangling/data/json-examples/exmployees-dict.json</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'data/json-examples/employees-dict.json'</span>, <span class="st">'r'</span>) <span class="im">as</span> fp:</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    employees <span class="op">=</span> json.load(fp)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>employees</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>The issue with the JSON data is that there are employees under keys by department <code>"accounting", "sales", "marketing"</code>:</p>
-<div id="539aad01" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"departments"</span>, employees.keys())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="f70918ef" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"departments"</span>, employees.keys())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>departments dict_keys(['accounting', 'sales', 'marketing'])</code></pre>
 </div>
@@ -987,26 +998,26 @@ Name: Name, dtype: str</code></pre>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="b439985d" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/json-samples/employees-dict.json"</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>employees <span class="op">=</span> response.json()</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>departments <span class="op">=</span> []</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dept_name <span class="kw">in</span> employees.keys():</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># convert the department dictionary into a DataFrame</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    dept_employees <span class="op">=</span> pd.DataFrame(employees[dept_name])</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Note: this also would work:</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dept_employees = pd.json_normalize(employees,  record_path=dept_name)</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add the department name to the columns (data lineage):</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    dept_employees[<span class="st">'dept'</span>] <span class="op">=</span> dept_name</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    departments.append(dept_employees)</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.concat(departments, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>combined</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="1bdf44a6" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/json-samples/employees-dict.json"</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>employees <span class="op">=</span> response.json()</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>departments <span class="op">=</span> []</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dept_name <span class="kw">in</span> employees.keys():</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># convert the department dictionary into a DataFrame</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    dept_employees <span class="op">=</span> pd.DataFrame(employees[dept_name])</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Note: this also would work:</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dept_employees = pd.json_normalize(employees,  record_path=dept_name)</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add the department name to the columns (data lineage):</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    dept_employees[<span class="st">'dept'</span>] <span class="op">=</span> dept_name</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    departments.append(dept_employees)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.concat(departments, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>combined</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
@@ -1076,11 +1087,11 @@ Name: Name, dtype: str</code></pre>
 <p>You can use <code>df.drop_duplicates()</code> to remove repeated rows of data.</p>
 <p>Without an argument, this will scan the entire row of data to determine if the row is the same.</p>
 <p>If your data has a natural key, you can specify that with the <code>subset=</code> named argument. This will improve performance. An example:</p>
-<div id="599f8ec9" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>o1 <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/dedupe/orders1.csv"</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>o2 <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/dedupe/orders2.csv"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>orders <span class="op">=</span> pd.concat([o1, o2], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>orders.sort_values(<span class="st">'orderid'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="5332341b" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>o1 <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/dedupe/orders1.csv"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>o2 <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/dedupe/orders2.csv"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>orders <span class="op">=</span> pd.concat([o1, o2], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>orders.sort_values(<span class="st">'orderid'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
@@ -1382,8 +1393,8 @@ Name: Name, dtype: str</code></pre>
 </div>
 </div>
 <p>Here, we use the entire row to check for duplicates:</p>
-<div id="08c8d524" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>orders.drop_duplicates().sort_values(<span class="st">"orderid"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="72fb0f66" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>orders.drop_duplicates().sort_values(<span class="st">"orderid"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
@@ -1594,8 +1605,8 @@ Name: Name, dtype: str</code></pre>
 </div>
 </div>
 <p>Here, we just use the <code>orderid</code> to check for duplicates:</p>
-<div id="dcebac07" class="cell" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>orders.drop_duplicates(subset<span class="op">=</span><span class="st">"orderid"</span>).sort_values(<span class="st">"orderid"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="16a04062" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>orders.drop_duplicates(subset<span class="op">=</span><span class="st">"orderid"</span>).sort_values(<span class="st">"orderid"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
@@ -1807,8 +1818,8 @@ Name: Name, dtype: str</code></pre>
 </div>
 <p>That gives the same result as using the whole row because the <code>orderid</code> is one-to-one with the uniqueness of the row. It’s faster doing this though, even on this small dataset (use <code>%timeit</code> to compare)!</p>
 <p>Notice if we had used a different subset which is not representative of the row, we lose data. For example:</p>
-<div id="f6253a0c" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>orders.drop_duplicates(subset<span class="op">=</span><span class="st">"ordercreditcard"</span>).sort_values(<span class="st">"orderid"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="b9a1cc99" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>orders.drop_duplicates(subset<span class="op">=</span><span class="st">"ordercreditcard"</span>).sort_values(<span class="st">"orderid"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
@@ -1878,9 +1889,9 @@ Name: Name, dtype: str</code></pre>
 <section id="returning-a-dataframe-of-duplicates" class="level3">
 <h3 class="anchored" data-anchor-id="returning-a-dataframe-of-duplicates">Returning a dataframe of duplicates</h3>
 <p>To get a dataframe of just the duplicated values you can use <code>df.duplicated()</code>. This returns a boolean series that you can use to extract the duplicated rows from the concatenated dataframe. Example:</p>
-<div id="9098813c" class="cell" data-execution_count="14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>dupes <span class="op">=</span> orders.duplicated(subset<span class="op">=</span>[<span class="st">'orderid'</span>])</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>orders[dupes]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="373c0090" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>dupes <span class="op">=</span> orders.duplicated(subset<span class="op">=</span>[<span class="st">'orderid'</span>])</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>orders[dupes]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
@@ -2015,9 +2026,9 @@ Name: Name, dtype: str</code></pre>
 </ul></li>
 </ul>
 <p>To illustrate the differences between these, consider merging the following two dataframes, one representing a roster of basketball players, and another a list of teams:</p>
-<div id="c35b7179" class="cell" data-execution_count="15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>bbplayers <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/delimited/bbplayers.csv"</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>bbplayers</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="8a284b7b" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>bbplayers <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/delimited/bbplayers.csv"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>bbplayers</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
@@ -2074,9 +2085,9 @@ Name: Name, dtype: str</code></pre>
 </div>
 </div>
 </div>
-<div id="e6062402" class="cell" data-execution_count="16">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>bbteams <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/delimited/bbteams.csv"</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>bbteams</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="a6f49f1b" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>bbteams <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/delimited/bbteams.csv"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>bbteams</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 
@@ -2116,9 +2127,9 @@ Name: Name, dtype: str</code></pre>
 </div>
 </div>
 <p><strong>Inner join</strong>: Only rows that match the <code>bbplayer.player_team_id</code> and <code>bbteam.team_id</code> and <code>bbteam</code> will be included. Note that in this case we lose Player 105 and team 3 because there are no matches:</p>
-<div id="c70bdd0b" class="cell" data-execution_count="17">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.merge(bbplayers, bbteams, left_on<span class="op">=</span><span class="st">'player_team_id'</span>, right_on<span class="op">=</span><span class="st">'team_id'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>combined</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="b4b91fe6" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.merge(bbplayers, bbteams, left_on<span class="op">=</span><span class="st">'player_team_id'</span>, right_on<span class="op">=</span><span class="st">'team_id'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>combined</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
@@ -2184,9 +2195,9 @@ Name: Name, dtype: str</code></pre>
 </div>
 </div>
 <p><strong>Left join</strong>: All rows from the left (every player) and ONLY rows from team that match. Now we see Player 105 despite no team match:</p>
-<div id="d167f9f8" class="cell" data-execution_count="18">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.merge(bbplayers, bbteams, left_on<span class="op">=</span><span class="st">'player_team_id'</span>, right_on<span class="op">=</span><span class="st">'team_id'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>combined</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="1981aca6" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.merge(bbplayers, bbteams, left_on<span class="op">=</span><span class="st">'player_team_id'</span>, right_on<span class="op">=</span><span class="st">'team_id'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>combined</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 
@@ -2262,9 +2273,9 @@ Name: Name, dtype: str</code></pre>
 </div>
 </div>
 <p><strong>Right join</strong>: All rows from the right (every team) and ONLY rows from players that match. We now see Team 3 despite no player match:</p>
-<div id="17b3fb89" class="cell" data-execution_count="19">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.merge(bbplayers, bbteams, left_on<span class="op">=</span><span class="st">'player_team_id'</span>, right_on<span class="op">=</span><span class="st">'team_id'</span>, how<span class="op">=</span><span class="st">'right'</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>combined</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="430d0aad" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.merge(bbplayers, bbteams, left_on<span class="op">=</span><span class="st">'player_team_id'</span>, right_on<span class="op">=</span><span class="st">'team_id'</span>, how<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>combined</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 
@@ -2340,9 +2351,9 @@ Name: Name, dtype: str</code></pre>
 </div>
 </div>
 <p><strong>Outer join</strong>: All rows from both tables are included. This is equivalent to doing an inner join + all non-matching rows from both tables. In this case, we see Team 3 <em>and</em> Player 105:</p>
-<div id="824c364f" class="cell" data-execution_count="20">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.merge(bbplayers, bbteams, left_on<span class="op">=</span><span class="st">'player_team_id'</span>, right_on<span class="op">=</span><span class="st">'team_id'</span>, how<span class="op">=</span><span class="st">'outer'</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>combined</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="4a41cf4b" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.merge(bbplayers, bbteams, left_on<span class="op">=</span><span class="st">'player_team_id'</span>, right_on<span class="op">=</span><span class="st">'team_id'</span>, how<span class="op">=</span><span class="st">'outer'</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>combined</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <div>
 
@@ -2453,31 +2464,31 @@ Name: Name, dtype: str</code></pre>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="6e037cba" class="cell" data-execution_count="21">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/minimart/"</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>months <span class="op">=</span> [<span class="st">'jan'</span>, <span class="st">'feb'</span>, <span class="st">'mar'</span>, <span class="st">'apr'</span>]</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>st.title(<span class="st">"Who's not Buying from MiniMart?"</span>)</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>month <span class="op">=</span> st.selectbox(<span class="st">'Select Month:'</span>, months)</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>purchases <span class="op">=</span> pd.read_csv(<span class="ss">f"</span><span class="sc">{</span>base<span class="sc">}</span><span class="ss">/purchases-</span><span class="sc">{</span>month<span class="sc">}</span><span class="ss">.csv"</span>)</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>customers <span class="op">=</span> pd.read_csv(<span class="ss">f"</span><span class="sc">{</span>base<span class="sc">}</span><span class="ss">/customers.csv"</span>)</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.merge(customers, purchases, left_on<span class="op">=</span><span class="st">'customer_id'</span>, right_on<span class="op">=</span><span class="st">'customer_id'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"customer_id"</span>, <span class="st">"firstname"</span>, <span class="st">"lastname"</span>]</span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>did_not_buy <span class="op">=</span> combined[<span class="st">"order_id"</span>].isnull()</span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>customers_who_did_not_buy <span class="op">=</span> combined[did_not_buy][cols]</span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>st.header(<span class="ss">f"These people did not buy anything in </span><span class="sc">{</span>month<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss">.:"</span>)</span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>st.dataframe(customers_who_did_not_buy, hide_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="co"># You can add the following to double check the results:</span></span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="co">#st.divider()</span></span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="co">#st.write("debug")</span></span>
-<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="co">#st.dataframe(combined)</span></span>
-<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="co"># That will display the full combined frame for the selected month. The ones</span></span>
-<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="co"># without entries for the order id should be what's displayed in the table above.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="07ad9a08" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/minimart/"</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>months <span class="op">=</span> [<span class="st">'jan'</span>, <span class="st">'feb'</span>, <span class="st">'mar'</span>, <span class="st">'apr'</span>]</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>st.title(<span class="st">"Who's not Buying from MiniMart?"</span>)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>month <span class="op">=</span> st.selectbox(<span class="st">'Select Month:'</span>, months)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>purchases <span class="op">=</span> pd.read_csv(<span class="ss">f"</span><span class="sc">{</span>base<span class="sc">}</span><span class="ss">/purchases-</span><span class="sc">{</span>month<span class="sc">}</span><span class="ss">.csv"</span>)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>customers <span class="op">=</span> pd.read_csv(<span class="ss">f"</span><span class="sc">{</span>base<span class="sc">}</span><span class="ss">/customers.csv"</span>)</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.merge(customers, purchases, left_on<span class="op">=</span><span class="st">'customer_id'</span>, right_on<span class="op">=</span><span class="st">'customer_id'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"customer_id"</span>, <span class="st">"firstname"</span>, <span class="st">"lastname"</span>]</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>did_not_buy <span class="op">=</span> combined[<span class="st">"order_id"</span>].isnull()</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>customers_who_did_not_buy <span class="op">=</span> combined[did_not_buy][cols]</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>st.header(<span class="ss">f"These people did not buy anything in </span><span class="sc">{</span>month<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss">.:"</span>)</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>st.dataframe(customers_who_did_not_buy, hide_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="co"># You can add the following to double check the results:</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="co">#st.divider()</span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="co">#st.write("debug")</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="co">#st.dataframe(combined)</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a><span class="co"># That will display the full combined frame for the selected month. The ones</span></span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a><span class="co"># without entries for the order id should be what's displayed in the table above.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
