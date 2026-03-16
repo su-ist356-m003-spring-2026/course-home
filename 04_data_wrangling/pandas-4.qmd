@@ -206,7 +206,49 @@ python -m streamlit run st-cleaned_checks.py
 
 So far we've used `apply` with functions that take in a single Series. What do we do if we need a function to operate on multiple columns in a `DataFrame`? For that, we can use Python [lambda](https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions) functions.
 
-An example using our checks data:
+### A simple example
+
+Suppose we have the following dataset of grades for some students:
+
+```{python}
+students = pd.DataFrame({'hw_avg': [85, 92, 99, 78],
+                         'final_exam': [88, 95, None, 75]},
+                        index=['Adam', 'Brenda', 'Charlie', 'Dina'])
+students
+```
+
+We want to calculate their grade for the semester using the following function:
+
+```{python}
+def grade(hw_avg, final_exam):
+    if pd.isna(final_exam):
+        return 'F'
+    overall = 0.4*hw_avg + 0.6*final_exam
+    if overall >= 90:
+        return 'A'
+    elif overall >= 80:
+        return 'B'
+    elif overall >= 70:
+        return 'C'
+    elif overall >= 60:
+        return 'D'
+    else:
+        return 'F'
+```
+
+Since this function involves if statements, we need to use `apply` in order to run it on our `students` DataFrame. But `grade` needs two columns as input, `hw_avg` and `final_exam`. How do we do that?
+
+We can use a `lambda` function to quickly define a small function that will return the required columns when provided a row. In general, the syntax for a `lambda` function is `lambda ARGS: FUNC`. For example, `lambda a, b: a+b` will return the sum of the two arguments its given.
+
+In our case, we can use a `lambda` function to pull out the needed columns and give them to `apply`, like so:
+
+```{python}
+students['grade'] = students.apply(lambda row: grade(row['hw_avg'], row['final_exam']),
+                                   axis=1)
+students
+```
+
+### An example using our checks data
 
 Marketing wants you to build some *key performance indicators* (KPIs) using the checks data. A KPI is a statistic that summarizes some larger data set, so the data can be more easily tracked over time. For example a letter grade such as an A- is a KPI summary of all your graded efforts to date.
 
@@ -270,11 +312,7 @@ assert detect_whale(1, 250, 3, 175) == 'big spender'
 assert detect_whale(1, 100, 3, 175) == ''
 ```
 
-Now we want to apply the `detect_whale` function to the `checks` DataFrame. But `detect_whale` requires two columns as input, the `items_per_person` and `price_per_person`. How do we do that?
-
-We can use a `lambda` function to quickly define a small function that will return the required columns when provided a row. In general, the syntax for a `lambda` function is `lambda ARGS: FUNC`. For example, `lambda a, b: a+b` will return the sum of the two arguments its given.
-
-In our case, we can use a `lambda` function to pull out the needed columns and give them to `apply`, like so:
+Now we want to apply the `detect_whale` function to the `checks` DataFrame. But `detect_whale` requires two columns as input, the `items_per_person` and `price_per_person`. Again, we need to use a lambda function, like so:
 
 ```{python}
 checks['whale'] = checks.apply(lambda row: detect_whale(row['items_per_person'], row['price_per_person'], ipp_75, ppp_75), axis=1)
