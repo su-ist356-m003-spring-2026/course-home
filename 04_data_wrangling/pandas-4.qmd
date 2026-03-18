@@ -11,7 +11,7 @@ For this tutorial, we will be using some data representing a pretend restaurant'
 checks_data = 'https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/dining/check-data.csv'
 ```
 
-This file is also provided in your class notebook repository, in `data-wrangling/data/dininig`.
+This file is also provided in your class notebook repository, in `data-wrangling/data/delimited`.
 
 Let's load the file with Pandas and sample a few of its rows to see what it contains:
 
@@ -142,7 +142,7 @@ Remember its a really good idea to **track lineage** when you are building a dat
 
 
 :::: {.callout-caution appearance="simple" icon="false"}
-### Code Challenge 5.1
+### Code Challenge 4.5.1
 
 Let's take what we did so far, and create a dataset that would be better prepared for analysis / machine learning. We'll display it in a Streamlit app.
 
@@ -320,9 +320,9 @@ checks.sample(25)
 ```
 
 :::: {.callout-caution appearance="simple" icon="false"}
-### Code Challenge 5.2
+### Code Challenge 4.5.2
 
-Let's build on the Streamlit app you made in Challenge 5.1, and add our KPIs to it.
+Let's build on the Streamlit app you made in Challenge 4.5.1, and add our KPIs to it.
 
 1.  Copy `st-cleaned_checks.py` to a new file called `st-checks_kpi.py`.
 
