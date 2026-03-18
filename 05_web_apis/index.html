@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lectures – IST 356 Spring 2026</title>
+<title>5. Web APIs – IST 356 Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./syllabus.html" rel="next">
-<link href="./08_final_project/index.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a6025f3157e7fd9b855051f29eeac2ca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../05_web_apis/webapi-1.html" rel="next">
+<link href="../04_data_wrangling/pandas-5.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a6025f3157e7fd9b855051f29eeac2ca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,14 +71,12 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Lectures – IST 356 Spring 2026">
-<meta property="og:description" content="">
+<meta property="og:title" content="5. Web APIs – IST 356 Spring 2026">
 <meta property="og:image" content="enter_gitHub_pages_URL_here/images/ischool_logo_reverseX2.png">
 <meta property="og:site_name" content="IST 356 Spring 2026">
 <meta property="og:image:height" content="105">
 <meta property="og:image:width" content="650">
-<meta name="twitter:title" content="Lectures – IST 356 Spring 2026">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="5. Web APIs – IST 356 Spring 2026">
 <meta name="twitter:image" content="enter_gitHub_pages_URL_here/images/ischool_logo_reverseX2.png">
 <meta name="twitter:image-height" content="105">
 <meta name="twitter:image-width" content="650">
@@ -92,14 +90,14 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">IST 356 Spring 2026</span>
     </a>
   </div>
           <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="https://ischool.syracuse.edu" target="_blank"> 
-<span class="menu-text"><img src="./images/ischool_logo_reverseX2.png" height="30"></span></a>
+<span class="menu-text"><img src="../images/ischool_logo_reverseX2.png" height="30"></span></a>
   </li>  
 </ul>
           <div class="quarto-navbar-tools">
@@ -112,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lectures.html">Lectures</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05_web_apis/index.html">5. Web APIs</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -126,13 +124,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_intro/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../00_intro/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction and computer setup</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./01_cli_conda/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../01_cli_conda/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Command line interface, Environments, and Git/GitHub</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -141,19 +139,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_cli_conda/shell-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../01_cli_conda/shell-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Command Line Interface and the Unix Shell</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_cli_conda/conda.html" class="sidebar-item-text sidebar-link">
+  <a href="../01_cli_conda/conda.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bash variables, environments, and <code>conda</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_cli_conda/git.html" class="sidebar-item-text sidebar-link">
+  <a href="../01_cli_conda/git.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git and GitHub</span></a>
   </div>
 </li>
@@ -161,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./02_python/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../02_python/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Python review</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -170,31 +168,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Input, output, variables, types, conditionals</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Iterations, lists, dictionaries, comprehensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-3.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. Functions, documentation, strings, files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-4.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4. Object Oriented Programming using Python Classes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-5.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5. Modules, import, pip, testing</span></a>
   </div>
 </li>
@@ -202,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./03_ui/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../03_ui/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. User interface</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -211,13 +209,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_ui/streamlit.html" class="sidebar-item-text sidebar-link">
+  <a href="../03_ui/streamlit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Creating simple web apps with Streamlit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_ui/argparse.html" class="sidebar-item-text sidebar-link">
+  <a href="../03_ui/argparse.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Writing executable scripts with Argparse</span></a>
   </div>
 </li>
@@ -225,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./04_data_wrangling/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../04_data_wrangling/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4. Data Wrangling</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -234,37 +232,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_data_wrangling/numpy_basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_data_wrangling/numpy_basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Introduction to NumPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_data_wrangling/pandas-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_data_wrangling/pandas-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Introduction to Pandas: Series and DataFrames</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_data_wrangling/pandas-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_data_wrangling/pandas-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. Data I/O with Pandas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_data_wrangling/pandas-3.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_data_wrangling/pandas-3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4. Joining Multiple Pandas Dataframes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_data_wrangling/pandas-4.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_data_wrangling/pandas-4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5. Basic data cleaning with Pandas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_data_wrangling/pandas-5.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_data_wrangling/pandas-5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6. Grouping data and creating pivot tables with Pandas</span></a>
   </div>
 </li>
@@ -272,16 +270,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./05_web_apis/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../05_web_apis/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">5. Web APIs</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_web_apis/webapi-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../05_web_apis/webapi-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. REST APIs</span></a>
   </div>
 </li>
@@ -289,19 +287,19 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_final_project/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../08_final_project/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Final Project</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures.html" class="sidebar-item-text sidebar-link active">
+  <a href="../lectures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lectures</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
@@ -315,19 +313,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#wednesday-january-14-2026" id="toc-wednesday-january-14-2026" class="nav-link active" data-scroll-target="#wednesday-january-14-2026">Wednesday, January 14, 2026</a></li>
-  <li><a href="#wednesday-january-21-2026" id="toc-wednesday-january-21-2026" class="nav-link" data-scroll-target="#wednesday-january-21-2026">Wednesday, January 21, 2026</a></li>
-  <li><a href="#monday-january-26-2026" id="toc-monday-january-26-2026" class="nav-link" data-scroll-target="#monday-january-26-2026">Monday, January 26, 2026</a></li>
-  <li><a href="#wednesday-january-28-2026" id="toc-wednesday-january-28-2026" class="nav-link" data-scroll-target="#wednesday-january-28-2026">Wednesday, January 28, 2026</a></li>
-  <li><a href="#monday-february-2-2026" id="toc-monday-february-2-2026" class="nav-link" data-scroll-target="#monday-february-2-2026">Monday, February 2, 2026</a></li>
-  <li><a href="#wednesday-february-4-2026" id="toc-wednesday-february-4-2026" class="nav-link" data-scroll-target="#wednesday-february-4-2026">Wednesday, February 4, 2026</a></li>
-  <li><a href="#monday-february-9-2026" id="toc-monday-february-9-2026" class="nav-link" data-scroll-target="#monday-february-9-2026">Monday, February 9, 2026</a></li>
-  <li><a href="#wednesday-february-11-2026" id="toc-wednesday-february-11-2026" class="nav-link" data-scroll-target="#wednesday-february-11-2026">Wednesday, February 11, 2026</a></li>
-  <li><a href="#monday-february-16-2026" id="toc-monday-february-16-2026" class="nav-link" data-scroll-target="#monday-february-16-2026">Monday, February 16, 2026</a></li>
-  <li><a href="#wednesday-february-18-2026" id="toc-wednesday-february-18-2026" class="nav-link" data-scroll-target="#wednesday-february-18-2026">Wednesday, February 18, 2026</a></li>
-  <li><a href="#monday-february-23-2026" id="toc-monday-february-23-2026" class="nav-link" data-scroll-target="#monday-february-23-2026">Monday, February 23, 2026</a></li>
-  <li><a href="#wednesday-february-25-2026" id="toc-wednesday-february-25-2026" class="nav-link" data-scroll-target="#wednesday-february-25-2026">Wednesday, February 25, 2026</a></li>
-  <li><a href="#monday-march-16-2026" id="toc-monday-march-16-2026" class="nav-link" data-scroll-target="#monday-march-16-2026">Monday, March 16, 2026</a></li>
+  <li><a href="#tutorials" id="toc-tutorials" class="nav-link active" data-scroll-target="#tutorials">Tutorials</a></li>
+  <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">Lectures</a></li>
   </ul>
 </nav>
     </div>
@@ -336,7 +323,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lectures</h1>
+<h1 class="title">5. Web APIs</h1>
 </div>
 
 
@@ -353,84 +340,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>A list of all the lecture recordings. These are also linked on the unit splash pages.</p>
-<section id="wednesday-january-14-2026" class="level3">
-<h3 class="anchored" data-anchor-id="wednesday-january-14-2026">Wednesday, January 14, 2026</h3>
-<p>Introduction to command line interface (CLI)</p>
-<iframe id="kmsembed-1_9y785gka" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_9y785gka/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 1-14-26">
-</iframe>
+<section id="tutorials" class="level2">
+<h2 class="anchored" data-anchor-id="tutorials">Tutorials</h2>
+<ol type="1">
+<li><a href="../05_web_apis/webapi-1.html">REST APIs</a></li>
+</ol>
 </section>
-<section id="wednesday-january-21-2026" class="level3">
-<h3 class="anchored" data-anchor-id="wednesday-january-21-2026">Wednesday, January 21, 2026</h3>
-<p>Contiuation of CLI: bash variables, scripts, and environments. Introduction to Conda.</p>
-<iframe id="kmsembed-1_uvpcm86t" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_uvpcm86t/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 1-21-26">
-</iframe>
-</section>
-<section id="monday-january-26-2026" class="level3">
-<h3 class="anchored" data-anchor-id="monday-january-26-2026">Monday, January 26, 2026</h3>
-<p>Introduction to Git and GitHub; how to use GitHub Classroom.</p>
-<iframe id="kmsembed-1_pmqsjrrv" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_pmqsjrrv/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 1-26-26">
-</iframe>
-</section>
-<section id="wednesday-january-28-2026" class="level3">
-<h3 class="anchored" data-anchor-id="wednesday-january-28-2026">Wednesday, January 28, 2026</h3>
-<p>Overview of assignment 1. Introduction to Python: input, output, variables, types, conditionals.</p>
-<iframe id="kmsembed-1_i76mpcln" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_i76mpcln/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 1-28-26">
-</iframe>
-</section>
-<section id="monday-february-2-2026" class="level3">
-<h3 class="anchored" data-anchor-id="monday-february-2-2026">Monday, February 2, 2026</h3>
-<p>Python lists and dictionaries; definite and indefinite loops. (Pre-recorded lecture.)</p>
-<iframe id="kmsembed-1_gkvfe747" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_gkvfe747/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 2-2-26">
-</iframe>
-</section>
-<section id="wednesday-february-4-2026" class="level3">
-<h3 class="anchored" data-anchor-id="wednesday-february-4-2026">Wednesday, February 4, 2026</h3>
-<p>Python functions; string operations; file I/O. (Pre-recorded lecture.)</p>
-<iframe id="kmsembed-1_f1uqv8ts" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_f1uqv8ts/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 2-4-26">
-</iframe>
-</section>
-<section id="monday-february-9-2026" class="level3">
-<h3 class="anchored" data-anchor-id="monday-february-9-2026">Monday, February 9, 2026</h3>
-<p>Python classes; imports</p>
-<iframe id="kmsembed-1_d560o5wj" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_d560o5wj/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 2-9-26">
-</iframe>
-</section>
-<section id="wednesday-february-11-2026" class="level3">
-<h3 class="anchored" data-anchor-id="wednesday-february-11-2026">Wednesday, February 11, 2026</h3>
-<p>Introduction to Streamlit</p>
-<iframe id="kmsembed-1_u3110pjn" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_u3110pjn/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 2-11-26">
-</iframe>
-</section>
-<section id="monday-february-16-2026" class="level3">
-<h3 class="anchored" data-anchor-id="monday-february-16-2026">Monday, February 16, 2026</h3>
-<p>Adding command-line options to Python scripts using Argparse</p>
-<iframe id="kmsembed-1_3opf3u4e" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_3opf3u4e/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 2-16-26">
-</iframe>
-</section>
-<section id="wednesday-february-18-2026" class="level3">
-<h3 class="anchored" data-anchor-id="wednesday-february-18-2026">Wednesday, February 18, 2026</h3>
-<p>Numpy; intro to Pandas Series</p>
-<iframe id="kmsembed-1_iqi4wasr" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_iqi4wasr/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 2-18-26">
-</iframe>
-</section>
-<section id="monday-february-23-2026" class="level3">
-<h3 class="anchored" data-anchor-id="monday-february-23-2026">Monday, February 23, 2026</h3>
-<p>Intro to Pandas DataFrame</p>
-<iframe id="kmsembed-1_fnn9ggpl" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_fnn9ggpl/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 2-23-26">
-</iframe>
-</section>
-<section id="wednesday-february-25-2026" class="level3">
-<h3 class="anchored" data-anchor-id="wednesday-february-25-2026">Wednesday, February 25, 2026</h3>
-<p>Combining DataFrames with concat and merge</p>
-<iframe id="kmsembed-1_ammg6hcx" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_ammg6hcx/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 2-25-26">
-</iframe>
-</section>
-<section id="monday-march-16-2026" class="level3">
-<h3 class="anchored" data-anchor-id="monday-march-16-2026">Monday, March 16, 2026</h3>
-<p>Cleaning data and applying funcitons with Pandas</p>
-<iframe id="kmsembed-1_9g40k65r" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_9g40k65r/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" allow="autoplay *; fullscreen *; encrypted-media *" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 3-16-26">
-</iframe>
+<section id="lectures" class="level2">
+<h2 class="anchored" data-anchor-id="lectures">Lectures</h2>
 
 
 </section>
@@ -838,13 +755,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./08_final_project/index.html" class="pagination-link" aria-label="Final Project">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Final Project</span>
+      <a href="../04_data_wrangling/pandas-5.html" class="pagination-link" aria-label="6. Grouping data and creating pivot tables with Pandas">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">6. Grouping data and creating pivot tables with Pandas</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./syllabus.html" class="pagination-link" aria-label="Syllabus">
-        <span class="nav-page-text">Syllabus</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../05_web_apis/webapi-1.html" class="pagination-link" aria-label="1. REST APIs">
+        <span class="nav-page-text">1. REST APIs</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

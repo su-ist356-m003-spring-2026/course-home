@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../lectures.html" rel="next">
+<link href="../04_data_wrangling/pandas-5.html" rel="next">
 <link href="../04_data_wrangling/pandas-3.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -300,8 +300,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">5. Basic data cleaning with Pandas</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04_data_wrangling/pandas-5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Grouping data and creating pivot tables with Pandas</span></a>
+  </div>
+</li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../05_web_apis/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Web APIs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../05_web_apis/webapi-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. REST APIs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../08_final_project/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Final Project</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures.html" class="sidebar-item-text sidebar-link">
@@ -362,12 +391,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>In this lesson we will start learning how to clean a dataframe data and loop over it.</p>
 <p>For this tutorial, we will be using some data representing a pretend restaurant’s transactions. The file is:</p>
-<div id="5b877b21" class="cell" data-execution_count="1">
+<div id="9b424103" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>checks_data <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/dining/check-data.csv'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>This file is also provided in your class notebook repository, in <code>data-wrangling/data/dininig</code>.</p>
+<p>This file is also provided in your class notebook repository, in <code>data-wrangling/data/delimited</code>.</p>
 <p>Let’s load the file with Pandas and sample a few of its rows to see what it contains:</p>
-<div id="6e23d8d0" class="cell" data-execution_count="2">
+<div id="76627f44" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>checks <span class="op">=</span> pd.read_csv(checks_data)</span>
@@ -390,33 +419,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">10</th>
-<td>2809</td>
-<td>2024-12-30</td>
+<th data-quarto-table-cell-role="th">33</th>
+<td>3842</td>
+<td>2024-03-31</td>
 <td>6</td>
 <td>6</td>
-<td>$104.46</td>
-<td>$1.04</td>
+<td>$147.12</td>
+<td>$5.88</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">5</th>
-<td>2191</td>
-<td>2024-01-06</td>
-<td>1</td>
-<td>3</td>
-<td>$17.85</td>
-<td>$1.96</td>
+<th data-quarto-table-cell-role="th">30</th>
+<td>2705</td>
+<td>2024-07-08</td>
+<td>10</td>
+<td>19</td>
+<td>$838.85</td>
+<td>$671.08</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">34</th>
-<td>1368</td>
-<td>2024-12-21</td>
-<td>10</td>
-<td>25</td>
-<td>$2,193.00</td>
-<td>$372.81</td>
+<th data-quarto-table-cell-role="th">45</th>
+<td>4031</td>
+<td>2024-07-12</td>
+<td>9</td>
+<td>13</td>
+<td>$129.74</td>
+<td>$29.84</td>
 </tr>
 <tr class="even">
+<th data-quarto-table-cell-role="th">40</th>
+<td>2512</td>
+<td>2024-03-30</td>
+<td>3</td>
+<td>12</td>
+<td>$181.56</td>
+<td>$39.94</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">13</th>
+<td>3867</td>
+<td>2024-05-02</td>
+<td>4</td>
+<td>14</td>
+<td>$499.10</td>
+<td>$119.78</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">19</th>
+<td>3718</td>
+<td>2024-10-30</td>
+<td>2</td>
+<td>5</td>
+<td>$464.70</td>
+<td>$120.82</td>
+</tr>
+<tr class="odd">
 <th data-quarto-table-cell-role="th">24</th>
 <td>4310</td>
 <td>2024-11-30</td>
@@ -425,23 +481,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>$3,262.30</td>
 <td>$913.44</td>
 </tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">15</th>
-<td>2386</td>
-<td>2024-03-31</td>
-<td>5</td>
-<td>12</td>
-<td>$1,147.80</td>
-<td>$137.74</td>
-</tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">9</th>
-<td>2968</td>
-<td>2024-12-28</td>
-<td>1</td>
-<td>3</td>
-<td>$122.97</td>
-<td>$23.36</td>
+<th data-quarto-table-cell-role="th">43</th>
+<td>1186</td>
+<td>2024-09-21</td>
+<td>5</td>
+<td>16</td>
+<td>$298.72</td>
+<td>$74.68</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">6</th>
@@ -453,31 +500,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>$55.29</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">45</th>
-<td>4031</td>
-<td>2024-07-12</td>
-<td>9</td>
-<td>13</td>
-<td>$129.74</td>
-<td>$29.84</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">43</th>
-<td>1186</td>
-<td>2024-09-21</td>
-<td>5</td>
-<td>16</td>
-<td>$298.72</td>
-<td>$74.68</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">8</th>
-<td>1066</td>
-<td>2024-08-20</td>
-<td>10</td>
-<td>22</td>
-<td>$485.76</td>
-<td>$77.72</td>
+<th data-quarto-table-cell-role="th">42</th>
+<td>1361</td>
+<td>2024-11-21</td>
+<td>7</td>
+<td>14</td>
+<td>$65.80</td>
+<td>$16.45</td>
 </tr>
 </tbody>
 </table>
@@ -486,7 +515,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Let’s use the <code>info</code> method to get some more information about the columns:</p>
-<div id="cb0a6021" class="cell" data-execution_count="3">
+<div id="614caa63" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>checks.info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.DataFrame'&gt;
@@ -515,12 +544,12 @@ memory usage: 2.5 KB</code></pre>
 <li><p><code>DataFrame.apply(func, axis=0)</code> &lt;== call function <code>func</code> for every <em>column</em> in the DataFrame (<code>axis=0</code> =&gt; col).</p></li>
 </ul>
 <p>Note that the first argument <code>apply</code> is the function itself, not the function applied to some data. For example, suppose we define a function called <code>sq</code> that squares the input values:</p>
-<div id="688395e6" class="cell" data-execution_count="4">
+<div id="1554dbf1" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sq(x):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To apply this to one of the columns in our DataFrame (say, the <code>party size</code> column):</p>
-<div id="a503005d" class="cell" data-execution_count="5">
+<div id="c2d9a30e" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>checks[<span class="st">'party size'</span>].<span class="bu">apply</span>(sq)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>0      64
@@ -579,7 +608,7 @@ Name: party size, dtype: int64</code></pre>
 <section id="why-apply" class="level3">
 <h3 class="anchored" data-anchor-id="why-apply">Why <code>apply</code>?</h3>
 <p>In the above example, you might wonder why we don’t just apply the function directly to the Series, rather than use <code>apply</code>. Afterall, in the <a href="../04_data_wrangling/pandas-1.html">first pandas tutorial</a> we learned that <code>Series</code> are vectorized just like numpy arrays. In other words, why not just do:</p>
-<div id="31b84a77" class="cell" data-execution_count="6">
+<div id="9613ed0a" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sq(checks[<span class="st">'party size'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>0      64
@@ -636,7 +665,7 @@ Name: party size, dtype: int64</code></pre>
 </div>
 </div>
 <p>In this case, you could just run the function on the series. Where <code>apply</code> is useful is when you have more complicated functions, in particular, ones that need to do different things depending on what the input data is. For example, suppose we define the following function to group parties into <code>small</code>, <code>medium</code>, and <code>large</code> depending on how many people are in the party:</p>
-<div id="0568efa2" class="cell" data-execution_count="7">
+<div id="e3bdf9cd" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> classify_size(x):</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">4</span>:</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'small'</span></span>
@@ -646,16 +675,16 @@ Name: party size, dtype: int64</code></pre>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'large'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>If we try to run this on the <code>party size</code> Series, we get an error:</p>
-<div id="db657927" class="cell" data-execution_count="8">
+<div id="61ec1026" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>classify_size(checks[<span class="st">'party size'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_16086/1113461677.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">/tmp/ipykernel_10217/1113461677.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> classify_size(checks[<span class="ansi-yellow-fg">'party size'</span>])
 
-<span class="ansi-green-fg">/tmp/ipykernel_16086/2519828553.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg">(x)</span>
+<span class="ansi-green-fg">/tmp/ipykernel_10217/2519828553.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg">(x)</span>
 <span class="ansi-green-fg">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> classify_size(x):
 <span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> x &lt; <span class="ansi-green-fg">4</span>:
 <span class="ansi-green-fg">      3</span>         <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-fg">'small'</span>
@@ -675,7 +704,7 @@ Name: party size, dtype: int64</code></pre>
 </div>
 </div>
 <p>This is because <code>if</code> statements cannot be vectorized like this. In contrast, the <code>apply</code> method <em>does</em> allow us to apply the function to the series:</p>
-<div id="41256ce7" class="cell" data-execution_count="9">
+<div id="e4972aad" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>checks[<span class="st">'party size'</span>].<span class="bu">apply</span>(classify_size)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>0      large
@@ -739,7 +768,7 @@ Name: party size, dtype: str</code></pre>
 <p>For example, say we want to add <code>price per item</code> to our DataFrame, defined as:</p>
 <pre class="{text}"><code>price per item = total amount of check / total items on check</code></pre>
 <p>The problem is <code>total amount of check</code> is an <code>object</code>, not a <code>float</code>. This means we cannot do math on it:</p>
-<div id="063a31e0" class="cell" data-execution_count="10">
+<div id="a03896a7" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This will raise a TypeError because of the dollar sign and commas!!!</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>checks[<span class="st">'price_per_item'</span>] <span class="op">=</span> checks[<span class="st">'total amount of check'</span>] <span class="op">/</span> checks[<span class="st">'total items on check'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
@@ -809,7 +838,7 @@ Name: party size, dtype: str</code></pre>
 </div>
 </div>
 <p>How do we fix this? Let’s write a function to convert string values like this: <code>$4,590.45</code> into floats like this: <code>4590.45</code></p>
-<div id="d7701751" class="cell" data-execution_count="11">
+<div id="3f0fb1f9" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_currency(value:<span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">'''</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">    This function will take a string value and remove the dollar sign and commas</span></span>
@@ -825,7 +854,7 @@ Name: party size, dtype: str</code></pre>
 <span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> clean_currency(<span class="st">'$1000'</span>) <span class="op">==</span> <span class="fl">1000.00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>With our function written we can use <code>apply()</code> to transform the series:</p>
-<div id="60ed79a1" class="cell" data-execution_count="12">
+<div id="bfb2b633" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>checks[<span class="st">'total_amount_of_check_cleaned'</span>] <span class="op">=</span> checks[<span class="st">'total amount of check'</span>].<span class="bu">apply</span>(clean_currency)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>checks[<span class="st">'price_per_item'</span>] <span class="op">=</span> checks[<span class="st">'total_amount_of_check_cleaned'</span>] <span class="op">/</span> checks[<span class="st">'total items on check'</span>]</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>checks.sample(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -849,48 +878,26 @@ Name: party size, dtype: str</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">20</th>
-<td>3393</td>
-<td>2024-08-26</td>
-<td>5</td>
+<th data-quarto-table-cell-role="th">12</th>
+<td>4528</td>
+<td>2024-01-02</td>
+<td>4</td>
 <td>6</td>
-<td>$302.64</td>
-<td>$24.21</td>
-<td>302.64</td>
-<td>50.44</td>
+<td>$49.98</td>
+<td>$7.50</td>
+<td>49.98</td>
+<td>8.33</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">5</th>
-<td>2191</td>
-<td>2024-01-06</td>
-<td>1</td>
-<td>3</td>
-<td>$17.85</td>
-<td>$1.96</td>
-<td>17.85</td>
-<td>5.95</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">45</th>
-<td>4031</td>
-<td>2024-07-12</td>
-<td>9</td>
-<td>13</td>
-<td>$129.74</td>
-<td>$29.84</td>
-<td>129.74</td>
-<td>9.98</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">30</th>
-<td>2705</td>
-<td>2024-07-08</td>
-<td>10</td>
-<td>19</td>
-<td>$838.85</td>
-<td>$671.08</td>
-<td>838.85</td>
-<td>44.15</td>
+<th data-quarto-table-cell-role="th">28</th>
+<td>2446</td>
+<td>2024-12-15</td>
+<td>4</td>
+<td>12</td>
+<td>$575.64</td>
+<td>$28.78</td>
+<td>575.64</td>
+<td>47.97</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">7</th>
@@ -904,28 +911,17 @@ Name: party size, dtype: str</code></pre>
 <td>84.40</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">23</th>
-<td>1194</td>
-<td>2024-07-06</td>
-<td>2</td>
-<td>6</td>
-<td>$453.06</td>
-<td>$72.49</td>
-<td>453.06</td>
-<td>75.51</td>
+<th data-quarto-table-cell-role="th">15</th>
+<td>2386</td>
+<td>2024-03-31</td>
+<td>5</td>
+<td>12</td>
+<td>$1,147.80</td>
+<td>$137.74</td>
+<td>1147.80</td>
+<td>95.65</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">33</th>
-<td>3842</td>
-<td>2024-03-31</td>
-<td>6</td>
-<td>6</td>
-<td>$147.12</td>
-<td>$5.88</td>
-<td>147.12</td>
-<td>24.52</td>
-</tr>
-<tr class="even">
 <th data-quarto-table-cell-role="th">48</th>
 <td>4161</td>
 <td>2024-06-22</td>
@@ -936,27 +932,60 @@ Name: party size, dtype: str</code></pre>
 <td>1385.16</td>
 <td>49.47</td>
 </tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">46</th>
+<td>3621</td>
+<td>2024-06-23</td>
+<td>1</td>
+<td>2</td>
+<td>$138.76</td>
+<td>$19.43</td>
+<td>138.76</td>
+<td>69.38</td>
+</tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">28</th>
-<td>2446</td>
-<td>2024-12-15</td>
-<td>4</td>
-<td>12</td>
-<td>$575.64</td>
-<td>$28.78</td>
-<td>575.64</td>
-<td>47.97</td>
+<th data-quarto-table-cell-role="th">23</th>
+<td>1194</td>
+<td>2024-07-06</td>
+<td>2</td>
+<td>6</td>
+<td>$453.06</td>
+<td>$72.49</td>
+<td>453.06</td>
+<td>75.51</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">8</th>
-<td>1066</td>
-<td>2024-08-20</td>
-<td>10</td>
-<td>22</td>
-<td>$485.76</td>
-<td>$77.72</td>
-<td>485.76</td>
-<td>22.08</td>
+<th data-quarto-table-cell-role="th">39</th>
+<td>1707</td>
+<td>2024-03-24</td>
+<td>7</td>
+<td>8</td>
+<td>$341.44</td>
+<td>$47.80</td>
+<td>341.44</td>
+<td>42.68</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">3</th>
+<td>1957</td>
+<td>2024-02-15</td>
+<td>2</td>
+<td>2</td>
+<td>$42.44</td>
+<td>$8.91</td>
+<td>42.44</td>
+<td>21.22</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">32</th>
+<td>1440</td>
+<td>2024-11-30</td>
+<td>3</td>
+<td>8</td>
+<td>$589.04</td>
+<td>$141.37</td>
+<td>589.04</td>
+<td>73.63</td>
 </tr>
 </tbody>
 </table>
@@ -984,7 +1013,7 @@ Note
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Code Challenge 5.1
+<span class="screen-reader-only">Caution</span>Code Challenge 4.5.1
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1018,7 +1047,7 @@ Note
 <ol type="1">
 <li>The <code>st-cleaned_checks.py</code> script:</li>
 </ol>
-<div id="30859ca7" class="cell" data-execution_count="13">
+<div id="db083266" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1064,7 +1093,7 @@ Note
 <section id="a-simple-example" class="level3">
 <h3 class="anchored" data-anchor-id="a-simple-example">A simple example</h3>
 <p>Suppose we have the following dataset of grades for some students:</p>
-<div id="820adeb9" class="cell" data-execution_count="14">
+<div id="1905f8a6" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> pd.DataFrame({<span class="st">'hw_avg'</span>: [<span class="dv">85</span>, <span class="dv">92</span>, <span class="dv">99</span>, <span class="dv">78</span>],</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                         <span class="st">'final_exam'</span>: [<span class="dv">88</span>, <span class="dv">95</span>, <span class="va">None</span>, <span class="dv">75</span>]},</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                        index<span class="op">=</span>[<span class="st">'Adam'</span>, <span class="st">'Brenda'</span>, <span class="st">'Charlie'</span>, <span class="st">'Dina'</span>])</span>
@@ -1109,7 +1138,7 @@ Note
 </div>
 </div>
 <p>We want to calculate their grade for the semester using the following function:</p>
-<div id="6dd79e34" class="cell" data-execution_count="15">
+<div id="b438c131" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> grade(hw_avg, final_exam):</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> pd.isna(final_exam):</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'F'</span></span>
@@ -1128,7 +1157,7 @@ Note
 <p>Since this function involves if statements, we need to use <code>apply</code> in order to run it on our <code>students</code> DataFrame. But <code>grade</code> needs two columns as input, <code>hw_avg</code> and <code>final_exam</code>. How do we do that?</p>
 <p>We can use a <code>lambda</code> function to quickly define a small function that will return the required columns when provided a row. In general, the syntax for a <code>lambda</code> function is <code>lambda ARGS: FUNC</code>. For example, <code>lambda a, b: a+b</code> will return the sum of the two arguments its given.</p>
 <p>In our case, we can use a <code>lambda</code> function to pull out the needed columns and give them to <code>apply</code>, like so:</p>
-<div id="9bab037f" class="cell" data-execution_count="16">
+<div id="9555753d" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>students[<span class="st">'grade'</span>] <span class="op">=</span> students.<span class="bu">apply</span>(<span class="kw">lambda</span> row: grade(row[<span class="st">'hw_avg'</span>], row[<span class="st">'final_exam'</span>]),</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                                   axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>students</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1196,7 +1225,7 @@ Note
 </ul>
 <p>To calculate percentiles we will use the <a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.quantile.html">quantile</a> Series method in Pandas. This returns the value at which X% of the data is below the given percentile.</p>
 <p>Before we can apply our KPI’s we must write the functions!</p>
-<div id="2b0f55fe" class="cell" data-execution_count="17">
+<div id="330dd986" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>checks[<span class="st">'gratuity_cleaned'</span>] <span class="op">=</span> checks[<span class="st">'gratuity'</span>].<span class="bu">apply</span>(clean_currency)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>checks[<span class="st">'price_per_item'</span>] <span class="op">=</span> checks[<span class="st">'total_amount_of_check_cleaned'</span>] <span class="op">/</span> checks[<span class="st">'total items on check'</span>]</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>checks[<span class="st">'price_per_person'</span>] <span class="op">=</span> checks[<span class="st">'total_amount_of_check_cleaned'</span>] <span class="op">/</span> checks[<span class="st">'party size'</span>]</span>
@@ -1204,7 +1233,7 @@ Note
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>checks[<span class="st">'tip_percentage'</span>] <span class="op">=</span> checks[<span class="st">'gratuity_cleaned'</span>] <span class="op">/</span> checks[<span class="st">'total_amount_of_check_cleaned'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To categorize whales:</p>
-<div id="cdae0766" class="cell" data-execution_count="18">
+<div id="b4943143" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> detect_whale(</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>        items_per_person:<span class="bu">float</span>, </span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>        price_per_person:<span class="bu">float</span>, </span>
@@ -1219,7 +1248,7 @@ Note
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">''</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s test our function using the <code>quantile</code> method:</p>
-<div id="6b16455a" class="cell" data-execution_count="19">
+<div id="63acf1c7" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tests</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>ppp_75 <span class="op">=</span> checks[<span class="st">'price_per_person'</span>].quantile(<span class="fl">0.75</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>ipp_75 <span class="op">=</span> checks[<span class="st">'items_per_person'</span>].quantile(<span class="fl">0.75</span>)</span>
@@ -1233,7 +1262,7 @@ Note
 </div>
 </div>
 <p>Now we want to apply the <code>detect_whale</code> function to the <code>checks</code> DataFrame. But <code>detect_whale</code> requires two columns as input, the <code>items_per_person</code> and <code>price_per_person</code>. Again, we need to use a lambda function, like so:</p>
-<div id="2b6dabbf" class="cell" data-execution_count="20">
+<div id="e9dd0e06" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>checks[<span class="st">'whale'</span>] <span class="op">=</span> checks.<span class="bu">apply</span>(<span class="kw">lambda</span> row: detect_whale(row[<span class="st">'items_per_person'</span>], row[<span class="st">'price_per_person'</span>], ipp_75, ppp_75), axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>checks.sample(<span class="dv">25</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
@@ -1261,70 +1290,54 @@ Note
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">41</th>
-<td>4210</td>
-<td>2024-03-15</td>
-<td>7</td>
-<td>18</td>
-<td>$1,698.30</td>
-<td>$203.80</td>
-<td>1698.30</td>
-<td>94.35</td>
-<td>203.80</td>
-<td>242.614286</td>
-<td>2.571429</td>
-<td>0.120002</td>
-<td>big spender</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">0</th>
-<td>2827</td>
-<td>2024-05-06</td>
-<td>8</td>
-<td>12</td>
-<td>$415.08</td>
-<td>$107.92</td>
-<td>415.08</td>
-<td>34.59</td>
-<td>107.92</td>
-<td>51.885000</td>
-<td>1.500000</td>
-<td>0.259998</td>
-<td></td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">6</th>
-<td>2527</td>
-<td>2024-03-27</td>
+<th data-quarto-table-cell-role="th">4</th>
+<td>3010</td>
+<td>2024-11-14</td>
 <td>6</td>
-<td>21</td>
-<td>$921.48</td>
-<td>$55.29</td>
-<td>921.48</td>
-<td>43.88</td>
-<td>55.29</td>
-<td>153.580000</td>
-<td>3.500000</td>
-<td>0.060001</td>
-<td>big eater</td>
+<td>8</td>
+<td>$758.16</td>
+<td>$181.96</td>
+<td>758.16</td>
+<td>94.77</td>
+<td>181.96</td>
+<td>126.360000</td>
+<td>1.333333</td>
+<td>0.240002</td>
+<td></td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">2</th>
-<td>3685</td>
-<td>2024-12-07</td>
-<td>5</td>
-<td>5</td>
-<td>$252.95</td>
-<td>$50.59</td>
-<td>252.95</td>
-<td>50.59</td>
-<td>50.59</td>
-<td>50.590000</td>
-<td>1.000000</td>
-<td>0.200000</td>
+<th data-quarto-table-cell-role="th">47</th>
+<td>3588</td>
+<td>2024-08-20</td>
+<td>1</td>
+<td>2</td>
+<td>$123.46</td>
+<td>$6.17</td>
+<td>123.46</td>
+<td>61.73</td>
+<td>6.17</td>
+<td>123.460000</td>
+<td>2.000000</td>
+<td>0.049976</td>
 <td></td>
 </tr>
 <tr class="odd">
+<th data-quarto-table-cell-role="th">33</th>
+<td>3842</td>
+<td>2024-03-31</td>
+<td>6</td>
+<td>6</td>
+<td>$147.12</td>
+<td>$5.88</td>
+<td>147.12</td>
+<td>24.52</td>
+<td>5.88</td>
+<td>24.520000</td>
+<td>1.000000</td>
+<td>0.039967</td>
+<td></td>
+</tr>
+<tr class="even">
 <th data-quarto-table-cell-role="th">20</th>
 <td>3393</td>
 <td>2024-08-26</td>
@@ -1338,6 +1351,86 @@ Note
 <td>60.528000</td>
 <td>1.200000</td>
 <td>0.079996</td>
+<td></td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">37</th>
+<td>4829</td>
+<td>2024-12-30</td>
+<td>9</td>
+<td>11</td>
+<td>$816.20</td>
+<td>$16.32</td>
+<td>816.20</td>
+<td>74.20</td>
+<td>16.32</td>
+<td>90.688889</td>
+<td>1.222222</td>
+<td>0.019995</td>
+<td></td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2443</td>
+<td>2024-06-09</td>
+<td>3</td>
+<td>10</td>
+<td>$286.40</td>
+<td>$31.50</td>
+<td>286.40</td>
+<td>28.64</td>
+<td>31.50</td>
+<td>95.466667</td>
+<td>3.333333</td>
+<td>0.109986</td>
+<td>big eater</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">27</th>
+<td>3653</td>
+<td>2024-10-29</td>
+<td>1</td>
+<td>4</td>
+<td>$72.88</td>
+<td>$16.76</td>
+<td>72.88</td>
+<td>18.22</td>
+<td>16.76</td>
+<td>72.880000</td>
+<td>4.000000</td>
+<td>0.229967</td>
+<td>big eater</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">18</th>
+<td>2103</td>
+<td>2024-02-24</td>
+<td>8</td>
+<td>9</td>
+<td>$388.26</td>
+<td>$116.48</td>
+<td>388.26</td>
+<td>43.14</td>
+<td>116.48</td>
+<td>48.532500</td>
+<td>1.125000</td>
+<td>0.300005</td>
+<td></td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">12</th>
+<td>4528</td>
+<td>2024-01-02</td>
+<td>4</td>
+<td>6</td>
+<td>$49.98</td>
+<td>$7.50</td>
+<td>49.98</td>
+<td>8.33</td>
+<td>7.50</td>
+<td>12.495000</td>
+<td>1.500000</td>
+<td>0.150060</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1357,116 +1450,20 @@ Note
 <td>big spender</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">29</th>
-<td>4590</td>
-<td>2024-05-08</td>
-<td>3</td>
+<th data-quarto-table-cell-role="th">43</th>
+<td>1186</td>
+<td>2024-09-21</td>
 <td>5</td>
-<td>$220.40</td>
-<td>$22.04</td>
-<td>220.40</td>
-<td>44.08</td>
-<td>22.04</td>
-<td>73.466667</td>
-<td>1.666667</td>
-<td>0.100000</td>
-<td></td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">45</th>
-<td>4031</td>
-<td>2024-07-12</td>
-<td>9</td>
-<td>13</td>
-<td>$129.74</td>
-<td>$29.84</td>
-<td>129.74</td>
-<td>9.98</td>
-<td>29.84</td>
-<td>14.415556</td>
-<td>1.444444</td>
-<td>0.229998</td>
-<td></td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">39</th>
-<td>1707</td>
-<td>2024-03-24</td>
-<td>7</td>
-<td>8</td>
-<td>$341.44</td>
-<td>$47.80</td>
-<td>341.44</td>
-<td>42.68</td>
-<td>47.80</td>
-<td>48.777143</td>
-<td>1.142857</td>
-<td>0.139995</td>
-<td></td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">19</th>
-<td>3718</td>
-<td>2024-10-30</td>
-<td>2</td>
-<td>5</td>
-<td>$464.70</td>
-<td>$120.82</td>
-<td>464.70</td>
-<td>92.94</td>
-<td>120.82</td>
-<td>232.350000</td>
-<td>2.500000</td>
-<td>0.259996</td>
-<td>big spender</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">22</th>
-<td>1336</td>
-<td>2024-08-30</td>
-<td>8</td>
-<td>28</td>
-<td>$1,199.80</td>
-<td>$275.95</td>
-<td>1199.80</td>
-<td>42.85</td>
-<td>275.95</td>
-<td>149.975000</td>
-<td>3.500000</td>
-<td>0.229997</td>
+<td>16</td>
+<td>$298.72</td>
+<td>$74.68</td>
+<td>298.72</td>
+<td>18.67</td>
+<td>74.68</td>
+<td>59.744000</td>
+<td>3.200000</td>
+<td>0.250000</td>
 <td>big eater</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">23</th>
-<td>1194</td>
-<td>2024-07-06</td>
-<td>2</td>
-<td>6</td>
-<td>$453.06</td>
-<td>$72.49</td>
-<td>453.06</td>
-<td>75.51</td>
-<td>72.49</td>
-<td>226.530000</td>
-<td>3.000000</td>
-<td>0.160001</td>
-<td>big spender</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>3010</td>
-<td>2024-11-14</td>
-<td>6</td>
-<td>8</td>
-<td>$758.16</td>
-<td>$181.96</td>
-<td>758.16</td>
-<td>94.77</td>
-<td>181.96</td>
-<td>126.360000</td>
-<td>1.333333</td>
-<td>0.240002</td>
-<td></td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">8</th>
@@ -1485,6 +1482,54 @@ Note
 <td></td>
 </tr>
 <tr class="odd">
+<th data-quarto-table-cell-role="th">35</th>
+<td>2486</td>
+<td>2024-01-27</td>
+<td>4</td>
+<td>13</td>
+<td>$569.01</td>
+<td>$108.11</td>
+<td>569.01</td>
+<td>43.77</td>
+<td>108.11</td>
+<td>142.252500</td>
+<td>3.250000</td>
+<td>0.189997</td>
+<td>big eater</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>2191</td>
+<td>2024-01-06</td>
+<td>1</td>
+<td>3</td>
+<td>$17.85</td>
+<td>$1.96</td>
+<td>17.85</td>
+<td>5.95</td>
+<td>1.96</td>
+<td>17.850000</td>
+<td>3.000000</td>
+<td>0.109804</td>
+<td></td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">31</th>
+<td>1945</td>
+<td>2024-02-05</td>
+<td>3</td>
+<td>7</td>
+<td>$132.86</td>
+<td>$21.26</td>
+<td>132.86</td>
+<td>18.98</td>
+<td>21.26</td>
+<td>44.286667</td>
+<td>2.333333</td>
+<td>0.160018</td>
+<td></td>
+</tr>
+<tr class="even">
 <th data-quarto-table-cell-role="th">48</th>
 <td>4161</td>
 <td>2024-06-22</td>
@@ -1499,6 +1544,118 @@ Note
 <td>3.111111</td>
 <td>0.170002</td>
 <td>big eater</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>3685</td>
+<td>2024-12-07</td>
+<td>5</td>
+<td>5</td>
+<td>$252.95</td>
+<td>$50.59</td>
+<td>252.95</td>
+<td>50.59</td>
+<td>50.59</td>
+<td>50.590000</td>
+<td>1.000000</td>
+<td>0.200000</td>
+<td></td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">22</th>
+<td>1336</td>
+<td>2024-08-30</td>
+<td>8</td>
+<td>28</td>
+<td>$1,199.80</td>
+<td>$275.95</td>
+<td>1199.80</td>
+<td>42.85</td>
+<td>275.95</td>
+<td>149.975000</td>
+<td>3.500000</td>
+<td>0.229997</td>
+<td>big eater</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">39</th>
+<td>1707</td>
+<td>2024-03-24</td>
+<td>7</td>
+<td>8</td>
+<td>$341.44</td>
+<td>$47.80</td>
+<td>341.44</td>
+<td>42.68</td>
+<td>47.80</td>
+<td>48.777143</td>
+<td>1.142857</td>
+<td>0.139995</td>
+<td></td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">49</th>
+<td>3404</td>
+<td>2024-07-19</td>
+<td>9</td>
+<td>26</td>
+<td>$2,382.90</td>
+<td>$71.49</td>
+<td>2382.90</td>
+<td>91.65</td>
+<td>71.49</td>
+<td>264.766667</td>
+<td>2.888889</td>
+<td>0.030001</td>
+<td>big spender</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">17</th>
+<td>3795</td>
+<td>2024-02-21</td>
+<td>3</td>
+<td>7</td>
+<td>$212.38</td>
+<td>$46.72</td>
+<td>212.38</td>
+<td>30.34</td>
+<td>46.72</td>
+<td>70.793333</td>
+<td>2.333333</td>
+<td>0.219983</td>
+<td></td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">11</th>
+<td>3693</td>
+<td>2024-01-18</td>
+<td>10</td>
+<td>20</td>
+<td>$1,820.00</td>
+<td>$309.40</td>
+<td>1820.00</td>
+<td>91.00</td>
+<td>309.40</td>
+<td>182.000000</td>
+<td>2.000000</td>
+<td>0.170000</td>
+<td>big spender</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">28</th>
+<td>2446</td>
+<td>2024-12-15</td>
+<td>4</td>
+<td>12</td>
+<td>$575.64</td>
+<td>$28.78</td>
+<td>575.64</td>
+<td>47.97</td>
+<td>28.78</td>
+<td>143.910000</td>
+<td>3.000000</td>
+<td>0.049997</td>
+<td></td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">40</th>
@@ -1517,147 +1674,19 @@ Note
 <td>big eater</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">10</th>
-<td>2809</td>
-<td>2024-12-30</td>
-<td>6</td>
-<td>6</td>
-<td>$104.46</td>
-<td>$1.04</td>
-<td>104.46</td>
-<td>17.41</td>
-<td>1.04</td>
-<td>17.410000</td>
-<td>1.000000</td>
-<td>0.009956</td>
-<td></td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">16</th>
-<td>3694</td>
-<td>2024-11-03</td>
-<td>5</td>
-<td>17</td>
-<td>$1,574.37</td>
-<td>$173.18</td>
-<td>1574.37</td>
-<td>92.61</td>
-<td>173.18</td>
-<td>314.874000</td>
-<td>3.400000</td>
-<td>0.110000</td>
-<td>whale</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">25</th>
-<td>4031</td>
-<td>2024-08-12</td>
-<td>6</td>
-<td>14</td>
-<td>$655.48</td>
-<td>$65.55</td>
-<td>655.48</td>
-<td>46.82</td>
-<td>65.55</td>
-<td>109.246667</td>
-<td>2.333333</td>
-<td>0.100003</td>
-<td></td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">18</th>
-<td>2103</td>
-<td>2024-02-24</td>
-<td>8</td>
-<td>9</td>
-<td>$388.26</td>
-<td>$116.48</td>
-<td>388.26</td>
-<td>43.14</td>
-<td>116.48</td>
-<td>48.532500</td>
-<td>1.125000</td>
-<td>0.300005</td>
-<td></td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">21</th>
-<td>4440</td>
-<td>2024-06-11</td>
-<td>1</td>
+<th data-quarto-table-cell-role="th">29</th>
+<td>4590</td>
+<td>2024-05-08</td>
 <td>3</td>
-<td>$168.96</td>
-<td>$10.14</td>
-<td>168.96</td>
-<td>56.32</td>
-<td>10.14</td>
-<td>168.960000</td>
-<td>3.000000</td>
-<td>0.060014</td>
-<td>big spender</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">12</th>
-<td>4528</td>
-<td>2024-01-02</td>
-<td>4</td>
-<td>6</td>
-<td>$49.98</td>
-<td>$7.50</td>
-<td>49.98</td>
-<td>8.33</td>
-<td>7.50</td>
-<td>12.495000</td>
-<td>1.500000</td>
-<td>0.150060</td>
-<td></td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">26</th>
-<td>4257</td>
-<td>2024-01-22</td>
-<td>6</td>
-<td>8</td>
-<td>$593.60</td>
-<td>$47.49</td>
-<td>593.60</td>
-<td>74.20</td>
-<td>47.49</td>
-<td>98.933333</td>
-<td>1.333333</td>
-<td>0.080003</td>
-<td></td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">13</th>
-<td>3867</td>
-<td>2024-05-02</td>
-<td>4</td>
-<td>14</td>
-<td>$499.10</td>
-<td>$119.78</td>
-<td>499.10</td>
-<td>35.65</td>
-<td>119.78</td>
-<td>124.775000</td>
-<td>3.500000</td>
-<td>0.239992</td>
-<td>big eater</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">46</th>
-<td>3621</td>
-<td>2024-06-23</td>
-<td>1</td>
-<td>2</td>
-<td>$138.76</td>
-<td>$19.43</td>
-<td>138.76</td>
-<td>69.38</td>
-<td>19.43</td>
-<td>138.760000</td>
-<td>2.000000</td>
-<td>0.140026</td>
+<td>5</td>
+<td>$220.40</td>
+<td>$22.04</td>
+<td>220.40</td>
+<td>44.08</td>
+<td>22.04</td>
+<td>73.466667</td>
+<td>1.666667</td>
+<td>0.100000</td>
 <td></td>
 </tr>
 </tbody>
@@ -1672,11 +1701,11 @@ Note
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Code Challenge 5.2
+<span class="screen-reader-only">Caution</span>Code Challenge 4.5.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let’s build on the Streamlit app you made in Challenge 5.1, and add our KPIs to it.</p>
+<p>Let’s build on the Streamlit app you made in Challenge 4.5.1, and add our KPIs to it.</p>
 <ol type="1">
 <li><p>Copy <code>st-cleaned_checks.py</code> to a new file called <code>st-checks_kpi.py</code>.</p></li>
 <li><p>Add the <code>detect_whale</code> function defined above to <code>st-checks_kpi.py</code>.</p></li>
@@ -1703,7 +1732,7 @@ Note
 <ol type="1">
 <li>Now modify <code>st-checks_kpi.py</code>. It should look like:</li>
 </ol>
-<div id="879ed945" class="cell" data-execution_count="21">
+<div id="9ab955df" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1781,21 +1810,21 @@ Note
 <li><code>df.itertuples()</code> named-tuple like iteration (faster)</li>
 </ul>
 <p>Let’s do an example where we display the check number, whale and tipper for “heavy tipper” checks.</p>
-<div id="e664669c" class="cell" data-execution_count="22">
+<div id="ad36a93e" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Using the iterrows() method</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total Amount of Whale Checks"</span>)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,row <span class="kw">in</span> checks.iterrows():</span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row[<span class="st">'whale'</span>] <span class="op">==</span> <span class="st">'whale'</span>:</span>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(i, row[<span class="st">'check'</span>], row[<span class="st">'total_amount_of_check_cleaned'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="c11b7909" class="cell" data-execution_count="23">
+<div id="2392817c" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Same example with the itertuples() method</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total Amount of Whale Checks"</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> checks.itertuples():</span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row.whale <span class="op">==</span> <span class="st">'whale'</span>:</span>
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(row.check, row.total_amount_of_check_cleaned)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="222440a9" class="cell" data-execution_count="24">
+<div id="2defd8fa" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Of course you don't need a loop to do this:</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>checks[checks[<span class="st">'whale'</span>] <span class="op">==</span> <span class="st">'whale'</span>][[<span class="st">'check'</span>, <span class="st">'total_amount_of_check_cleaned'</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -2211,8 +2240,8 @@ Note
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../lectures.html" class="pagination-link" aria-label="Lectures">
-        <span class="nav-page-text">Lectures</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../04_data_wrangling/pandas-5.html" class="pagination-link" aria-label="6. Grouping data and creating pivot tables with Pandas">
+        <span class="nav-page-text">6. Grouping data and creating pivot tables with Pandas</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
