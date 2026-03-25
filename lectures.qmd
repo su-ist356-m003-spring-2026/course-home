@@ -94,3 +94,9 @@ Grouping data and creating pivot tables with Pandas
 Introduction to Web APIs: using GET and the CENT IoT API
 
 <iframe id="kmsembed-1_159sjbsr" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_159sjbsr/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 3-23-26"></iframe>
+
+### Wednesday March 25, 2026
+
+Web APIs: using PUT and caching
+
+<iframe id="kmsembed-1_nwegzhjr" width="640" height="360" src="https://video.syr.edu/embed/secure/iframe/entryId/1_nwegzhjr/uiConfId/45992161/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="IST 356 Lecture - 3-25-26"></iframe>
