@@ -149,6 +149,66 @@
     "text": "Important dates\n\n\n\n\n\n\n\nDate\n\n\n\n\n\nMon. 1/12\nFirst day of class\n\n\nMon. 1/19\nMartin Luther King, Jr. Day: No class\n\n\nMon. 2/2\nAcademic/Financial drop deadline; Religious observance notification deadline\n\n\n3/8 - 3/15\nSpring break - No class\n\n\nTues. 4/14\nWithdrawal deadline\n\n\nMon. 4/27\nLast day of class"
   },
   {
+    "objectID": "05_web_apis/webapi-3.html",
+    "href": "05_web_apis/webapi-3.html",
+    "title": "3. Creating your own APIs with FastAPI",
+    "section": "",
+    "text": "Important\n\n\n\nIn order to do this tutorial, you will need to install fastapi. To do that, open a terminal, activate your ist356 conda environment, then run:\npip install \"fastapi[standard]\"\nMake sure you put fastapi[standard] in quotes, as shown here.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "5. Web APIs",
+      "3. Creating your own APIs with FastAPI"
+    ]
+  },
+  {
+    "objectID": "05_web_apis/webapi-3.html#api-vs-module",
+    "href": "05_web_apis/webapi-3.html#api-vs-module",
+    "title": "3. Creating your own APIs with FastAPI",
+    "section": "API vs Module",
+    "text": "API vs Module\nYou might be asking why host an API versus just writing a module? After all they have similar functionality of sharing and interacting with code and data.\nThere are some key differences between an API and a module:\n\nYou can hide the implementation details of your code with an API. Unlike a module, people only see the interface, not way to code was implemented.\nAn API can be accessed over the internet, while a module is typically used locally.\nAPI’s work across different programming languages, while modules are either restricted to the language they were written in (in our case, Python), or need to be wrapped with an intermediate (e.g., Cython for C-&gt;Python).\nSince an API is run remotely, it can be run on large high performance computing clusters, whereas modules are typically limited to whatever machine your are running on. This is particularly important for LLMs, which need large, power intensive GPU resources to work.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "5. Web APIs",
+      "3. Creating your own APIs with FastAPI"
+    ]
+  },
+  {
+    "objectID": "05_web_apis/webapi-3.html#fast-api",
+    "href": "05_web_apis/webapi-3.html#fast-api",
+    "title": "3. Creating your own APIs with FastAPI",
+    "section": "Fast API",
+    "text": "Fast API\nhttps://fastapi.tiangolo.com/\n\nFast API is an easy-to-learn Python framework for building APIs.\nIt has a lot of features that make it a great choice for building APIs.\nWe will focus on a few simple functions so that you can understand how it works.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "5. Web APIs",
+      "3. Creating your own APIs with FastAPI"
+    ]
+  },
+  {
+    "objectID": "05_web_apis/webapi-3.html#query-string-path-and-header-parameters",
+    "href": "05_web_apis/webapi-3.html#query-string-path-and-header-parameters",
+    "title": "3. Creating your own APIs with FastAPI",
+    "section": "Query String Path, and Header Parameters",
+    "text": "Query String Path, and Header Parameters\nFast API makes it easy to add parameters to your API.\n\nPython type hints are used to define the type of the parameter (int, str, etc.). If no type hints are provided, FastAPI will assume the input is string. This can lead to unintended consequences!\nThe Query() function is used to define a query parameter\nThe Header() function is used to define a header parameter\nPath parameters are defined by including the parameter in the URL path\n\nHere’s an example:\n\nfrom fastapi import FastAPI, Header, Query\n\napp = FastAPI()\n\n@app.get(\"/calculator/{operator}\")  # &lt;== path parameter\ndef read_item(operator: str, \n              a: int = Query(),     # &lt;== query parameter\n              b: int = Query(),     # &lt;== query parameter\n              h: str = Header()):   # &lt;== header parameter\n    if operator == \"add\":\n        result = a + b\n    elif operator == \"sub\":\n        result = a - b\n    elif operator == \"mul\":\n        result = a * b\n    elif operator == \"div\":\n        result = a / b\n    return {\n        \"operator\": operator,\n        \"a\": a,\n        \"b\": b,\n        \"result\": result,\n        \"h\": h\n    }\n\nSave that to a file called paramsapi.py, then start the server by opening a terminal and running:\npython -m fastapi dev paramsapi.py\nAgain, copy the URL. Now in your Jupyter notebook, run the following (replacing the base URL with what you copied):\n\nbaseurl = 'REPLACE_WITH_COPIED_URL'\noperator = 'add'\nurl = baseurl + 'calculator/' + operator\nparams = {'a': 1, 'b': 2}\nheaders = {'h': 'A header'}\nresponse = requests.get(url, params=params, headers=headers)\nresponse.raise_for_status()\nprint(response.json())\n\nThis will test the add method. To try the other methods, change what operator is set to. Notice that in doing so, we’re changing the URL.\n\n\n\n\n\n\nNote\n\n\n\nTo see the signficance of type hints in defining API functions, try removing the type hint from your paramsapi.py then run the requests.get function in your Jupyter notebook again (note that you don’t have to restart the server: FastAPI will detect the change to the code as soon as you save the changes, and automatically restart the server). In other words, try changing:\n\ndef read_item(operator: str,\n              a: int = Query(),\n              b: int = Query(),\n              h: str = Header()):\n\nto\n\ndef read_item(operator,\n              a = Query(),\n              b = Query(),\n              h = Header()):\n\nsave the changes, then re-run the requests.get for the add function in your notebook. Note the type of the returned a, b, and what the result is now: you should see that the returned a, b are strings (even though you passed in ints) and the result is now the string \"12\" rather than the integer 3. This is because FastAPI has assumed all the inputs are strings when you don’t provide type hints, so the function does \"1\" + \"2\" = \"12\" (why \"12\"?) instead of 1 + 2 = 3. Now add back the type hints to fix your code.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "5. Web APIs",
+      "3. Creating your own APIs with FastAPI"
+    ]
+  },
+  {
+    "objectID": "05_web_apis/webapi-3.html#handling-errors",
+    "href": "05_web_apis/webapi-3.html#handling-errors",
+    "title": "3. Creating your own APIs with FastAPI",
+    "section": "Handling Errors",
+    "text": "Handling Errors\nRemember status codes are a way to communicate the status of a request to the client. Here is list of the standard codes and what they mean:\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Status\nError codes are a design contract which means you SHOULD use them as they are EXPECTED, but they are not REQURED.\nFastAPI makes it easy to handle errors. You can use the HTTPException (which you need to import from fastapi) to raise an error with a specific status code and message.\nTo illustrate, here’s our operator API from above, with a check added to make sure the provided operator is recognized:\n\nfrom fastapi import FastAPI, Header, Query, HTTPException\n\napp = FastAPI()\n\n@app.get(\"/calculator/{operator}\")  # &lt;== path parameter\ndef read_item(operator: str, \n              a: int = Query(),     # &lt;== query parameter\n              b: int = Query(),     # &lt;== query parameter\n              h: str = Header()):   # &lt;== header parameter\n    if operator == \"add\":\n        result = a + b\n    elif operator == \"sub\":\n        result = a - b\n    elif operator == \"mul\":\n        result = a * b\n    elif operator == \"div\":\n        result = a / b\n    else:\n        raise HTTPException(status_code=404, \n            detail=\"Operator not found. should be: add, sub, mul, div\")\n    return {\n        \"operator\": operator,\n        \"a\": a,\n        \"b\": b,\n        \"result\": result,\n        \"h\": h\n    }\n\n\n\n\n\n\n\nCautionCode Challenge 5.3.1\n\n\n\nDesign and build an API to search for flights (depart/arrive) by Airport Code.\nUse this dataset to get the source of your flights:\nhttps://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/flights/sample-flights.csv\nHere’s some examples of the the API endpoint you need to build:\n/api/flights/search?type=dep&code=OKA\n/api/flights/search?type=arr&code=KEY\nHave your code raise an HTTP Error with status code 400 if the requested type is not dep (for departures) or arr (for arrivals).\nTest your API using the Swagger UI.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nfrom fastapi import FastAPI, Body, HTTPException\nimport pandas as pd\n\n\ndf = pd.read_csv(\"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/flights/sample-flights.csv\")\napp = FastAPI()\n\n\n@app.get(\"/api/flights/search\")\ndef search_flights(type: str, code: str):\n    '''\n    Search for flights by origin and destination\n    '''\n    if type == \"dep\":\n        flights = df[df[\"departure_airport_code\"] == code]\n    elif type == \"arr\":\n        flights = df[df[\"arrival_airport_code\"] == code]\n    else:\n        raise HTTPException(status_code=400, detail=\"Invalid type. Must be 'dep' or 'arr'\")\n    return flights.to_dict(orient=\"records\")",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "5. Web APIs",
+      "3. Creating your own APIs with FastAPI"
+    ]
+  },
+  {
     "objectID": "05_web_apis/webapi-1.html",
     "href": "05_web_apis/webapi-1.html",
     "title": "1. REST APIs",
@@ -2105,6 +2165,54 @@
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "5. Web APIs"
+    ]
+  },
+  {
+    "objectID": "05_web_apis/webapi-2.html",
+    "href": "05_web_apis/webapi-2.html",
+    "title": "2. Posting with REST API and caching results",
+    "section": "",
+    "text": "So far we have only seen GET requests. But there are other HTTP methods that are used to perform different operations such as:\n\nPOST: Create a new resource\nPUT: Update an existing resource\nDELETE: Delete a resource\n\nFrom the perspective of requests these behave the same as a GET. The only subtle difference is that you can pass a data parameter when there are large payloads which cannot fit on the URL.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "5. Web APIs",
+      "2. Posting with REST API and caching results"
+    ]
+  },
+  {
+    "objectID": "05_web_apis/webapi-2.html#http-methods-beyond-get",
+    "href": "05_web_apis/webapi-2.html#http-methods-beyond-get",
+    "title": "2. Posting with REST API and caching results",
+    "section": "",
+    "text": "So far we have only seen GET requests. But there are other HTTP methods that are used to perform different operations such as:\n\nPOST: Create a new resource\nPUT: Update an existing resource\nDELETE: Delete a resource\n\nFrom the perspective of requests these behave the same as a GET. The only subtle difference is that you can pass a data parameter when there are large payloads which cannot fit on the URL.",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "5. Web APIs",
+      "2. Posting with REST API and caching results"
+    ]
+  },
+  {
+    "objectID": "05_web_apis/webapi-2.html#example-of-a-post-request",
+    "href": "05_web_apis/webapi-2.html#example-of-a-post-request",
+    "title": "2. Posting with REST API and caching results",
+    "section": "Example of a POST request",
+    "text": "Example of a POST request\nLet’s do an example with the Azure sentiment API from the IoT Portal. This REST API requires the text to analyze, and will return the sentiment or “mood” of the text. Since there can be a substantial amount of text, the API requires the POST method, and the data to be sent in the body of the request.\n\n\n\n\n\n\nNote\n\n\n\nRecall that to run the commands below, you will need to get your API key from https://cent.ischool-iot.net. Log in, then copy the API key given there. In the code blocks below, replace the YOURAPIKEYHERE with what you copied.\n\n\nFirst, try it out in the IoT portal by clicking on the /api/azure/sentiment drop-down menu, then clicking “Execute”. For the text, enter: “I love IST356. It is the best course I’ve ever taken.”\nNow let’s convert the curl command the portal gave to Python requests code.\n\nimport requests\n\n'''\ncurl -X 'POST' \\\n  'https://cent.ischool-iot.net/api/azure/sentiment' \\\n  -H 'accept: application/json' \\\n  -H 'X-API-KEY: APIKEY' \\\n  -H 'Content-Type: application/x-www-form-urlencoded' \\\n  -d 'text=I%20love%20IST356.%20It%20is%20the%20best%20course%20I'\\''ve%20ever%20taken.'\n'''\n\napikey = 'YOURAPIKEYHERE'\nurl = 'https://cent.ischool-iot.net/api/azure/sentiment'\nheaders = {\n    'accept': 'application/json',\n    'X-API-KEY': apikey,\n    'Content-Type': 'application/x-www-form-urlencoded'\n}\ndata = {\n    \"text\": \"I love IST356. It is the best course I've ever taken.\"\n}\nresponse = requests.post(url, headers=headers, data=data)\nresponse.raise_for_status()\nresults = response.json()\nsentiment = results['results']['documents'][0]['sentiment']\nprint(sentiment)\n\n\n\n\n\n\n\nCautionCode Challenge 5.2.1\n\n\n\nFor this challenge, use Azure entity recognition API to extract entities from the following text.\nThe Philadelphia Eagles are a better team than the New York Giants this year. The Giants have lost 6 games and are at the bottom of the NFC East, while the Eagles are at the top of the division.\nUsing the API output, print each extracted entity and its type.\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nimport requests\n\napikey = 'YOURAPIKEYHERE'\nurl = \"https://cent.ischool-iot.net/api/azure/entityrecognition\"\nheaders = {\n    \"accept\": \"application/json\",\n    \"X-API-KEY\": apikey,\n    \"Content-Type\": \"application/x-www-form-urlencoded\",\n}\ndata = {\n    \"text\": \"The Philadelphia Eagles are a better team than the New York Giants this year. The Giants have lost 6 games and are at the bottom of the NFC East, while the Eagles are at the top of the division.\"\n}\nresponse = requests.post(url, headers=headers, data=data)\nresponse.raise_for_status()\ndata = response.json()\nfor d in data['results']['documents'][0]['entities']:\n    print(d['text'], d['category'])",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "5. Web APIs",
+      "2. Posting with REST API and caching results"
+    ]
+  },
+  {
+    "objectID": "05_web_apis/webapi-2.html#caching-strategies",
+    "href": "05_web_apis/webapi-2.html#caching-strategies",
+    "title": "2. Posting with REST API and caching results",
+    "section": "Caching Strategies",
+    "text": "Caching Strategies\nWhen you are making a lot of requests to an API, it is a good idea to cache the results. We don’t want to make the same request over and over again if we don’t have to as this can effect our rate limits and thus our pricing.\nCaching can be done in a number of ways. The simplest method is a Python dictionary where the key is the request and the value is the response.\nThe caching strategy looks like this:\n\nCheck if the request is in the cache\nIf it is, we have a CACHE hit: return the response from the cache.\nIf it is not, call the API to get the response. Add it to the cache for the future.\n\nYou can do caching yourself by using Python dictionaries. However, if you want to cache results across sessions then you will need to save the dictionary to disk so it can be loaded in the future. You can use the Python pickle library to do that.\nHere’s an example with the Google Geocoding API on the IoT Portal:\n\nimport os\nimport pickle\n\npickle_file = 'geocode_cache.pkl'\nif os.path.exists(pickle_file):\n    with open(pickle_file, 'rb') as fp:\n        cache = pickle.load(fp)\nelse:\n    cache = {}\n\nlocation = 'Syracuse, NY'\ncache_key = location.lower()\n\nfor i in range(3):\n    try:\n        geo = cache[cache_key]\n        print('Used cache')\n    except KeyError:\n        print('Making request')\n        url = 'https://cent.ischool-iot.net/api/google/geocode'\n        headers = { 'X-API-KEY': apikey }\n        params = {'location': location}\n        response = requests.get(url, params=params, headers=headers)\n        response.raise_for_status()\n        geo = response.json()\n        # cache\n        cache[cache_key] = geo\n    print(geo['results'][0]['geometry']['location'])\n\n# save cache to disk for future use\nwith open(pickle_file, 'wb') as fp:\n    pickle.dump(cache, fp)\n\nThe first time you run that, you will see the request is only made the first time through the loop. If you run that code again, even the first time will come from the cache, since it will read it from disk.\n\nUsing requests-cache\nThe requests-cache Python package makes caching easy for you. It takes care of caching things to disk for you and loading them. It also lets you do things like set expiration times on cache entries, so you don’t end up using stagnant data.\n\n\n\n\n\n\nNote\n\n\n\nrequests-cache is not in the Python standard library, so you’ll need to install it. As always, you can do that by:\n\nIn a terminal, activate your ist356 conda environment.\nRun pip install requests-cache.\n\n\n\nHere’s the above example again, but using requests-cache:\n\nimport requests_cache\n\nlocation = 'Syracuse, NY'\n\n# start up a cached session. We need to explicitly set the allowable_methods\n# for it to cache posts\nrs = requests_cache.CachedSession(cache_name='geocode', allowable_methods=('GET', 'POST', 'HEAD')) \n# If you want to clear the cache:\n#rs.cache.clear()\n\nfor i in range(3):\n    url = 'https://cent.ischool-iot.net/api/google/geocode'\n    headers = { 'X-API-KEY': apikey }\n    params = {'location': location}\n    response = rs.get(url, params=params, headers=headers)\n    response.raise_for_status()\n    if response.from_cache:\n        print('Used cache')\n    else:\n        print('Made request')\n    geo = response.json()\n    print(geo['results'][0]['geometry']['location'])\n\nThat’s it! If you rerun the code above, you’ll find that it will use the cache the first time through. To clear the cache, uncomment the rs.cache.clear() line.\n\n\n\n\n\n\nCautionCode Challenge 5.2.2\n\n\n\nSend requests to the Azure sentiment API for each one of the sentences below. Use the requests_cache module to cache responses. For each of the following sentences, output the sentence, the sentiment, and if the results came from the API or the cache.\n\ntexts = [\n    \"I love the Syracuse Orange.\", \n    \"I hate the Duke Blue Devils.\",\n    \"I love the Syracuse Orange.\", \n    \"I don't like the Duke Blue Devils.\"\n]\n\n\n\n\n\n\n\nCautionSolution\n\n\n\n\n\n\nimport requests_cache\n\ntexts = [\n    \"I love the Syracuse Orange.\", \n    \"I hate the Duke Blue Devils.\",\n    \"I love the Syracuse Orange.\", \n    \"I don't like the Duke Blue Devils.\"\n]\n\nrs = requests_cache.CachedSession(cache_name='sentiment', allowable_methods=('GET', 'POST', 'HEAD')) \nheaders = { 'x-api-key': apikey }\nurl = \"https://cent.ischool-iot.net/api/azure/sentiment\"\nfor text in texts:\n    data = {'text': text}\n    response = rs.post(url, headers=headers, data=data)\n    response.raise_for_status()\n    if response.from_cache:\n        from_cache = \"CACHED\"\n    else:\n        from_cache = \"NOT CACHED\"\n    results = response.json()\n    sentiment = results['results']['documents'][0]['sentiment']\n    print(text, sentiment, from_cache)",
+    "crumbs": [
+      "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
+      "5. Web APIs",
+      "2. Posting with REST API and caching results"
     ]
   },
   {

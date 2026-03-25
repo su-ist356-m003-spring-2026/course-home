@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction and computer setup – IST 356 Spring 2026</title>
+<title>3. Creating your own APIs with FastAPI – IST 356 Spring 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -67,7 +67,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../01_cli_conda/index.html" rel="next">
+<link href="../08_final_project/index.html" rel="next">
+<link href="../05_web_apis/webapi-2.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -107,14 +108,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta property="og:title" content="Introduction and computer setup – IST 356 Spring 2026">
-<meta property="og:description" content="IST 356 - M003, Syracuse University, Spring 2026">
+<meta property="og:title" content="3. Creating your own APIs with FastAPI – IST 356 Spring 2026">
+<meta property="og:description" content="">
 <meta property="og:image" content="enter_gitHub_pages_URL_here/images/ischool_logo_reverseX2.png">
 <meta property="og:site_name" content="IST 356 Spring 2026">
 <meta property="og:image:height" content="105">
 <meta property="og:image:width" content="650">
-<meta name="twitter:title" content="Introduction and computer setup – IST 356 Spring 2026">
-<meta name="twitter:description" content="IST 356 - M003, Syracuse University, Spring 2026">
+<meta name="twitter:title" content="3. Creating your own APIs with FastAPI – IST 356 Spring 2026">
+<meta name="twitter:description" content="">
 <meta name="twitter:image" content="enter_gitHub_pages_URL_here/images/ischool_logo_reverseX2.png">
 <meta name="twitter:image-height" content="105">
 <meta name="twitter:image-width" content="650">
@@ -148,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../00_intro/index.html">Introduction and computer setup</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05_web_apis/index.html">5. Web APIs</a></li><li class="breadcrumb-item"><a href="../05_web_apis/webapi-3.html">3. Creating your own APIs with FastAPI</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -162,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../00_intro/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../00_intro/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction and computer setup</span></a>
   </div>
 </li>
@@ -310,11 +311,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../05_web_apis/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5. Web APIs</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../05_web_apis/webapi-1.html" class="sidebar-item-text sidebar-link">
@@ -329,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../05_web_apis/webapi-3.html" class="sidebar-item-text sidebar-link">
+  <a href="../05_web_apis/webapi-3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">3. Creating your own APIs with FastAPI</span></a>
   </div>
 </li>
@@ -363,22 +364,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#setting-up-your-computer-and-yourself" id="toc-setting-up-your-computer-and-yourself" class="nav-link active" data-scroll-target="#setting-up-your-computer-and-yourself">Setting up Your Computer and Yourself!</a>
+  <li><a href="#api-vs-module" id="toc-api-vs-module" class="nav-link active" data-scroll-target="#api-vs-module">API vs Module</a></li>
+  <li><a href="#fast-api" id="toc-fast-api" class="nav-link" data-scroll-target="#fast-api">Fast API</a></li>
+  <li><a href="#fast-api-features" id="toc-fast-api-features" class="nav-link" data-scroll-target="#fast-api-features">Fast API Features</a>
   <ul class="collapse">
-  <li><a href="#step-1-software-installs" id="toc-step-1-software-installs" class="nav-link" data-scroll-target="#step-1-software-installs">Step 1: Software Installs</a></li>
-  <li><a href="#step-2-github-account" id="toc-step-2-github-account" class="nav-link" data-scroll-target="#step-2-github-account">Step 2: Github Account</a>
-  <ul class="collapse">
-  <li><a href="#if-you-have-a-github-account" id="toc-if-you-have-a-github-account" class="nav-link" data-scroll-target="#if-you-have-a-github-account">IF YOU HAVE A GITHUB ACCOUNT:</a></li>
-  <li><a href="#if-you-do-not-have-a-github-account" id="toc-if-you-do-not-have-a-github-account" class="nav-link" data-scroll-target="#if-you-do-not-have-a-github-account">IF YOU DO NOT HAVE A GITHUB ACCOUNT:</a></li>
-  <li><a href="#backpack-access" id="toc-backpack-access" class="nav-link" data-scroll-target="#backpack-access">Backpack Access</a></li>
-  </ul></li>
-  <li><a href="#step-3-configure-vs-code" id="toc-step-3-configure-vs-code" class="nav-link" data-scroll-target="#step-3-configure-vs-code">Step 3: Configure VS Code</a></li>
-  <li><a href="#step-4-install-miniconda" id="toc-step-4-install-miniconda" class="nav-link" data-scroll-target="#step-4-install-miniconda">Step 4: Install Miniconda</a>
-  <ul class="collapse">
-  <li><a href="#maclinuxwindows-subsystem-for-linux-wsl" id="toc-maclinuxwindows-subsystem-for-linux-wsl" class="nav-link" data-scroll-target="#maclinuxwindows-subsystem-for-linux-wsl">Mac/Linux/Windows Subsystem for Linux (WSL)</a></li>
-  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
-  </ul></li>
-  <li><a href="#step-5-create-a-conda-environment-and-test-it-in-vs-code" id="toc-step-5-create-a-conda-environment-and-test-it-in-vs-code" class="nav-link" data-scroll-target="#step-5-create-a-conda-environment-and-test-it-in-vs-code">Step 5: Create a conda environment and test it in VS Code</a></li>
+  <li><a href="#query-string-path-and-header-parameters" id="toc-query-string-path-and-header-parameters" class="nav-link" data-scroll-target="#query-string-path-and-header-parameters">Query String Path, and Header Parameters</a></li>
+  <li><a href="#handling-errors" id="toc-handling-errors" class="nav-link" data-scroll-target="#handling-errors">Handling Errors</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -386,10 +377,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05_web_apis/index.html">5. Web APIs</a></li><li class="breadcrumb-item"><a href="../05_web_apis/webapi-3.html">3. Creating your own APIs with FastAPI</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Introduction and computer setup</h1>
-<p class="subtitle lead">IST 356 - M003, Syracuse University, Spring 2026</p>
+<h1 class="title">3. Creating your own APIs with FastAPI</h1>
 </div>
 
 
@@ -406,209 +396,242 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="setting-up-your-computer-and-yourself" class="level1">
-<h1>Setting up Your Computer and Yourself!</h1>
-<p>In IST356 we teach you programming for data analytics using the tools and techiques used by those in the industry. As such, you will learn how to setup and configure development environments, use git and github and learn to systematically test your code.</p>
-<p>This is unlike IST256 where the emphasis is on the programming basics and the motivations behind learning computational thinking.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>IST356</th>
-<th>IST256</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Programming Environment</td>
-<td>Install vscode + git + python on your computer</td>
-<td>Web-hosted jupyterhub</td>
-</tr>
-<tr class="even">
-<td>Assignment Submissions</td>
-<td>Student learn and use git / github</td>
-<td>Built-in assignment submission</td>
-</tr>
-<tr class="odd">
-<td>Coursework, slides, examples</td>
-<td>You clone / diff the prof repo</td>
-<td>Autodiff and merge at login</td>
-</tr>
-</tbody>
-</table>
-<p>In this course you’ll do it the real way, nothing is hidden / abstracted away for you.</p>
-<section id="step-1-software-installs" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-software-installs">Step 1: Software Installs</h2>
-<p>Here’s what you’ll need to install on your computer. Please read this entire section prior to installing. :-)</p>
-<ol type="1">
-<li><p><strong>Visual Studio Code</strong>: https://code.visualstudio.com/Download<br>
-This is a free editor with testing and debugging capabilities. As you install you can accept all defaults, except the last one: DO NOT launch the application when complete! If you do, simply close it.</p></li>
-<li><p><strong>Git Source Code Manager</strong>: https://git-scm.com/download/<br>
-As you set it up, you will be asked several questions, for which the default selection is fine. EXCEPTION: choose Visual Studio Code as the default editor.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Mac users</strong>: you’ll see multiple options for downloading Git Source Code Manager. I recommend using the Xcode version. Clicking on that link will redirect you to the Apple store; from there you will download and install Xcode.</p>
+<p>In order to do this tutorial, you will need to install fastapi. To do that, open a terminal, activate your <code>ist356</code> conda environment, then run:</p>
+<pre class="{bash}"><code>pip install "fastapi[standard]"</code></pre>
+<p><strong>Make sure you put <code>fastapi[standard]</code> in quotes, as shown here.</strong></p>
 </div>
-</div></li>
-<li><p><a href="https://www.anaconda.com/docs/getting-started/miniconda/install#quickstart-install-instructions">Miniconda</a> <strong>Do not install this yet!</strong> You will install this using the terminal in VSCode after VSCode and Git are installed and setup; see instructions below.</p></li>
+</div>
+<section id="api-vs-module" class="level2">
+<h2 class="anchored" data-anchor-id="api-vs-module">API vs Module</h2>
+<p>You might be asking why host an API versus just writing a module? After all they have similar functionality of sharing and interacting with code and data.</p>
+<p>There are some key differences between an API and a module:</p>
+<ol type="1">
+<li>You can hide the implementation details of your code with an API. Unlike a module, people only see the interface, not way to code was implemented.</li>
+<li>An API can be accessed over the internet, while a module is typically used locally.</li>
+<li>API’s work across different programming languages, while modules are either restricted to the language they were written in (in our case, Python), or need to be wrapped with an intermediate (e.g., Cython for C-&gt;Python).</li>
+<li>Since an API is run remotely, it can be run on large high performance computing clusters, whereas modules are typically limited to whatever machine your are running on. This is particularly important for LLMs, which need large, power intensive GPU resources to work.</li>
 </ol>
 </section>
-<section id="step-2-github-account" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-github-account">Step 2: Github Account</h2>
-<p>Being an SU student comes with some perks. One of them is a Github for Education account and accompanying “backpack” of goodies. To use this benefit, your github account must be associated with your <strong><span class="citation" data-cites="syr.edu">@syr.edu</span></strong> email.</p>
-<section id="if-you-have-a-github-account" class="level3">
-<h3 class="anchored" data-anchor-id="if-you-have-a-github-account">IF YOU HAVE A GITHUB ACCOUNT:</h3>
-<p>Associate your current account with SU, by adding your email:</p>
-<ol type="1">
-<li>Go to to https://github.com and click Sign In</li>
-<li>Once you have logged in, go to: https://github.com/settings/emails<br>
-</li>
-<li>Add and verify your SU email address.</li>
-</ol>
-</section>
-<section id="if-you-do-not-have-a-github-account" class="level3">
-<h3 class="anchored" data-anchor-id="if-you-do-not-have-a-github-account">IF YOU DO NOT HAVE A GITHUB ACCOUNT:</h3>
-<p>You’ll need to create an account:</p>
-<ol type="1">
-<li>Go to to https://github.com and click Sign In</li>
-<li>Follow the on-screen instructions to sign up for an account.</li>
-<li>Make sure to use your <strong><span class="citation" data-cites="syr.edu">@syr.edu</span></strong> email for the account.</li>
-<li>Add your personal email when you’re at it so you don’t lose Github access after you graduate!</li>
-</ol>
-</section>
-<section id="backpack-access" class="level3">
-<h3 class="anchored" data-anchor-id="backpack-access">Backpack Access</h3>
-<ol type="1">
-<li>Go to the Github Backpack site: https://education.github.com/pack<br>
-and click <strong>Sign Up For Student Developer Pack</strong></li>
-<li>Once your account is verified, you will have backpack access.</li>
-<li>You’ll know its active when you check your billing plan: https://github.com/settings/billing/summary<br>
-you should see a credit here.</li>
-<li>Once you have backpack access, you can enable Github Copilot AI. https://github.com/settings/copilot</li>
-</ol>
-</section>
-</section>
-<section id="step-3-configure-vs-code" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-configure-vs-code">Step 3: Configure VS Code</h2>
-<p>The last step is to configure VS Code for Python debugging. Provided everything else is in order, this should be straightforward.</p>
-<ol type="1">
-<li>Open Visual studio code. You will be asked to configure it.
-<ol type="1">
-<li>Set up GitHub Copilot. To do so, you’ll need to sign into GitHub by clicking “Continue with GitHub”. After you do, you may be dropped into a “Welcome” tab in VS Code. If so, click the “Walkthrough: Setup VS Code” tab to continue set up.</li>
-<li>Pick a theme: Light, Dark, etc…</li>
-<li>Add the following Extensions: Python, Jupyter.</li>
-<li><strong>Windows users only</strong>: we’ll occasionally be using <code>bash</code> in the terminal mode of VSCode. Mac and Linux users have <code>bash</code> natively installed in the operating system. Windows users will have gotten a copy of bash when they downloaded and installed Git SCM. However, you need to tell VSCode to use <code>bash</code> in the Terminal rather than Windows PowerShell. To do that:
-<ol type="a">
-<li>Click “Unlock productivity with the Command Palette” in the Walthrough tab, then “Open Command Palette”. Alternatively, if you don’t see that option, open the Command Palette by typing CTRL + SHIFT + P. (Mac users type COMMAND + SHIFT + P).</li>
-<li>Type “Select Default Profile” then hit ENTER.</li>
-<li>Select “Git Bash” from the drop-down options.</li>
-<li>Check that it worked by opening a new terminal: in the file menu, click “Terminal” -&gt; “New Terminal”. You should see “bash” in the upper right of the terminal screen.</li>
-</ol></li>
-<li>Close the welcome Tab but keep VS Code open.</li>
-</ol></li>
-</ol>
-</section>
-<section id="step-4-install-miniconda" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-install-miniconda">Step 4: Install Miniconda</h2>
-<section id="maclinuxwindows-subsystem-for-linux-wsl" class="level3">
-<h3 class="anchored" data-anchor-id="maclinuxwindows-subsystem-for-linux-wsl">Mac/Linux/Windows Subsystem for Linux (WSL)</h3>
-<ol type="1">
-<li><p>Open a terminal in VS Code by clicking “Terminal” -&gt; “New Terminal”.</p></li>
-<li><p>In the terminal window, type:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then hit ENTER.</p></li>
-<li><p>Follow the instructions <a href="https://www.anaconda.com/docs/getting-started/miniconda/install#quickstart-install-instructions">Quickstart install instructions</a> on the Miniconda website. For WSL, select “Linux”.</p></li>
-</ol>
-</section>
-<section id="windows" class="level3">
-<h3 class="anchored" data-anchor-id="windows">Windows</h3>
-<ol type="1">
-<li><p>Download the <a href="https://www.anaconda.com/download/success">Miniconda installer for Windows</a>. <strong>Click the Downlad button under “Miniconda Installers”, <em>not</em> the one under “Distribution Installers”.</strong></p></li>
-<li><p>Run the installer by double-clicking on the downloaded file and follow the steps below.</p>
+<section id="fast-api" class="level2">
+<h2 class="anchored" data-anchor-id="fast-api">Fast API</h2>
+<p><a href="https://fastapi.tiangolo.com/">https://fastapi.tiangolo.com/</a></p>
 <ul>
-<li><p>Click “Run”.</p></li>
-<li><p>Click on “Next”.</p></li>
-<li><p>Click on “I agree”.</p></li>
-<li><p>Select “Just me” and click on “Next”.</p></li>
-<li><p>Click “Next” to install to the default destination folder.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you had tried to install miniconda previously, you may get an error that says “Directory … is not empty, please choose a different location.” <strong>Do not choose a different location.</strong> Instead, click “OK”, then rename the previous miniconda3 directory. You can do that by going to VS Code, opening a new terminal window (click “Terminal” -&gt; “New Terminal”), and entering the following (hit ENTER after each line):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> miniconda3 miniconda3-old</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then go back to the Miniconda installer and click “Next”.</p>
-</div>
-</div></li>
-<li><p>Check the option for “Add Anaconda to my PATH environment variable” and check the option for “Register Anaconda as my default Python 3.x”.</p>
+<li>Fast API is an easy-to-learn Python framework for building APIs.</li>
+<li>It has a lot of features that make it a great choice for building APIs.</li>
+<li>We will focus on a few simple functions so that you can understand how it works.</li>
+</ul>
+</section>
+<section id="fast-api-features" class="level1">
+<h1>Fast API Features</h1>
 <ul>
-<li>Note that even though the installation is for Miniconda, the installer uses the word Anaconda in these options.</li>
-<li>You will also see a message in red text that selecting “Add Anaconda to my PATH environment variable” is not recommended; continue with this selection to make using conda easier in Git Bash. If you have questions or concerns, please contact your instructor.</li>
-</ul></li>
-<li><p>Click on “Install”.</p></li>
-<li><p>When the install is complete, Click on “Next”.</p></li>
-<li><p>Click on “Finish”.</p></li>
-</ul></li>
-<li><p>Open a new terminal window in VS Code by clicking “Terminal” -&gt; “New Terminal”.</p></li>
-<li><p>Type the following command to initialize conda:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> init bash</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>Open a new terminal window in VS Code by either hitting the “+” key next to “bash” in the upper left of the terminal window, or by cliking “Terminal” -&gt; “New Terminal”. If conda installed successfullly, you should see <code>(base)</code> appear next to or above your command prompt.</p></li>
-</ol>
-</section>
-</section>
-<section id="step-5-create-a-conda-environment-and-test-it-in-vs-code" class="level2">
-<h2 class="anchored" data-anchor-id="step-5-create-a-conda-environment-and-test-it-in-vs-code">Step 5: Create a conda environment and test it in VS Code</h2>
-<ol type="1">
-<li><p>In the bash terminal window in VS Code (make sure it says <code>(base)</code> to the left of or above the prompt), type:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> ist356 <span class="at">-c</span> conda-forge <span class="at">-y</span> python=3.11 ipykernel</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then hit ENTER.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
+<li>Live edit similar to Streamlit. You can edit your code and see the changes in real time.</li>
+<li>Highly opinionated. It has a lot of features that are built in but you must do it the “FastAPI way.”</li>
+<li>Easy to understand the code.</li>
+<li>Auto-generates API documentation Swagger UI.</li>
+</ul>
+<p>Here’s a simple example that provides a GET API that returns a “Hello World” message formatted as JSON:</p>
+<div id="d334b60b" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()  <span class="co"># Create a FastAPI instance</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/"</span>)    <span class="co"># Define a route</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> root():      <span class="co"># Define a function that will be called when the route is requested</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"message"</span>: <span class="st">"Hello World"</span>} <span class="co"># Serializes to JSON automatically</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>To use this, save this to a file (let’s call it <code>helloapi.py</code>. Then, from the command line, run:</p>
+<pre class="{bash}"><code>python -m fastapi dev helloapi.py</code></pre>
+<p>When you run it, you will it say, <code>Server started at ...</code>, followed by a URL in the form of an IP address. Copy that URL. You can then interact with your API with the following (you can run this in a Jupyter notebook):</p>
+<div id="3d969032" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'REPLACE_WITH_COPIED_URL'</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>response.raise_for_status()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.json())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>FastAPI also provides automatically generated documentation. You can view that by opening the URL provided <code>/docs</code> in your browser. For instance, if the URL was <code>http://127.0.0.1:8000</code> then you would open <code>http://127.0.0.1:8000/docs</code> in your browser. Does the format look familiar? It’s the same as the IoT portal! (Now you know how that was built.)</p>
+<section id="query-string-path-and-header-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="query-string-path-and-header-parameters">Query String Path, and Header Parameters</h2>
+<p>Fast API makes it easy to add parameters to your API.</p>
+<ul>
+<li>Python type hints are used to define the type of the parameter (int, str, etc.). <em>If no type hints are provided, FastAPI will assume the input is string. This can lead to unintended consequences!</em></li>
+<li>The <code>Query()</code> function is used to define a query parameter</li>
+<li>The <code>Header()</code> function is used to define a header parameter</li>
+<li>Path parameters are defined by including the parameter in the URL path</li>
+</ul>
+<p>Here’s an example:</p>
+<div id="fc68733b" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI, Header, Query</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/calculator/</span><span class="sc">{operator}</span><span class="st">"</span>)  <span class="co"># &lt;== path parameter</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_item(operator: <span class="bu">str</span>, </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>              a: <span class="bu">int</span> <span class="op">=</span> Query(),     <span class="co"># &lt;== query parameter</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>              b: <span class="bu">int</span> <span class="op">=</span> Query(),     <span class="co"># &lt;== query parameter</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>              h: <span class="bu">str</span> <span class="op">=</span> Header()):   <span class="co"># &lt;== header parameter</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> operator <span class="op">==</span> <span class="st">"add"</span>:</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> operator <span class="op">==</span> <span class="st">"sub"</span>:</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> a <span class="op">-</span> b</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> operator <span class="op">==</span> <span class="st">"mul"</span>:</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> a <span class="op">*</span> b</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> operator <span class="op">==</span> <span class="st">"div"</span>:</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> a <span class="op">/</span> b</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"operator"</span>: operator,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"a"</span>: a,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"b"</span>: b,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"result"</span>: result,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"h"</span>: h</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Save that to a file called <code>paramsapi.py</code>, then start the server by opening a terminal and running:</p>
+<pre class="{bash}"><code>python -m fastapi dev paramsapi.py</code></pre>
+<p>Again, copy the URL. Now in your Jupyter notebook, run the following (replacing the base URL with what you copied):</p>
+<div id="f26eceac" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>baseurl <span class="op">=</span> <span class="st">'REPLACE_WITH_COPIED_URL'</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>operator <span class="op">=</span> <span class="st">'add'</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> baseurl <span class="op">+</span> <span class="st">'calculator/'</span> <span class="op">+</span> operator</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {<span class="st">'a'</span>: <span class="dv">1</span>, <span class="st">'b'</span>: <span class="dv">2</span>}</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> {<span class="st">'h'</span>: <span class="st">'A header'</span>}</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url, params<span class="op">=</span>params, headers<span class="op">=</span>headers)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>response.raise_for_status()</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.json())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This will test the <code>add</code> method. To try the other methods, change what <code>operator</code> is set to. Notice that in doing so, we’re changing the URL.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The first time you run conda, you may get an error about Terms of Service not being accepted for certain channels. Accept the TOS for those channels by running the commands listed. For example, if one of the channels is <code>https://repo.anaconda.com/pkgs/main</code>, copy and paste the command into the terminal:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> tos accept <span class="at">--override-channels</span> <span class="at">--channel</span> https://repo.anaconda.com/pkgs/main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Followed by hitting ENTER (to execute a command in the terminal, you hit ENTER after typing/pasting it in). You’ll need to do this for each of the channels listed.</p>
-<p>Once you have accepted the TOS for all the channels, run the <code>conda create</code> command above again.</p>
+<p>To see the signficance of type hints in defining API functions, try removing the type hint from your <code>paramsapi.py</code> then run the <code>requests.get</code> function in your Jupyter notebook again (note that you don’t have to restart the server: FastAPI will detect the change to the code as soon as you save the changes, and automatically restart the server). In other words, try changing:</p>
+<div id="7c129fe9" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_item(operator: <span class="bu">str</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>              a: <span class="bu">int</span> <span class="op">=</span> Query(),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>              b: <span class="bu">int</span> <span class="op">=</span> Query(),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>              h: <span class="bu">str</span> <span class="op">=</span> Header()):</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div></li>
-<li><p>Check to ensure your environment works:</p>
-<ol type="1">
-<li><p>Click File -&gt; “New File…”</p></li>
-<li><p>In the drop down menu, select “Jupyter Notebook”.</p></li>
-<li><p>Click “Select Kernel” on the right then type “ist356”.</p></li>
-<li><p>In the first cell, type:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"hello world!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>Hit the run button on the left or type SHIFT + ENTER to execute the code. You should get back “hello world!”.</p></li>
-<li><p>Close the ipynb file (you may optionally save it; if you do, be sure to call it something other then “Untitled.ipynb”, maybe “hello.ipynb” instead).</p></li>
-</ol></li>
-</ol>
+<p>to</p>
+<div id="2e830f1c" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_item(operator,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>              a <span class="op">=</span> Query(),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>              b <span class="op">=</span> Query(),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>              h <span class="op">=</span> Header()):</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>save the changes, then re-run the <code>requests.get</code> for the <code>add</code> function in your notebook. Note the type of the returned <code>a</code>, <code>b</code>, and what the <code>result</code> is now: you should see that the returned <code>a</code>, <code>b</code> are strings (even though you passed in ints) and the result is now the string <code>"12"</code> rather than the integer 3. This is because FastAPI has assumed all the inputs are strings when you don’t provide type hints, so the function does <code>"1" + "2" = "12"</code> (why <code>"12"</code>?) instead of <code>1 + 2 = 3</code>. Now add back the type hints to fix your code.</p>
+</div>
+</div>
+</section>
+<section id="handling-errors" class="level2">
+<h2 class="anchored" data-anchor-id="handling-errors">Handling Errors</h2>
+<p>Remember status codes are a way to communicate the status of a request to the client. Here is list of the standard codes and what they mean:</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">https://developer.mozilla.org/en-US/docs/Web/HTTP/Status</a></p>
+<p>Error codes are a design contract which means you SHOULD use them as they are EXPECTED, but they are not REQURED.</p>
+<p>FastAPI makes it easy to handle errors. You can use the <code>HTTPException</code> (which you need to import from <code>fastapi</code>) to raise an error with a specific status code and message.</p>
+<p>To illustrate, here’s our operator API from above, with a check added to make sure the provided operator is recognized:</p>
+<div id="1997a903" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI, Header, Query, HTTPException</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/calculator/</span><span class="sc">{operator}</span><span class="st">"</span>)  <span class="co"># &lt;== path parameter</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_item(operator: <span class="bu">str</span>, </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>              a: <span class="bu">int</span> <span class="op">=</span> Query(),     <span class="co"># &lt;== query parameter</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>              b: <span class="bu">int</span> <span class="op">=</span> Query(),     <span class="co"># &lt;== query parameter</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>              h: <span class="bu">str</span> <span class="op">=</span> Header()):   <span class="co"># &lt;== header parameter</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> operator <span class="op">==</span> <span class="st">"add"</span>:</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> operator <span class="op">==</span> <span class="st">"sub"</span>:</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> a <span class="op">-</span> b</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> operator <span class="op">==</span> <span class="st">"mul"</span>:</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> a <span class="op">*</span> b</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> operator <span class="op">==</span> <span class="st">"div"</span>:</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> a <span class="op">/</span> b</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> HTTPException(status_code<span class="op">=</span><span class="dv">404</span>, </span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>            detail<span class="op">=</span><span class="st">"Operator not found. should be: add, sub, mul, div"</span>)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"operator"</span>: operator,</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"a"</span>: a,</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">"b"</span>: b,</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">"result"</span>: result,</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"h"</span>: h</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Code Challenge 5.3.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Design and build an API to search for flights (depart/arrive) by Airport Code.</p>
+<p>Use this dataset to get the source of your flights:</p>
+<p>https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/flights/sample-flights.csv</p>
+<p>Here’s some examples of the the API endpoint you need to build:</p>
+<pre class="{text}"><code>/api/flights/search?type=dep&amp;code=OKA
+/api/flights/search?type=arr&amp;code=KEY</code></pre>
+<p>Have your code raise an HTTP Error with status code 400 if the requested type is not <code>dep</code> (for departures) or <code>arr</code> (for arrivals).</p>
+<p>Test your API using the Swagger UI.</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="c048d75b" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI, Body, HTTPException</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/mafudge/datasets/refs/heads/master/flights/sample-flights.csv"</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/api/flights/search"</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> search_flights(<span class="bu">type</span>: <span class="bu">str</span>, code: <span class="bu">str</span>):</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">'''</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">    Search for flights by origin and destination</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">    '''</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">type</span> <span class="op">==</span> <span class="st">"dep"</span>:</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        flights <span class="op">=</span> df[df[<span class="st">"departure_airport_code"</span>] <span class="op">==</span> code]</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="bu">type</span> <span class="op">==</span> <span class="st">"arr"</span>:</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        flights <span class="op">=</span> df[df[<span class="st">"arrival_airport_code"</span>] <span class="op">==</span> code]</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> HTTPException(status_code<span class="op">=</span><span class="dv">400</span>, detail<span class="op">=</span><span class="st">"Invalid type. Must be 'dep' or 'arr'"</span>)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> flights.to_dict(orient<span class="op">=</span><span class="st">"records"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -1017,10 +1040,13 @@ Warning
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../05_web_apis/webapi-2.html" class="pagination-link" aria-label="2. Posting with REST API and caching results">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2. Posting with REST API and caching results</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../01_cli_conda/index.html" class="pagination-link" aria-label="1. Command line interface, Environments, and Git/GitHub">
-        <span class="nav-page-text">1. Command line interface, Environments, and Git/GitHub</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../08_final_project/index.html" class="pagination-link" aria-label="Final Project">
+        <span class="nav-page-text">Final Project</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
