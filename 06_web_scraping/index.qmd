@@ -7,6 +7,7 @@ order: 6
 
 1. [Introduction to Web Scraping](scraping-1.qmd)
 2. [More Scraping + actionability](scraping-2.qmd)
+3. [Playwright + Argparse + Streamlit to create useful apps](scraping-3.qmd)
 
 ## Lectures
 
