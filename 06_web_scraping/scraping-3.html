@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Syllabus – IST 356 Spring 2026</title>
+<title>3. Playwright + Argparse + Streamlit to create useful apps – IST 356 Spring 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,26 +23,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./lectures.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1f2eb9411500aa7ebea26a2612b2d605.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../08_final_project/index.html" rel="next">
+<link href="../06_web_scraping/scraping-2.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-1f2eb9411500aa7ebea26a2612b2d605.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,14 +108,14 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Syllabus – IST 356 Spring 2026">
-<meta property="og:description" content="IST 356 - M003, Syracuse University, Spring 2026">
+<meta property="og:title" content="3. Playwright + Argparse + Streamlit to create useful apps – IST 356 Spring 2026">
+<meta property="og:description" content="">
 <meta property="og:image" content="enter_gitHub_pages_URL_here/images/ischool_logo_reverseX2.png">
 <meta property="og:site_name" content="IST 356 Spring 2026">
 <meta property="og:image:height" content="105">
 <meta property="og:image:width" content="650">
-<meta name="twitter:title" content="Syllabus – IST 356 Spring 2026">
-<meta name="twitter:description" content="IST 356 - M003, Syracuse University, Spring 2026">
+<meta name="twitter:title" content="3. Playwright + Argparse + Streamlit to create useful apps – IST 356 Spring 2026">
+<meta name="twitter:description" content="">
 <meta name="twitter:image" content="enter_gitHub_pages_URL_here/images/ischool_logo_reverseX2.png">
 <meta name="twitter:image-height" content="105">
 <meta name="twitter:image-width" content="650">
@@ -93,14 +129,14 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">IST 356 Spring 2026</span>
     </a>
   </div>
           <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="https://ischool.syracuse.edu" target="_blank"> 
-<span class="menu-text"><img src="./images/ischool_logo_reverseX2.png" height="30"></span></a>
+<span class="menu-text"><img src="../images/ischool_logo_reverseX2.png" height="30"></span></a>
   </li>  
 </ul>
           <div class="quarto-navbar-tools">
@@ -113,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./syllabus.html">Syllabus</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../06_web_scraping/index.html">6. Web Scraping</a></li><li class="breadcrumb-item"><a href="../06_web_scraping/scraping-3.html">3. Playwright + Argparse + Streamlit to create useful apps</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -127,13 +163,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_intro/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../00_intro/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction and computer setup</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./01_cli_conda/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../01_cli_conda/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Command line interface, Environments, and Git/GitHub</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -142,19 +178,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_cli_conda/shell-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../01_cli_conda/shell-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Command Line Interface and the Unix Shell</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_cli_conda/conda.html" class="sidebar-item-text sidebar-link">
+  <a href="../01_cli_conda/conda.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bash variables, environments, and <code>conda</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_cli_conda/git.html" class="sidebar-item-text sidebar-link">
+  <a href="../01_cli_conda/git.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git and GitHub</span></a>
   </div>
 </li>
@@ -162,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./02_python/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../02_python/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Python review</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -171,31 +207,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Input, output, variables, types, conditionals</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Iterations, lists, dictionaries, comprehensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-3.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. Functions, documentation, strings, files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-4.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4. Object Oriented Programming using Python Classes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_python/python-5.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_python/python-5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5. Modules, import, pip, testing</span></a>
   </div>
 </li>
@@ -203,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./03_ui/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../03_ui/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. User interface</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -212,13 +248,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_ui/streamlit.html" class="sidebar-item-text sidebar-link">
+  <a href="../03_ui/streamlit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Creating simple web apps with Streamlit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_ui/argparse.html" class="sidebar-item-text sidebar-link">
+  <a href="../03_ui/argparse.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Writing executable scripts with Argparse</span></a>
   </div>
 </li>
@@ -226,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./04_data_wrangling/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../04_data_wrangling/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4. Data Wrangling</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -235,37 +271,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_data_wrangling/numpy_basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_data_wrangling/numpy_basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Introduction to NumPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_data_wrangling/pandas-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_data_wrangling/pandas-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Introduction to Pandas: Series and DataFrames</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_data_wrangling/pandas-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_data_wrangling/pandas-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. Data I/O with Pandas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_data_wrangling/pandas-3.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_data_wrangling/pandas-3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4. Joining Multiple Pandas Dataframes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_data_wrangling/pandas-4.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_data_wrangling/pandas-4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5. Basic data cleaning with Pandas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_data_wrangling/pandas-5.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_data_wrangling/pandas-5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6. Grouping data and creating pivot tables with Pandas</span></a>
   </div>
 </li>
@@ -273,7 +309,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./05_web_apis/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../05_web_apis/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5. Web APIs</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -282,19 +318,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_web_apis/webapi-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../05_web_apis/webapi-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. REST APIs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_web_apis/webapi-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../05_web_apis/webapi-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Posting with REST API and caching results</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_web_apis/webapi-3.html" class="sidebar-item-text sidebar-link">
+  <a href="../05_web_apis/webapi-3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. Creating your own APIs with FastAPI</span></a>
   </div>
 </li>
@@ -302,28 +338,28 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./06_web_scraping/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../06_web_scraping/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6. Web Scraping</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_web_scraping/scraping-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../06_web_scraping/scraping-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Introduction to Web Scraping</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_web_scraping/scraping-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../06_web_scraping/scraping-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. More Scraping + actionability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_web_scraping/scraping-3.html" class="sidebar-item-text sidebar-link">
+  <a href="../06_web_scraping/scraping-3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">3. Playwright + Argparse + Streamlit to create useful apps</span></a>
   </div>
 </li>
@@ -331,19 +367,19 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_final_project/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../08_final_project/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Final Project</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lectures</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link active">
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
@@ -357,47 +393,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#course-info" id="toc-course-info" class="nav-link active" data-scroll-target="#course-info">Course info</a></li>
-  <li><a href="#course-description" id="toc-course-description" class="nav-link" data-scroll-target="#course-description">Course Description</a>
+  <li><a href="#playwright-argparse" id="toc-playwright-argparse" class="nav-link active" data-scroll-target="#playwright-argparse">Playwright + Argparse</a>
   <ul class="collapse">
-  <li><a href="#additional-course-description" id="toc-additional-course-description" class="nav-link" data-scroll-target="#additional-course-description">Additional Course Description</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#audience-ist256-or-ist356" id="toc-audience-ist256-or-ist356" class="nav-link" data-scroll-target="#audience-ist256-or-ist356">Audience: IST256 or IST356?</a></li>
-  <li><a href="#credits" id="toc-credits" class="nav-link" data-scroll-target="#credits">Credits</a></li>
-  <li><a href="#course-fees" id="toc-course-fees" class="nav-link" data-scroll-target="#course-fees">Course Fees</a></li>
+  <li><a href="#example-an-app-to-get-the-su-football-schedule-by-year" id="toc-example-an-app-to-get-the-su-football-schedule-by-year" class="nav-link" data-scroll-target="#example-an-app-to-get-the-su-football-schedule-by-year">Example: an app to get the SU football schedule by year</a></li>
   </ul></li>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#textbooks-and-supplies" id="toc-textbooks-and-supplies" class="nav-link" data-scroll-target="#textbooks-and-supplies">Textbooks And Supplies</a>
-  <ul class="collapse">
-  <li><a href="#textbooks" id="toc-textbooks" class="nav-link" data-scroll-target="#textbooks">Textbooks</a></li>
-  <li><a href="#bring-your-own-device" id="toc-bring-your-own-device" class="nav-link" data-scroll-target="#bring-your-own-device">Bring Your Own Device</a></li>
-  </ul></li>
-  <li><a href="#course-requirements-and-expectations" id="toc-course-requirements-and-expectations" class="nav-link" data-scroll-target="#course-requirements-and-expectations">Course Requirements and Expectations</a>
-  <ul class="collapse">
-  <li><a href="#attendance-and-participation" id="toc-attendance-and-participation" class="nav-link" data-scroll-target="#attendance-and-participation">Attendance and Participation</a></li>
-  <li><a href="#lecture-recordings" id="toc-lecture-recordings" class="nav-link" data-scroll-target="#lecture-recordings">Lecture recordings</a></li>
-  <li><a href="#assignments" id="toc-assignments" class="nav-link" data-scroll-target="#assignments">Assignments</a></li>
-  <li><a href="#exams" id="toc-exams" class="nav-link" data-scroll-target="#exams">Exams</a></li>
-  <li><a href="#project" id="toc-project" class="nav-link" data-scroll-target="#project">Project</a></li>
-  </ul></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a>
-  <ul class="collapse">
-  <li><a href="#grading-table" id="toc-grading-table" class="nav-link" data-scroll-target="#grading-table">Grading Table</a></li>
-  </ul></li>
-  <li><a href="#use-of-ai-in-this-course" id="toc-use-of-ai-in-this-course" class="nav-link" data-scroll-target="#use-of-ai-in-this-course">Use of AI in this Course</a></li>
-  <li><a href="#academic-integrity" id="toc-academic-integrity" class="nav-link" data-scroll-target="#academic-integrity">Academic Integrity</a></li>
-  <li><a href="#class-schedule" id="toc-class-schedule" class="nav-link" data-scroll-target="#class-schedule">Class Schedule</a></li>
-  <li><a href="#important-dates" id="toc-important-dates" class="nav-link" data-scroll-target="#important-dates">Important dates</a></li>
+  <li><a href="#playwright-streamlit" id="toc-playwright-streamlit" class="nav-link" data-scroll-target="#playwright-streamlit">Playwright + Streamlit</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../06_web_scraping/index.html">6. Web Scraping</a></li><li class="breadcrumb-item"><a href="../06_web_scraping/scraping-3.html">3. Playwright + Argparse + Streamlit to create useful apps</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Syllabus</h1>
-<p class="subtitle lead">IST 356 - M003, Syracuse University, Spring 2026</p>
+<h1 class="title">3. Playwright + Argparse + Streamlit to create useful apps</h1>
 </div>
 
 
@@ -414,426 +423,147 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="course-info" class="level2">
-<h2 class="anchored" data-anchor-id="course-info">Course info</h2>
-<p><strong>Room:</strong> Hinds Hall 010</p>
-<p><strong>Time:</strong> M/W 2:15PM - 3:35PM</p>
-<p><strong>Instructor:</strong> Collin Capano</p>
-<p><strong>Email:</strong> cdcapano@syr.edu</p>
-<p><strong>Office hours:</strong> M/W 3:40PM - 4:40PM (immediately after class) in Hinds Hall 323G, or by appointment.</p>
-<p><strong>Course website:</strong> https://su-ist356-m003-spring-2026.github.io/course-home</p>
-</section>
-<section id="course-description" class="level2">
-<h2 class="anchored" data-anchor-id="course-description">Course Description</h2>
-<p>Approaches for building pipelines in data analytics using the Python programming language; data cleaning, extraction, wrangling, API’s, web scraping. Building data products. Programming experience required.</p>
-<section id="additional-course-description" class="level3">
-<h3 class="anchored" data-anchor-id="additional-course-description">Additional Course Description</h3>
-<p>This course is a tour of programming techniques for building data pipelines for analytics. It will not just emphasize exploratory approaches, but also techniques to build extract-transform-load pipelines to run code in production. Throughout the course we will learn how to source data from a variety of sources (files, data streams, APIs, web scraping, etc.) and ultimately transform data as to prepare it for dashboards or machine learning. You will also learn some simple data visualization but that is not the primary emphasis of the course.</p>
-</section>
-<section id="prerequisites" class="level3">
-<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
-<p>This courses uses the Python programming language. Proficiency in any programming language is the only pre-requisite. Students should have a clear understanding of these concepts:</p>
-<ul>
-<li>Input, output, variables and data types</li>
-<li>Control flow statements (if, for, while)</li>
-<li>Functions (function definition, calling, parameters, return values)</li>
-<li>Data structures (lists, dictionaries)</li>
-<li>Using code in other libraries</li>
-</ul>
-</section>
-<section id="audience-ist256-or-ist356" class="level3">
-<h3 class="anchored" data-anchor-id="audience-ist256-or-ist356">Audience: IST256 or IST356?</h3>
-<p>This course is intended as a follow up course to IST256. It is also appropriate for students with prior experience with programming who have an interest in data analytics.</p>
-<ul>
-<li>IST256 is for students with little to no programming experience. The course content is 75% python fundamentals and 25% python for data analytics.</li>
-<li>IST356 is for students with prior programming experience. The course content is 25% python fundamentals and 75% python for data analytics.</li>
-</ul>
-</section>
-<section id="credits" class="level3">
-<h3 class="anchored" data-anchor-id="credits">Credits</h3>
-<p>3 credits</p>
-</section>
-<section id="course-fees" class="level3">
-<h3 class="anchored" data-anchor-id="course-fees">Course Fees</h3>
-<p>None</p>
-</section>
-</section>
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<p>Upon completion of this course, students will be able to:</p>
-<ol type="1">
-<li>Explain techniques for sourcing or transforming data, and be able to justify the choice of technique</li>
-<li>Solve data-oriented problems using programming techniques</li>
-<li>Evaluate different code modules and application programming interfaces for suitability</li>
-<li>Apply data transformational programming techniques to build a larger data pipelines</li>
-<li>Create production quality data pipelines from exploratory code</li>
-</ol>
-</section>
-<section id="textbooks-and-supplies" class="level2">
-<h2 class="anchored" data-anchor-id="textbooks-and-supplies">Textbooks And Supplies</h2>
-<section id="textbooks" class="level3">
-<h3 class="anchored" data-anchor-id="textbooks">Textbooks</h3>
-<p>There is no textbook you need to purchase for this course. This course website will primarily serve as your “textbook”. As we progress through the course, the tutorials and lecture material we go over in class will be added to the website. Most, if not all, the material you need will be on the website, with links provided to any additional resources. All of these resources will be available freely online. In many cases, the online sources are the most up-to-date references to the relevant course material.</p>
-<p>That said, if you would like a traditional textbook on Python programming, you may find the following useful:</p>
-<ul>
-<li>Python Programming for Data Science, by T. Beuzen (2021) <a href="https://www.tomasbeuzen.com/python-programming-for-data-science/">https://www.tomasbeuzen.com/python-programming-for-data-science/</a></li>
-</ul>
-</section>
-<section id="bring-your-own-device" class="level3">
-<h3 class="anchored" data-anchor-id="bring-your-own-device">Bring Your Own Device</h3>
-<p>You are expected to bring your computer to each class session. This class is very hands-on, and you will be programming in class often.</p>
-<section id="software-to-install" class="level4">
-<h4 class="anchored" data-anchor-id="software-to-install">Software to install</h4>
-<p>This course requires you to install software on your computer. The intro section of this course provides detailed instructions.</p>
-<ul>
-<li>Visual Studio Code editor</li>
-<li>Git Source Code Managment</li>
-<li>Miniconda</li>
-</ul>
-</section>
-<section id="accounts" class="level4">
-<h4 class="anchored" data-anchor-id="accounts">Accounts</h4>
-<ul>
-<li>We will use Github for assignment submission.</li>
-</ul>
+<section id="playwright-argparse" class="level2">
+<h2 class="anchored" data-anchor-id="playwright-argparse">Playwright + Argparse</h2>
+<p>We can create useful web scraping apps using <code>argparse</code> with <code>playwright</code>.</p>
+<section id="example-an-app-to-get-the-su-football-schedule-by-year" class="level3">
+<h3 class="anchored" data-anchor-id="example-an-app-to-get-the-su-football-schedule-by-year">Example: an app to get the SU football schedule by year</h3>
+<p>Recall Challenge 6.2.2 from the <a href="../06_web_scraping/scraping-2.html">second scraping tutorial</a>. You were instructed to write a script that would get the SU football schedule for 2023. There, we hardcoded the year. However, we can create a much more useful script by using argparse to accept a year as input from the command line, like so:</p>
+<div id="128000a9" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get_su_football_schedule.py</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> io <span class="im">import</span> StringIO</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> playwright.sync_api <span class="im">import</span> Playwright, sync_playwright, expect</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> argparse</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>parser <span class="op">=</span> argparse.ArgumentParser(description<span class="op">=</span><span class="st">"Retrieve the SU football schedule for the requested year."</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>parser.add_argument(<span class="st">"year"</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">int</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"The year to retrieve."</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>parser.add_argument(<span class="st">'-o'</span>, <span class="st">'--output'</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Write the output CSV to the given file. If none provided, will write to screen."</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run(playwright: Playwright, year) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    browser <span class="op">=</span> playwright.chromium.launch(headless<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    context <span class="op">=</span> browser.new_context()</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    page <span class="op">=</span> context.new_page()</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    page.goto(<span class="ss">f"https://cuse.com/sports/football/schedule/</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    page.get_by_role(<span class="st">"tab"</span>, name<span class="op">=</span><span class="st">"Table View not selected"</span>).click()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># clicking on the date column ensures that the table is loaded before we try to parse it</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    page.locator(<span class="st">"[data-test-id=</span><span class="ch">\"</span><span class="st">s-table__root</span><span class="ch">\"</span><span class="st">]"</span>).get_by_text(<span class="st">"Date"</span>).click()</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># According to the Pandas docs, we now need to wrap content in StringIO</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># before passing to read_html</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    dfs <span class="op">=</span> pd.read_html(StringIO(page.content()))</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    context.close()</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    browser.close()</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dfs[<span class="dv">0</span>]</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> sync_playwright() <span class="im">as</span> playwright:</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> run(playwright, year<span class="op">=</span>args.year)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> args.output <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(df.to_csv())</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        df.to_csv(args.output)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 </section>
-</section>
-<section id="course-requirements-and-expectations" class="level2">
-<h2 class="anchored" data-anchor-id="course-requirements-and-expectations">Course Requirements and Expectations</h2>
-<section id="attendance-and-participation" class="level3">
-<h3 class="anchored" data-anchor-id="attendance-and-participation">Attendance and Participation</h3>
-<p>In-class participation is the best way to learn and absorb the material. As such, you are expected to attend and participate in every class session. Your grade will be partially based on attendance (see below for details). If you must miss class, you are responsible for making up the work and catching up on what you missed. Lectures will be recorded and posted to the course website after the class.</p>
-</section>
-<section id="lecture-recordings" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-recordings">Lecture recordings</h3>
-<p>All lectures will be recorded by the professor and made available to you to review when doing assignments/studying for exams. Recordings will primarily be of the professor’s screen as we walk through tutorials; any video will just be of the professor. The mic will mostly record the professor’s voice, although student voices may occassionally be picked up in the background.</p>
-<p>Per <a href="https://policies.syr.edu/policies/academic-rules-student-responsibilities-and-services/classroom-recording-policy">university policy</a>, if all students provide written permission to make recordings publicly available (I will circulate a permission letter), the lecture recordings will be made available through the course website.</p>
-</section>
-<section id="assignments" class="level3">
-<h3 class="anchored" data-anchor-id="assignments">Assignments</h3>
-<p>The assignments are programming / problem solving activities that you will complete outside of class. The assignment due dates are posted on the course schedule. Consider these assignments formative assessments - practice so you can get better at computational thinking, problem solving and writing code. It is important to reflect upon your work and take an honest assessment of your abilities as you complete each assignment.</p>
-<p>Each Wednesday we will review the homework assignment. Students will be asked to contribute to the discussion.</p>
-<p>Factors affecting your grade:</p>
-<ul>
-<li>Is the code working and correct?</li>
-<li>Were the instructions followed? (e.g.&nbsp;commit after each function is written)</li>
-<li>Good reflection: specific, uses terminology, actionable</li>
-<li>Handed in on time, so I only need to review submissions one time.</li>
-</ul>
-</section>
-<section id="exams" class="level3">
-<h3 class="anchored" data-anchor-id="exams">Exams</h3>
-<p>Exams are summative assessments. They are designed to test your knowledge of the material. The exams will be issued in class on the dates posted on the course schedule. Exams are closed-book but you may bring one 8.5x11 sheet of paper with your notes on it. Exams length is 60 minutes. They will be a mix of mix of multiple choice, short answer and code tracing and code writing.</p>
-</section>
-<section id="project" class="level3">
-<h3 class="anchored" data-anchor-id="project">Project</h3>
-<p>The project is your opportunity to demonstrate what you have learned in an experiential fashion. In your final project you will be expected to create a data pipeline of your choosing.</p>
-<ul>
-<li>The pipeline should incorporate techniques we learned in the course and the more techniques you incorporate correctly the higher your grade.</li>
-<li>It is expected that you will be able to explain your choices, and they will be appropriate for the problem.</li>
-<li>The pipeline should be first written exploratory, and then refactored into a production quality pipeline. Both pipelines should be submitted.</li>
-<li>There should be a simple data visualization or dashboard from the pipeline output as to demonstrate its usefulness.</li>
-</ul>
-</section>
-</section>
-<section id="grading" class="level2">
-<h2 class="anchored" data-anchor-id="grading">Grading</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 13%">
-<col style="width: 23%">
-<col style="width: 12%">
-<col style="width: 16%">
-<col style="width: 17%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Assessment</th>
-<th>Type</th>
-<th>Learning Outcomes</th>
-<th>Quantity</th>
-<th>Points Each</th>
-<th>Points Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Attendance</td>
-<td>Formative</td>
-<td></td>
-<td>24</td>
-<td>1</td>
-<td>24</td>
-</tr>
-<tr class="even">
-<td>Assignments</td>
-<td>Formative</td>
-<td>1, 2</td>
-<td>8</td>
-<td>3</td>
-<td>24</td>
-</tr>
-<tr class="odd">
-<td>Exams</td>
-<td>Summative</td>
-<td>3, 4</td>
-<td>2</td>
-<td>24</td>
-<td>48</td>
-</tr>
-<tr class="even">
-<td>Project</td>
-<td>Summative</td>
-<td>5</td>
-<td>1</td>
-<td>24</td>
-<td>24</td>
-</tr>
-<tr class="odd">
-<td><strong>Total</strong></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td><strong>120</strong></td>
-</tr>
-</tbody>
-</table>
-<section id="grading-table" class="level3">
-<h3 class="anchored" data-anchor-id="grading-table">Grading Table</h3>
-<p>The following grading scale translates your total points earned into a letter grade to be submitted to the University registrar.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 29%">
-<col style="width: 29%">
-<col style="width: 23%">
-<col style="width: 18%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Student Achievement</th>
-<th>Total Points Earned</th>
-<th>Registrar Grade</th>
-<th>Grade Points</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Mastery</td>
-<td>114 - 120</td>
-<td>A</td>
-<td>4.000</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>108 - 113</td>
-<td>A-</td>
-<td>3.666</td>
-</tr>
-<tr class="odd">
-<td>Satisfactory</td>
-<td>102 - 107</td>
-<td>B+</td>
-<td>3.333</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>96 - 101</td>
-<td>B</td>
-<td>3.000</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>90 - 95</td>
-<td>B-</td>
-<td>2.666</td>
-</tr>
-<tr class="even">
-<td>Low Passing</td>
-<td>84 - 89</td>
-<td>C+</td>
-<td>2.333</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>78 - 83</td>
-<td>C</td>
-<td>2.000</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>72 - 77</td>
-<td>C-</td>
-<td>1.666</td>
-</tr>
-<tr class="odd">
-<td>Unsatisfactory</td>
-<td>60 - 71</td>
-<td>D</td>
-<td>1.000</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>0 - 59</td>
-<td>F</td>
-<td>0.000</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="use-of-ai-in-this-course" class="level2">
-<h2 class="anchored" data-anchor-id="use-of-ai-in-this-course">Use of AI in this Course</h2>
-<p>Based on the assignments in this course and our specified learning outcomes, the full use of artificial intelligence as a tool, with disclosure and citation, is permitted in this course. Students do not need to ask permission to use these tools before starting an assignment or exam, but they must explicitly and fully indicate which tools were used and describe how they were used.</p>
-</section>
-<section id="academic-integrity" class="level2">
-<h2 class="anchored" data-anchor-id="academic-integrity">Academic Integrity</h2>
-<p>As a pre-eminent and inclusive student-focused research institution, Syracuse University considers academic integrity at the forefront of learning, serving as a core value and guiding pillar of education. Syracuse University’s Academic Integrity Policy provides students with the necessary guidelines to complete academic work with integrity throughout their studies. Students are required to uphold both course-specific and university-wide academic integrity expectations such as crediting your sources, doing your own work, communicating honestly, and supporting academic integrity. The full <a href="https://policies.syr.edu/policies/academic-rules-student-responsibilities-and-services/academic-integrity-policy/">Syracuse University Academic Integrity Policy</a> can be viewed by visiting the <a href="https://policies.syr.edu/">Syracuse University Policies website</a>.</p>
-<p>Upholding Academic Integrity includes the protection of faculty’s intellectual property. Students should not upload, distribute, or share instructors’ course materials, including presentations, assignments, exams, or other evaluative materials without permission. Using websites that charge fees or require uploading of course material (e.g., Chegg, Course Hero) to obtain exam solutions or assignments completed by others, which are then presented as your own violates academic integrity expectations in this course and may be classified as a Level 3 violation. All academic integrity expectations that apply to in-person assignments, quizzes, and exams also apply online.</p>
-<p>Students found in violation of the policy are subject to grade sanctions determined by the course instructor and non-grade sanctions determined by the School or College where the course is offered. Students may not drop or withdraw from courses in which they face a suspected violation. Any established violation in this course may result in course failure regardless of violation level.</p>
-</section>
-<section id="class-schedule" class="level2">
-<h2 class="anchored" data-anchor-id="class-schedule">Class Schedule</h2>
-<p><em>Note:</em> schedule subject to change as we progress through the semester.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Dates</th>
-<th>Topic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>1/12, 1/14</td>
-<td>Intro; CLI and Conda</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>1/21</td>
-<td>Git &amp; GitHub</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>1/26, 1/28</td>
-<td>Python review - 1</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>2/2, 2/4</td>
-<td>Python review - 2</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>2/9, 2/11</td>
-<td>Writing scripts with Argparse; Streamlit</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>2/16, 2/18</td>
-<td>Data wrangling - 1</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>2/23, 2/25</td>
-<td>Data wrangling - 2</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>3/2, 3/4</td>
-<td>Review (3/2) and Mid-term Exam (3/4)</td>
-</tr>
-<tr class="odd">
-<td>–</td>
-<td>3/8 - 3/15</td>
-<td>Spring Break</td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>3/16, 3/18</td>
-<td>Web APIs - 1</td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>3/23, 3/25</td>
-<td>Web APIs - 2</td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>3/30, 4/1</td>
-<td>Web scraping - 1</td>
-</tr>
-<tr class="odd">
-<td>12</td>
-<td>4/6, 4/8</td>
-<td>Web scraping - 2</td>
-</tr>
-<tr class="even">
-<td>13</td>
-<td>4/13, 4/15</td>
-<td>Data visualization - 1</td>
-</tr>
-<tr class="odd">
-<td>14</td>
-<td>4/20, 4/22</td>
-<td>Data visualization - 2; Review for Final Exam</td>
-</tr>
-<tr class="even">
-<td>15</td>
-<td>4/27</td>
-<td>Final Exam</td>
-</tr>
-<tr class="odd">
-<td>16</td>
-<td>5/4</td>
-<td>Project due</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="important-dates" class="level2">
-<h2 class="anchored" data-anchor-id="important-dates">Important dates</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 79%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Date</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Mon. 1/12</td>
-<td>First day of class</td>
-</tr>
-<tr class="even">
-<td>Mon. 1/19</td>
-<td>Martin Luther King, Jr.&nbsp;Day: <strong>No class</strong></td>
-</tr>
-<tr class="odd">
-<td>Mon. 2/2</td>
-<td>Academic/Financial drop deadline; Religious observance notification deadline</td>
-</tr>
-<tr class="even">
-<td>3/8 - 3/15</td>
-<td>Spring break - <strong>No class</strong></td>
-</tr>
-<tr class="odd">
-<td>Tues. 4/14</td>
-<td>Withdrawal deadline</td>
-</tr>
-<tr class="even">
-<td>Mon. 4/27</td>
-<td>Last day of class</td>
-</tr>
-</tbody>
-</table>
+<section id="playwright-streamlit" class="level2">
+<h2 class="anchored" data-anchor-id="playwright-streamlit">Playwright + Streamlit</h2>
+<p>Due to the multi-threaded nature of Streamlit, and playwright, there are some compatability on windows platforms.</p>
+<p><a href="https://discuss.streamlit.io/t/using-playwright-with-streamlit/28380">https://discuss.streamlit.io/t/using-playwright-with-streamlit/28380</a></p>
+<p>Therefore, it is best to write the Playwright portion of the code as a stand-alone script, then call it from within the Streamlit app using <code>subprocess.run</code>.</p>
+<p>Here’s an example in which we wrap the SU football script above and turn it into a Streamlit app:</p>
+<div id="f4d0fd17" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># st-get_su_football_schedule.py </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> subprocess <span class="im">import</span> run</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> io <span class="im">import</span> StringIO</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_python_script(script_path : <span class="bu">str</span>, <span class="op">*</span>args) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    process <span class="op">=</span> run([sys.executable, script_path]<span class="op">+</span><span class="bu">list</span>(args), text<span class="op">=</span><span class="va">True</span>, capture_output<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    output_text <span class="op">=</span> process.stdout.strip()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> output_text</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>st.title(<span class="st">"Playwright with Streamlit"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>st.caption(<span class="st">"The strategy is to call the playwright code as a python script."</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> st.number_input(<span class="st">"Enter a year"</span>, min_value<span class="op">=</span><span class="dv">2010</span>, max_value<span class="op">=</span><span class="dv">2025</span>, value<span class="op">=</span><span class="dv">2025</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> year:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> st.spinner(<span class="st">"Scraping..."</span>):</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        csv_content <span class="op">=</span> run_python_script(<span class="st">"get_su_football_schedule.py"</span>, <span class="bu">str</span>(year))</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Note: we need to wrap CSV string content into a StringIO buffer</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># in order for read_csv to understand it.</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        df <span class="op">=</span> pd.read_csv(StringIO(csv_content))</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        st.dataframe(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Saving this to <code>st-get_su_football_schedule.py</code>, you can run it with:</p>
+<pre class="{bash}"><code>python -m streamlit run st-get_su_football_schedule.py </code></pre>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Code Challenge 6.4.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Write a script that will search the SU course catalog</p>
+<p>https://coursecatalog.syracuse.edu/course-search/</p>
+<p>for a given course name and prints out its description. The course name should be provided on the command line.</p>
+<p><em>Hint</em>: refer to the <a href="../06_web_scraping/scraping-2.html">scraping-2</a> tutorial to get started. Note that you</p>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="56dd078a" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> playwright.sync_api <span class="im">import</span> Playwright, sync_playwright</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> argparse</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>parser <span class="op">=</span> argparse.ArgumentParser(description<span class="op">=</span><span class="st">"Gets course information."</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>parser.add_argument(<span class="st">"course"</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"The course to retreive."</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run(playwright: Playwright, course: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    browser <span class="op">=</span> playwright.chromium.launch(headless<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    context <span class="op">=</span> browser.new_context()</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    page <span class="op">=</span> context.new_page()</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    page.goto(<span class="st">"https://coursecatalog.syracuse.edu/course-search/"</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    page.get_by_role(<span class="st">"textbox"</span>, name<span class="op">=</span><span class="st">"Keyword"</span>).fill(course)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    page.get_by_role(<span class="st">"button"</span>, name<span class="op">=</span><span class="st">"SEARCH"</span>).click()</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    page.get_by_text(<span class="st">"Found 1 course"</span>).click()</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    page.locator(<span class="st">"div"</span>).<span class="bu">filter</span>(has_text<span class="op">=</span>course).nth(<span class="dv">3</span>).click()</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    page.get_by_role(<span class="st">"heading"</span>, name<span class="op">=</span><span class="st">"Description"</span>).click()</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    element <span class="op">=</span> <span class="st">"div.section.section--description &gt; div.section__content"</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    descriptor <span class="op">=</span> page.query_selector(element)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    course_description <span class="op">=</span> descriptor.inner_text()</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Course Description:"</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(course_description)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ---------------------</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    context.close()</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    browser.close()</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> sync_playwright() <span class="im">as</span> playwright:</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    run(playwright, args.course)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -1241,11 +971,14 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./lectures.html" class="pagination-link" aria-label="Lectures">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lectures</span>
+      <a href="../06_web_scraping/scraping-2.html" class="pagination-link" aria-label="2. More Scraping + actionability">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2. More Scraping + actionability</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../08_final_project/index.html" class="pagination-link" aria-label="Final Project">
+        <span class="nav-page-text">Final Project</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
