@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1f2eb9411500aa7ebea26a2612b2d605.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-fa2d349c05a8c15360b930d8808b0856.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -429,7 +429,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="example-an-app-to-get-the-su-football-schedule-by-year" class="level3">
 <h3 class="anchored" data-anchor-id="example-an-app-to-get-the-su-football-schedule-by-year">Example: an app to get the SU football schedule by year</h3>
 <p>Recall Challenge 6.2.2 from the <a href="../06_web_scraping/scraping-2.html">second scraping tutorial</a>. You were instructed to write a script that would get the SU football schedule for 2023. There, we hardcoded the year. However, we can create a much more useful script by using argparse to accept a year as input from the command line, like so:</p>
-<div id="128000a9" class="cell" data-execution_count="1">
+<div id="a57e5834" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get_su_football_schedule.py</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> io <span class="im">import</span> StringIO</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> playwright.sync_api <span class="im">import</span> Playwright, sync_playwright, expect</span>
@@ -472,7 +472,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://discuss.streamlit.io/t/using-playwright-with-streamlit/28380">https://discuss.streamlit.io/t/using-playwright-with-streamlit/28380</a></p>
 <p>Therefore, it is best to write the Playwright portion of the code as a stand-alone script, then call it from within the Streamlit app using <code>subprocess.run</code>.</p>
 <p>Here’s an example in which we wrap the SU football script above and turn it into a Streamlit app:</p>
-<div id="f4d0fd17" class="cell" data-execution_count="2">
+<div id="fe8a874d" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># st-get_su_football_schedule.py </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> subprocess <span class="im">import</span> run</span>
@@ -513,8 +513,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container callout-body">
 <p>Write a script that will search the SU course catalog</p>
 <p>https://coursecatalog.syracuse.edu/course-search/</p>
-<p>for a given course name and prints out its description. The course name should be provided on the command line.</p>
-<p><em>Hint</em>: refer to the <a href="../06_web_scraping/scraping-2.html">scraping-2</a> tutorial to get started. Note that you</p>
+<p>for a given course name and print out its description. The course name should be provided on the command line.</p>
+<p><em>Hint</em>: refer to the <a href="../06_web_scraping/scraping-2.html">scraping-2</a> tutorial to get started.</p>
 <div class="callout callout-style-simple callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -527,7 +527,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="56dd078a" class="cell" data-execution_count="3">
+<div id="7875f776" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> playwright.sync_api <span class="im">import</span> Playwright, sync_playwright</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> argparse</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
