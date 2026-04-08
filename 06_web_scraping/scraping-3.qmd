@@ -102,9 +102,9 @@ Write a script that will search the SU course catalog
 
 https://coursecatalog.syracuse.edu/course-search/
 
-for a given course name and prints out its description. The course name should be provided on the command line.
+for a given course name and print out its description. The course name should be provided on the command line.
 
-*Hint*: refer to the [scraping-2](scraping-2.qmd) tutorial to get started. Note that you
+*Hint*: refer to the [scraping-2](scraping-2.qmd) tutorial to get started.
 
 ::: {.callout-caution collapse="true" appearance="simple" icon="false"}
 #### Solution
