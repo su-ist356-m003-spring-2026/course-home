@@ -1,0 +1,12 @@
+---
+title: "7. Visualization"
+order: 7
+---
+
+## Tutorials
+
+1. [Introduction to maptlotlib and seaborn](visualization-1.qmd) 
+2. [More Seaborn plots](visualization-2.qmd)
+3. [Saving plots and displaying in Streamlit](visualization-3.qmd)
+
+## Lectures
