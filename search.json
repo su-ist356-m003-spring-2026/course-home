@@ -297,7 +297,7 @@
     "href": "07_visualization/index.html",
     "title": "7. Visualization",
     "section": "",
-    "text": "Introduction to maptlotlib and seaborn\nMore Seaborn plots\nSaving plots and displaying in Streamlit",
+    "text": "Introduction to maptlotlib and seaborn\nMore Seaborn plots\nSaving plots and displaying in Streamlit\nCreating visualizations with maps",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "7. Visualization"
@@ -308,7 +308,7 @@
     "href": "07_visualization/index.html#tutorials",
     "title": "7. Visualization",
     "section": "",
-    "text": "Introduction to maptlotlib and seaborn\nMore Seaborn plots\nSaving plots and displaying in Streamlit",
+    "text": "Introduction to maptlotlib and seaborn\nMore Seaborn plots\nSaving plots and displaying in Streamlit\nCreating visualizations with maps",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "7. Visualization"
@@ -319,7 +319,7 @@
     "href": "07_visualization/index.html#lectures",
     "title": "7. Visualization",
     "section": "Lectures",
-    "text": "Lectures",
+    "text": "Lectures\n\nMonday April 13, 2026\nVisualization 1: intro to matplotlib and Seaborn \n\n\nWednesday April 15, 2026\nVisualization 2: more Seaborn plots; KDE; saving plots\n\n\n\n\nMonday April 22, 2026\nVisualization 3: Creating visualizations with maps",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "7. Visualization"
@@ -2903,7 +2903,7 @@
     "href": "lectures.html",
     "title": "Lectures",
     "section": "",
-    "text": "A list of all the lecture recordings. These are also linked on the unit splash pages.\n\nWednesday, January 14, 2026\nIntroduction to command line interface (CLI)\n\n\n\n\nWednesday, January 21, 2026\nContiuation of CLI: bash variables, scripts, and environments. Introduction to Conda.\n\n\n\n\nMonday, January 26, 2026\nIntroduction to Git and GitHub; how to use GitHub Classroom.\n\n\n\n\nWednesday, January 28, 2026\nOverview of assignment 1. Introduction to Python: input, output, variables, types, conditionals.\n\n\n\n\nMonday, February 2, 2026\nPython lists and dictionaries; definite and indefinite loops. (Pre-recorded lecture.)\n\n\n\n\nWednesday, February 4, 2026\nPython functions; string operations; file I/O. (Pre-recorded lecture.)\n\n\n\n\nMonday, February 9, 2026\nPython classes; imports\n\n\n\n\nWednesday, February 11, 2026\nIntroduction to Streamlit\n\n\n\n\nMonday, February 16, 2026\nAdding command-line options to Python scripts using Argparse\n\n\n\n\nWednesday, February 18, 2026\nNumpy; intro to Pandas Series\n\n\n\n\nMonday, February 23, 2026\nIntro to Pandas DataFrame\n\n\n\n\nWednesday, February 25, 2026\nCombining DataFrames with concat and merge\n\n\n\n\nMonday, March 16, 2026\nCleaning data and applying funcitons with Pandas\n\n\n\n\nWednesday, March 18, 2026\nGrouping data and creating pivot tables with Pandas\n\n\n\n\nMonday March 23, 2026\nIntroduction to Web APIs: using GET and the CENT IoT API\n\n\n\n\nWednesday March 25, 2026\nWeb APIs: using PUT and caching\n\n\n\n\nMonday March 30, 2026\nCreating your own API with FastAPI\n\n\n\n\nWednesday April 1, 2026\nIntroduction to web scraping\n\n\n\n\nMonday April 6, 2026\nMore scraping + actionability\n\n\n\n\nWednesday April 8, 2026\nUsing locators; playwright + Streamlit",
+    "text": "A list of all the lecture recordings. These are also linked on the unit splash pages.\n\nWednesday, January 14, 2026\nIntroduction to command line interface (CLI)\n\n\n\n\nWednesday, January 21, 2026\nContiuation of CLI: bash variables, scripts, and environments. Introduction to Conda.\n\n\n\n\nMonday, January 26, 2026\nIntroduction to Git and GitHub; how to use GitHub Classroom.\n\n\n\n\nWednesday, January 28, 2026\nOverview of assignment 1. Introduction to Python: input, output, variables, types, conditionals.\n\n\n\n\nMonday, February 2, 2026\nPython lists and dictionaries; definite and indefinite loops. (Pre-recorded lecture.)\n\n\n\n\nWednesday, February 4, 2026\nPython functions; string operations; file I/O. (Pre-recorded lecture.)\n\n\n\n\nMonday, February 9, 2026\nPython classes; imports\n\n\n\n\nWednesday, February 11, 2026\nIntroduction to Streamlit\n\n\n\n\nMonday, February 16, 2026\nAdding command-line options to Python scripts using Argparse\n\n\n\n\nWednesday, February 18, 2026\nNumpy; intro to Pandas Series\n\n\n\n\nMonday, February 23, 2026\nIntro to Pandas DataFrame\n\n\n\n\nWednesday, February 25, 2026\nCombining DataFrames with concat and merge\n\n\n\n\nMonday, March 16, 2026\nCleaning data and applying funcitons with Pandas\n\n\n\n\nWednesday, March 18, 2026\nGrouping data and creating pivot tables with Pandas\n\n\n\n\nMonday March 23, 2026\nIntroduction to Web APIs: using GET and the CENT IoT API\n\n\n\n\nWednesday March 25, 2026\nWeb APIs: using PUT and caching\n\n\n\n\nMonday March 30, 2026\nCreating your own API with FastAPI\n\n\n\n\nWednesday April 1, 2026\nIntroduction to web scraping\n\n\n\n\nMonday April 6, 2026\nMore scraping + actionability\n\n\n\n\nWednesday April 8, 2026\nUsing locators; playwright + Streamlit\n\n\n\n\nMonday April 13, 2026\nVisualization 1: intro to matplotlib and Seaborn \n\n\nWednesday April 15, 2026\nVisualization 2: more Seaborn plots; KDE; saving plots\n\n\n\n\nMonday April 22, 2026\nVisualization 3: Creating visualizations with maps",
     "crumbs": [
       "<img src='/images/ischool_logo_reverseX2.png' height='30'>",
       "Lectures"
